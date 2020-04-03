@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/bar_grey</item>
+        <item name="colorPrimaryDark">@color/bar_grey</item>
+        <item name="colorAccent">@color/bar_grey</item>
+        <!--控制ActionBar隐藏，且不展示头部-->
+        <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:windowFullscreen">true</item>
-        <item name="android:windowIsTranslucent">true</item>
-
+        <item name="android:windowNoTitle">true</item>
     </style>
+
     <style name="TextStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -27,6 +30,7 @@
         <item name="android:backgroundDimEnabled">false</item>
         <item name="android:windowContentOverlay">@null</item>
     </style>
+
     <style name="wr_wr">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
@@ -46,11 +50,14 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">match_parent</item>
     </style>
+
     <style name="weight_w_w">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_weight">1</item>
     </style>
+    <!-- 纯黑色 text fw -->
+
     <!--activity 淡入淡出-->
     <style name="AnimActivity" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowAnimationStyle">@style/anim_fade</item>

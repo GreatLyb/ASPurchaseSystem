@@ -1,19 +1,12 @@
 package com.lysoft.baseproject.activity;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
-import android.graphics.Color;
-import android.graphics.PixelFormat;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.view.Gravity;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -22,6 +15,7 @@ import android.widget.RelativeLayout;
 import com.lysoft.baseproject.R;
 import com.lysoft.baseproject.imp.BasePageBaseOper;
 import com.lysoft.baseproject.manager.ActivityStackManager;
+import com.lysoft.baseproject.manager.DefaultTopViewManager;
 import com.lzy.okgo.OkGo;
 import com.orhanobut.logger.Logger;
 
@@ -42,10 +36,6 @@ public abstract class LyActivity extends AppCompatActivity implements BasePageBa
 
     private static final String TAG = "LyActivity";
     protected LinearLayout linearLayout;
-    /**
-     * 倒计时控件
-     */
-    protected ShowTiemTextView showTiemTextView;
     /**
      * 底部布局
      */
@@ -68,8 +58,7 @@ public abstract class LyActivity extends AppCompatActivity implements BasePageBa
     private Context mContext;
     private View mBaseView;
     //J监听home键和多功能按键
-    private HomeReceiver homeReceiver;
-
+    private DefaultTopViewManager topViewManager;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,18 +66,12 @@ public abstract class LyActivity extends AppCompatActivity implements BasePageBa
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
         attributes.systemUiVisibility = View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
         getWindow().setAttributes(attributes);
-
+        topViewManager=new DefaultTopViewManager(this);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
-        //        hideBottomUIMenu2();
         setContentView(R.layout.activity_base);
         mContext = this;
         initBaseInfo();
 
-        //动态注册广播
-        IntentFilter intentFilter = new IntentFilter(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
-        //启动广播
-        homeReceiver = new HomeReceiver();
-        registerReceiver(homeReceiver, intentFilter);
     }
 
     @Override
@@ -148,67 +131,8 @@ public abstract class LyActivity extends AppCompatActivity implements BasePageBa
         addViewToContainer(0, view);
     }
 
-    //移除时间视图
-    protected void removeCountDownView() {
-        if (showTiemTextView != null && linearLayout != null && hasAddView) {
-            showTiemTextView.destroy();
-            WindowManager manager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
-            manager.removeViewImmediate(linearLayout);
 
-            linearLayout.removeView(showTiemTextView);
-            linearLayout.removeAllViews();
-            showTiemTextView = null;
-            linearLayout = null;
-        }
-    }
 
-    //已经添加过view了
-    private boolean hasAddView = false;
-    private boolean menuKey = false;
-
-    //初始化时间控件
-    protected void initCountDownView() {
-        WindowManager manager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
-
-        final WindowManager.LayoutParams params = new WindowManager.LayoutParams();
-        // 类型
-        if (Build.VERSION.SDK_INT>=26){
-            params.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
-        }else {
-            params.type = WindowManager.LayoutParams.TYPE_PHONE;
-        }
-        // 设置flag
-        int flags = WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
-                | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
-                | WindowManager.LayoutParams.FLAG_FULLSCREEN;
-        // | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
-        // 如果设置了WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE，弹出的View收不到Back键的事件
-        params.flags = flags;
-        // 不设置这个弹出框的透明遮罩显示为黑色
-        params.format = PixelFormat.TRANSLUCENT;
-        // FLAG_NOT_TOUCH_MODAL不阻塞事件传递到后面的窗口
-        // 设置 FLAG_NOT_FOCUSABLE 悬浮窗口较小时，后面的应用图标由不可长按变为可长按
-        // 不设置这个flag的话，home页的划屏会有问题
-        params.width = WindowManager.LayoutParams.WRAP_CONTENT;
-        params.height = WindowManager.LayoutParams.WRAP_CONTENT;
-        params.gravity = Gravity.RIGHT | Gravity.TOP | Gravity.CENTER_HORIZONTAL;
-        params.y = 0;
-        params.x = 0;
-        if (showTiemTextView == null) {
-            showTiemTextView = new ShowTiemTextView(this);
-            linearLayout = new LinearLayout(this);
-            linearLayout.setOrientation(LinearLayout.HORIZONTAL);
-
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            layoutParams.topMargin = 20;
-            layoutParams.rightMargin = 13;
-            showTiemTextView.setTextColor(Color.parseColor("#ffffff"));
-            showTiemTextView.setTextSize(15);
-            linearLayout.addView(showTiemTextView, layoutParams);
-        }
-        manager.addView(linearLayout, params);
-        hasAddView = true;
-    }
 
     @Override
     protected void onPause() {
@@ -220,57 +144,14 @@ public abstract class LyActivity extends AppCompatActivity implements BasePageBa
         super.onResume();
     }
 
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        if (!hasAddView && menuKey) {
-            menuKey = false;
-            initCountDownView();
-        }
-    }
 
-    class HomeReceiver extends BroadcastReceiver {
 
-        final String SYSTEM_DIALOG_REASON_KEY = "reason";
-
-        final String SYSTEM_DIALOG_REASON_RECENT_APPS = "recentapps";
-
-        final String SYSTEM_DIALOG_REASON_HOME_KEY = "homekey";
-
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            String action = intent.getAction();
-            if (Intent.ACTION_CLOSE_SYSTEM_DIALOGS.equals(action)) {
-                String reason = intent.getStringExtra(SYSTEM_DIALOG_REASON_KEY);
-                if (reason != null) {
-                    if (reason.equals(SYSTEM_DIALOG_REASON_HOME_KEY)) {
-                        //                        Toast.makeText(context, "Home键被监听", Toast.LENGTH_SHORT).show();
-                        if (hasAddView) {
-                            menuKey = true;
-                            hasAddView = false;
-                            WindowManager manager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
-                            manager.removeViewImmediate(linearLayout);
-                        }
-                    } else if (reason.equals(SYSTEM_DIALOG_REASON_RECENT_APPS)) {
-                        //                        Toast.makeText(context, "多任务键被监听", Toast.LENGTH_SHORT).show();
-                        if (hasAddView) {
-                            menuKey = true;
-                            hasAddView = false;
-                            WindowManager manager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
-                            manager.removeViewImmediate(linearLayout);
-                        }
-                    }
-                }
-            }
-        }
-    }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         OkGo.getInstance().cancelTag(this);
         ActivityStackManager.getActivityStackManager().popActivity(this);
-        unregisterReceiver(homeReceiver);
     }
 
     @Override
@@ -318,15 +199,6 @@ public abstract class LyActivity extends AppCompatActivity implements BasePageBa
     @Override
     public Context getPageContext() {
         return mContext;
-    }
-
-    protected void hideBottomUIMenu2() {
-        //隐藏虚拟按键，并且全屏
-        Window _window = getWindow();
-        WindowManager.LayoutParams params = _window.getAttributes();
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN, WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
-        params.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE;
-        _window.setAttributes(params);
     }
 
 }

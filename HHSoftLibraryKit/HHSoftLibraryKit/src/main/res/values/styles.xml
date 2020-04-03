@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/bar_grey</item>
+        <item name="colorPrimaryDark">@color/bar_grey</item>
+        <item name="colorAccent">@color/bar_grey</item>
+        <!--控制ActionBar隐藏，且不展示头部-->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
+    <style name="HuaHanSoft"></style>
+    <!--基本布局style开始-先宽后高-->
+    <style name="HuaHanSoft.Fill">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="HuaHanSoft.Fill.Wr">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="HuaHanSoft.Wrap">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="HuaHanSoft.Wrap.Fi">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="HuaHanSoft.Weight">
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="HuaHanSoft.Weight.Width.Fill" parent="HuaHanSoft.Weight">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="HuaHanSoft.Weight.Width.Wrap" parent="HuaHanSoft.Weight">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="HuaHanSoft.Weight.Height.Fill" parent="HuaHanSoft.Weight">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+    </style>
+
+    <style name="HuaHanSoft.Weight.Height.Wrap" parent="HuaHanSoft.Weight">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">0dp</item>
+    </style>
+
+    <!--基本布局style结束-->
+    <style name="HuaHanSoft.Text.Title.Fill.16" parent="HuaHanSoft.Fill.Wr">
+        <item name="android:textColor">@color/defaultBlackText</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="HuaHanSoft.Text.Title.Fill.14" parent="HuaHanSoft.Fill.Wr">
+        <item name="android:textColor">@color/defaultBlackText</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="HuaHanSoft.Text.Title.Wrap.16" parent="HuaHanSoft.Wrap">
+        <item name="android:textColor">@color/defaultBlackText</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="HuaHanSoft.Text.Title.Wrap.14" parent="HuaHanSoft.Wrap">
+        <item name="android:textColor">@color/defaultBlackText</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="HuaHanSoft.Text.Title.Weight.16" parent="HuaHanSoft.Weight.Width.Wrap">
+        <item name="android:textColor">@color/defaultBlackText</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="HuaHanSoft.Text.Title.Weight.14" parent="HuaHanSoft.Weight.Width.Wrap">
+        <item name="android:textColor">@color/defaultBlackText</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="HuaHanSoft.Text.Body.Fill.16" parent="HuaHanSoft.Fill.Wr">
+        <item name="android:textColor">@color/defaultGrayText</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="HuaHanSoft.Text.Body.Warp.16" parent="HuaHanSoft.Wrap">
+        <item name="android:textColor">@color/defaultGrayText</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="HuaHanSoft.Text.Body.Fill.14" parent="HuaHanSoft.Fill.Wr">
+        <item name="android:textColor">@color/defaultGrayText</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="HuaHanSoft.Text.Body.Warp.14" parent="HuaHanSoft.Wrap">
+        <item name="android:textColor">@color/defaultGrayText</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="HuaHanSoft.Text.Body.Fill.12" parent="HuaHanSoft.Fill.Wr">
+        <item name="android:textColor">@color/defaultGrayText</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="HuaHanSoft.Text.Body.Warp.12" parent="HuaHanSoft.Wrap">
+        <item name="android:textColor">@color/defaultGrayText</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="HuaHanSoft.Text.Body.Weight.14" parent="HuaHanSoft.Weight.Width.Wrap">
+        <item name="android:textColor">@color/defaultGrayText</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="HuaHanSoft.Text.Body.Weight.12" parent="HuaHanSoft.Weight.Width.Wrap">
+        <item name="android:textColor">@color/defaultGrayText</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="HuaHanSoft.Text.Body.Fill.10" parent="HuaHanSoft.Fill.Wr">
+        <item name="android:textColor">@color/defaultGrayText</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+    <style name="HuaHanSoft.Text.Body.Warp.10" parent="HuaHanSoft.Wrap">
+        <item name="android:textColor">@color/defaultGrayText</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+    <style name="HuaHanSoft.Text.Body.Weight.10" parent="HuaHanSoft.Weight.Width.Wrap">
+        <item name="android:textColor">@color/defaultGrayText</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+    <!--dialog基本style开始-->
+    <style name="HuaHanSoft.Dialog.Base" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item><!-- 边框 -->
+        <item name="android:windowIsFloating">true</item><!--是否浮现在activity之上-->
+        <item name="android:windowIsTranslucent">true</item><!--是否半透明-->
+        <item name="android:windowNoTitle">true</item><!--是否显示title-->
+        <item name="android:background">@color/defaultTransparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item><!--设置dialog的背景-->
+        <item name="android:backgroundDimEnabled">true</item><!--背景是否模糊显示-->
+        <item name="android:backgroundDimAmount">0.6</item><!--灰度-->
+    </style>
+    <style name="HuaHanSoft.Dialog.Action" parent="HuaHanSoft.Text.Body.Warp.12">
+        <item name="android:padding">16dp</item>
+    </style>
+    <style name="HuaHanSoft.Dialog.Action.Neutral" parent="HuaHanSoft.Text.Body.Weight.12">
+        <item name="android:padding">16dp</item>
+    </style>
+    <!--dialog基本style结束-->
+    <style name="HuaHanSoft.ListView" parent="@style/HuaHanSoft.Fill">
+        <item name="android:listSelector">@color/defaultTransparent</item>
+        <item name="android:fadingEdge">none</item>
+        <item name="android:fadingEdgeLength">0dp</item>
+        <item name="android:scrollbars">none</item>
+        <item name="android:dividerHeight">1dp</item>
+        <item name="android:cacheColorHint">@color/defaultTransparent</item>
+        <item name="android:divider">@color/defaultBackground</item>
+        <item name="android:background">@color/defaultBackground</item>
+    </style>
+    <!--<style name="huahansoft_album_progress_bar_circle">-->
+        <!--<item name="android:indeterminateDrawable">@drawable/huahansoft_album_progress_bar</item>-->
+        <!--<item name="android:minWidth">56dp</item>-->
+        <!--<item name="android:minHeight">56dp</item>-->
+        <!--<item name="android:maxHeight">56dp</item>-->
+        <!--<item name="android:maxWidth">56dp</item>-->
+    <!--</style>-->
+
+    <style name="HuaHanSoft.Window.Fade.Anim" parent="HuaHanSoft">
+        <item name="android:windowEnterAnimation">@anim/hhsoft_window_fade_in</item>
+        <item name="android:windowExitAnimation">@anim/hhsoft_window_fade_out</item>
+    </style>
+
+
+
+
+
+    <style name="picture_alert_dialog" parent="android:Theme.Dialog">
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:backgroundDimAmount">0.4</item>
+    </style>
+
+
+    <style name="Theme_dialog" parent="@android:style/Theme.Dialog">
+
+        <!-- 边框 -->
+        <item name="android:windowFrame">@android:color/transparent</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowIsTranslucent">false</item>
+        <!-- 无标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+
+        <!-- 自己想要的背景 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+
+
+
+
+    <!--默认样式-->
+    <style name="picture.default.style" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <!--标题栏背景色-->
+        <item name="colorPrimary">@color/bar_grey</item>
+        <!--状态栏背景色-->
+        <item name="colorPrimaryDark">@color/bar_grey</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <!--是否改变图片列表界面状态栏字体颜色为黑色-->
+        <item name="picture.statusFontColor">false</item>
+        <!--返回键图标-->
+        <item name="picture.leftBack.icon">@drawable/picture_back</item>
+        <!--标题下拉箭头-->
+        <item name="picture.arrow_down.icon">@drawable/arrow_down</item>
+        <!--标题上拉箭头-->
+        <item name="picture.arrow_up.icon">@drawable/arrow_up</item>
+        <!--标题文字颜色-->
+        <item name="picture.title.textColor">@color/white</item>
+        <!--标题栏右边文字-->
+        <item name="picture.right.textColor">@color/white</item>
+        <!--图片列表勾选样式-->
+        <item name="picture.checked.style">@drawable/picture_checkbox_selector</item>
+        <!--开启图片列表勾选数字模式-->
+        <item name="picture.style.checkNumMode">false</item>
+        <!--选择图片样式0/9-->
+        <item name="picture.style.numComplete">true</item>
+        <!--图片列表底部背景色-->
+        <item name="picture.bottom.bg">@color/color_fa</item>
+        <!--图片列表预览文字颜色-->
+        <item name="picture.preview.textColor">@color/picture_list_text_color</item>
+        <!--图片列表已完成文字颜色-->
+        <item name="picture.complete.textColor">@color/picture_list_text_color</item>
+        <!--图片已选数量圆点背景色-->
+        <item name="picture.num.style">@drawable/num_oval</item>
+        <!--预览界面标题文字颜色-->
+        <item name="picture.ac_preview.title.textColor">@color/white</item>
+        <!--预览界面已完成文字颜色-->
+        <item name="picture.ac_preview.complete.textColor">@color/picture_preview_text_color</item>
+        <!--预览界面标题栏背景色-->
+        <item name="picture.ac_preview.title.bg">@color/bar_grey</item>
+        <!--预览界面底部背景色-->
+        <item name="picture.ac_preview.bottom.bg">@color/bar_grey_90</item>
+        <!--预览界面返回箭头-->
+        <item name="picture.preview.leftBack.icon">@drawable/picture_back</item>
+        <!--裁剪页面标题背景色-->
+        <item name="picture.crop.toolbar.bg">@color/bar_grey</item>
+        <!--裁剪页面状态栏颜色-->
+        <item name="picture.crop.status.color">@color/bar_grey</item>
+        <!--裁剪页面标题文字颜色-->
+        <item name="picture.crop.title.color">@color/white</item>
+        <!--相册文件夹列表选中图标-->
+        <item name="picture.folder_checked_dot">@drawable/orange_oval</item>
+    </style>
+</resources>

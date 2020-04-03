@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/fi_fi"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/white">
+    <ImageView
+        android:id="@+id/huahansoft_iv_loading_first"
+        style="@style/wr_wr"
+        android:background="@drawable/hhsoft_loading_anim"
+        />
+    <TextView
+        android:id="@+id/huahansoft_tv_loading_first"
+        style="@style/wr_wr"
+        android:textColor="@color/black_dim"
+        android:gravity="center_horizontal"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:text="@string/app_name"
+        />
+</LinearLayout>

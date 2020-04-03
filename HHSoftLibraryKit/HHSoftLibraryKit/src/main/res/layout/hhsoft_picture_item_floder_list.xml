@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/HuaHanSoft.Fill.Wr"
+    android:background="@color/defaultWhite"
+    android:paddingTop="10dp"
+    android:paddingBottom="6dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    >
+
+    <FrameLayout
+        android:id="@+id/hhsoft_fl_picture_media_type"
+        android:layout_width="75dp"
+        android:layout_height="75dp">
+
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:background="@drawable/hhsoft_picture_floder_item_bg" />
+
+        <ImageView
+            android:id="@+id/hhsoft_iv_picture_media_thumb"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="left|top"
+            />
+        <ImageView
+            android:id="@+id/hhsoft_iv_picture_media_type"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:background="@drawable/hhsoft_picture_floder_video"
+            android:visibility="gone"/>
+    </FrameLayout>
+
+
+    <ImageView
+        android:id="@+id/hhsoft_iv_picture_meida_type_select"
+        style="@style/HuaHanSoft.Wrap"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/picture_folder_selected"
+        android:layout_marginRight="16dp"
+        />
+
+    <LinearLayout
+        style="@style/HuaHanSoft.Fill.Wr"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@id/hhsoft_iv_picture_meida_type_select"
+        android:layout_toRightOf="@id/hhsoft_fl_picture_media_type"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/hhsoft_tv_picture_media_floder_name"
+            style="@style/HuaHanSoft.Text.Title.Wrap.16"
+            android:maxLines="1"
+            />
+
+        <TextView
+            android:id="@+id/hhsoft_tv_picture_media_type_count"
+            style="@style/HuaHanSoft.Text.Body.Warp.12"
+            android:layout_marginTop="5dp"
+            />
+    </LinearLayout>
+
+</RelativeLayout>

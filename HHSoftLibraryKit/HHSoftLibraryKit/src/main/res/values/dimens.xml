@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="huahansoft_top_height">48dp</dimen>
+    <dimen name="huahansoft_refresh_header_height">60dp</dimen>
+
+    <dimen name="huahansoft_dialog_max_width">356dp</dimen>
+    <dimen name="huahansoft_dialog_vertical_margin">52dp</dimen>
+    <dimen name="huahansoft_dialog_horizontal_margin">28dp</dimen>
+</resources>

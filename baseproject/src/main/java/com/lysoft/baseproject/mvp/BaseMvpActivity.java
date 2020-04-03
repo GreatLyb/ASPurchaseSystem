@@ -2,7 +2,7 @@ package com.lysoft.baseproject.mvp;
 
 import android.os.Bundle;
 
-import com.lysoft.baseproject.activity.BaseTimerActivity;
+import com.lysoft.baseproject.activity.BaseActivity;
 
 import androidx.annotation.Nullable;
 
@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
  * Describe：所有需要Mvp开发的Activity的基类
  */
 
-public abstract class BaseMvpActivity<P extends BasePresenter> extends BaseTimerActivity implements IBaseView {
+public abstract class BaseMvpActivity<P extends BasePresenter> extends BaseActivity implements IBaseView {
     protected P presenter;
 //    private PromptDialog promptDialog;
 
@@ -34,28 +34,19 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends BaseTimer
             presenter.detachView();
             presenter = null;
         }
-        if (loadingDialog != null ) {
-            loadingDialog.dismiss();
-            loadingDialog = null;
-        }
+
     }
 
 
     //***************************************IBaseView方法实现*************************************
     @Override
     public void showLoading() {
-        if (loadingDialog != null && !loadingDialog.isShowing()) {
-            loadingDialog.show();
-        }
+
     }
 
     @Override
     public void dismissLoading() {
-//        Log.i("Lyb", "dismissLoading====" + loadingDialog);
-//        Log.i("Lyb", "dismissLoading=" + loadingDialog.isShowing());
-        if (loadingDialog != null) {
-            loadingDialog.dismiss();
-        }
+
     }
 
 

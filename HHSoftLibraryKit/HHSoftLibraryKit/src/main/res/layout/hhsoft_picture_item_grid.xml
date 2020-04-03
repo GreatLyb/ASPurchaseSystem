@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/HuaHanSoft.Fill">
+
+    <ImageView
+        android:id="@+id/hhsoft_iv_picture_grid_photo"
+        style="@style/HuaHanSoft.Fill"
+        android:scaleType="centerCrop"
+        android:src="@drawable/hhsoft_picture_grid_bg" />
+    <LinearLayout
+        android:id="@+id/hhsoft_ll_picture_grid_select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:padding="8dp">
+        <ImageView
+            android:id="@+id/hhsoft_iv_picture_grid_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/picture.checked.style"/>
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/hhsoft_tv_picture_grid_video"
+        style="@style/HuaHanSoft.Wrap"
+        android:layout_alignParentBottom="true"
+        android:drawableLeft="@drawable/hhsoft_picture_media_type_video"
+        android:drawablePadding="5dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="3dp"
+        android:text="0.00"
+        android:textColor="@color/defaultWhite"
+        android:textSize="12sp"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/hhsoft_tv_picture_grid_gif"
+        style="@style/HuaHanSoft.Text.Title.Wrap.14"
+        android:layout_alignParentBottom="true"
+        android:background="@color/defaultAlbumBottom"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:text="GIF"
+        android:textColor="@color/defaultWhite"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:visibility="visible" />
+
+</RelativeLayout>

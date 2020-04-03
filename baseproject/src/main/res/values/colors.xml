@@ -8,11 +8,20 @@
     <color name="gray">#BBBBBB</color>
     <color name="red">#DC143C</color>
     <color name="blue">#0099FF</color>
-    <color name="black">#000000</color>
     <color name="black3">#f2f2f2</color>
     <color name="orange">#FFA82E</color>
     <color name="text_black">#333333</color>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#0A7CF4</color>
+    <!-- 黑色颜色值开始 -->
+    <!-- 纯黑色 -->
+    <color name="black">#000000</color>
+    <!-- 黑色，相对亮一点 -->
+    <color name="black_light">#151A15</color>
+    <!-- 黑色，相对浅一点 -->
+    <color name="black_dim">#3E403E</color>
+    <!-- 黑色颜色值结束 -->
+    <color name="bar_grey">#393a3e</color>
+
 </resources>

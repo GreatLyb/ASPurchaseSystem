@@ -10,9 +10,7 @@ android {
             // 显式声明支持注解
             annotationProcessorOptions {
                 includeCompileClasspath true
-                annotationProcessorOptions {
-                    arguments = [AROUTER_MODULE_NAME: project.getName()]
-                }
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
             }
 
         }
@@ -52,6 +50,8 @@ dependencies {
     api ('com.qianwen:okhttp-utils:3.8.0'){
         exclude group:'com.alibaba'
     }
+    //权限请求
+    api 'pub.devrel:easypermissions:2.0.1'
 //    api 'com.squareup.okhttp3:okhttp:3.14.1'
     api 'com.squareup.okhttp3:okhttp:3.12.0'
     api 'com.contrarywind:Android-PickerView:4.1.8'//仿IOS风格的时间选择器
@@ -64,4 +64,6 @@ dependencies {
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
     api 'org.aspectj:aspectjrt:1.8.9'
     annotationProcessor 'org.projectlombok:lombok:1.18.12'
+    api 'com.blankj:utilcodex:1.26.0'
+    api 'com.gyf.immersionbar:immersionbar:3.0.0'
 }

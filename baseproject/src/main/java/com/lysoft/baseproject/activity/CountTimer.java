@@ -1,7 +1,6 @@
 package com.lysoft.baseproject.activity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.CountDownTimer;
 
 /**
@@ -28,7 +27,7 @@ public class CountTimer extends CountDownTimer {
     @Override
     public void onFinish() {
         //去屏保
-        context.startActivity(new Intent(context, ScreenSaverActivity.class));
+//        context.startActivity(new Intent(context, ScreenSaverActivity.class));
     }
 
     /**

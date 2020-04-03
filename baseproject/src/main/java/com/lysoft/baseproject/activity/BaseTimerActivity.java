@@ -1,31 +1,19 @@
 package com.lysoft.baseproject.activity;
 
-import android.content.Context;
-import android.graphics.Color;
-import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
-import com.alibaba.android.arouter.launcher.ARouter;
-import com.lysoft.baseproject.R;
 import com.lysoft.baseproject.constant.SpConstants;
 import com.lysoft.baseproject.dialog.LoadingDialog;
-import com.lysoft.baseproject.manager.ActivityStackManager;
 import com.lysoft.baseproject.utils.EventBusUtils;
 import com.lysoft.baseproject.utils.SPUtils;
-
-import androidx.annotation.Nullable;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import androidx.annotation.Nullable;
 import me.leefeng.promptlibrary.PromptButton;
 import me.leefeng.promptlibrary.PromptButtonListener;
 import me.leefeng.promptlibrary.PromptDialog;
