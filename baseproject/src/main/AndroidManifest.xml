@@ -1,0 +1,23 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.lysoft.baseproject">
+    <!-- 显示顶层浮窗 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <application>
+        <activity
+            android:name=".crash.DefaultErrorActivity"
+            android:process=":error_activity"
+            tools:ignore="WrongManifestParent" />
+        <provider
+            android:name=".crash.CaocInitProvider"
+            android:authorities="${applicationId}.customactivityoncrashinitprovider"
+            android:exported="false"
+            android:initOrder="101" />
+        <!--首页-->
+        <activity
+            android:name=".activity.ScreenSaverActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AnimActivity" />
+    </application>
+
+</manifest>

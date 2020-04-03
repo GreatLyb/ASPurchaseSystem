@@ -1,0 +1,19 @@
+def supportVersion = "28.0.0"
+
+ext {
+    android = [
+            "compileSdkVersion": 28,
+            "applicationId"    : "com.lyb.purchasesystem",
+            "minSdkVersion"    : 19,
+            "targetSdkVersion" : 28,
+            "versionCode"      : 1,
+            "versionName"      : "1.0.1"
+    ]
+    dependencies = [
+            "support-v4"     : "com.android.support:support-v4:${supportVersion}",
+            "appcompat-v7"   : "com.android.support:appcompat-v7:${supportVersion}",
+            "design"         : "com.android.support:design:${supportVersion}",
+            "recyclerview-v7": "com.android.support:recyclerview-v7:${supportVersion}",
+
+    ]
+}

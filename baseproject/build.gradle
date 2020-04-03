@@ -1,0 +1,67 @@
+apply plugin: 'com.android.library'
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+
+        multiDexEnabled true
+        javaCompileOptions {
+            // 显式声明支持注解
+            annotationProcessorOptions {
+                includeCompileClasspath true
+                annotationProcessorOptions {
+                    arguments = [AROUTER_MODULE_NAME: project.getName()]
+                }
+            }
+
+        }
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+        consumerProguardFiles 'consumer-rules.pro'
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        targetCompatibility = 1.8
+        sourceCompatibility = 1.8
+    }
+    buildToolsVersion = '28.0.3'
+
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    api 'com.android.support:appcompat-v7:28.0.0'
+    api 'com.android.support:recyclerview-v7:28.0.0'
+    api 'com.jakewharton:butterknife:10.0.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
+    api 'com.orhanobut:logger:2.2.0'
+    api 'com.lzy.net:okgo:3.0.4'
+    api 'com.android.support:multidex:1.0.3'
+    api 'com.hjq:toast:8.0'
+    api 'com.github.limxing:Android-PromptDialog:1.1.3'
+    api ('com.qianwen:okhttp-utils:3.8.0'){
+        exclude group:'com.alibaba'
+    }
+//    api 'com.squareup.okhttp3:okhttp:3.14.1'
+    api 'com.squareup.okhttp3:okhttp:3.12.0'
+    api 'com.contrarywind:Android-PickerView:4.1.8'//仿IOS风格的时间选择器
+    api 'com.kongzue.dialog_v3:dialog:3.1.3'//提示框
+
+    implementation'com.youth.banner:banner:1.4.10' //图片轮播
+    implementation 'com.bigkoo:convenientbanner:2.1.5'//
+    implementation 'cn.jzvd:jiaozivideoplayer:7.0.5'
+    api 'com.alibaba:arouter-api:1.5.0'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
+    api 'org.aspectj:aspectjrt:1.8.9'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+}

@@ -1,0 +1,24 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_base_parent"
+    style="@style/fi_fi">
+
+    <LinearLayout
+        android:id="@+id/ll_base_bottom"
+        style="@style/fi_wr"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" />
+
+    <LinearLayout
+        android:id="@+id/ll_base_top"
+        style="@style/fi_wr"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal" />
+
+    <FrameLayout
+        android:id="@+id/fl_base_container"
+        style="@style/fi_fi"
+        android:layout_above="@id/ll_base_bottom"
+        android:layout_below="@id/ll_base_top" />
+
+
+</RelativeLayout>
