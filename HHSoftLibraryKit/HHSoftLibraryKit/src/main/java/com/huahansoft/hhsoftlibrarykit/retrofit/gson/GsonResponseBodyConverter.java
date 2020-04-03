@@ -15,13 +15,12 @@
  */
 package com.huahansoft.hhsoftlibrarykit.retrofit.gson;
 
-import android.util.Log;
-
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.huahansoft.hhsoftlibrarykit.utils.HHSoftLogUtils;
 
 import java.io.IOException;
+
 import okhttp3.MediaType;
 import okhttp3.ResponseBody;
 import retrofit2.Converter;

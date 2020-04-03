@@ -7,7 +7,6 @@ import android.support.annotation.IntRange;
 import android.support.annotation.StyleRes;
 import android.support.v4.app.Fragment;
 
-import com.huahansoft.hhsoftlibrarykit.R;
 import com.huahansoft.hhsoftlibrarykit.picture.config.PictureSelectionConfig;
 import com.huahansoft.hhsoftlibrarykit.picture.entity.LocalMedia;
 import com.huahansoft.hhsoftlibrarykit.picture.tools.DoubleUtils;

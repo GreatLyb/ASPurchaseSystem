@@ -3,7 +3,6 @@ package com.huahansoft.hhsoftlibrarykit.third.wechat;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.nfc.Tag;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;

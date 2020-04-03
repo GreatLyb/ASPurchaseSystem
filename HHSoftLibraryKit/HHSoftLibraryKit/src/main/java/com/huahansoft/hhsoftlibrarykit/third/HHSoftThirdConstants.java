@@ -1,7 +1,5 @@
 package com.huahansoft.hhsoftlibrarykit.third;
 
-import retrofit2.http.PUT;
-
 public class HHSoftThirdConstants {
     public static final int GET_ACCESS_TOKEN=1;
     public static final int GET_USER_INFO=2;

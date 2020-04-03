@@ -1,15 +1,10 @@
 package com.huahansoft.hhsoftlibrarykit.picture;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.widget.ImageView;
@@ -21,7 +16,6 @@ import com.huahansoft.hhsoftlibrarykit.picture.adapter.SimpleFragmentAdapter;
 import com.huahansoft.hhsoftlibrarykit.picture.anim.OptAnimationLoader;
 import com.huahansoft.hhsoftlibrarykit.picture.config.PictureConfig;
 import com.huahansoft.hhsoftlibrarykit.picture.config.PictureMimeType;
-import com.huahansoft.hhsoftlibrarykit.picture.config.PictureSelectionConfig;
 import com.huahansoft.hhsoftlibrarykit.picture.entity.EventEntity;
 import com.huahansoft.hhsoftlibrarykit.picture.entity.LocalMedia;
 import com.huahansoft.hhsoftlibrarykit.picture.observable.ImagesObservable;
@@ -33,11 +27,8 @@ import com.huahansoft.hhsoftlibrarykit.picture.tools.ScreenUtils;
 import com.huahansoft.hhsoftlibrarykit.picture.tools.ToastManage;
 import com.huahansoft.hhsoftlibrarykit.picture.tools.VoiceUtils;
 import com.huahansoft.hhsoftlibrarykit.picture.widget.PreviewViewPager;
-import com.huahansoft.hhsoftlibrarykit.ui.HHSoftBaseActivity;
 import com.huahansoft.hhsoftlibrarykit.utils.HHSoftTipUtils;
 
-import java.io.File;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 

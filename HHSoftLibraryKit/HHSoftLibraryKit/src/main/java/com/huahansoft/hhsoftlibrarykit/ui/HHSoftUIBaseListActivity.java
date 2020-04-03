@@ -8,11 +8,13 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
+
 import com.huahansoft.hhsoftlibrarykit.R;
 import com.huahansoft.hhsoftlibrarykit.proxy.HHSoftCallBack;
 import com.huahansoft.hhsoftlibrarykit.proxy.HHSoftLoadStatus;
 import com.huahansoft.hhsoftlibrarykit.utils.HHSoftTipUtils;
 import com.huahansoft.hhsoftlibrarykit.view.pulltorefresh.HHSoftRefreshListView;
+
 import java.util.ArrayList;
 import java.util.List;
 

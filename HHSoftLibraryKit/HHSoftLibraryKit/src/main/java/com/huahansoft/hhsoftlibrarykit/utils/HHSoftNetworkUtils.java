@@ -7,7 +7,6 @@ import com.huahansoft.hhsoftlibrarykit.retrofit.HHSoftRetrofitManager;
 import com.huahansoft.hhsoftlibrarykit.retrofit.HHSoftRetrofitService;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,12 +16,10 @@ import io.reactivex.functions.Consumer;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.HttpException;
 import retrofit2.Response;
-import retrofit2.http.PUT;
 
 public class HHSoftNetworkUtils {
     private final String TAG = "HHSoftNetworkUtils";

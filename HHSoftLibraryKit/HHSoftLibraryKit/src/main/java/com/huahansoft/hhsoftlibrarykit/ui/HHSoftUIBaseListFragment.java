@@ -1,22 +1,13 @@
 package com.huahansoft.hhsoftlibrarykit.ui;
 
 import android.graphics.Color;
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 
 import com.huahansoft.hhsoftlibrarykit.R;
-import com.huahansoft.hhsoftlibrarykit.manager.HHSoftDefaultTopViewManager;
-import com.huahansoft.hhsoftlibrarykit.manager.HHSoftLoadViewManager;
-import com.huahansoft.hhsoftlibrarykit.proxy.HHSoftApplicationInterface;
 import com.huahansoft.hhsoftlibrarykit.proxy.HHSoftCallBack;
 import com.huahansoft.hhsoftlibrarykit.proxy.HHSoftLoadStatus;
 import com.huahansoft.hhsoftlibrarykit.utils.HHSoftTipUtils;

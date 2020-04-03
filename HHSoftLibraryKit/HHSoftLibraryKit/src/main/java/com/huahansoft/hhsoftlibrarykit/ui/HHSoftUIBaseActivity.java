@@ -7,8 +7,6 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.huahansoft.hhsoftlibrarykit.manager.HHSoftDefaultTopViewManager;
-import com.huahansoft.hhsoftlibrarykit.manager.HHSoftLoadViewManager;
-import com.huahansoft.hhsoftlibrarykit.proxy.HHSoftApplicationInterface;
 
 public abstract class HHSoftUIBaseActivity extends HHSoftBaseActivity {
     private LinearLayout contentView;

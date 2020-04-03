@@ -1,6 +1,5 @@
 package com.huahansoft.hhsoftlibrarykit.window;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -8,11 +7,9 @@ import android.support.v4.content.ContextCompat;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
@@ -20,7 +17,6 @@ import com.huahansoft.hhsoftlibrarykit.R;
 import com.huahansoft.hhsoftlibrarykit.adapter.HHSoftBaseAdapter;
 import com.huahansoft.hhsoftlibrarykit.third.HHSoftShareInfo;
 import com.huahansoft.hhsoftlibrarykit.third.HHSoftShareItemInfo;
-import com.huahansoft.hhsoftlibrarykit.third.HHSoftThirdConstants;
 import com.huahansoft.hhsoftlibrarykit.third.HHSoftThirdTools;
 import com.huahansoft.hhsoftlibrarykit.utils.HHSoftDensityUtils;
 

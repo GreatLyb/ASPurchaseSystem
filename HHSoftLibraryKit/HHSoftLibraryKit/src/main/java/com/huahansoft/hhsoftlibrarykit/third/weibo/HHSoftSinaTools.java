@@ -7,7 +7,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.text.TextUtils;
 
-import com.alipay.sdk.app.PayTask;
 import com.huahansoft.hhsoftlibrarykit.third.Event;
 import com.huahansoft.hhsoftlibrarykit.third.HHSoftShareInfo;
 import com.huahansoft.hhsoftlibrarykit.third.HHSoftThirdConstants;
@@ -19,14 +18,12 @@ import com.sina.weibo.sdk.auth.AuthInfo;
 import com.sina.weibo.sdk.share.WbShareCallback;
 import com.sina.weibo.sdk.share.WbShareHandler;
 import com.sina.weibo.sdk.utils.Utility;
-import com.tencent.mm.opensdk.modelmsg.WXImageObject;
 
 import org.greenrobot.eventbus.EventBus;
 
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.net.URL;
-import java.util.Map;
 
 /**
  * @类说明 新浪工具类

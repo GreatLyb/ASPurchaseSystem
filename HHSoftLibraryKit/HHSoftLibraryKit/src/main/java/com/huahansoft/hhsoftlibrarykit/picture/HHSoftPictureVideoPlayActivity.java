@@ -12,7 +12,6 @@ import android.widget.MediaController;
 import android.widget.VideoView;
 
 import com.huahansoft.hhsoftlibrarykit.R;
-import com.huahansoft.hhsoftlibrarykit.picture.config.PictureSelectionConfig;
 import com.huahansoft.hhsoftlibrarykit.ui.HHSoftBaseActivity;
 
 public class HHSoftPictureVideoPlayActivity extends HHSoftBaseActivity implements MediaPlayer.OnErrorListener, MediaPlayer.OnPreparedListener, MediaPlayer.OnCompletionListener, View.OnClickListener {
