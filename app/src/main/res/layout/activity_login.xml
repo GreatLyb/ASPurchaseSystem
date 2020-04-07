@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        style="@style/fi_wr"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:paddingLeft="35dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginBottom="30dp"
+            style="@style/wr_wr"
+            android:text="你好,\n 欢迎来到金丹进销存"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="26sp" />
+
+        <LinearLayout
+            style="@style/fi_wr"
+            android:background="@color/white"
+            android:gravity="center"
+            android:paddingLeft="35dp"
+            android:paddingTop="15dp"
+            android:paddingRight="30dp"
+            android:paddingBottom="15dp">
+
+            <ImageView
+                style="@style/wr_wr"
+                android:src="@drawable/login_phone" />
+
+            <EditText
+                android:id="@+id/et_user_login_phone"
+                style="@style/fi_wr"
+                android:layout_marginLeft="30dp"
+                android:background="@color/white"
+                android:hint="请输入账号"
+                android:inputType="number"
+                android:textColor="@color/black_dim"
+                android:textColorHint="@color/text_gray"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/fi_wr"
+            android:layout_marginTop="5dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:paddingLeft="35dp"
+            android:paddingTop="15dp"
+            android:paddingRight="30dp"
+            android:paddingBottom="15dp">
+
+            <ImageView
+                style="@style/wr_wr"
+                android:src="@drawable/login_pwd" />
+
+            <EditText
+                android:id="@+id/et_user_login_pwd"
+                style="@style/fi_wr"
+                android:layout_marginLeft="30dp"
+                android:background="@color/white"
+                android:hint="请输入密码"
+                android:inputType="textPassword"
+                android:maxLength="12"
+                android:textColorHint="@color/text_gray"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/fi_wr"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <TextView
+            android:id="@+id/tv_user_login_sure"
+            style="@style/tv_sure"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="10dp"
+            android:text="登录" />
+
+    </LinearLayout>
+
+</LinearLayout>

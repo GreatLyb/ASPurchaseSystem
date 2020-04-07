@@ -51,7 +51,8 @@ public class SplashActivity extends BaseUIActivity {
 
             @Override
             public void onFinish() {
-                ARouter.getInstance().build("/app/MainActivity").navigation();
+//                ARouter.getInstance().build("/app/MainActivity").navigation();
+                ARouter.getInstance().build("/app/LoginActivity").navigation();
                 finish();
             }
         };
