@@ -17,6 +17,7 @@ public class MainActivity extends BaseUILoadActivity {
         BarUtils.setStatusBarLightMode(getWindow(), true);
         topViewManager().titleTextView().setText("首页");
         loadViewManager().changeLoadState(LoadStatus.LOADING);
+
     }
 
     @Override
