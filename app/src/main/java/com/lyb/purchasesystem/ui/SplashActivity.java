@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.lyb.purchasesystem.R;
 import com.lyb.purchasesystem.consta.PermissionsConstant;
@@ -20,6 +21,7 @@ import androidx.annotation.Nullable;
  *
  * @Author： create by Lyb on 2020-04-03 14:39
  */
+@Route(path = "/app/SplashActivity")
 public class SplashActivity extends BaseUIActivity {
 
     @Override
