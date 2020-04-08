@@ -7,5 +7,5 @@ package com.lyb.purchasesystem.bean;
  *
  * @Author： create by Lyb on 2020-04-07 14:47
  */
-public class UserInfo {
+public class UserBean {
 }

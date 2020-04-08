@@ -8,7 +8,7 @@ import android.widget.EditText;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.hjq.toast.ToastUtils;
 import com.lyb.purchasesystem.R;
-import com.lyb.purchasesystem.bean.UserInfo;
+import com.lyb.purchasesystem.bean.UserBean;
 import com.lyb.purchasesystem.consta.Api;
 import com.lyb.purchasesystem.consta.ParamsMapUtils;
 import com.lysoft.baseproject.activity.BaseUIActivity;
@@ -61,9 +61,9 @@ public class LoginActivity extends BaseUIActivity {
             return;
         }
         Map<String, String> param = ParamsMapUtils.getLoginParams(account, pwd);
-        JsonCallBack jsonCallBack = new JsonCallBack<UserInfo>() {
+        JsonCallBack jsonCallBack = new JsonCallBack<UserBean>() {
             @Override
-            public void onSuccess(int code, String msg, UserInfo response) {
+            public void onSuccess(int code, String msg, UserBean response) {
                 if (code == 0) {
                     //登录成功
 
