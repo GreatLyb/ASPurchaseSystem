@@ -19,6 +19,7 @@ import java.util.Map;
 
 import androidx.annotation.Nullable;
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -43,6 +44,7 @@ public class LoginActivity extends BaseUIActivity {
         topViewManager().titleTextView().setText("登录");
         View view = View.inflate(getPageContext(), R.layout.activity_login, null);
         containerView().addView(view);
+        ButterKnife.bind(this,view);
     }
 
     @OnClick(R.id.tv_user_login_sure)
