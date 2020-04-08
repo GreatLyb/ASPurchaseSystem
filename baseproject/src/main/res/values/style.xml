@@ -4,9 +4,9 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/bar_grey</item>
-        <item name="colorPrimaryDark">@color/bar_grey</item>
-        <item name="colorAccent">@color/bar_grey</item>
+        <item name="colorPrimary">@color/main_color</item>
+        <item name="colorPrimaryDark">@color/main_color</item>
+        <item name="colorAccent">@color/main_color</item>
         <!--控制ActionBar隐藏，且不展示头部-->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

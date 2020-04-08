@@ -13,6 +13,7 @@ import com.lysoft.baseproject.activity.BaseUIActivity;
 import java.util.List;
 
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 
 /**
  * ASPurchaseSystem
@@ -27,6 +28,7 @@ public class SplashActivity extends BaseUIActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        statuBarView().setBackgroundColor(ContextCompat.getColor(getPageContext(), com.lysoft.baseproject.R.color.white));
         View view = View.inflate(getPageContext(), R.layout.activity_splash, null);
         topViewManager().topView().setVisibility(View.GONE);
         containerView().addView(view);

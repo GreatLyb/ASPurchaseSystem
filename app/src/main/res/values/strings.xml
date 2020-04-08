@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">进销存管理系统</string>
+    <string name="about_we_info">金丹乳酸版权所有 \n Copyright ©2020 All Rights Reserved</string>
 </resources>

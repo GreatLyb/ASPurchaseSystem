@@ -40,6 +40,7 @@ public class LoginActivity extends BaseUIActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //
+        topViewManager().titleTextView().setText("登录");
         View view = View.inflate(getPageContext(), R.layout.activity_login, null);
         containerView().addView(view);
     }

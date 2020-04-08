@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 
+import com.gyf.immersionbar.ImmersionBar;
 import com.lzy.okgo.adapter.Call;
 
 import java.util.HashMap;
@@ -29,6 +30,7 @@ public  class BaseActivity extends AppCompatActivity implements EasyPermissions.
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ImmersionBar.with(this).init();
         mContext = this;
     }
 

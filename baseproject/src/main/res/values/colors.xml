@@ -14,6 +14,8 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#0A7CF4</color>
+    <color name="main_color">#0F6D38</color>
+
     <!-- 黑色颜色值开始 -->
     <!-- 纯黑色 -->
     <color name="black">#000000</color>
