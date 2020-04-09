@@ -12,6 +12,7 @@ import com.lyb.purchasesystem.bean.UserBean;
 import com.lyb.purchasesystem.consta.Api;
 import com.lyb.purchasesystem.consta.ParamsMapUtils;
 import com.lysoft.baseproject.activity.BaseUIActivity;
+import com.lysoft.baseproject.imp.SingleClick;
 import com.lysoft.baseproject.net.callback.JsonCallBack;
 import com.lzy.okgo.OkGo;
 
@@ -41,12 +42,14 @@ public class LoginActivity extends BaseUIActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //
-        topViewManager().titleTextView().setText("登录");
+        statuBarView().setVisibility(View.GONE);
+        topViewManager().topView().setVisibility(View.GONE);
         View view = View.inflate(getPageContext(), R.layout.activity_login, null);
         containerView().addView(view);
-        ButterKnife.bind(this,view);
+        ButterKnife.bind(this, containerView());
     }
 
+    @SingleClick
     @OnClick(R.id.tv_user_login_sure)
     public void onViewClicked() {
         //登录
@@ -54,6 +57,7 @@ public class LoginActivity extends BaseUIActivity {
         String pwd = etUserLoginPwd.getText().toString();
         if (TextUtils.isEmpty(account)) {
             ToastUtils.show("请输入账号");
+            //            Notification.show(this, "提示", "请输入账号").setDurationTime(Notification.DURATION_TIME.SHORT);
             return;
         }
         if (TextUtils.isEmpty(pwd)) {
