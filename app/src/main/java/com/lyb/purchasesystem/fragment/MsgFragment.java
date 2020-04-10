@@ -1,5 +1,7 @@
 package com.lyb.purchasesystem.fragment;
 
+import android.view.View;
+
 import com.lysoft.baseproject.activity.BaseUIFragment;
 
 /**
@@ -13,6 +15,7 @@ public class MsgFragment extends BaseUIFragment {
 
     @Override
     protected void onCreate() {
+        topViewManager().backTextView().setVisibility(View.GONE);
         topViewManager().titleTextView().setText("消息");
     }
 }
