@@ -9,10 +9,10 @@ import com.lysoft.baseproject.activity.BaseUIFragment;
  *
  * @Author： create by Lyb on 2020-04-10 14:39
  */
-public class Main2Fragment extends BaseUIFragment {
+public class MsgFragment extends BaseUIFragment {
 
     @Override
     protected void onCreate() {
-        topViewManager().titleTextView().setText("哈哈");
+        topViewManager().titleTextView().setText("消息");
     }
 }

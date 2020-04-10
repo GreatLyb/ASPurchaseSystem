@@ -9,7 +9,7 @@ import android.widget.RadioButton;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.hjq.toast.ToastUtils;
 import com.lyb.purchasesystem.R;
-import com.lyb.purchasesystem.fragment.Main2Fragment;
+import com.lyb.purchasesystem.fragment.MsgFragment;
 import com.lyb.purchasesystem.fragment.MainFragment;
 import com.lyb.purchasesystem.fragment.UserFragment;
 import com.lysoft.baseproject.utils.DensityUtils;
@@ -73,10 +73,10 @@ public class MainActivity extends BaseMainActivity {
                 fragment = new MainFragment();
                 break;
             case 1:
-                fragment = new Main2Fragment();
+                fragment = new MsgFragment();
                 break;
             case 2:
-                fragment = new MainFragment();
+                fragment = new MsgFragment();
                 break;
             case 3:
                 fragment = new UserFragment();
