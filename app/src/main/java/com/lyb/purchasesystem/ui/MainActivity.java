@@ -19,7 +19,6 @@ public class MainActivity extends BaseUILoadActivity {
         loadViewManager().changeLoadState(LoadStatus.LOADING);
 
     }
-
     @Override
     protected void onPageLoad() {
 

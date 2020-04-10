@@ -1,2 +1,3 @@
 rootProject.name='ASPurchaseSystem'
 include ':app', ':baseproject'
+include ':qrcodelibrary'

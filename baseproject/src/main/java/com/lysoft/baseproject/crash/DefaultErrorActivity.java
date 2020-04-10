@@ -39,14 +39,14 @@ import com.lysoft.baseproject.utils.FileUtils;
 import com.lysoft.baseproject.utils.SPUtils;
 import com.lzy.okgo.OkGo;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.res.ResourcesCompat;
-
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 
 public final class DefaultErrorActivity extends AppCompatActivity {
@@ -129,7 +129,7 @@ public final class DefaultErrorActivity extends AppCompatActivity {
             errorImageView.setImageDrawable(ResourcesCompat.getDrawable(getResources(), defaultErrorActivityDrawableId, getTheme()));
         }
 
-        uploadErrorInfor();
+        //        uploadErrorInfor();
     }
 
     //上传错误日志到服务器

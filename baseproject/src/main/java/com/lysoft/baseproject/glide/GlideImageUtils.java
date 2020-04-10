@@ -4,7 +4,6 @@ import android.content.Context;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.util.Util;
 import com.lysoft.baseproject.R;
 import com.lysoft.baseproject.utils.DensityUtils;
@@ -80,7 +79,7 @@ public class GlideImageUtils {
     public void loadImage(Context context, int resDefImg, String imagePath, ImageView imageView) {
         try {
             if (Util.isOnMainThread()) {
-                Glide.with(context).load(imagePath).asBitmap().placeholder(resDefImg <= 0 ? R.drawable.default_img : resDefImg).error(resDefImg <= 0 ? R.drawable.default_img : resDefImg).into(imageView);
+                Glide.with(context).load(imagePath).placeholder(resDefImg <= 0 ? R.drawable.default_img : resDefImg).error(resDefImg <= 0 ? R.drawable.default_img : resDefImg).into(imageView);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -93,7 +92,7 @@ public class GlideImageUtils {
     public void loadRoundImage(Context context, int resDefImg, String imagePath, ImageView imageView) {
         try {
             if (Util.isOnMainThread()) {
-                Glide.with(context).load(imagePath).asBitmap().placeholder(resDefImg <= 0 ? R.drawable.default_img : resDefImg).error(resDefImg <= 0 ? R.drawable.default_img : resDefImg).transform(new CenterCrop(context), new GlideRoundTransform(context)).into(imageView);
+                Glide.with(context).load(imagePath).placeholder(resDefImg <= 0 ? R.drawable.default_img : resDefImg).error(resDefImg <= 0 ? R.drawable.default_img : resDefImg).transform(new GlideRoundTransform(context)).into(imageView);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -104,7 +103,7 @@ public class GlideImageUtils {
     public void loadCircleImage(Context context, int resDefImg, String imagePath, ImageView imageView) {
         try {
             if (Util.isOnMainThread()) {
-                Glide.with(context).load(imagePath).asBitmap().placeholder(resDefImg <= 0 ? R.drawable.default_img : resDefImg).error(resDefImg <= 0 ? R.drawable.default_img : resDefImg).transform(new CenterCrop(context), new GlideCircleTransform(context)).into(imageView);
+                Glide.with(context).load(imagePath).placeholder(resDefImg <= 0 ? R.drawable.default_img : resDefImg).error(resDefImg <= 0 ? R.drawable.default_img : resDefImg).transform(new GlideCircleTransform()).into(imageView);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -119,10 +118,9 @@ public class GlideImageUtils {
                 transformation.setExceptCorner(false, false, true, true);
                 Glide.with(context).
                         load(imagePath).
-                        asBitmap().
                         placeholder(resDefImg <= 0 ? R.drawable.default_img : resDefImg).
                         error(resDefImg <= 0 ? R.drawable.default_img : resDefImg).
-                        transform(new CenterCrop(context), transformation).
+                        transform(transformation).
                         into(imageView);
             }
         } catch (Exception e) {
@@ -152,9 +150,9 @@ public class GlideImageUtils {
                     imageParam.defaultImageId = R.drawable.default_head_circle;
                 }
                 if (imageParam.widthDes != 0 && imageParam.heightDes != 0) {
-                    Glide.with(context).load(imageParam.imagePath).placeholder(imageParam.defaultImageId).error(imageParam.defaultImageId).transform(new GlideCircleTransform(context)).crossFade().override(imageParam.widthDes, imageParam.heightDes).into(imageParam.imageView);
+                    Glide.with(context).load(imageParam.imagePath).placeholder(imageParam.defaultImageId).error(imageParam.defaultImageId).transform(new GlideCircleTransform()).override(imageParam.widthDes, imageParam.heightDes).into(imageParam.imageView);
                 } else {
-                    Glide.with(context).load(imageParam.imagePath).placeholder(imageParam.defaultImageId).error(imageParam.defaultImageId).transform(new GlideCircleTransform(context)).crossFade().into(imageParam.imageView);
+                    Glide.with(context).load(imageParam.imagePath).placeholder(imageParam.defaultImageId).error(imageParam.defaultImageId).transform(new GlideCircleTransform()).into(imageParam.imageView);
                 }
             }
         } catch (Exception e) {
@@ -169,9 +167,9 @@ public class GlideImageUtils {
                     imageParam.defaultImageId = R.drawable.default_img_round;
                 }
                 if (imageParam.widthDes != 0 && imageParam.heightDes != 0) {
-                    Glide.with(context).load(imageParam.imagePath).placeholder(imageParam.defaultImageId).error(imageParam.defaultImageId).transform(new CenterCrop(context), new GlideRoundTransform(context)).crossFade().override(imageParam.widthDes, imageParam.heightDes).into(imageParam.imageView);
+                    Glide.with(context).load(imageParam.imagePath).placeholder(imageParam.defaultImageId).error(imageParam.defaultImageId).transform(new GlideRoundTransform(context)).override(imageParam.widthDes, imageParam.heightDes).into(imageParam.imageView);
                 } else {
-                    Glide.with(context).load(imageParam.imagePath).placeholder(imageParam.defaultImageId).error(imageParam.defaultImageId).transform(new CenterCrop(context), new GlideRoundTransform(context)).crossFade().into(imageParam.imageView);
+                    Glide.with(context).load(imageParam.imagePath).placeholder(imageParam.defaultImageId).error(imageParam.defaultImageId).transform(new GlideRoundTransform(context)).into(imageParam.imageView);
                 }
             }
         } catch (Exception e) {
@@ -186,9 +184,9 @@ public class GlideImageUtils {
                     imageParam.defaultImageId = R.drawable.default_img;
                 }
                 if (imageParam.widthDes != 0 && imageParam.heightDes != 0) {
-                    Glide.with(context).load(imageParam.imagePath).asBitmap().placeholder(imageParam.defaultImageId).error(imageParam.defaultImageId).override(imageParam.widthDes, imageParam.heightDes).into(imageParam.imageView);
+                    Glide.with(context).load(imageParam.imagePath).placeholder(imageParam.defaultImageId).error(imageParam.defaultImageId).override(imageParam.widthDes, imageParam.heightDes).into(imageParam.imageView);
                 } else {
-                    Glide.with(context).load(imageParam.imagePath).asBitmap().placeholder(imageParam.defaultImageId).error(imageParam.defaultImageId).into(imageParam.imageView);
+                    Glide.with(context).load(imageParam.imagePath).placeholder(imageParam.defaultImageId).error(imageParam.defaultImageId).into(imageParam.imageView);
                 }
             }
         } catch (Exception e) {

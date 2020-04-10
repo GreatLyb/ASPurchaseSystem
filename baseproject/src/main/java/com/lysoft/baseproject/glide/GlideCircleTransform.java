@@ -1,6 +1,5 @@
 package com.lysoft.baseproject.glide;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
@@ -9,14 +8,15 @@ import android.graphics.Paint;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
 
+import java.security.MessageDigest;
+
+import androidx.annotation.NonNull;
+
 /**
  * Created by yukuo on 2016/3/21.
  * 这是一个将网络图片转换为圆形的方法
  */
 public class GlideCircleTransform extends BitmapTransformation {
-    public GlideCircleTransform(Context context) {
-        super(context);
-    }
 
     @Override
     protected Bitmap transform(BitmapPool pool, Bitmap toTransform, int outWidth, int outHeight) {
@@ -46,8 +46,9 @@ public class GlideCircleTransform extends BitmapTransformation {
         return result;
     }
 
+
     @Override
-    public String getId() {
-        return getClass().getName();
+    public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
+
     }
 }

@@ -7,7 +7,7 @@ package com.lyb.purchasesystem.consta;
  * Creat by Lyb on 2019/10/10 14:20
  */
 public class Constants {
-    public static String IP = "http://aq.yunyusuo.cn:8081/";
+    public static String IP = "http://aaaaa/";
     public static int PAGE_SIZE = 20;
     public static String DB_NAME = "LargeScreenShop.db";
     //时间格式
