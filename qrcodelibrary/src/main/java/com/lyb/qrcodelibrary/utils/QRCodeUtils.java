@@ -1,15 +1,11 @@
 package com.lyb.qrcodelibrary.utils;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
-import android.text.TextUtils;
 import android.widget.ImageView;
 
 import com.google.zxing.Result;
 import com.google.zxing.client.result.ResultParser;
-import com.lyb.qrcodelibrary.activity.CaptureResultActivity;
 import com.lyb.qrcodelibrary.decode.BitmapDecoder;
 
 /**
@@ -19,22 +15,6 @@ import com.lyb.qrcodelibrary.decode.BitmapDecoder;
 
 public class QRCodeUtils {
 
-    /**
-     * 二维码结果操作
-     *
-     * @param context
-     * @param content
-     */
-    public static void qrCodeOper(Context context, String content) {
-        if (TextUtils.isEmpty(content)) {
-            ((Activity) context).finish();
-            return;
-        }
-        Intent intent = new Intent(context, CaptureResultActivity.class);
-        intent.putExtra("result", content);
-        context.startActivity(intent);
-        ((Activity) context).finish();
-    }
 
     /**
      * 长按识别二维码

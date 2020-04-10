@@ -94,7 +94,9 @@ public final class DefaultTopViewManager {
         mTopView = new RelativeLayout(mActivity);
         mView.addView(mTopView, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, HHSoftDensityUtils.dip2px(mActivity, mTopViewInfo.topViewHeight)));
         mBackTextView = new TextView(mActivity);
-        mBackTextView.setLayoutParams(new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        layoutParams.leftMargin = 20;
+        mBackTextView.setLayoutParams(layoutParams);
         mBackTextView.setCompoundDrawablesWithIntrinsicBounds(mTopViewInfo.backLeftDrawable, 0, 0, 0);
         mBackTextView.setGravity(Gravity.CENTER_VERTICAL);
         mBackTextView.setOnClickListener(new View.OnClickListener() {

@@ -15,7 +15,6 @@ import android.widget.RelativeLayout;
 import android.widget.ToggleButton;
 
 import com.google.zxing.Result;
-import com.kongzue.dialog.v3.TipDialog;
 import com.kongzue.dialog.v3.WaitDialog;
 import com.lcw.library.imagepicker.ImagePicker;
 import com.lyb.qrcodelibrary.R;
@@ -305,7 +304,7 @@ public abstract class BaseCaptureActivity extends AppCompatActivity implements S
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        TipDialog.show(BaseCaptureActivity.this, "识别成功", TipDialog.TYPE.SUCCESS);
+                        WaitDialog.dismiss();
                         onHandleDecode(qrCode);
                     }
                 });

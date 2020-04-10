@@ -1,6 +1,9 @@
 package com.lyb.qrcodelibrary.activity;
 
-import android.util.Log;
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.hjq.toast.ToastUtils;
+import com.kongzue.dialog.interfaces.OnDismissListener;
+import com.kongzue.dialog.v3.TipDialog;
 
 /**
  * ASPurchaseSystem
@@ -9,11 +12,17 @@ import android.util.Log;
  *
  * @Author： create by Lyb on 2020-04-10 10:23
  */
-
+@Route(path = "/qrcodelibrary/ScanCodeActivity")
 public class ScanCodeActivity extends BaseCaptureActivity {
     @Override
-    protected void onHandleDecode(String rawResult) {
+    protected void onHandleDecode(final String rawResult) {
         //结果页面
-        Log.i("Lyb", "rawResult" + rawResult);
+        TipDialog.show(ScanCodeActivity.this, "识别成功", TipDialog.TYPE.SUCCESS).setTipTime(500).setOnDismissListener(new OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                ToastUtils.show("扫描成功==" + rawResult);
+                finish();
+            }
+        });
     }
 }

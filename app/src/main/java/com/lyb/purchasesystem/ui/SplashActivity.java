@@ -1,14 +1,13 @@
 package com.lyb.purchasesystem.ui;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.lyb.purchasesystem.R;
 import com.lyb.purchasesystem.consta.PermissionsConstant;
-import com.lyb.qrcodelibrary.activity.ScanCodeActivity;
 import com.lysoft.baseproject.activity.BaseUIActivity;
 
 import java.util.List;
@@ -56,9 +55,9 @@ public class SplashActivity extends BaseUIActivity {
 
             @Override
             public void onFinish() {
-//                ARouter.getInstance().build("/app/MainActivity").navigation();
+                ARouter.getInstance().build("/app/MainActivity").navigation();
                 //                ARouter.getInstance().build("/app/LoginActivity").navigation();
-                startActivity(new Intent(getPageContext(), ScanCodeActivity.class));
+                //                startActivity(new Intent(getPageContext(), ScanCodeActivity.class));
                 finish();
             }
         };
