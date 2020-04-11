@@ -44,10 +44,10 @@
 
         </LinearLayout>
 
-        <ImageView
+        <com.lysoft.baseproject.clipview.CircleImageView
             android:id="@+id/img_head"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:src="@drawable/default_head_circle" />

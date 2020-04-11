@@ -1,5 +1,6 @@
 package com.lysoft.baseproject.clipview;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -16,7 +17,9 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
 /**
@@ -36,28 +39,17 @@ public class ClipImageActivity extends AppCompatActivity implements View.OnClick
 
     private int mType;
 
-    /**
-     * @param activity
-     * @param uri
-     * @param callback
-     */
-    //    public static void goToClipActivity(FragmentActivity activity, Uri uri,
-    //                                        BaseCallBack callback) {
-    //        if (uri == null) {
-    //            return;
-    //        }
-    //        Intent intent = getClipIntent(activity, uri);
-    //        ActivityResultHelper.init(activity).startActivityForResult(intent, callback);
-    //    }
-    public static void goToClipActivity(FragmentActivity activity, Uri uri) {
-        Intent clipIntent = getClipIntent(activity, uri);
-        activity.startActivityForResult(clipIntent, REQ_CLIP_AVATAR);
+    public static void goToClipActivity(Fragment fragment, Uri uri) {
+        Intent clipIntent = getClipIntent(fragment, uri);
+        fragment.startActivityForResult(clipIntent, REQ_CLIP_AVATAR);
     }
 
+
+
     @NonNull
-    public static Intent getClipIntent(FragmentActivity activity, Uri uri) {
+    public static Intent getClipIntent(Fragment fragment, Uri uri) {
         Intent intent = new Intent();
-        intent.setClass(activity, ClipImageActivity.class);
+        intent.setClass(fragment.getContext(), ClipImageActivity.class);
         intent.putExtra(TYPE, ClipView.TYPE_ROUND);
         intent.setData(uri);
         return intent;
@@ -143,6 +135,7 @@ public class ClipImageActivity extends AppCompatActivity implements View.OnClick
             }
             Intent intent = new Intent();
             intent.setData(mSaveUri);
+            Log.i("Lyb","RESULT_OK====");
             setResult(RESULT_OK, intent);
             finish();
         }

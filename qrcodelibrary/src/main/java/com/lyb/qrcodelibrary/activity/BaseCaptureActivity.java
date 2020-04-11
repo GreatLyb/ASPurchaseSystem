@@ -2,6 +2,7 @@ package com.lyb.qrcodelibrary.activity;
 
 import android.content.Intent;
 import android.graphics.Rect;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -12,12 +13,13 @@ import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.google.zxing.Result;
 import com.kongzue.dialog.v3.TipDialog;
 import com.kongzue.dialog.v3.WaitDialog;
-import com.lcw.library.imagepicker.ImagePicker;
+import com.linchaolong.android.imagepicker.ImagePicker;
 import com.lyb.qrcodelibrary.R;
 import com.lyb.qrcodelibrary.camera.CameraManager;
 import com.lyb.qrcodelibrary.utils.BeepManager;
@@ -26,7 +28,9 @@ import com.lyb.qrcodelibrary.utils.DecodeThread;
 import com.lyb.qrcodelibrary.utils.InactivityTimer;
 import com.lyb.qrcodelibrary.utils.QRCodeUtils;
 import com.lyb.qrcodelibrary.view.ScanView;
+import com.lysoft.baseproject.clipview.ClipImageActivity;
 import com.lysoft.baseproject.glide.GlideLoade;
+import com.lysoft.baseproject.utils.FileUtils;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -60,6 +64,7 @@ public abstract class BaseCaptureActivity extends AppCompatActivity implements S
     private boolean isFlashlightOpen;
     private boolean isHasSurface = false;
     private ScanView scanView;
+    private ImagePicker imagePicker;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -101,16 +106,15 @@ public abstract class BaseCaptureActivity extends AppCompatActivity implements S
         albumButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                ImagePicker.getInstance()
-                        .setTitle("选择图片")//设置标题
-                        .showCamera(true)//设置是否显示拍照按钮
-                        .showImage(true)//设置是否展示图片
-                        .showCamera(false)
-                        .showVideo(false)//设置是否展示视频
-                        .setSingleType(true)//设置图片视频不能同时选择
-                        //                        .setMaxCount(1)//设置最大选择图片数目(默认为1，单选)
-                        .setImageLoader(new GlideLoade())//设置自定义图片加载器
-                        .start(BaseCaptureActivity.this, 1000);//REQEST_SELECT_IMAGES_CODE为Intent调用的requestCode
+                imagePicker = new ImagePicker();
+                imagePicker.setTitle("选择二维码");
+                imagePicker.setCropImage(false);
+                imagePicker.startGallery(BaseCaptureActivity.this, new ImagePicker.Callback() {
+                    @Override
+                    public void onPickImage(Uri imageUri) {
+                        identificationQRCode(FileUtils.getRealFilePathFromUri(BaseCaptureActivity.this, imageUri));
+                    }
+                });
             }
         });
     }
@@ -154,10 +158,13 @@ public abstract class BaseCaptureActivity extends AppCompatActivity implements S
         if (RESULT_OK == resultCode) {
             switch (requestCode) {
                 case REQEST_SELECT_IMAGES_CODE:
-                    List<String> imagePaths = data.getStringArrayListExtra(ImagePicker.EXTRA_SELECT_IMAGES);
-                    if (imagePaths != null && imagePaths.size() > 0) {
-                        identificationQRCode(imagePaths.get(0));
-                    }
+//                    List<String> imagePaths = data.getStringArrayListExtra(ImagePicker.EXTRA_SELECT_IMAGES);
+//                    if (imagePaths != null && imagePaths.size() > 0) {
+//                        identificationQRCode(imagePaths.get(0));
+//                    }
+                    break;
+                case 200:
+                    imagePicker.onActivityResult(this, requestCode, resultCode, data);
                     break;
                 case REQEST_CROP_IMAGES_CODE:
                     break;
