@@ -13,7 +13,13 @@
             android:authorities="${applicationId}.customactivityoncrashinitprovider"
             android:exported="false"
             android:initOrder="101" />
-        <!--首页-->
+
+        <activity
+            android:name="com.linchaolong.android.imagepicker.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+        <activity
+            android:name=".clipview.ClipImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
     </application>
 
 </manifest>

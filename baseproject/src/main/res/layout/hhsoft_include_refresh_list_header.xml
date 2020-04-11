@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/fi_wr"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/hh_ll_refresh_container"
+        style="@style/fi_wr"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/huahansoft_rl_refresh_progress"
+            style="@style/fi_wr"
+            android:layout_height="@dimen/top_height">
+
+            <com.lysoft.baseproject.view.HHSoftLoadingCircleView
+                android:id="@+id/huahansoft_iv_refresh_progress_icon"
+                style="@style/wr_wr"
+                android:scaleType="centerInside"
+                android:background="@drawable/hhsoft_loading_progress_bar"
+                android:layout_marginLeft="@dimen/huahansoft_refresh_header_height"
+                android:layout_centerVertical="true" />
+
+            <TextView
+                android:id="@+id/huahansoft_tv_refresh_progress_hint"
+                style="@style/wr_wr"
+                android:textSize="14sp"
+                android:textColor="@color/defaultRefreshTextColor"
+                android:text="@string/huahansoft_refresh_header_progress"
+                android:layout_centerInParent="true" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/huahansoft_rl_refresh_pull"
+            style="@style/fi_wr"
+            android:layout_height="@dimen/huahansoft_refresh_header_height">
+
+            <ImageView
+                android:id="@+id/huahansoft_iv_refresh_pull_icon"
+                style="@style/wr_wr"
+                android:scaleType="centerInside"
+                android:src="@drawable/hhsoft_refresh_arrow"
+                android:layout_marginLeft="@dimen/huahansoft_refresh_header_height"
+                android:layout_centerVertical="true" />
+
+            <LinearLayout
+                style="@style/wr_wr"
+                android:orientation="vertical"
+                android:layout_centerInParent="true"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/huahansoft_tv_refresh_pull_hint"
+                    style="@style/wr_wr"
+                    android:textSize="14sp"
+                    android:textColor="@color/defaultRefreshTextColor"
+                    android:text="@string/huahansoft_refresh_header_pull" />
+
+                <TextView
+                    android:id="@+id/huahansoft_tv_refresh_pull_time"
+                    style="@style/wr_wr"
+                    android:textSize="14sp"
+                    android:textColor="@color/defaultRefreshTextColor"
+                    android:text="@string/huahansoft_refresh_header_last_time"
+                    android:layout_marginTop="3dp" />
+
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

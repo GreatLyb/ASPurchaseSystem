@@ -8,15 +8,8 @@ import android.widget.EditText;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.hjq.toast.ToastUtils;
 import com.lyb.purchasesystem.R;
-import com.lyb.purchasesystem.bean.UserBean;
-import com.lyb.purchasesystem.consta.Api;
-import com.lyb.purchasesystem.consta.ParamsMapUtils;
 import com.lysoft.baseproject.activity.BaseUIActivity;
 import com.lysoft.baseproject.imp.SingleClick;
-import com.lysoft.baseproject.net.callback.JsonCallBack;
-import com.lzy.okgo.OkGo;
-
-import java.util.Map;
 
 import androidx.annotation.Nullable;
 import butterknife.BindView;
@@ -64,24 +57,25 @@ public class LoginActivity extends BaseUIActivity {
             ToastUtils.show("请输入密码");
             return;
         }
-        Map<String, String> param = ParamsMapUtils.getLoginParams(account, pwd);
-        JsonCallBack jsonCallBack = new JsonCallBack<UserBean>() {
-            @Override
-            public void onSuccess(int code, String msg, UserBean response) {
-                if (code == 0) {
-                    //登录成功
 
-                } else {
-                    //登录失败
-
-                }
-            }
-
-            @Override
-            public void onFailure(Object tag, Exception e) {
-
-            }
-        };
-        OkGo.post(Api.LOGIN).tag(this).params(param).execute(jsonCallBack);
+        //        Map<String, String> param = ParamsMapUtils.getLoginParams(account, pwd);
+        //        JsonCallBack jsonCallBack = new JsonCallBack<UserBean>() {
+        //            @Override
+        //            public void onSuccess(int code, String msg, UserBean response) {
+        //                if (code == 0) {
+        //                    //登录成功
+        //
+        //                } else {
+        //                    //登录失败
+        //
+        //                }
+        //            }
+        //
+        //            @Override
+        //            public void onFailure(Object tag, Exception e) {
+        //
+        //            }
+        //        };
+        //        OkGo.post(Api.LOGIN).tag(this).params(param).execute(jsonCallBack);
     }
 }

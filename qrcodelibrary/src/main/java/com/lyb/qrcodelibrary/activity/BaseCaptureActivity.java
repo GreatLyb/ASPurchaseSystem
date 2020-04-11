@@ -15,6 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.ToggleButton;
 
 import com.google.zxing.Result;
+import com.kongzue.dialog.v3.TipDialog;
 import com.kongzue.dialog.v3.WaitDialog;
 import com.lcw.library.imagepicker.ImagePicker;
 import com.lyb.qrcodelibrary.R;
@@ -41,6 +42,8 @@ import androidx.appcompat.app.AppCompatActivity;
  */
 public abstract class BaseCaptureActivity extends AppCompatActivity implements SurfaceHolder.Callback {
     private static String TAG = "CaptureActivity";
+    private static final int REQEST_SELECT_IMAGES_CODE = 1000;
+    private static final int REQEST_CROP_IMAGES_CODE = 1001;
 
     /*控件*/
     private SurfaceView scanPreview = null;
@@ -148,10 +151,18 @@ public abstract class BaseCaptureActivity extends AppCompatActivity implements S
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1000 && resultCode == RESULT_OK) {
-            List<String> imagePaths = data.getStringArrayListExtra(ImagePicker.EXTRA_SELECT_IMAGES);
-            if (imagePaths != null && imagePaths.size() > 0) {
-                identificationQRCode(imagePaths.get(0));
+        if (RESULT_OK == resultCode) {
+            switch (requestCode) {
+                case REQEST_SELECT_IMAGES_CODE:
+                    List<String> imagePaths = data.getStringArrayListExtra(ImagePicker.EXTRA_SELECT_IMAGES);
+                    if (imagePaths != null && imagePaths.size() > 0) {
+                        identificationQRCode(imagePaths.get(0));
+                    }
+                    break;
+                case REQEST_CROP_IMAGES_CODE:
+                    break;
+                default:
+                    break;
             }
         }
     }
@@ -173,13 +184,12 @@ public abstract class BaseCaptureActivity extends AppCompatActivity implements S
                 handler = new CaptureActivityHandler(this, cameraManager, DecodeThread.ALL_MODE);
             }
             initCrop();
-        } catch (IOException ioe) {
-            displayFrameworkBugMessageAndExit();
-        } catch (RuntimeException e) {
-            // Barcode Scanner has seen crashes in the wild of this variety:
-            // java.?lang.?RuntimeException: Fail to connect to camera service
-            displayFrameworkBugMessageAndExit();
-        }
+        } catch (IOException | RuntimeException ioe) {
+            TipDialog.show(this, "相机初始化失败请重试", TipDialog.TYPE.ERROR);
+
+        } // Barcode Scanner has seen crashes in the wild of this variety:
+        // java.?lang.?RuntimeException: Fail to connect to camera service
+
     }
 
     /**
@@ -231,30 +241,6 @@ public abstract class BaseCaptureActivity extends AppCompatActivity implements S
         return 0;
     }
 
-    /**
-     * 弹出错误提示框
-     */
-    private void displayFrameworkBugMessageAndExit() {
-        // camera error
-        //        HHDialogUtils.Builder builder = new HHDialogUtils.Builder(getPageContext());
-        //        builder.setMessage(getString(R.string.scan_camera_open_failed));
-        //        builder.setPositiveListener(new HHDialogListener() {
-        //            @Override
-        //            public void onClick(Dialog paramDialog, View paramView) {
-        //                paramDialog.dismiss();
-        //                finish();
-        //            }
-        //        });
-        //        builder.setNegativeListener(new HHDialogListener() {
-        //            @Override
-        //            public void onClick(Dialog paramDialog, View paramView) {
-        //                paramDialog.dismiss();
-        //                finish();
-        //            }
-        //        });
-        //        builder.isShowAllBotton(false);
-        //        builder.createOptionDialog().show();
-    }
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {

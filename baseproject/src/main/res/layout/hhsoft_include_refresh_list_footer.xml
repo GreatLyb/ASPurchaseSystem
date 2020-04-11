@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/fi_wr"
+    android:layout_height="@dimen/top_height"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <com.lysoft.baseproject.view.HHSoftLoadingCircleView
+        android:id="@+id/huahansoft_iv_refresh_loadmore_icon"
+        style="@style/wr_wr"
+        android:background="@drawable/hhsoft_loading_progress_bar" />
+
+    <TextView
+        style="@style/wr_wr"
+        android:textSize="14sp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:text="@string/huahansoft_load_state_loading"
+        android:textColor="@color/defaultGrayText" />
+</LinearLayout>

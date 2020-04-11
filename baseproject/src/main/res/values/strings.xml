@@ -29,4 +29,8 @@
     <string name="huahansoft_load_state_no_data">暂无数据</string>
     <string name="huahansoft_load_state_no_more_data">暂无更多数据</string>
     <string name="huahansoft_load_state_failed">加载失败，点击重试</string>
+    <string name="huahansoft_refresh_header_pull">下拉刷新</string>
+    <string name="huahansoft_refresh_header_pull_release">释放立即刷新</string>
+    <string name="huahansoft_refresh_header_progress">正在刷新...</string>
+    <string name="huahansoft_refresh_header_last_time">最近刷新: </string>
 </resources>

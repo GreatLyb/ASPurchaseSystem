@@ -44,8 +44,11 @@
         <activity android:name=".ui.LoginActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
-           >
-        </activity>
+           ></activity>
+        <activity
+            android:name=".ui.TestListActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"></activity>
     </application>
 
 </manifest>

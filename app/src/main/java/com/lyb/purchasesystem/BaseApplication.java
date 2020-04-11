@@ -42,14 +42,14 @@ import okhttp3.OkHttpClient;
 public class BaseApplication extends HHSoftApplication {
 
     //全局唯一的context
-//    private static BaseApplication application;
+    //    private static BaseApplication application;
 
     private static SoftReference<Application> reference;
 
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
-//        application = this;
+        //        application = this;
         reference = new SoftReference<>(this);
         //  MultiDex分包方法 必须最先初始化
         MultiDex.install(this);
@@ -59,10 +59,10 @@ public class BaseApplication extends HHSoftApplication {
     public void onCreate() {
         super.onCreate();
         ARouter.openLog();     // 打印日志
-        if (isDebug()){
+        if (isDebug()) {
             ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险
         }
-        ARouter.init(getApplication()); // 尽可能早，推荐在Application中初始化
+        ARouter.init(this); // 尽可能早，推荐在Application中初始化
         //全局异常捕捉
         initCrash();
         initLogger();
@@ -79,8 +79,9 @@ public class BaseApplication extends HHSoftApplication {
     private void initDialog() {
         DialogSettings.isUseBlur = (true);               //是否开启模糊效果，默认关闭
         DialogSettings.style = (DialogSettings.STYLE.STYLE_IOS);      //全局主题风格，提供三种可选风格，STYLE_MATERIAL, STYLE_KONGZUE, STYLE_IOS
-        DialogSettings.theme = (DialogSettings.THEME.DARK);      //全局明暗风格，提供两种可选主题，LIGHT, DARK
-        //        DialogSettings.titleTextInfo = (TextInfo);          //全局标题文字样式
+        DialogSettings.theme = (DialogSettings.THEME.LIGHT);      //全局明暗风格，提供两种可选主题，LIGHT, DARK
+        //        TextInfo textInfo = DialogSettings.titleTextInfo.setFontColor(R.color.black_dim);
+        //        DialogSettings.titleTextInfo = (textInfo);          //全局标题文字样式
         //        DialogSettings.contentTextInfo = (TextInfo);        //全局正文文字样式
         //        DialogSettings.buttonTextInfo = (TextInfo);         //全局默认按钮文字样式
         //        DialogSettings.buttonPositiveTextInfo = (TextInfo); //全局焦点按钮文字样式（一般指确定按钮）
@@ -94,7 +95,7 @@ public class BaseApplication extends HHSoftApplication {
 
     private boolean isDebug() {
         try {
-            ApplicationInfo  info = getApplicationInfo();
+            ApplicationInfo info = getApplicationInfo();
             return (info.flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0;
         } catch (Exception e) {
             return false;

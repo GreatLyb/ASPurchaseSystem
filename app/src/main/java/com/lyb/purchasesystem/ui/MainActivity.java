@@ -9,9 +9,9 @@ import android.widget.RadioButton;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.hjq.toast.ToastUtils;
 import com.lyb.purchasesystem.R;
-import com.lyb.purchasesystem.fragment.MsgFragment;
 import com.lyb.purchasesystem.fragment.MainFragment;
-import com.lyb.purchasesystem.fragment.UserFragment;
+import com.lyb.purchasesystem.fragment.MsgFragment;
+import com.lyb.purchasesystem.fragment.UserCenterFragment;
 import com.lysoft.baseproject.utils.DensityUtils;
 
 import androidx.core.content.ContextCompat;
@@ -26,6 +26,7 @@ public class MainActivity extends BaseMainActivity {
     @Override
     protected int[] getDrawableIDs() {
         return new int[]{R.drawable.main_selector_rb_bottom_1, R.drawable.main_selector_rb_bottom_2, R.drawable.main_selector_rb_bottom_4, R.drawable.main_selector_rb_bottom_5};
+
     }
 
     //双击退出应用
@@ -46,6 +47,15 @@ public class MainActivity extends BaseMainActivity {
         } else {
             finish();
         }
+        //ImagePicker imagePicker=new ImagePicker();
+        //
+        //        imagePicker.startCamera(this, new ImagePicker.Callback() {
+        //            @Override
+        //            public void onPickImage(Uri imageUri) {
+        //
+        //            }
+        //        });
+
     }
 
     @Override
@@ -79,7 +89,7 @@ public class MainActivity extends BaseMainActivity {
                 fragment = new MsgFragment();
                 break;
             case 3:
-                fragment = new UserFragment();
+                fragment = new UserCenterFragment(this);
                 break;
             default:
                 break;

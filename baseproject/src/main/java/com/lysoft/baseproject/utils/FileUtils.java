@@ -1,9 +1,12 @@
 package com.lysoft.baseproject.utils;
 
-import android.app.Application;
+import android.content.ContentResolver;
 import android.content.Context;
+import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Environment;
+import android.provider.MediaStore;
 
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
@@ -18,6 +21,35 @@ import java.io.InputStream;
  * Created by zw on 19/12/1.
  */
 public class FileUtils {
+
+
+    /**
+     * 根据Uri返回文件绝对路径
+     * 兼容了file:///开头的 和 content://开头的情况
+     */
+    public static String getRealFilePathFromUri(final Context context, final Uri uri) {
+        if (null == uri)
+            return null;
+        final String scheme = uri.getScheme();
+        String data = null;
+        if (scheme == null) {
+            data = uri.getPath();
+        } else if (ContentResolver.SCHEME_FILE.equalsIgnoreCase(scheme)) {
+            data = uri.getPath();
+        } else if (ContentResolver.SCHEME_CONTENT.equalsIgnoreCase(scheme)) {
+            Cursor cursor = context.getContentResolver().query(uri, new String[]{MediaStore.Images.ImageColumns.DATA}, null, null, null);
+            if (null != cursor) {
+                if (cursor.moveToFirst()) {
+                    int index = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
+                    if (index > -1) {
+                        data = cursor.getString(index);
+                    }
+                }
+                cursor.close();
+            }
+        }
+        return data;
+    }
 
     //File转换为byte[]
     public static byte[] getBytesByFile(String filePath) {
