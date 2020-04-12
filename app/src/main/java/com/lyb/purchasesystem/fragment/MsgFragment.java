@@ -1,7 +1,10 @@
 package com.lyb.purchasesystem.fragment;
 
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
+import com.blankj.utilcode.util.ScreenUtils;
 import com.lysoft.baseproject.activity.BaseUIFragment;
 
 /**

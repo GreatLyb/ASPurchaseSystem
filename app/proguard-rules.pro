@@ -34,4 +34,7 @@
 -dontwarn androidx.renderscript.RenderScript.**
 -keep public class androidx.renderscript.RenderScript.** { *; }
 
-#图片选择----------------------
+#轮播图----------------------
+
+  -keep class androidx.recyclerview.widget.**{*;}
+    -keep class androidx.viewpager2.widget.**{*;}
