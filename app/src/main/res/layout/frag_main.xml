@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView style="@style/fi_fi">
+<ScrollView style="@style/fi_fi"
+    android:background="@color/background_color"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -11,6 +13,7 @@
             android:id="@+id/banner_view"
             android:layout_width="match_parent"
             android:minHeight="100dp"
+          android:layout_margin="8dp"
             android:layout_height="wrap_content"
              />
     </LinearLayout>

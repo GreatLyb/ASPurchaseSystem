@@ -95,6 +95,7 @@ public abstract class BaseMainActivity extends BaseUIActivity {
 
 
     public void initListeners() {
+        viewPager.setOffscreenPageLimit(4);
         viewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public int getCount() {

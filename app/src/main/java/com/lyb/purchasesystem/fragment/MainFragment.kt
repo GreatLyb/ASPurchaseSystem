@@ -12,6 +12,7 @@ import com.lyb.purchasesystem.adapter.BannerAdapter
 import com.lyb.purchasesystem.adapter.NetViewHolder
 import com.lyb.purchasesystem.bean.BannerData
 import com.lysoft.baseproject.activity.BaseUIFragment
+import com.lysoft.baseproject.utils.DensityUtils
 import com.zhpan.bannerview.BannerViewPager
 import com.zhpan.bannerview.constants.IndicatorGravity
 import com.zhpan.bannerview.constants.PageStyle
@@ -55,6 +56,7 @@ class MainFragment : BaseUIFragment() {
             ++a
         }
         val params = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ScreenUtils.getScreenWidth() * 3 / 5)
+        params.setMargins(DensityUtils.dip2px(pageContext,8f),DensityUtils.dip2px(pageContext,8f),DensityUtils.dip2px(pageContext,8f),DensityUtils.dip2px(pageContext,8f))
         bannerView!!.layoutParams=params
         bannerView!!
                     .setAutoPlay(true)
@@ -66,7 +68,7 @@ class MainFragment : BaseUIFragment() {
                     .setOrientation(ViewPager2.ORIENTATION_HORIZONTAL)
                     .setInterval(3000)
                     .setScrollDuration(1000)
-//                    .setRoundCorner(10)
+                    .setRoundCorner(10)
 //                    .setPageMargin(20)
 //                    .setRevealWidth(50)
                     .setIndicatorGravity(IndicatorGravity.CENTER)
