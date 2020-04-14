@@ -11,6 +11,9 @@ import com.lyb.purchasesystem.R;
 import com.lysoft.baseproject.activity.BaseUIActivity;
 import com.lysoft.baseproject.imp.SingleClick;
 
+import java.util.Arrays;
+import java.util.List;
+
 import androidx.annotation.Nullable;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,6 +38,7 @@ public class LoginActivity extends BaseUIActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //
+
         statuBarView().setVisibility(View.GONE);
         topViewManager().topView().setVisibility(View.GONE);
         View view = View.inflate(getPageContext(), R.layout.activity_login, null);
