@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView style="@style/fi_fi"
-    android:background="@color/background_color"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/fi_fi"
+    android:background="@color/background_color">
 
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -12,9 +12,22 @@
         <com.zhpan.bannerview.BannerViewPager
             android:id="@+id/banner_view"
             android:layout_width="match_parent"
-            android:minHeight="100dp"
-          android:layout_margin="8dp"
             android:layout_height="wrap_content"
-             />
+            android:layout_margin="8dp"
+            android:minHeight="100dp" />
+
+        <com.lysoft.baseproject.view.HHAtMostGridView
+            android:id="@+id/gv_fmp_icon"
+            style="@style/fi_wr"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/background_color"
+            android:cacheColorHint="@color/transparent"
+            android:fadingEdgeLength="0dp"
+            android:horizontalSpacing="1dp"
+            android:listSelector="@color/transparent"
+            android:numColumns="3"
+            android:scrollbars="none"
+            android:verticalSpacing="1dp" />
     </LinearLayout>
 </ScrollView>
