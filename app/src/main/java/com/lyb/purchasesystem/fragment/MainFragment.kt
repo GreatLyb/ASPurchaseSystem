@@ -44,6 +44,7 @@ class MainFragment : BaseUIFragment() {
         initListener()
         initBannerView()
         initGrideView()
+
     }
 
     private fun initGrideView() {
