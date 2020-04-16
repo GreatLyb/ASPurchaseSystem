@@ -11,6 +11,7 @@ import com.hjq.toast.ToastUtils;
 import com.lyb.purchasesystem.R;
 import com.lyb.purchasesystem.fragment.MainFragment;
 import com.lyb.purchasesystem.fragment.MsgFragment;
+import com.lyb.purchasesystem.fragment.PhoneNumListFragment;
 import com.lyb.purchasesystem.fragment.UserCenterFragment;
 import com.lysoft.baseproject.utils.DensityUtils;
 
@@ -86,7 +87,7 @@ public class MainActivity extends BaseMainActivity {
                 fragment = new MsgFragment();
                 break;
             case 2:
-                fragment = new MsgFragment();
+                fragment = new PhoneNumListFragment();
                 break;
             case 3:
                 fragment = new UserCenterFragment();

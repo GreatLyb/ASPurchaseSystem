@@ -56,7 +56,7 @@ public class SplashActivity extends BaseUIActivity {
             @Override
             public void onFinish() {
                 ARouter.getInstance().build("/app/MainActivity").navigation();
-                ARouter.getInstance().build("/app/WeChatActivity").navigation();
+//                ARouter.getInstance().build("/app/WeChatActivity").navigation();
                 //                ARouter.getInstance().build("/app/TestListActivity").navigation();
                 //                ARouter.getInstance().build("/app/LoginActivity").navigation();
                 //                startActivity(new Intent(getPageContext(), ScanCodeActivity.class));

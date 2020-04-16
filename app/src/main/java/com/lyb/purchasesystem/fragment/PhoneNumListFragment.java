@@ -1,6 +1,5 @@
-package com.lyb.purchasesystem.ui;
+package com.lyb.purchasesystem.fragment;
 
-import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
@@ -9,13 +8,13 @@ import com.lyb.purchasesystem.R;
 import com.lyb.purchasesystem.adapter.CityAdapter;
 import com.lyb.purchasesystem.bean.CityBean;
 import com.lyb.purchasesystem.decoration.DividerItemDecoration;
+import com.lysoft.baseproject.activity.BaseUIFragment;
 import com.mcxtzhang.indexlib.IndexBar.widget.IndexBar;
 import com.mcxtzhang.indexlib.suspension.SuspensionDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -28,7 +27,7 @@ import androidx.recyclerview.widget.RecyclerView;
  * 时间： 2016/11/7.
  */
 @Route(path = "/app/WeChatActivity")
-public class WeChatActivity extends AppCompatActivity {
+public class PhoneNumListFragment extends BaseUIFragment {
     private static final String TAG = "zxt";
     private static final String INDEX_STRING_TOP = "↑";
     private RecyclerView mRv;
@@ -49,22 +48,23 @@ public class WeChatActivity extends AppCompatActivity {
     private TextView mTvSideBarHint;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_wechat);
+    protected void onCreate() {
+        View view = View.inflate(getPageContext(), R.layout.activity_wechat, null);
+        containerView().addView(view);
+        topViewManager().backTextView().setVisibility(View.GONE);
+        topViewManager().titleTextView().setText("通讯录");
+        mRv = view.findViewById(R.id.rv);
+        mRv.setLayoutManager(mManager = new LinearLayoutManager(getPageContext()));
 
-        mRv = (RecyclerView) findViewById(R.id.rv);
-        mRv.setLayoutManager(mManager = new LinearLayoutManager(this));
-
-        mAdapter = new CityAdapter(this, mDatas);
+        mAdapter = new CityAdapter(getPageContext(), mDatas);
         mRv.setAdapter(mAdapter);
-        mRv.addItemDecoration(mDecoration = new SuspensionDecoration(this, mDatas));
+        mRv.addItemDecoration(mDecoration = new SuspensionDecoration(getPageContext(), mDatas));
         //如果add两个，那么按照先后顺序，依次渲染。
-        mRv.addItemDecoration(new com.lyb.purchasesystem.decoration.DividerItemDecoration(WeChatActivity.this, DividerItemDecoration.VERTICAL_LIST));
+        mRv.addItemDecoration(new com.lyb.purchasesystem.decoration.DividerItemDecoration(getPageContext(), DividerItemDecoration.VERTICAL_LIST));
 
         //使用indexBar
-        mTvSideBarHint = (TextView) findViewById(R.id.tvSideBarHint);//HintTextView
-        mIndexBar = (IndexBar) findViewById(R.id.indexBar);//IndexBar
+        mTvSideBarHint = view.findViewById(R.id.tvSideBarHint);//HintTextView
+        mIndexBar = view.findViewById(R.id.indexBar);//IndexBar
 
         //indexbar初始化
         mIndexBar.setmPressedShowTextView(mTvSideBarHint)//设置HintTextView
@@ -75,6 +75,7 @@ public class WeChatActivity extends AppCompatActivity {
         initDatas(getResources().getStringArray(R.array.provinces));
     }
 
+
     /**
      * 组织数据源
      *
@@ -83,28 +84,25 @@ public class WeChatActivity extends AppCompatActivity {
      */
     private void initDatas(final String[] data) {
         //延迟两秒 模拟加载数据中....
-        getWindow().getDecorView().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mDatas = new ArrayList<>();
-                //微信的头部 也是可以右侧IndexBar导航索引的，
-                // 但是它不需要被ItemDecoration设一个标题titile
-                mDatas.add((CityBean) new CityBean("新的朋友").setTop(true).setBaseIndexTag(INDEX_STRING_TOP));
-                mDatas.add((CityBean) new CityBean("群聊").setTop(true).setBaseIndexTag(INDEX_STRING_TOP));
-                mDatas.add((CityBean) new CityBean("标签").setTop(true).setBaseIndexTag(INDEX_STRING_TOP));
-                mDatas.add((CityBean) new CityBean("公众号").setTop(true).setBaseIndexTag(INDEX_STRING_TOP));
-                for (int i = 0; i < data.length; i++) {
-                    CityBean cityBean = new CityBean();
-                    cityBean.setCity(data[i]);//设置城市名称
-                    mDatas.add(cityBean);
-                }
-                mAdapter.setDatas(mDatas);
-                mAdapter.notifyDataSetChanged();
-
-                mIndexBar.setmSourceDatas(mDatas)//设置数据
-                        .invalidate();
-                mDecoration.setmDatas(mDatas);
+        getActivity().getWindow().getDecorView().postDelayed((Runnable) () -> {
+            mDatas = new ArrayList<>();
+            //微信的头部 也是可以右侧IndexBar导航索引的，
+            // 但是它不需要被ItemDecoration设一个标题titile
+//            mDatas.add((CityBean) new CityBean("新的朋友").setTop(true).setBaseIndexTag(INDEX_STRING_TOP));
+//            mDatas.add((CityBean) new CityBean("群聊").setTop(true).setBaseIndexTag(INDEX_STRING_TOP));
+//            mDatas.add((CityBean) new CityBean("标签").setTop(true).setBaseIndexTag(INDEX_STRING_TOP));
+//            mDatas.add((CityBean) new CityBean("公众号").setTop(true).setBaseIndexTag(INDEX_STRING_TOP));
+            for (int i = 0; i < data.length; i++) {
+                CityBean cityBean = new CityBean();
+                cityBean.setCity(data[i]);//设置城市名称
+                mDatas.add(cityBean);
             }
+            mAdapter.setDatas(mDatas);
+            mAdapter.notifyDataSetChanged();
+
+            mIndexBar.setmSourceDatas(mDatas)//设置数据
+                    .invalidate();
+            mDecoration.setmDatas(mDatas);
         }, 500);
     }
 
@@ -123,4 +121,6 @@ public class WeChatActivity extends AppCompatActivity {
                 .invalidate();
         mAdapter.notifyDataSetChanged();
     }
+
+
 }

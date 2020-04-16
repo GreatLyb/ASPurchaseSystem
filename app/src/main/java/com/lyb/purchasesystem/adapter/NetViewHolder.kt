@@ -16,6 +16,7 @@ class NetViewHolder constructor(itemView: View) : BaseViewHolder<BannerData>(ite
     }
 
     override fun bindData(data: BannerData?, position: Int, pageSize: Int) {
+        println("data?.imagePath==="+data?.imagePath)
         Glide.with(itemView.banner_image).load(data?.imagePath).placeholder(R.drawable.default_img_round).into(itemView.banner_image);
         itemView.tv_describe.text=data?.titleName
     }
