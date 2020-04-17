@@ -1,24 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/content"
-    android:layout_width="match_parent"
-    android:layout_height="70dp"
-    android:gravity="center_vertical"
-    android:orientation="horizontal"
-    android:paddingLeft="15dp">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/fi_wr"
+    android:background="@color/white"
+    android:layout_height="71dp">
+
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp">
+
+        <ImageView
+            android:id="@+id/ivAvatar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/call_head" />
+
+        <TextView
+            android:id="@+id/tvCity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:textColor="@color/black_dim"
+            android:paddingLeft="15dp"
+            android:text="安徽" />
+    </LinearLayout>
 
     <ImageView
-        android:id="@+id/ivAvatar"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        tools:src="@drawable/friend" />
+        android:id="@+id/img_call"
+        style="@style/wr_wr"
+        android:layout_marginEnd="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/call_phone" />
 
-    <TextView
-        android:id="@+id/tvCity"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_vertical"
-        android:paddingLeft="15dp"
-        tools:text="安徽" />
-</LinearLayout>
+    <View
+        style="@style/fi_wr"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="55dp"
+        android:background="@color/background_color" />
+
+</RelativeLayout>
+

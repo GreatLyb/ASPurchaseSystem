@@ -148,7 +148,7 @@ public class IndexBar extends View {
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
         mPaint.setTextSize(textSize);
-        mPaint.setColor(Color.BLACK);
+        mPaint.setColor(Color.parseColor("#9F9F9F"));
 
         //设置index触摸监听器
         setmOnIndexPressedListener(new onIndexPressedListener() {

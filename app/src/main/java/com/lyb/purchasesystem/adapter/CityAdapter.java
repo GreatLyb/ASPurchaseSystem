@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.hjq.toast.ToastUtils;
 import com.lyb.purchasesystem.R;
 import com.lyb.purchasesystem.bean.CityBean;
 
@@ -52,10 +52,10 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.ViewHolder> {
         holder.content.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, "pos:" + position, Toast.LENGTH_SHORT).show();
+                ToastUtils.show("拨打电话==" + position);
             }
         });
-        holder.avatar.setImageResource(R.drawable.friend);
+        holder.avatar.setImageResource(R.drawable.call_head);
     }
 
     @Override

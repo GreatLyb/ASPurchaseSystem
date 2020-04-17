@@ -3,11 +3,9 @@ package com.lyb.purchasesystem.fragment;
 import android.view.View;
 import android.widget.TextView;
 
-import com.alibaba.android.arouter.facade.annotation.Route;
 import com.lyb.purchasesystem.R;
 import com.lyb.purchasesystem.adapter.CityAdapter;
 import com.lyb.purchasesystem.bean.CityBean;
-import com.lyb.purchasesystem.decoration.DividerItemDecoration;
 import com.lysoft.baseproject.activity.BaseUIFragment;
 import com.mcxtzhang.indexlib.IndexBar.widget.IndexBar;
 import com.mcxtzhang.indexlib.suspension.SuspensionDecoration;
@@ -26,7 +24,6 @@ import androidx.recyclerview.widget.RecyclerView;
  * 主页：http://blog.csdn.net/zxt0601
  * 时间： 2016/11/7.
  */
-@Route(path = "/app/WeChatActivity")
 public class PhoneNumListFragment extends BaseUIFragment {
     private static final String TAG = "zxt";
     private static final String INDEX_STRING_TOP = "↑";
@@ -60,8 +57,7 @@ public class PhoneNumListFragment extends BaseUIFragment {
         mRv.setAdapter(mAdapter);
         mRv.addItemDecoration(mDecoration = new SuspensionDecoration(getPageContext(), mDatas));
         //如果add两个，那么按照先后顺序，依次渲染。
-        mRv.addItemDecoration(new com.lyb.purchasesystem.decoration.DividerItemDecoration(getPageContext(), DividerItemDecoration.VERTICAL_LIST));
-
+        //        mRv.addItemDecoration(new com.lyb.purchasesystem.decoration.DividerItemDecoration(getPageContext(), DividerItemDecoration.VERTICAL_LIST));
         //使用indexBar
         mTvSideBarHint = view.findViewById(R.id.tvSideBarHint);//HintTextView
         mIndexBar = view.findViewById(R.id.indexBar);//IndexBar
