@@ -88,4 +88,5 @@ dependencies {
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     api 'com.github.zhpanvip:BannerViewPager:3.0.0'
     api 'androidx.viewpager2:viewpager2:1.1.0-alpha01'
+    api 'me.jessyan:autosize:1.2.1'
 }

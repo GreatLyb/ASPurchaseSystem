@@ -11,7 +11,6 @@ import android.widget.TextView;
 import com.lysoft.baseproject.activity.LyActivity;
 import com.lysoft.baseproject.bean.HHSoftTopViewInfo;
 import com.lysoft.baseproject.utils.HHSoftDensityUtils;
-import com.lysoft.baseproject.utils.HHSoftScreenUtils;
 
 import androidx.fragment.app.FragmentActivity;
 
@@ -83,19 +82,11 @@ public final class DefaultTopViewManager {
         mView = new LinearLayout(mActivity);
         mView.setOrientation(LinearLayout.VERTICAL);
         mView.setBackgroundColor(Color.parseColor(mTopViewInfo.topBackgroundColor));
-        mStatusBarView = new TextView(mActivity);
-        mStatusBarView.setLayoutParams(new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, HHSoftScreenUtils.statusBarHeight(mActivity)));
-        mView.addView(mStatusBarView);
-        if (mIsShowStatusBar) {
-            mStatusBarView.setVisibility(View.VISIBLE);
-        } else {
-            mStatusBarView.setVisibility(View.GONE);
-        }
         mTopView = new RelativeLayout(mActivity);
         mView.addView(mTopView, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, HHSoftDensityUtils.dip2px(mActivity, mTopViewInfo.topViewHeight)));
         mBackTextView = new TextView(mActivity);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT);
-        layoutParams.leftMargin = 20;
+        layoutParams.leftMargin = 30;
         mBackTextView.setLayoutParams(layoutParams);
         mBackTextView.setCompoundDrawablesWithIntrinsicBounds(mTopViewInfo.backLeftDrawable, 0, 0, 0);
         mBackTextView.setGravity(Gravity.CENTER_VERTICAL);
@@ -200,14 +191,6 @@ public final class DefaultTopViewManager {
         return mLineView;
     }
 
-    /**
-     * 获取状态栏
-     *
-     * @return
-     */
-    public TextView statusBarView() {
-        return mStatusBarView;
-    }
 
     /**
      * 设置分割线可见

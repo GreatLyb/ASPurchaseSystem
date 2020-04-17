@@ -52,4 +52,148 @@
             android:layout_marginRight="10dp"
             android:src="@drawable/default_head_circle" />
     </LinearLayout>
+
+    <LinearLayout
+        style="@style/fi_wr"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:weightSum="5">
+
+        <RelativeLayout
+            style="@style/weight_w_w"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tv_user_center_wait_pay"
+                style="@style/wr_wr"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/wait_pay"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="5dp"
+                android:text="待付款"
+                android:textColor="@color/black_dim"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_user_center_wait_pay_count"
+                style="@style/user_center_count"
+                android:layout_alignRight="@id/tv_user_center_wait_pay"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="-3dp"
+                android:textSize="10sp"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/weight_w_w"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tv_user_center_wait_send_goods"
+                style="@style/wr_wr"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/wait_send_goods"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="5dp"
+                android:text="待发货"
+                android:textColor="@color/black_dim"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_user_center_wait_send_goods_count"
+                style="@style/user_center_count"
+                android:layout_alignRight="@id/tv_user_center_wait_send_goods"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="-3dp"
+                android:textSize="10sp"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/weight_w_w"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tv_user_center_wait_receive_goods"
+                style="@style/wr_wr"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/wait_receive_goods"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="5dp"
+                android:text="待收货"
+                android:textColor="@color/black_dim"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_user_center_wait_receive_goods_count"
+                style="@style/user_center_count"
+                android:layout_alignRight="@id/tv_user_center_wait_receive_goods"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="-3dp"
+                android:textSize="10sp"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/weight_w_w"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tv_user_center_wait_comment"
+                style="@style/wr_wr"
+                android:drawableTop="@drawable/wait_comment"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="5dp"
+                android:text="待评价"
+                android:textColor="@color/black_dim"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_user_center_wait_comment_count"
+                style="@style/user_center_count"
+                android:layout_alignRight="@id/tv_user_center_wait_comment"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="-3dp"
+                android:textSize="10sp"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/weight_w_w"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tv_user_center_after_sale"
+                style="@style/wr_wr"
+                android:drawableTop="@drawable/after_sale"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="5dp"
+                android:text="售后"
+                android:textColor="@color/black_dim"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_user_center_after_sale_count"
+                style="@style/user_center_count"
+                android:layout_alignRight="@id/tv_user_center_after_sale"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="-3dp"
+                android:textSize="10sp"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
 </LinearLayout>

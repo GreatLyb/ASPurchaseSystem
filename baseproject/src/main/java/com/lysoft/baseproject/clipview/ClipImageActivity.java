@@ -1,31 +1,27 @@
 package com.lysoft.baseproject.clipview;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lysoft.baseproject.R;
+import com.lysoft.baseproject.activity.BaseUIActivity;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 
 /**
  * 头像裁剪Activity
  */
-public class ClipImageActivity extends AppCompatActivity implements View.OnClickListener {
+public class ClipImageActivity extends BaseUIActivity implements View.OnClickListener {
 
     private static final String TAG = "ClipImageActivity";
 
@@ -33,7 +29,6 @@ public class ClipImageActivity extends AppCompatActivity implements View.OnClick
     public static final int REQ_CLIP_AVATAR = 50;
 
     private ClipViewLayout mClipViewLayout;
-    private ImageView mBack;
     private TextView mBtnCancel;
     private TextView mBtnOk;
 
@@ -58,7 +53,9 @@ public class ClipImageActivity extends AppCompatActivity implements View.OnClick
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_clip_image);
+        View view = View.inflate(getPageContext(), R.layout.activity_clip_image, null);
+        containerView().addView(view);
+        topViewManager().titleTextView().setText("移动和缩放");
         mType = getIntent().getIntExtra(TYPE, ClipView.TYPE_ROUND);
         Log.i(TAG, "onCreate: mType =" + mType);
         initView();
@@ -70,11 +67,10 @@ public class ClipImageActivity extends AppCompatActivity implements View.OnClick
      */
     public void initView() {
         mClipViewLayout = findViewById(R.id.clipViewLayout);
-        mBack = findViewById(R.id.iv_back);
         mBtnCancel = findViewById(R.id.btn_cancel);
         mBtnOk = findViewById(R.id.bt_ok);
         //设置点击事件监听器
-        mBack.setOnClickListener(this);
+
         mBtnCancel.setOnClickListener(this);
         mBtnOk.setOnClickListener(this);
     }
@@ -93,9 +89,7 @@ public class ClipImageActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        if (id == R.id.iv_back) {
-            finish();
-        } else if (id == R.id.btn_cancel) {
+        if (id == R.id.btn_cancel) {
             finish();
         } else if (id == R.id.bt_ok) {
             generateUriAndReturn();

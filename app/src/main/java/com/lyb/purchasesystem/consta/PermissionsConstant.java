@@ -22,6 +22,7 @@ public class PermissionsConstant {
             Manifest.permission.CAMERA,
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.ACCESS_WIFI_STATE,
+            Manifest.permission.CALL_PHONE,
             Manifest.permission.ACCESS_NETWORK_STATE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE};
     /**
