@@ -35,7 +35,6 @@ import java.util.logging.Level;
 
 import androidx.multidex.MultiDex;
 import me.jessyan.autosize.AutoSizeConfig;
-import me.jessyan.autosize.unit.Subunits;
 import okhttp3.OkHttpClient;
 
 /**
@@ -63,9 +62,9 @@ public class BaseApplication extends HHSoftApplication {
         AutoSizeConfig.getInstance()
                 .setCustomFragment(true)
                 .getUnitsManager()
-                .setSupportDP(false)
-                .setSupportSP(false)
-                .setSupportSubunits(Subunits.MM);
+                .setSupportDP(true)
+                .setSupportSP(true);
+        //                .setSupportSubunits(Subunits.MM);
         ARouter.openLog();     // 打印日志
         if (isDebug()) {
             ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险

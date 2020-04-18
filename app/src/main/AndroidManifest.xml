@@ -22,7 +22,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="LockedOrientationActivity">
+        tools:ignore="LockedOrientationActivity"
+        tools:targetApi="o">
         <activity android:name=".ui.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,13 +32,12 @@
             </intent-filter>
         </activity>
 
-        <!-- 这个 Demo 主要展示副单位的用法, 如果只使用副单位 (pt、in、mm) 就可以直接以像素作为单位填写设计图的尺寸, 不需再把像素转化为 dp-->
         <meta-data
             android:name="design_width_in_dp"
-            android:value="1080" />
+            android:value="360" />
         <meta-data
             android:name="design_height_in_dp"
-            android:value="1920" />
+            android:value="640" />
 
         <!--        <activity android:name=".ui.SplashActivity">-->
         <!--            <intent-filter>-->
