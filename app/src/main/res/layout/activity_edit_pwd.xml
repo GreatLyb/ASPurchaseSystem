@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/fi_wr"
+    android:background="@color/background_color">
+
+    <LinearLayout
+        style="@style/fi_fi"
+        android:background="@color/background_color"
+        android:orientation="vertical">
+
+        <LinearLayout
+            style="@style/fi_wr"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/et_set_login_pwd_old"
+                style="@style/edit_pwd_login"
+                android:hint="请输入旧密码"
+                android:inputType="textPassword"
+                android:maxLength="16"
+                android:padding="10dp" />
+
+            <View style="@style/line_margin" />
+
+            <EditText
+                android:id="@+id/et_set_login_pwd_new"
+                style="@style/edit_pwd_login"
+                android:hint="请输入新密码"
+                android:inputType="textPassword"
+                android:maxLength="16"
+                android:padding="10dp" />
+
+            <View style="@style/line_margin" />
+
+            <EditText
+                android:id="@+id/et_set_login_pwd_new_again"
+                style="@style/edit_pwd_login"
+                android:hint="请再次输入新密码"
+                android:inputType="textPassword"
+                android:maxLength="16"
+                android:padding="10dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_set_login_pwd_submit"
+            style="@style/tv_sure"
+            android:layout_marginTop="50dp"
+            android:text="@string/confirm" />
+    </LinearLayout>
+</ScrollView>
