@@ -90,7 +90,7 @@ public class MainActivity extends BaseMainActivity {
                 fragment = new PhoneNumListFragment();
                 break;
             case 3:
-                fragment = new UserCenterFragment();
+                fragment = new UserCenterFragment(this);
                 break;
             default:
                 break;

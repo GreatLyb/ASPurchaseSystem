@@ -259,6 +259,7 @@
         <View style="@style/line_margin" />
 
         <TextView
+            android:id="@+id/tv_logout"
             style="@style/tv_gray_sure"
             android:text="注销登录"
             android:textColor="@color/text_gray" />

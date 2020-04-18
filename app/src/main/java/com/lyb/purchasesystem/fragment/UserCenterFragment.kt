@@ -2,11 +2,11 @@ package com.lyb.purchasesystem.fragment
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
-import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.alibaba.android.arouter.launcher.ARouter
 import com.bumptech.glide.Glide
 import com.hjq.toast.ToastUtils
 import com.kongzue.dialog.util.TextInfo
@@ -26,7 +26,7 @@ import kotlinx.android.synthetic.main.frag_user_center.view.*
  *
  * @Author： create by Lyb on 2020-04-10 14:39
  */
-class UserCenterFragment  : View.OnClickListener, BaseUIFragment() {
+class UserCenterFragment(val parentActivity: AppCompatActivity) : View.OnClickListener, BaseUIFragment() {
     lateinit var imagePicker: ImagePicker
 
 
@@ -37,6 +37,7 @@ class UserCenterFragment  : View.OnClickListener, BaseUIFragment() {
         containerView().addView(view)
         containerView().img_head.setOnClickListener(this)
         containerView().tv_name.setOnClickListener(this)
+        containerView().tv_logout.setOnClickListener(this)
         val textInfo = TextInfo();
         textInfo.fontColor = R.color.main_color
 //        DialogSettings.contentTextInfo=textInfo;
@@ -66,7 +67,17 @@ class UserCenterFragment  : View.OnClickListener, BaseUIFragment() {
 //                }).setCancelButtonTextInfo(textInfo).setMenuTextInfo(menutextInfo)
             }
             tv_name.id -> (ToastUtils.show("名字"))
+            tv_user_center_edit_pwd.id -> ARouter.getInstance().build("/app/UserEditPwdActivity").navigation()
+            tv_logout.id -> outLogin()
         }
+    }
+
+    /**
+     * 退出登录
+     */
+    private fun outLogin() {
+//        MessageDialog.show(parentActivity,"提示",)
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
