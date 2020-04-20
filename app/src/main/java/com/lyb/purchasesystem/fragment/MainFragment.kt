@@ -1,8 +1,10 @@
 package com.lyb.purchasesystem.fragment
 
+import android.os.CountDownTimer
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.viewpager2.widget.ViewPager2
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.alibaba.android.arouter.launcher.ARouter
@@ -41,6 +43,24 @@ class MainFragment : BaseUIFragment() {
         val view = View.inflate(pageContext, R.layout.frag_main, null)
         bannerView = getViewByID(view, R.id.banner_view)
         containerView().addView(view)
+        containerView().sw_main.setColorSchemeResources(R.color.main_color)
+        //设置下拉出现小圆圈是否是缩放出现，出现的位置，最大的下拉位置
+//        containerView().sw_main.setProgressViewOffset(true, 0, 150);
+
+        containerView().sw_main.setOnRefreshListener(SwipeRefreshLayout.OnRefreshListener(fun() {
+            //
+            object : CountDownTimer(1000, 1000) {
+                override fun onFinish() {
+                    com.hjq.toast.ToastUtils.show("刷新成功")
+                    containerView().sw_main.isRefreshing = false
+
+                }
+
+                override fun onTick(millisUntilFinished: Long) {
+                }
+
+            }.start()
+        }))
         initListener()
         initBannerView()
         initGrideView()

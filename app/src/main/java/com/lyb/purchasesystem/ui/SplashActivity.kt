@@ -59,7 +59,7 @@ class SplashActivity : BaseUIActivity() {
     }
 
     private fun splashEnd() {
-        val countDownTimer: CountDownTimer = object : CountDownTimer(1000, 1000) {
+        object : CountDownTimer(1000, 1000) {
             override fun onTick(millisUntilFinished: Long) {}
             override fun onFinish() {
                 ARouter.getInstance().build("/app/MainActivity").navigation()
@@ -69,8 +69,7 @@ class SplashActivity : BaseUIActivity() {
                 //                startActivity(new Intent(getPageContext(), ScanCodeActivity.class));
                 finish()
             }
-        }
-        countDownTimer.start()
+        }.start()
     }
 
     override fun permissionsDenied(perms: List<String>) {

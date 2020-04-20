@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.alibaba.android.arouter.launcher.ARouter
 import com.bumptech.glide.Glide
 import com.hjq.toast.ToastUtils
-import com.kongzue.dialog.util.TextInfo
 import com.linchaolong.android.imagepicker.ImagePicker
 import com.lyb.purchasesystem.R
 import com.lysoft.baseproject.activity.BaseUIFragment
@@ -38,10 +37,7 @@ class UserCenterFragment(val parentActivity: AppCompatActivity) : View.OnClickLi
         containerView().img_head.setOnClickListener(this)
         containerView().tv_name.setOnClickListener(this)
         containerView().tv_logout.setOnClickListener(this)
-        val textInfo = TextInfo();
-        textInfo.fontColor = R.color.main_color
-//        DialogSettings.contentTextInfo=textInfo;
-
+        containerView().tv_user_center_edit_pwd.setOnClickListener(this)
     }
 
 

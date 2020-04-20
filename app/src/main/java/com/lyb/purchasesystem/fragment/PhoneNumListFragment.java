@@ -1,8 +1,10 @@
 package com.lyb.purchasesystem.fragment;
 
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.TextView;
 
+import com.hjq.toast.ToastUtils;
 import com.lyb.purchasesystem.R;
 import com.lyb.purchasesystem.adapter.CityAdapter;
 import com.lyb.purchasesystem.bean.CityBean;
@@ -13,8 +15,10 @@ import com.mcxtzhang.indexlib.suspension.SuspensionDecoration;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 /**
  * 介绍：高仿微信通讯录界面
@@ -43,6 +47,7 @@ public class PhoneNumListFragment extends BaseUIFragment {
      * 显示指示器DialogText
      */
     private TextView mTvSideBarHint;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate() {
@@ -51,6 +56,7 @@ public class PhoneNumListFragment extends BaseUIFragment {
         topViewManager().backTextView().setVisibility(View.GONE);
         topViewManager().titleTextView().setText("通讯录");
         mRv = view.findViewById(R.id.rv);
+        swipeRefreshLayout = view.findViewById(R.id.sw_phone);
         mRv.setLayoutManager(mManager = new LinearLayoutManager(getPageContext()));
 
         mAdapter = new CityAdapter(getPageContext(), mDatas);
@@ -69,6 +75,22 @@ public class PhoneNumListFragment extends BaseUIFragment {
 
         //模拟线上加载数据
         initDatas(getResources().getStringArray(R.array.provinces));
+        swipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(getPageContext(), R.color.main_color));
+        swipeRefreshLayout.setOnRefreshListener(() -> {
+            //
+            new CountDownTimer(1000, 1000) {
+                @Override
+                public void onTick(long millisUntilFinished) {
+
+                }
+
+                @Override
+                public void onFinish() {
+                    ToastUtils.show("刷新成功");
+                    swipeRefreshLayout.setRefreshing(false);
+                }
+            }.start();
+        });
     }
 
 
