@@ -29,6 +29,7 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.ViewHolder> {
     private LayoutInflater mInflater;
 
     public CityAdapter(Context mContext, List<CityBean> mDatas) {
+
         this.mContext = mContext;
         this.mDatas = mDatas;
         mInflater = LayoutInflater.from(mContext);
