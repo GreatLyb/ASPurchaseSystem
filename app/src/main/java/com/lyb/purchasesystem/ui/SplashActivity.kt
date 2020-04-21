@@ -33,7 +33,7 @@ class SplashActivity : BaseUIActivity() {
         setStatusBarState()
     }
 
-    private fun setStatusBarState() {
+    fun setStatusBarState() {
         //这里注意下 因为在评论区发现有网友调用setRootViewFitsSystemWindows 里面 winContent.getChildCount()=0 导致代码无法继续
         //是因为你需要在setContentView之后才可以调用 setRootViewFitsSystemWindows
 
@@ -58,13 +58,13 @@ class SplashActivity : BaseUIActivity() {
         splashEnd()
     }
 
-    private fun splashEnd() {
+    fun splashEnd() {
         object : CountDownTimer(1000, 1000) {
             override fun onTick(millisUntilFinished: Long) {}
             override fun onFinish() {
                 ARouter.getInstance().build("/app/MainActivity").navigation()
                 //                ARouter.getInstance().build("/app/WeChatActivity").navigation();
-                //                ARouter.getInstance().build("/app/TestListActivity").navigation();
+//                                ARouter.getInstance().build("/app/TestListActivity").navigation();
                 //                ARouter.getInstance().build("/app/LoginActivity").navigation();
                 //                startActivity(new Intent(getPageContext(), ScanCodeActivity.class));
                 finish()

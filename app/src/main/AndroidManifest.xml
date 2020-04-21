@@ -50,6 +50,9 @@
             android:name=".ui.MainActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".ui.user.MsgListActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".ui.LoginActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />

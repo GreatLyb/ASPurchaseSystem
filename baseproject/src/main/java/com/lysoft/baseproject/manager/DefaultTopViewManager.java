@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.lysoft.baseproject.activity.LyActivity;
 import com.lysoft.baseproject.bean.HHSoftTopViewInfo;
-import com.lysoft.baseproject.utils.HHSoftDensityUtils;
+import com.lysoft.baseproject.utils.DensityUtils;
 
 import androidx.fragment.app.FragmentActivity;
 
@@ -83,7 +83,7 @@ public final class DefaultTopViewManager {
         mView.setOrientation(LinearLayout.VERTICAL);
         mView.setBackgroundColor(Color.parseColor(mTopViewInfo.topBackgroundColor));
         mTopView = new RelativeLayout(mActivity);
-        mView.addView(mTopView, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, HHSoftDensityUtils.dip2px(mActivity, mTopViewInfo.topViewHeight)));
+        mView.addView(mTopView, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DensityUtils.dip2px(mActivity, mTopViewInfo.topViewHeight)));
         mBackTextView = new TextView(mActivity);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT);
         layoutParams.leftMargin = 30;
@@ -117,13 +117,13 @@ public final class DefaultTopViewManager {
         mMoreTextView.setGravity(Gravity.CENTER);
         mMoreTextView.setTextSize(mTopViewInfo.moreSize);
         mMoreTextView.setTextColor(Color.parseColor(mTopViewInfo.moreTextColor));
-        int padding10 = HHSoftDensityUtils.dip2px(mActivity, 10);
+        int padding10 = DensityUtils.dip2px(mActivity, 10);
         mMoreTextView.setPadding(padding10, 0, padding10, 0);
         mMoreLayout.addView(mMoreTextView);
         mTopView.addView(mMoreLayout);
 
         mLineView = new TextView(mActivity);
-        RelativeLayout.LayoutParams lineParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, HHSoftDensityUtils.dip2px(mActivity, mTopViewInfo.topLineHeight));
+        RelativeLayout.LayoutParams lineParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DensityUtils.dip2px(mActivity, mTopViewInfo.topLineHeight));
         lineParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
         mLineView.setBackgroundColor(Color.parseColor(mTopViewInfo.topLineColor));
         mTopView.addView(mLineView, lineParams);

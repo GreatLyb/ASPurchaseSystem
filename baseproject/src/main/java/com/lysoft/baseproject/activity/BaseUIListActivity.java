@@ -75,6 +75,7 @@ public abstract class BaseUIListActivity<T> extends BaseUILoadActivity {
             }
             itemClickListener(position - mListView.getHeaderViewsCount());
         });
+        onPageLoad();
     }
 
     @Override
@@ -204,6 +205,15 @@ public abstract class BaseUIListActivity<T> extends BaseUILoadActivity {
      */
     protected int getPageIndex() {
         return mPageIndex;
+    }
+
+    /**
+     * 获取页面适配器
+     *
+     * @return
+     */
+    protected BaseAdapter PageAdapter() {
+        return mAdapter;
     }
 
     /**

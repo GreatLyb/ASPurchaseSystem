@@ -1,4 +1,4 @@
-package com.lyb.purchasesystem.consta;
+package com.lyb.purchasesystem.consta
 
 /**
  * ASPurchaseSystem
@@ -7,6 +7,6 @@ package com.lyb.purchasesystem.consta;
  *
  * @Author： create by Lyb on 2020-04-07 14:47
  */
-public class Api {
-    public static final String LOGIN="";
+object Api {
+    const val LOGIN = ""
 }

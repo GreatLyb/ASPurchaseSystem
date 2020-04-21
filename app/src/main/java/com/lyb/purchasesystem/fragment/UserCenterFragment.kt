@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.alibaba.android.arouter.launcher.ARouter
 import com.bumptech.glide.Glide
 import com.hjq.toast.ToastUtils
+import com.kongzue.dialog.interfaces.OnDialogButtonClickListener
+import com.kongzue.dialog.v3.MessageDialog
 import com.linchaolong.android.imagepicker.ImagePicker
 import com.lyb.purchasesystem.R
 import com.lysoft.baseproject.activity.BaseUIFragment
@@ -38,6 +40,7 @@ class UserCenterFragment(val parentActivity: AppCompatActivity) : View.OnClickLi
         containerView().tv_name.setOnClickListener(this)
         containerView().tv_logout.setOnClickListener(this)
         containerView().tv_user_center_edit_pwd.setOnClickListener(this)
+        containerView().tv_user_center_msg.setOnClickListener(this)
     }
 
 
@@ -54,7 +57,6 @@ class UserCenterFragment(val parentActivity: AppCompatActivity) : View.OnClickLi
                 imagePicker.startChooser(this, object : ImagePicker.Callback() {
                     override fun onPickImage(imageUri: Uri?) {
                         Log.i("Lyb", "onPickImage===")
-
                         ClipImageActivity.goToClipActivity(this@UserCenterFragment, imageUri)
                     }
                 })
@@ -65,6 +67,8 @@ class UserCenterFragment(val parentActivity: AppCompatActivity) : View.OnClickLi
             tv_name.id -> (ToastUtils.show("名字"))
             tv_user_center_edit_pwd.id -> ARouter.getInstance().build("/app/UserEditPwdActivity").navigation()
             tv_logout.id -> outLogin()
+            tv_user_center_msg.id -> ARouter.getInstance().build("/app/MsgListActivity").navigation();
+
         }
     }
 
@@ -72,13 +76,18 @@ class UserCenterFragment(val parentActivity: AppCompatActivity) : View.OnClickLi
      * 退出登录
      */
     private fun outLogin() {
-//        MessageDialog.show(parentActivity,"提示",)
-
+        MessageDialog.show(parentActivity, "提示", "确认要退出登录吗？", "确定", "取消").setOnOkButtonClickListener({ baseDialog, v ->
+            baseDialog.doDismiss()
+            true
+        }).onCancelButtonClickListener = OnDialogButtonClickListener { baseDialog, v ->
+            baseDialog.doDismiss()
+            true
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == RESULT_OK ) {
+        if (resultCode == RESULT_OK) {
             when (requestCode) {
                 200 -> imagePicker.onActivityResult(this, requestCode, resultCode, data)
                 //拿裁剪后的图片

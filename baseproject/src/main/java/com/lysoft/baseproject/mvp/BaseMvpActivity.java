@@ -2,7 +2,7 @@ package com.lysoft.baseproject.mvp;
 
 import android.os.Bundle;
 
-import com.lysoft.baseproject.activity.BaseActivity;
+import com.lysoft.baseproject.activity.BaseUIActivity;
 
 import androidx.annotation.Nullable;
 
@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
  * Describe：所有需要Mvp开发的Activity的基类
  */
 
-public abstract class BaseMvpActivity<P extends BasePresenter> extends BaseActivity implements IBaseView {
+public abstract class BaseMvpActivity<P extends BasePresenter> extends BaseUIActivity implements IBaseView {
     protected P presenter;
 //    private PromptDialog promptDialog;
 

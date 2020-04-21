@@ -1,11 +1,14 @@
 package com.lyb.purchasesystem.ui;
 
-import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
+import android.view.View;
 import android.widget.BaseAdapter;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.kongzue.dialog.interfaces.OnDialogButtonClickListener;
+import com.kongzue.dialog.util.BaseDialog;
+import com.kongzue.dialog.v3.MessageDialog;
 import com.lyb.purchasesystem.adapter.TestListAdapter;
 import com.lyb.purchasesystem.bean.UserBean;
 import com.lysoft.baseproject.activity.BaseUIListActivity;
@@ -13,8 +16,6 @@ import com.lysoft.baseproject.imp.BaseCallBack;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import androidx.annotation.Nullable;
 
 import static com.lyb.purchasesystem.consta.Constants.PAGE_SIZE;
 
@@ -28,12 +29,6 @@ import static com.lyb.purchasesystem.consta.Constants.PAGE_SIZE;
 @Route(path = "/app/TestListActivity")
 public class TestListActivity extends BaseUIListActivity<UserBean> {
     private boolean isFirst = true;
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        onPageLoad();
-    }
 
     @Override
     protected void getListData(BaseCallBack callBack) {
@@ -71,7 +66,18 @@ public class TestListActivity extends BaseUIListActivity<UserBean> {
 
     @Override
     protected void itemClickListener(int position) {
+        MessageDialog.show(this, "", "", "", "").setOnOkButtonClickListener(new OnDialogButtonClickListener() {
+            @Override
+            public boolean onClick(BaseDialog baseDialog, View v) {
 
+                return false;
+            }
+        }).setOnCancelButtonClickListener(new OnDialogButtonClickListener() {
+            @Override
+            public boolean onClick(BaseDialog baseDialog, View v) {
+                return false;
+            }
+        });
     }
 
     @Override

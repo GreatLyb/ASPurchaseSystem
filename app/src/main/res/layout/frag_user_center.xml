@@ -232,7 +232,7 @@
             android:layout_marginTop="8dp" />
 
         <TextView
-            android:id="@+id/tv_user_center"
+            android:id="@+id/tv_user_center_msg"
             style="@style/tv_user_center"
             android:text="系统消息" />
 

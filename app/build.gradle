@@ -54,9 +54,8 @@ dependencies {
     implementation project(path: ':qrcodelibrary')
     implementation project(path: ':indexlib')
     implementation "androidx.core:core-ktx:1.2.0"
-    implementation "androidx.core:core-ktx:+"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.github.mcxtzhang:SwipeDelMenuLayout:V1.2.2'
+//    implementation 'com.github.mcxtzhang:SwipeDelMenuLayout:V1.2.2'
 
 }
 repositories {

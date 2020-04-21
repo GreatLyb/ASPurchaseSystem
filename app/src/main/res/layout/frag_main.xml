@@ -24,7 +24,7 @@
                 android:layout_margin="8dp"
                 android:minHeight="100dp" />
 
-            <com.lysoft.baseproject.view.HHAtMostGridView
+            <com.lysoft.baseproject.view.LyAtMostGridView
                 android:id="@+id/gv_fmp_icon"
                 style="@style/fi_wr"
                 android:layout_marginLeft="10dp"

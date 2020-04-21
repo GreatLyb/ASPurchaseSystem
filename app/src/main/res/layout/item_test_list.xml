@@ -1,13 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+
+<com.lysoft.baseproject.view.swip.SwipeMenuLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    app:ios="false">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/fi_wr"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="aaaa"
+            android:textColor="@color/black_dim" />
+    </LinearLayout>
 
     <TextView
-        android:id="@+id/tv_name"
-        style="@style/fi_wr"
-        android:text="aaaa"
+        style="@style/wr_wr"
+        android:layout_width="50dp"
         android:layout_height="50dp"
-        android:gravity="center" />
-</LinearLayout>
+        android:background="@color/red"
+        android:gravity="center"
+        android:text="删除"
+        android:textColor="@color/white" />
+</com.lysoft.baseproject.view.swip.SwipeMenuLayout>
