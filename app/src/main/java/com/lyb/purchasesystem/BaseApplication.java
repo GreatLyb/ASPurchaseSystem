@@ -11,7 +11,6 @@ import com.hjq.toast.ToastUtils;
 import com.hjq.toast.style.ToastQQStyle;
 import com.kongzue.dialog.util.BaseDialog;
 import com.kongzue.dialog.util.DialogSettings;
-import com.kongzue.dialog.util.TextInfo;
 import com.lyb.purchasesystem.ui.SplashActivity;
 import com.lysoft.baseproject.BuildConfig;
 import com.lysoft.baseproject.HHSoftApplication;
@@ -35,7 +34,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
 import androidx.multidex.MultiDex;
-import me.jessyan.autosize.AutoSizeConfig;
 import okhttp3.OkHttpClient;
 
 /**
@@ -60,13 +58,6 @@ public class BaseApplication extends HHSoftApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        AutoSizeConfig.getInstance()
-                .setBaseOnWidth(false)
-                .setCustomFragment(true)
-                .getUnitsManager()
-                .setSupportDP(true)
-                .setSupportSP(true);
-        //                .setSupportSubunits(Subunits.MM);
         if (isDebug()) {
             ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险
         }
@@ -89,14 +80,8 @@ public class BaseApplication extends HHSoftApplication {
         DialogSettings.style = (DialogSettings.STYLE.STYLE_IOS);      //全局主题风格，提供三种可选风格，STYLE_MATERIAL, STYLE_KONGZUE, STYLE_IOS
         DialogSettings.theme = (DialogSettings.THEME.LIGHT);      //全局明暗风格，提供两种可选主题，LIGHT, DARK
         //        TextInfo textInfo = DialogSettings.titleTextInfo.setFontColor(R.color.black_dim);
-        TextInfo textInfo = new TextInfo();
-        textInfo.setFontSize(15);
-        TextInfo textInfo1 = new TextInfo();
-        textInfo1.setBold(true);
-        textInfo1.setFontSize(18);
-        DialogSettings.titleTextInfo = textInfo1;          //全局标题文字样式
-
-        DialogSettings.contentTextInfo = textInfo;        //全局正文文字样式
+        //        DialogSettings.titleTextInfo = (textInfo);          //全局标题文字样式
+        //        DialogSettings.contentTextInfo = (TextInfo);        //全局正文文字样式
         //        DialogSettings.buttonTextInfo = (TextInfo);         //全局默认按钮文字样式
         //        DialogSettings.buttonPositiveTextInfo = (TextInfo); //全局焦点按钮文字样式（一般指确定按钮）
         //        DialogSettings.inputInfo = (InputInfo);             //全局输入框文本样式

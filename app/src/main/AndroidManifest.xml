@@ -9,7 +9,6 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:name=".BaseApplication"
@@ -22,22 +21,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="LockedOrientationActivity"
-        tools:targetApi="o">
-        <activity android:name=".ui.SplashActivity">
+        tools:ignore="LockedOrientationActivity">
+        <activity android:name=".ui.TestKt">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <!-- 适配华为（huawei）刘海屏 -->
         <meta-data
-            android:name="design_width_in_dp"
-            android:value="360" />
+            android:name="android.notch_support"
+            android:value="true" /> <!-- 适配小米（xiaomi）刘海屏 -->
         <meta-data
-            android:name="design_height_in_dp"
-            android:value="640" />
+            android:name="notch.config"
+            android:value="portrait|landscape" />
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.4" />
 
         <!--        <activity android:name=".ui.SplashActivity">-->
         <!--            <intent-filter>-->
@@ -50,9 +51,6 @@
             android:name=".ui.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.user.MsgListActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".ui.LoginActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
@@ -61,7 +59,7 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
-            android:name=".ui.user.UserEditPwdActivity"
+            android:name=".fragment.PhoneNumListFragment"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
     </application>
