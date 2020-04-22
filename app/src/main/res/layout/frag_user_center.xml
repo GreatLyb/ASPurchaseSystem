@@ -246,15 +246,30 @@
         <View style="@style/line_margin" />
 
         <TextView
-            android:layout_marginTop="8dp"
             style="@style/tv_user_center"
-            android:text="关于我们" />
+            android:layout_marginTop="8dp"
+            android:text="使用帮助" />
 
         <View style="@style/line_margin" />
 
-        <TextView
-            style="@style/tv_user_center"
-            android:text="软件版本" />
+        <RelativeLayout style="@style/fi_wr">
+
+            <TextView
+                style="@style/tv_user_center"
+                android:layout_weight="1"
+                android:text="软件版本" />
+
+            <TextView
+                android:id="@+id/tv_soft_version"
+                style="@style/wr_wr"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="30dp"
+                android:text="v1.0.1"
+                android:textColor="@color/text_gray" />
+
+        </RelativeLayout>
+
 
         <View style="@style/line_margin" />
 

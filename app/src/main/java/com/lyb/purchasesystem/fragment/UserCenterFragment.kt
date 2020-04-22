@@ -41,6 +41,9 @@ class UserCenterFragment(val parentActivity: AppCompatActivity) : View.OnClickLi
         containerView().tv_logout.setOnClickListener(this)
         containerView().tv_user_center_edit_pwd.setOnClickListener(this)
         containerView().tv_user_center_msg.setOnClickListener(this)
+        val versionName = parentActivity.packageManager.getPackageInfo(parentActivity.packageName, 0).versionName
+        val versionNum = "v " + versionName;
+        containerView().tv_soft_version.text = versionNum
     }
 
 
