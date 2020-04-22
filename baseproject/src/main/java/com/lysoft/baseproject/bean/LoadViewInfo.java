@@ -5,7 +5,7 @@ package com.lysoft.baseproject.bean;
  * 创建人：xiao
  * 创建时间：2018/2/28
  */
-public class HHSoftLoadViewInfo
+public class LoadViewInfo
 {
 
 	private String mMsgInfo;
@@ -26,10 +26,12 @@ public class HHSoftLoadViewInfo
 	{
 		this.mDrawableID = mDrawableID;
 	}
-	public HHSoftLoadViewInfo(){
+
+	public LoadViewInfo() {
 
 	}
-	public HHSoftLoadViewInfo(String msgInfo, int drawableID)
+
+	public LoadViewInfo(String msgInfo, int drawableID)
 	{
 		super();
 		this.mMsgInfo = msgInfo;

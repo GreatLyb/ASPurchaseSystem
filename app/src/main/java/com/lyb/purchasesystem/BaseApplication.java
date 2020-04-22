@@ -59,7 +59,9 @@ public class BaseApplication extends HHSoftApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+
         AutoSizeConfig.getInstance()
+                .setBaseOnWidth(false)
                 .setCustomFragment(true)
                 .getUnitsManager()
                 .setSupportDP(true)

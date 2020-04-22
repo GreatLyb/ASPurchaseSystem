@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.lysoft.baseproject.activity.LyActivity;
-import com.lysoft.baseproject.bean.HHSoftTopViewInfo;
+import com.lysoft.baseproject.bean.LyTopViewInfo;
 import com.lysoft.baseproject.utils.DensityUtils;
 
 import androidx.fragment.app.FragmentActivity;
@@ -20,7 +20,7 @@ import androidx.fragment.app.FragmentActivity;
  * @创建日期 2019/8/21 12:07
  */
 public final class DefaultTopViewManager {
-    public static final HHSoftTopViewInfo mTopViewInfo = new HHSoftTopViewInfo();
+    public static final LyTopViewInfo mTopViewInfo = new LyTopViewInfo();
     /**
      * 上下文对象
      */

@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lysoft.baseproject.R;
-import com.lysoft.baseproject.bean.HHSoftLoadViewInfo;
+import com.lysoft.baseproject.bean.LoadViewInfo;
 import com.lysoft.baseproject.bean.LoadViewStateRecord;
 import com.lysoft.baseproject.imp.LoadStatus;
 import com.lysoft.baseproject.imp.LoadViewInterface;
@@ -33,7 +33,7 @@ public class HHSoftProgressLoadViewManager implements LoadViewInterface {
     // mLoaddingView点击事件的散列表
     private Map<LoadStatus, LoadViewStateRecord> mStateListenerMap = new HashMap<>();
     //控制各个状态下显示的图片和文字
-    private Map<LoadStatus, HHSoftLoadViewInfo> mLoadViewInfoMap = new HashMap<>();
+    private Map<LoadStatus, LoadViewInfo> mLoadViewInfoMap = new HashMap<>();
     /*显示动画的drawable*/
     private AnimationDrawable mAnimationDrawable;
     private View mParentView;
@@ -190,14 +190,14 @@ public class HHSoftProgressLoadViewManager implements LoadViewInterface {
     private void changeTipViewInfo(LoadStatus state, String hint) {
         //首先需要停止当前动画效果
         stopLoaddingAnim();
-        HHSoftLoadViewInfo hhLoadViewInfo = mLoadViewInfoMap.get(state);
+        LoadViewInfo hhLoadViewInfo = mLoadViewInfoMap.get(state);
         //定义变量，保存显示的图片资源和显示的文本信息
         int drawableID = 0;
         String msg = "";
         //用户没有为单独的页面设置显示的图片和现实的文本
         if (hhLoadViewInfo == null) {
 //            HHSoftLoadViewInfo loadViewInfo = HuaHanSoftConstantParam.loadViewMap.get(state);
-            HHSoftLoadViewInfo loadViewInfo = null;
+            LoadViewInfo loadViewInfo = null;
             //用户没有为整个App设置显示的图片和文本
             if (loadViewInfo == null) {
                 //设置默认的图片和文本
