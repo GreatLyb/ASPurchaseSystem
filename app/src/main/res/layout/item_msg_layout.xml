@@ -93,9 +93,9 @@
             style="@style/wr_wr"
             android:layout_width="70dp"
             android:layout_height="match_parent"
-            android:autoSizeTextType="uniform"
             android:background="@color/red"
             android:gravity="center"
+            android:textSize="16sp"
             android:text="删除"
             android:textColor="@color/white" />
     </com.lysoft.baseproject.view.swip.SwipeMenuLayout>
