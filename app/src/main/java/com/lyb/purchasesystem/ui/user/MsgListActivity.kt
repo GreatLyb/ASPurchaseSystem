@@ -1,7 +1,6 @@
 package com.lyb.purchasesystem.ui.user
 
 import android.os.Bundle
-import android.os.CountDownTimer
 import android.util.Log
 import android.view.View
 import android.widget.BaseAdapter
@@ -16,6 +15,10 @@ import com.lysoft.baseproject.activity.BaseUIListActivity
 import com.lysoft.baseproject.imp.AdapterViewClickListener
 import com.lysoft.baseproject.imp.BaseCallBack
 import com.lysoft.baseproject.imp.LoadStatus
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.schedulers.Schedulers
+import java.util.concurrent.TimeUnit
 
 /**
  * ASPurchaseSystem
@@ -51,27 +54,27 @@ class MsgListActivity : BaseUIListActivity<MsgBean>(), AdapterViewClickListener 
     }
 
     override fun getListData(callBack: BaseCallBack) {
-        object : CountDownTimer(1500, 1000) {
 
-            override fun onTick(millisUntilFinished: Long) {
-//                if (isFirst) {
-//                    isFirst = false
-//                    onFinish()
-//                    cancel()
-//                }
-            }
-
-            override fun onFinish() {
-                loadViewManager().changeLoadState(LoadStatus.SUCCESS)
-                var list = mutableListOf<MsgBean>()
-                if (pageIndex < 3) {
-                    for (a in 1..20) {
-                        list.add(MsgBean("消息标题" + a, "我是内我是内容内容我是内容内容我是内容内容我是内容内容我是内容内容我是内容内容我是内容内容我是内容内容我是内容内容我是内容内容我是内容内容我是内容内容容内容我是内容内容我是内容内容", "2020-04-21", "0", a.toString() + "", "www"))
+        Observable.timer(1500, TimeUnit.MILLISECONDS)
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ Long ->
+                    loadViewManager().changeLoadState(LoadStatus.SUCCESS)
+                    val list = mutableListOf<MsgBean>()
+                    if (pageIndex < 3) {
+                        for (a in 1..20) {
+                            list.add(MsgBean("消息标题" + a, "我是内我是内容内容我是内容内容我是内容内容我是内容内容我是内容内容我是内容内容我是内容内容我是内容内容我是内容内容我是内容内容我是内容内容我是内容内容容内容我是内容内容我是内容内容", "2020-04-21", "0", a.toString() + "", "www"))
+                        }
                     }
+                    callBack.callBack(list)
+                }, { Throwable ->
+
+
                 }
-                callBack.callBack(list)
-            }
-        }.start()
+
+                )
+
+
     }
 
     override fun instanceAdapter(list: MutableList<MsgBean>?): BaseAdapter {

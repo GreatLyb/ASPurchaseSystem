@@ -8,7 +8,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.lysoft.baseproject.activity.LyActivity;
 import com.lysoft.baseproject.bean.LyTopViewInfo;
 import com.lysoft.baseproject.utils.DensityUtils;
 
@@ -68,12 +67,6 @@ public final class DefaultTopViewManager {
         initView();
     }
 
-    public DefaultTopViewManager(LyActivity activity, boolean isShowStatusBar) {
-        this.mActivity = activity;
-        this.mIsShowStatusBar = isShowStatusBar;
-        initView();
-
-    }
 
     /**
      * 初始化布局

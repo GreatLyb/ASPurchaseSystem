@@ -107,6 +107,7 @@ public class StatusBarUtil {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 setStatusBarFontIconDark(activity, TYPE_M, dark);
+
             } else if (OSUtils.isEMUI()) {
                 setStatusBarFontIconDark(activity, TYPE_MIUI, dark);
             } else if (OSUtils.isFlymeOS()) {
