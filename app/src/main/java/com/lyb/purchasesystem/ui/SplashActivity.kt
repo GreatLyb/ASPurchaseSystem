@@ -62,10 +62,10 @@ class SplashActivity : BaseUIActivity() {
         object : CountDownTimer(1000, 1000) {
             override fun onTick(millisUntilFinished: Long) {}
             override fun onFinish() {
-                ARouter.getInstance().build("/app/MainActivity").navigation()
+//                ARouter.getInstance().build("/app/MainActivity").navigation()
                 //                ARouter.getInstance().build("/app/WeChatActivity").navigation();
 //                                ARouter.getInstance().build("/app/TestListActivity").navigation();
-                //                ARouter.getInstance().build("/app/LoginActivity").navigation();
+                                ARouter.getInstance().build("/app/LoginActivity").navigation();
                 //                startActivity(new Intent(getPageContext(), ScanCodeActivity.class));
                 finish()
             }

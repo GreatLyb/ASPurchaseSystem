@@ -8,5 +8,5 @@ package com.lyb.purchasesystem.consta
  * @Author： create by Lyb on 2020-04-07 14:47
  */
 object Api {
-    const val LOGIN = ""
+    const val LOGIN = "jdyUser/login"
 }

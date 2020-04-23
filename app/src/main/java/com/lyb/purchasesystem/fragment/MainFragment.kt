@@ -71,15 +71,15 @@ class MainFragment : BaseUIFragment() {
         val iconList = mutableListOf<MainIconBean>()
         for (i in 1..9) {
             when (i) {
-                1 -> iconList.add(MainIconBean("申请采购"))
-                2 -> iconList.add(MainIconBean("预约时间"))
-                3 -> iconList.add(MainIconBean("添加报告"))
-                4 -> iconList.add(MainIconBean("团队管理"))
-                5 -> iconList.add(MainIconBean("客户服务"))
-                6 -> iconList.add(MainIconBean("库管服务"))
-                7 -> iconList.add(MainIconBean("金融课堂"))
-                8 -> iconList.add(MainIconBean("互动社区"))
-                9 -> iconList.add(MainIconBean("便民生活"))
+                1 -> iconList.add(MainIconBean("采购申请"))
+                2 -> iconList.add(MainIconBean("维修记录"))
+                3 -> iconList.add(MainIconBean("部门设备"))
+                4 -> iconList.add(MainIconBean("意见箱"))
+                5 -> iconList.add(MainIconBean("仓库管理"))
+                6 -> iconList.add(MainIconBean("随手拍"))
+                7 -> iconList.add(MainIconBean("教室预约 "))
+                8 -> iconList.add(MainIconBean("开发中.."))
+                9 -> iconList.add(MainIconBean("开发中.."))
             }
         }
         containerView().gv_fmp_icon.adapter = MainGrideAdapter(pageContext, iconList)

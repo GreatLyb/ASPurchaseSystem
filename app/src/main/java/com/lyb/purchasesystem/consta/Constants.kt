@@ -7,7 +7,9 @@ package com.lyb.purchasesystem.consta
  * Creat by Lyb on 2019/10/10 14:20
  */
 object Constants {
-    var IP = "http://aaaaa/"
+
+    @JvmField
+    var IP = "http://kong.xiaomy.net/jdy-admin/"
 
     @JvmField
     var PAGE_SIZE = 20
