@@ -1,23 +1,21 @@
-package com.lyb.purchasesystem.ui;
+package com.lyb.purchasesystem.ui.user;
 
-import android.content.Context;
-import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.EditText;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.hjq.toast.ToastUtils;
+import com.kongzue.dialog.v3.TipDialog;
+import com.kongzue.dialog.v3.WaitDialog;
 import com.lyb.purchasesystem.R;
 import com.lyb.purchasesystem.bean.UserBean;
 import com.lyb.purchasesystem.consta.Api;
-import com.lyb.purchasesystem.consta.Constants;
 import com.lyb.purchasesystem.consta.ParamsMapUtils;
+import com.lyb.purchasesystem.utils.RequestBodyUtils;
+import com.lysoft.baseproject.dialog.LoadingDialog;
 import com.lysoft.baseproject.imp.SingleClick;
 import com.lysoft.baseproject.net.callback.JsonCallBack;
 import com.lysoft.baseproject.utils.StatusBarUtil;
@@ -31,8 +29,6 @@ import androidx.core.content.ContextCompat;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
 
 /**
  * ASPurchaseSystem
@@ -48,6 +44,8 @@ public class LoginActivity extends AppCompatActivity {
     EditText etUserLoginPhone;
     @BindView(R.id.et_user_login_pwd)
     EditText etUserLoginPwd;
+    LoadingDialog loadingDialog;
+    private boolean hasAddView = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -56,33 +54,10 @@ public class LoginActivity extends AppCompatActivity {
         View view = View.inflate(this, R.layout.activity_login, null);
         ButterKnife.bind(this, view);
         setContentView(view);
-    }
-
-    @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
-        if (hasFocus){
-//            addBottom();
-
-        }
-    }
-
-    private void addBottom() {
-        View view = View.inflate(R.layout.item_login_bottom,null);    //加载View视图，这个就是我们要显示的内容
-        WindowManager windowManager = (WindowManager) getApplicationContext().getSystemService(Context.WINDOW_SERVICE);    //获取WindowManage
-        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-        //设置LayoutParams的属性
-        layoutParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_PANEL;       //该Type描述的是形成的窗口的层级关系，下面会详细列出它的属性
-        layoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL |       //该flags描述的是窗口的模式，是否可以触摸，可以聚焦等
-                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE;
-        layoutParams.gravity = Gravity.BOTTOM;                                       //设置窗口的位置
-        layoutParams.format = PixelFormat.TRANSLUCENT;                               //不设置这个弹出框的透明遮罩显示为黑色
-        layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;                //窗口的宽
-        layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT;               //窗口的高
-//        layoutParams.token = ((View)findViewById(R.id.linearlayout)).getWindowToken();           //获取当前Activity中的View中的TOken,来依附Activity，因为设置了该值，纳闷写的这些代码不能出现在onCreate();否则会报错。
-        windowManager.addView(view,layoutParams);
+        loadingDialog = LoadingDialog.getInstance(this);
 
     }
+
 
     private void setStatusBarState() {
         //是因为你需要在setContentView之后才可以调用 setRootViewFitsSystemWindows
@@ -104,6 +79,7 @@ public class LoginActivity extends AppCompatActivity {
     @OnClick(R.id.tv_user_login_sure)
     public void onViewClicked() {
         //登录
+
         String account = etUserLoginPhone.getText().toString();
         String pwd = etUserLoginPwd.getText().toString();
         if (TextUtils.isEmpty(account)) {
@@ -115,29 +91,47 @@ public class LoginActivity extends AppCompatActivity {
             ToastUtils.show("请输入密码");
             return;
         }
-        MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+        WaitDialog.show(this, "正在登录...");
         Map<String, String> param = ParamsMapUtils.getLoginParams(account, pwd);
-        param.put("username", account);
-        param.put("password", pwd);
-        String s = com.alibaba.fastjson.JSON.toJSONString(param);
-        RequestBody requestBody = RequestBody.create(JSON, s);
         JsonCallBack jsonCallBack = new JsonCallBack<UserBean>() {
             @Override
             public void onSuccess(int code, String msg, UserBean response) {
                 if (code == 200) {
                     //登录成功
-                    ARouter.getInstance().build("/app/MainActivity").navigation();
+                    getUserInfo(response.getToken());
                 } else {
                     //登录失败
-                    ToastUtils.show("登录失败");
+                    TipDialog.show(LoginActivity.this, msg, TipDialog.TYPE.ERROR);
                 }
             }
 
             @Override
             public void onFailure(Object tag, Exception e) {
-
+                TipDialog.show(LoginActivity.this, e.getMessage(), TipDialog.TYPE.ERROR);
             }
         };
-        OkGo.post(Constants.IP + Api.LOGIN).tag(this).upRequestBody(requestBody).execute(jsonCallBack);
+        OkGo.post(Api.LOGIN).tag(this).upRequestBody(RequestBodyUtils.getRequestBody(param)).execute(jsonCallBack);
     }
+
+    private void getUserInfo(String token) {
+        JsonCallBack jsonCallBack = new JsonCallBack<UserBean>() {
+            @Override
+            public void onSuccess(int code, String msg, UserBean response) {
+                if (code == 200) {
+                    //登录成功
+                    TipDialog.show(LoginActivity.this, "登录成功", TipDialog.TYPE.SUCCESS);
+                    ARouter.getInstance().build("/app/MainActivity").navigation();
+                } else {
+                    //登录失败
+                    TipDialog.show(LoginActivity.this, msg, TipDialog.TYPE.ERROR);
+                }
+            }
+            @Override
+            public void onFailure(Object tag, Exception e) {
+                TipDialog.show(LoginActivity.this, e.getMessage(), TipDialog.TYPE.ERROR);
+            }
+        };
+        OkGo.post(Api.INFO).tag(this).upRequestBody(RequestBodyUtils.getRequestBody(ParamsMapUtils.getUserInfoParams(token))).execute(jsonCallBack);
+    }
+
 }

@@ -1,7 +1,6 @@
 package com.lyb.purchasesystem.ui
 
 import android.os.Bundle
-import android.os.CountDownTimer
 import android.view.View
 import androidx.core.content.ContextCompat
 import com.alibaba.android.arouter.facade.annotation.Route
@@ -10,6 +9,10 @@ import com.lyb.purchasesystem.R
 import com.lyb.purchasesystem.consta.PermissionsConstant
 import com.lysoft.baseproject.activity.BaseUIActivity
 import com.lysoft.baseproject.utils.StatusBarUtil
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.schedulers.Schedulers
+import java.util.concurrent.TimeUnit
 
 /**
  * ASPurchaseSystem
@@ -31,6 +34,26 @@ class SplashActivity : BaseUIActivity() {
             splashEnd()
         }
         setStatusBarState()
+    }
+
+    fun splashEnd() {
+        Observable.timer(1, TimeUnit.SECONDS)
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ Long ->
+                    ARouter.getInstance().build("/app/MainActivity").navigation()
+                })
+
+//        object : CountDownTimer(1000, 1000) {
+//            override fun onTick(millisUntilFinished: Long) {}
+//            override fun onFinish() {
+//                //                ARouter.getInstance().build("/app/WeChatActivity").navigation();
+////                                ARouter.getInstance().build("/app/TestListActivity").navigation();
+////                ARouter.getInstance().build("/app/LoginActivity").navigation();
+//                //                startActivity(new Intent(getPageContext(), ScanCodeActivity.class));
+//                finish()
+//            }
+//        }.start()
     }
 
     fun setStatusBarState() {
@@ -58,19 +81,6 @@ class SplashActivity : BaseUIActivity() {
         splashEnd()
     }
 
-    fun splashEnd() {
-        object : CountDownTimer(1000, 1000) {
-            override fun onTick(millisUntilFinished: Long) {}
-            override fun onFinish() {
-//                ARouter.getInstance().build("/app/MainActivity").navigation()
-                //                ARouter.getInstance().build("/app/WeChatActivity").navigation();
-//                                ARouter.getInstance().build("/app/TestListActivity").navigation();
-                                ARouter.getInstance().build("/app/LoginActivity").navigation();
-                //                startActivity(new Intent(getPageContext(), ScanCodeActivity.class));
-                finish()
-            }
-        }.start()
-    }
 
     override fun permissionsDenied(perms: List<String>) {
         super.permissionsDenied(perms)

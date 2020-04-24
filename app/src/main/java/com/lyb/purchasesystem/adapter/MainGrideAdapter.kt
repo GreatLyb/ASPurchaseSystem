@@ -1,7 +1,6 @@
 package com.lyb.purchasesystem.adapter
 
 import android.content.Context
-import android.graphics.drawable.Drawable
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -39,14 +38,14 @@ class MainGrideAdapter(context: Context?, list: MutableList<MainIconBean>?) : Ly
                 imageDrawable = R.drawable.apply_buy
             }
 
-            1 -> imageDrawable = R.drawable.yuyue
+            1 -> imageDrawable = R.drawable.weixiujilu
             2 -> imageDrawable = R.drawable.tijianbaogao
-            3 -> imageDrawable = R.drawable.tuanduiguanli
-            4 -> imageDrawable = R.drawable.kehu
-            5 -> imageDrawable = R.drawable.apply_buy
-            6 -> imageDrawable = R.drawable.yuyue
-            7 -> imageDrawable = R.drawable.tijianbaogao
-            8 -> imageDrawable = R.drawable.tuanduiguanli
+            3 -> imageDrawable = R.drawable.yuyue
+            4 -> imageDrawable = R.drawable.cangku_guanli
+            5 -> imageDrawable = R.drawable.suishou_camera
+            6 -> imageDrawable = R.drawable.yijianxiang
+            7 -> imageDrawable = R.drawable.white_zhanwei
+            8 -> imageDrawable = R.drawable.white_zhanwei
             else -> {
                 imageDrawable = R.drawable.kehu
             }

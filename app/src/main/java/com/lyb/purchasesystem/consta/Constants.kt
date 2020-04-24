@@ -8,8 +8,6 @@ package com.lyb.purchasesystem.consta
  */
 object Constants {
 
-    @JvmField
-    var IP = "http://kong.xiaomy.net/jdy-admin/"
 
     @JvmField
     var PAGE_SIZE = 20

@@ -15,14 +15,15 @@ public class ParamsMapUtils {
    public static Map<String,String> getLoginParams(String acc,String pwd){
        Map<String,String> map=new HashMap<>();
 
-       map.put("","");
-       map.put("","");
+       map.put("username", acc);
+       map.put("password", pwd);
+
        return map;
    }
-//   public static Map getLoginParams(){
-//       Map<String,String> map=new HashMap<>();
-//       map.put("","");
-//       map.put("","");
-//       return map;
-//   }
+
+    public static Map<String, String> getUserInfoParams(String token) {
+        Map<String, String> map = new HashMap<>();
+        map.put("id", token);
+        return map;
+    }
 }

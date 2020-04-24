@@ -1,5 +1,6 @@
 package com.lyb.purchasesystem.fragment
 
+import android.content.Intent
 import android.os.CountDownTimer
 import android.view.View
 import android.view.ViewGroup
@@ -9,12 +10,14 @@ import androidx.viewpager2.widget.ViewPager2
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.alibaba.android.arouter.launcher.ARouter
 import com.blankj.utilcode.util.ScreenUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.lyb.purchasesystem.R
 import com.lyb.purchasesystem.adapter.BannerAdapter
 import com.lyb.purchasesystem.adapter.MainGrideAdapter
 import com.lyb.purchasesystem.adapter.NetViewHolder
 import com.lyb.purchasesystem.bean.BannerData
 import com.lyb.purchasesystem.bean.MainIconBean
+import com.lyb.purchasesystem.ui.suggestions.SuggestionsBoxActivity
 import com.lysoft.baseproject.activity.BaseUIFragment
 import com.lysoft.baseproject.utils.DensityUtils
 import com.zhpan.bannerview.BannerViewPager
@@ -74,15 +77,28 @@ class MainFragment : BaseUIFragment() {
                 1 -> iconList.add(MainIconBean("采购申请"))
                 2 -> iconList.add(MainIconBean("维修记录"))
                 3 -> iconList.add(MainIconBean("部门设备"))
-                4 -> iconList.add(MainIconBean("意见箱"))
+                4 -> iconList.add(MainIconBean("教室预约"))
                 5 -> iconList.add(MainIconBean("仓库管理"))
                 6 -> iconList.add(MainIconBean("随手拍"))
-                7 -> iconList.add(MainIconBean("教室预约 "))
-                8 -> iconList.add(MainIconBean("开发中.."))
-                9 -> iconList.add(MainIconBean("开发中.."))
+                7 -> iconList.add(MainIconBean("意见箱"))
+                8 -> iconList.add(MainIconBean(""))
+                9 -> iconList.add(MainIconBean(""))
             }
         }
         containerView().gv_fmp_icon.adapter = MainGrideAdapter(pageContext, iconList)
+        containerView().gv_fmp_icon.setOnItemClickListener({ parent, view, position, id ->
+            when (position) {
+                0 -> ToastUtils.showShort("采购申请")
+                1 -> ToastUtils.showShort("维修记录")
+                2 -> ToastUtils.showShort("部门设备")
+                3 -> ToastUtils.showShort("教室预约")
+                4 -> ToastUtils.showShort("仓库管理")
+                5 -> ToastUtils.showShort("随手拍")
+                6 -> {
+                    startActivity(Intent(pageContext, SuggestionsBoxActivity::class.java))
+                }
+            }
+        })
     }
 
     private fun initBannerView() {

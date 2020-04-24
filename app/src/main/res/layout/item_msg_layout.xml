@@ -4,8 +4,7 @@
     android:background="@color/white"
     android:orientation="vertical">
 
-    <com.lysoft.baseproject.view.swip.SwipeMenuLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <com.lysoft.baseproject.view.swip.SwipeMenuLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/sw_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -95,9 +94,9 @@
             android:layout_height="match_parent"
             android:background="@color/red"
             android:gravity="center"
-            android:textSize="16sp"
             android:text="删除"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="16sp" />
     </com.lysoft.baseproject.view.swip.SwipeMenuLayout>
 
     <View style="@style/line" />

@@ -8,7 +8,7 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.hjq.toast.ToastUtils
 import com.kongzue.dialog.interfaces.OnDialogButtonClickListener
 import com.kongzue.dialog.v3.MessageDialog
-import com.lyb.purchasesystem.adapter.MsgAdapter
+import com.lyb.purchasesystem.adapter.MsgListAdapter
 import com.lyb.purchasesystem.bean.MsgBean
 import com.lyb.purchasesystem.consta.Constants
 import com.lysoft.baseproject.activity.BaseUIListActivity
@@ -78,7 +78,7 @@ class MsgListActivity : BaseUIListActivity<MsgBean>(), AdapterViewClickListener 
     }
 
     override fun instanceAdapter(list: MutableList<MsgBean>?): BaseAdapter {
-        return MsgAdapter(this, list!!, this)
+        return MsgListAdapter(this, list!!, this)
     }
 
     override fun itemClickListener(position: Int) {

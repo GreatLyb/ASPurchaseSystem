@@ -1,4 +1,4 @@
-package com.lyb.purchasesystem.ui
+package com.lyb.purchasesystem.ui.main
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -14,6 +14,7 @@ import com.lyb.purchasesystem.fragment.CommunityFragment
 import com.lyb.purchasesystem.fragment.MainFragment
 import com.lyb.purchasesystem.fragment.PhoneNumListFragment
 import com.lyb.purchasesystem.fragment.UserCenterFragment
+import com.lyb.purchasesystem.ui.BaseMainActivity
 import com.lysoft.baseproject.utils.DensityUtils
 
 @Route(path = "/app/MainActivity")

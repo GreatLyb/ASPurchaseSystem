@@ -54,7 +54,6 @@ public abstract class BaseMainActivity extends BaseUIActivity {
         topViewManager().topView().setVisibility(View.GONE);
         addItem(getDrawableIDs(), getItemNames());
         mItemGroup.setBackgroundDrawable(getMainBottomBackgroundDrawable());
-
     }
 
 

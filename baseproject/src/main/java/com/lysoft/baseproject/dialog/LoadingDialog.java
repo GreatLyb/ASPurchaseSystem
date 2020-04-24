@@ -14,8 +14,27 @@ import com.lysoft.baseproject.R;
 public class LoadingDialog extends Dialog{
 
 
+    private volatile static LoadingDialog loadingDialog;
+
+
     public LoadingDialog(Context context) {
         super(context);
+
+    }
+
+    public static LoadingDialog getInstance(Context context) {
+        if (loadingDialog == null) {
+            synchronized (LoadingDialog.class) {
+                if (loadingDialog == null) {
+                    LoadingDialog.Builder loadBuilder = new LoadingDialog.Builder(context)
+                            .setMessage("正在加载...")
+                            .setCancelable(false)
+                            .setCancelOutside(false);
+                    loadingDialog = loadBuilder.create();
+                }
+            }
+        }
+        return loadingDialog;
     }
 
     public LoadingDialog(Context context, int themeResId) {
@@ -78,7 +97,6 @@ public class LoadingDialog extends Dialog{
         }
 
         public LoadingDialog create(){
-
             LayoutInflater inflater = LayoutInflater.from(context);
             View view=inflater.inflate(R.layout.dialog_loading,null);
             LoadingDialog loadingDailog=new LoadingDialog(context,R.style.MyDialogStyle);
@@ -92,9 +110,6 @@ public class LoadingDialog extends Dialog{
             loadingDailog.setCancelable(isCancelable);
             loadingDailog.setCanceledOnTouchOutside(isCancelOutside);
             return  loadingDailog;
-
         }
-
-
     }
 }

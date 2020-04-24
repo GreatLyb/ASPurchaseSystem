@@ -16,12 +16,12 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:usesCleartextTraffic="true"
         android:maxAspectRatio="2.4"
         android:resizeableActivity="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
         tools:ignore="LockedOrientationActivity">
         <activity android:name=".ui.SplashActivity">
             <intent-filter>
@@ -47,19 +47,32 @@
         <!--                <category android:name="android.intent.category.LAUNCHER" />-->
         <!--            </intent-filter>-->
         <!--        </activity>-->
+        <!--  首页-->
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.main.MainActivity"
             android:screenOrientation="portrait" />
+        <!-- 登录页面-->
         <activity
-            android:name=".ui.LoginActivity"
+            android:name=".ui.user.LoginActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
             android:name=".ui.TestListActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <!-- 添加意见-->
         <activity
-            android:name=".fragment.PhoneNumListFragment"
+            android:name=".ui.main.AddCommentActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <!--  意见箱员工页面-->
+        <activity
+            android:name=".ui.suggestions.SuggestionsBoxActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <!--  意见箱领导页面-->
+        <activity
+            android:name=".ui.suggestions.SuggestionsBoxLeaderActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
     </application>

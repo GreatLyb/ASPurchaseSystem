@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/fi_wr"
+        android:padding="10dp"
+        android:text="意见标题："
+        android:textColor="@color/black_dim" />
+
+    <EditText
+        android:id="@+id/et_comment_title"
+        style="@style/fi_wr"
+        android:background="@color/white"
+        android:gravity="start"
+        android:hint="请在此处认真填写您的建议"
+        android:lines="2"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:textSize="14sp" />
+
+    <TextView
+        style="@style/fi_wr"
+        android:padding="10dp"
+        android:text="详细描述："
+        android:textColor="@color/black_dim" />
+
+    <EditText
+        android:id="@+id/et_comment_content"
+        style="@style/fi_wr"
+        android:background="@color/white"
+        android:gravity="start"
+        android:hint="请在此处详细说明描述您的建议"
+        android:lines="5"
+        android:maxLength="255"
+        android:padding="10dp"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_user_submit"
+        style="@style/tv_sure"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="10dp"
+        android:text="提交" />
+</LinearLayout>

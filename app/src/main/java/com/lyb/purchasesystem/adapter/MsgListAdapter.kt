@@ -18,7 +18,7 @@ import com.lysoft.baseproject.view.swip.SwipeMenuLayout
  * 类传参：
  * @Author： create by Lyb on 2020-04-21 15:10
  */
-class MsgAdapter(context: Context, list: MutableList<MsgBean>, val adapterViewClickListener: AdapterViewClickListener) : LyBaseAdapter<MsgBean>(context, list) {
+class MsgListAdapter(context: Context, list: MutableList<MsgBean>, val adapterViewClickListener: AdapterViewClickListener) : LyBaseAdapter<MsgBean>(context, list) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val holder: ViewHolder
         val itemView: View
