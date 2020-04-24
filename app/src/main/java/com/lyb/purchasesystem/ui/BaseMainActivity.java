@@ -95,6 +95,8 @@ public abstract class BaseMainActivity extends BaseUIActivity {
 
     public void initListeners() {
         viewPager.setOffscreenPageLimit(4);
+
+
         viewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public int getCount() {
@@ -107,6 +109,8 @@ public abstract class BaseMainActivity extends BaseUIActivity {
                 return getFragment(position);
             }
         });
+
+
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {

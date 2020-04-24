@@ -17,7 +17,7 @@ import com.lyb.purchasesystem.adapter.MainGrideAdapter
 import com.lyb.purchasesystem.adapter.NetViewHolder
 import com.lyb.purchasesystem.bean.BannerData
 import com.lyb.purchasesystem.bean.MainIconBean
-import com.lyb.purchasesystem.ui.suggestions.SuggestionsBoxActivity
+import com.lyb.purchasesystem.ui.suggestions.SuggestionsBoxLeaderActivity
 import com.lysoft.baseproject.activity.BaseUIFragment
 import com.lysoft.baseproject.utils.DensityUtils
 import com.zhpan.bannerview.BannerViewPager
@@ -95,7 +95,8 @@ class MainFragment : BaseUIFragment() {
                 4 -> ToastUtils.showShort("仓库管理")
                 5 -> ToastUtils.showShort("随手拍")
                 6 -> {
-                    startActivity(Intent(pageContext, SuggestionsBoxActivity::class.java))
+//                    startActivity(Intent(pageContext, SuggestionsBoxActivity::class.java))
+                    startActivity(Intent(pageContext, SuggestionsBoxLeaderActivity::class.java))
                 }
             }
         })

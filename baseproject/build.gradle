@@ -87,4 +87,5 @@ dependencies {
     api 'me.jessyan:autosize:1.2.1'
     api 'io.reactivex.rxjava3:rxandroid:3.0.0'
     api 'io.reactivex.rxjava3:rxjava:3.0.0'
+    api 'com.github.hackware1993:MagicIndicator:1.6.0'
 }
