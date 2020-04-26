@@ -18,20 +18,11 @@ public class UserBeanDao extends AbstractDao<UserBean, Void> {
 
     public static final String TABLENAME = "USER_BEAN";
 
-    public UserBeanDao(DaoConfig config) {
-        super(config);
-    }
-
-
-    public UserBeanDao(DaoConfig config, DaoSession daoSession) {
-        super(config, daoSession);
-    }
-
     /**
      * Creates the underlying database table.
      */
     public static void createTable(Database db, boolean ifNotExists) {
-        String constraint = ifNotExists ? "IF NOT EXISTS " : "";
+        String constraint = ifNotExists ? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "\"USER_BEAN\" (" + //
                 "\"TOKEN\" TEXT UNIQUE ," + // 0: token
                 "\"EMAIL\" TEXT," + // 1: email
@@ -44,9 +35,16 @@ public class UserBeanDao extends AbstractDao<UserBean, Void> {
                 "\"USER_ID\" TEXT);"); // 8: userId
     }
 
-    /**
-     * Drops the underlying database table.
-     */
+
+    public UserBeanDao(DaoConfig config) {
+        super(config);
+    }
+
+    public UserBeanDao(DaoConfig config, DaoSession daoSession) {
+        super(config, daoSession);
+    }
+
+    /** Drops the underlying database table. */
     public static void dropTable(Database db, boolean ifExists) {
         String sql = "DROP TABLE " + (ifExists ? "IF EXISTS " : "") + "\"USER_BEAN\"";
         db.execSQL(sql);
@@ -186,28 +184,6 @@ public class UserBeanDao extends AbstractDao<UserBean, Void> {
         entity.setUserId(cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8));
     }
 
-    @Override
-    protected final Void updateKeyAfterInsert(UserBean entity, long rowId) {
-        // Unsupported or missing PK type
-        return null;
-    }
-
-    @Override
-    public Void getKey(UserBean entity) {
-        return null;
-    }
-
-    @Override
-    public boolean hasKey(UserBean entity) {
-        // TODO
-        return false;
-    }
-
-    @Override
-    protected final boolean isEntityUpdateable() {
-        return true;
-    }
-
     /**
      * Properties of entity UserBean.<br/>
      * Can be used for QueryBuilder and for referencing column names.
@@ -223,5 +199,27 @@ public class UserBeanDao extends AbstractDao<UserBean, Void> {
         public final static Property Power = new Property(7, String.class, "power", false, "POWER");
         public final static Property UserId = new Property(8, String.class, "userId", false, "USER_ID");
     }
+    
+    @Override
+    protected final Void updateKeyAfterInsert(UserBean entity, long rowId) {
+        // Unsupported or missing PK type
+        return null;
+    }
+    
+    @Override
+    public Void getKey(UserBean entity) {
+        return null;
+    }
 
+    @Override
+    public boolean hasKey(UserBean entity) {
+        // TODO
+        return false;
+    }
+
+    @Override
+    protected final boolean isEntityUpdateable() {
+        return true;
+    }
+    
 }

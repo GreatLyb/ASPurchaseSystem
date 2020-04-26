@@ -1,272 +1,292 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/fi_fi"
-    android:background="@color/background_color">
+        style="@style/fi_fi"
+        android:background="@color/background_color">
 
     <LinearLayout xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
 
-        android:orientation="vertical"
-        tools:ignore="MissingDefaultResource">
+            android:orientation="vertical"
+            tools:ignore="MissingDefaultResource">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="@color/main_color"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/main_color"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
 
             <LinearLayout
-                style="@style/weight_w_w"
-                android:layout_marginLeft="10dp"
-                android:orientation="vertical">
+                    style="@style/weight_w_w"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tv_name"
-                    style="@style/wr_wr"
-                    android:text="姓名：张三"
-                    android:textColor="@color/white"
-                    android:textSize="14sp" />
+                        android:id="@+id/tv_name"
+                        style="@style/wr_wr"
+                        android:text="姓名：张三"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/tv_department"
-                    style="@style/wr_wr"
-                    android:layout_marginTop="5dp"
-                    android:text="部门：采购"
-                    android:textColor="@color/white"
-                    android:textSize="14sp" />
+                        android:id="@+id/tv_department"
+                        style="@style/wr_wr"
+                        android:layout_marginTop="5dp"
+                        android:text="部门：采购"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/tv_position"
-                    style="@style/wr_wr"
-                    android:layout_marginTop="5dp"
-                    android:text="职位：部门主管"
-                    android:textColor="@color/white"
-                    android:textSize="14sp" />
+                        android:id="@+id/tv_position"
+                        style="@style/wr_wr"
+                        android:layout_marginTop="5dp"
+                        android:text="职位：部门主管"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
 
             </LinearLayout>
 
             <com.lysoft.baseproject.clipview.CircleImageView
-                android:id="@+id/img_head"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:src="@drawable/call_head" />
+                    android:id="@+id/img_head"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/call_head" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/ll_user_center_my_order"
-            style="@style/fi_wr"
-            android:layout_marginTop="8dp"
-            android:background="@color/white"
-            android:orientation="horizontal"
-            android:paddingLeft="10dp"
-            android:paddingTop="5dp"
-            android:paddingRight="10dp">
+                android:id="@+id/ll_user_center_my_order"
+                style="@style/fi_wr"
+                android:layout_marginTop="8dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:paddingRight="10dp">
 
             <TextView
-                style="@style/wr_wr"
-                android:text="资材订单"
-                android:textColor="@color/black_dim"
-                android:textSize="14sp" />
+                    style="@style/wr_wr"
+                    android:text="资材订单"
+                    android:textColor="@color/black_dim"
+                    android:textSize="14sp" />
 
             <TextView
-                style="@style/weight_w_w"
-                android:layout_alignParentRight="true"
-                android:drawableRight="@drawable/base_arrow_right"
-                android:gravity="right"
-                android:text="更多"
-                android:textColor="@color/text_gray"
-                android:textSize="16sp" />
+                    style="@style/weight_w_w"
+                    android:layout_alignParentRight="true"
+                    android:drawableRight="@drawable/base_arrow_right"
+                    android:gravity="right"
+                    android:text="更多"
+                    android:textColor="@color/text_gray"
+                    android:textSize="16sp" />
         </LinearLayout>
 
         <LinearLayout
-            style="@style/fi_wr"
-            android:background="@color/white"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingBottom="5dp"
-            android:weightSum="5">
+                style="@style/fi_wr"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="5dp"
+                android:weightSum="5">
 
             <RelativeLayout
-                style="@style/weight_w_w"
-                android:gravity="center">
+                    style="@style/weight_w_w"
+                    android:gravity="center">
 
                 <TextView
-                    android:id="@+id/tv_user_center_wait_pay"
-                    style="@style/wr_wr"
-                    android:layout_weight="1"
-                    android:drawableTop="@drawable/wait_pay"
+                        android:id="@+id/tv_user_center_wait_pay"
+                        style="@style/wr_wr"
+                        android:layout_weight="1"
+                        android:drawableTop="@drawable/wait_pay"
 
-                    android:drawablePadding="5dp"
-                    android:gravity="center"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="5dp"
-                    android:text="待付款"
-                    android:textColor="@color/black_dim"
-                    android:textSize="12sp" />
+                        android:drawablePadding="5dp"
+                        android:gravity="center"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="5dp"
+                        android:text="待付款"
+                        android:textColor="@color/black_dim"
+                        android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/tv_user_center_wait_pay_count"
-                    style="@style/user_center_count"
-                    android:layout_alignRight="@id/tv_user_center_wait_pay"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="-3dp"
-                    android:textSize="10sp"
-                    android:visibility="gone" />
+                        android:id="@+id/tv_user_center_wait_pay_count"
+                        style="@style/user_center_count"
+                        android:layout_alignRight="@id/tv_user_center_wait_pay"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="-3dp"
+                        android:textSize="10sp"
+                        android:visibility="gone" />
             </RelativeLayout>
 
             <RelativeLayout
-                style="@style/weight_w_w"
-                android:gravity="center">
+                    style="@style/weight_w_w"
+                    android:gravity="center">
 
                 <TextView
-                    android:id="@+id/tv_user_center_wait_send_goods"
-                    style="@style/wr_wr"
-                    android:layout_weight="1"
-                    android:drawableTop="@drawable/wait_send_goods"
-                    android:drawablePadding="5dp"
-                    android:gravity="center"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="5dp"
-                    android:text="待发货"
-                    android:textColor="@color/black_dim"
-                    android:textSize="12sp" />
+                        android:id="@+id/tv_user_center_wait_send_goods"
+                        style="@style/wr_wr"
+                        android:layout_weight="1"
+                        android:drawableTop="@drawable/wait_send_goods"
+                        android:drawablePadding="5dp"
+                        android:gravity="center"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="5dp"
+                        android:text="待发货"
+                        android:textColor="@color/black_dim"
+                        android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/tv_user_center_wait_send_goods_count"
-                    style="@style/user_center_count"
-                    android:layout_alignRight="@id/tv_user_center_wait_send_goods"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="-3dp"
-                    android:textSize="10sp"
-                    android:visibility="gone" />
+                        android:id="@+id/tv_user_center_wait_send_goods_count"
+                        style="@style/user_center_count"
+                        android:layout_alignRight="@id/tv_user_center_wait_send_goods"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="-3dp"
+                        android:textSize="10sp"
+                        android:visibility="gone" />
             </RelativeLayout>
 
             <RelativeLayout
-                style="@style/weight_w_w"
-                android:gravity="center">
+                    style="@style/weight_w_w"
+                    android:gravity="center">
 
                 <TextView
-                    android:id="@+id/tv_user_center_wait_receive_goods"
-                    style="@style/wr_wr"
-                    android:layout_weight="1"
-                    android:drawableTop="@drawable/wait_receive_goods"
-                    android:drawablePadding="5dp"
-                    android:gravity="center"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="5dp"
-                    android:text="待收货"
-                    android:textColor="@color/black_dim"
-                    android:textSize="12sp" />
+                        android:id="@+id/tv_user_center_wait_receive_goods"
+                        style="@style/wr_wr"
+                        android:layout_weight="1"
+                        android:drawableTop="@drawable/wait_receive_goods"
+                        android:drawablePadding="5dp"
+                        android:gravity="center"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="5dp"
+                        android:text="待收货"
+                        android:textColor="@color/black_dim"
+                        android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/tv_user_center_wait_receive_goods_count"
-                    style="@style/user_center_count"
-                    android:layout_alignRight="@id/tv_user_center_wait_receive_goods"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="-3dp"
-                    android:textSize="10sp"
-                    android:visibility="gone" />
+                        android:id="@+id/tv_user_center_wait_receive_goods_count"
+                        style="@style/user_center_count"
+                        android:layout_alignRight="@id/tv_user_center_wait_receive_goods"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="-3dp"
+                        android:textSize="10sp"
+                        android:visibility="gone" />
             </RelativeLayout>
 
             <RelativeLayout
-                style="@style/weight_w_w"
-                android:gravity="center">
+                    style="@style/weight_w_w"
+                    android:gravity="center">
 
                 <TextView
-                    android:id="@+id/tv_user_center_wait_comment"
-                    style="@style/wr_wr"
-                    android:drawableTop="@drawable/wait_comment"
-                    android:drawablePadding="5dp"
-                    android:gravity="center"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="5dp"
-                    android:text="待评价"
-                    android:textColor="@color/black_dim"
-                    android:textSize="12sp" />
+                        android:id="@+id/tv_user_center_wait_comment"
+                        style="@style/wr_wr"
+                        android:drawableTop="@drawable/wait_comment"
+                        android:drawablePadding="5dp"
+                        android:gravity="center"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="5dp"
+                        android:text="待评价"
+                        android:textColor="@color/black_dim"
+                        android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/tv_user_center_wait_comment_count"
-                    style="@style/user_center_count"
-                    android:layout_alignRight="@id/tv_user_center_wait_comment"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="-3dp"
-                    android:textSize="10sp"
-                    android:visibility="gone" />
+                        android:id="@+id/tv_user_center_wait_comment_count"
+                        style="@style/user_center_count"
+                        android:layout_alignRight="@id/tv_user_center_wait_comment"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="-3dp"
+                        android:textSize="10sp"
+                        android:visibility="gone" />
             </RelativeLayout>
 
             <RelativeLayout
-                style="@style/weight_w_w"
-                android:gravity="center">
+                    style="@style/weight_w_w"
+                    android:gravity="center">
 
                 <TextView
-                    android:id="@+id/tv_user_center_after_sale"
-                    style="@style/wr_wr"
-                    android:drawableTop="@drawable/after_sale"
-                    android:drawablePadding="5dp"
-                    android:gravity="center"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="5dp"
-                    android:text="售后"
-                    android:textColor="@color/black_dim"
-                    android:textSize="12sp" />
+                        android:id="@+id/tv_user_center_after_sale"
+                        style="@style/wr_wr"
+                        android:drawableTop="@drawable/after_sale"
+                        android:drawablePadding="5dp"
+                        android:gravity="center"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="5dp"
+                        android:text="售后"
+                        android:textColor="@color/black_dim"
+                        android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/tv_user_center_after_sale_count"
-                    style="@style/user_center_count"
-                    android:layout_alignRight="@id/tv_user_center_after_sale"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="-3dp"
-                    android:textSize="10sp"
-                    android:visibility="gone" />
+                        android:id="@+id/tv_user_center_after_sale_count"
+                        style="@style/user_center_count"
+                        android:layout_alignRight="@id/tv_user_center_after_sale"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="-3dp"
+                        android:textSize="10sp"
+                        android:visibility="gone" />
             </RelativeLayout>
 
         </LinearLayout>
+
+
+        <View style="@style/line_margin" />
+
+        <TextView
+                android:id="@+id/tv_user_suggestion"
+                style="@style/tv_user_center"
+                android:text="我的意见" />
+
+        <View style="@style/line_margin" />
+
+        <TextView
+                android:id="@+id/tv_user_camera"
+                style="@style/tv_user_center"
+                android:text="我的随手拍" />
+
+        <View style="@style/line_margin" />
+
+        <TextView
+                android:id="@+id/tv_user_wait_deal"
+                style="@style/tv_user_center"
+                android:text="待处理随手怕" />
 
         <View
-            style="@style/line_margin"
-            android:layout_marginTop="8dp" />
+                style="@style/line_margin"
+                android:layout_marginTop="8dp" />
 
         <TextView
-            android:id="@+id/tv_user_center_msg"
-            style="@style/tv_user_center"
-            android:text="系统消息" />
+                android:id="@+id/tv_user_center_msg"
+                style="@style/tv_user_center"
+                android:text="系统消息" />
+
+        <TextView
+                android:id="@+id/tv_user_center_edit_pwd"
+                style="@style/tv_user_center"
+                android:text="修改密码" />
 
         <View style="@style/line_margin" />
 
         <TextView
-            android:id="@+id/tv_user_center_edit_pwd"
-            style="@style/tv_user_center"
-            android:text="修改密码" />
-
-        <View style="@style/line_margin" />
-
-        <TextView
-            style="@style/tv_user_center"
-            android:layout_marginTop="8dp"
-            android:text="使用帮助" />
+                style="@style/tv_user_center"
+                android:layout_marginTop="8dp"
+                android:text="使用帮助" />
 
         <View style="@style/line_margin" />
 
         <RelativeLayout style="@style/fi_wr">
 
             <TextView
-                style="@style/tv_user_center"
-                android:layout_weight="1"
-                android:text="软件版本" />
+                    style="@style/tv_user_center"
+                    android:layout_weight="1"
+                    android:text="软件版本" />
 
             <TextView
-                android:id="@+id/tv_soft_version"
-                style="@style/wr_wr"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="30dp"
-                android:text="v1.0.1"
-                android:textColor="@color/text_gray" />
+                    android:id="@+id/tv_soft_version"
+                    style="@style/wr_wr"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="30dp"
+                    android:text="v1.0.1"
+                    android:textColor="@color/text_gray" />
 
         </RelativeLayout>
 
@@ -274,9 +294,9 @@
         <View style="@style/line_margin" />
 
         <TextView
-            android:id="@+id/tv_logout"
-            style="@style/tv_gray_sure"
-            android:text="注销登录"
-            android:textColor="@color/text_gray" />
+                android:id="@+id/tv_logout"
+                style="@style/tv_gray_sure"
+                android:text="注销登录"
+                android:textColor="@color/text_gray" />
     </LinearLayout>
 </ScrollView>

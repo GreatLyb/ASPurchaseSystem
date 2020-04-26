@@ -23,12 +23,6 @@
             android:orientation="horizontal">
 
         <TextView
-                style="@style/wr_wr"
-                android:text="发布人：张三"
-                android:textColor="@color/text_gray"
-                android:textSize="12sp" />
-
-        <TextView
                 style="@style/weight_w_w"
                 android:layout_marginLeft="30dp"
                 android:gravity="right"
