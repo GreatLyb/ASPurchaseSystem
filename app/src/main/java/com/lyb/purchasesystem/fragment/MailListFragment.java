@@ -4,6 +4,11 @@ import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.hjq.toast.ToastUtils;
 import com.lyb.purchasesystem.R;
 import com.lyb.purchasesystem.adapter.CityAdapter;
@@ -15,11 +20,6 @@ import com.mcxtzhang.indexlib.suspension.SuspensionDecoration;
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 /**
  * 介绍：高仿微信通讯录界面
  * 头部不是HeaderView 因为头部也需要快速导航，"↑"
@@ -28,7 +28,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
  * 主页：http://blog.csdn.net/zxt0601
  * 时间： 2016/11/7.
  */
-public class PhoneNumListFragment extends BaseUIFragment {
+public class MailListFragment extends BaseUIFragment {
     private static final String TAG = "zxt";
     private static final String INDEX_STRING_TOP = "↑";
     private RecyclerView mRv;

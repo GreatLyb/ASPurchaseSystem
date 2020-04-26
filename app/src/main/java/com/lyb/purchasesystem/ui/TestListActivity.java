@@ -49,7 +49,7 @@ public class TestListActivity extends BaseUIListActivity<UserBean> {
                 if (getPageIndex() < 3) {
                     for (int i = 0; i < 20; i++) {
                         UserBean bean = new UserBean();
-                        bean.setUserName("第" + getPageIndex() + "页" + "第" + (i + 1) + "条数据");
+                        bean.setUsername("第" + getPageIndex() + "页" + "第" + (i + 1) + "条数据");
                         list.add(bean);
                     }
                 }

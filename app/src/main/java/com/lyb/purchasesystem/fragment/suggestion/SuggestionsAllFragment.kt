@@ -1,10 +1,20 @@
-package com.lyb.purchasesystem.fragment
+package com.lyb.purchasesystem.fragment.suggestion
 
+import android.content.Intent
 import android.view.View
 import android.widget.BaseAdapter
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import com.blankj.utilcode.util.ToastUtils
+import com.kongzue.dialog.interfaces.OnMenuItemClickListener
+import com.kongzue.dialog.util.BaseDialog
+import com.kongzue.dialog.v3.BottomMenu
+import com.kongzue.dialog.v3.InputDialog
+import com.lyb.purchasesystem.R
 import com.lyb.purchasesystem.adapter.SuggestionsListAdapter
 import com.lyb.purchasesystem.bean.SuggertionBean
 import com.lyb.purchasesystem.consta.Constants
+import com.lyb.purchasesystem.ui.suggestions.SuggestionsInfoActivity
 import com.lysoft.baseproject.activity.BaseUIListFragment
 import com.lysoft.baseproject.imp.AdapterViewClickListener
 import com.lysoft.baseproject.imp.BaseCallBack
@@ -16,11 +26,14 @@ import com.lysoft.baseproject.imp.LoadStatus
  * 类传参：
  * @Author： create by Lyb on 2020-04-24 15:45
  */
-class SuggestionsAllFragment : AdapterViewClickListener, BaseUIListFragment<SuggertionBean>() {
-
+class SuggestionsAllFragment(var appCompatActivity: AppCompatActivity) : AdapterViewClickListener, BaseUIListFragment<SuggertionBean>() {
+    val menulist = listOf("驳回该意见", "采纳该意见")
     override fun onCreate() {
         super.onCreate()
+        containerView().setBackgroundColor(ContextCompat.getColor(pageContext, R.color.background_color))
         topViewManager().topView().visibility = View.GONE
+        pageListView.setBackgroundColor(ContextCompat.getColor(pageContext, R.color.background_color))
+        pageListView.dividerHeight = 0
         loadViewManager().changeLoadState(LoadStatus.LOADING)
         onPageLoad()
     }
@@ -40,10 +53,22 @@ class SuggestionsAllFragment : AdapterViewClickListener, BaseUIListFragment<Sugg
     }
 
     override fun instanceAdapter(list: MutableList<SuggertionBean>): BaseAdapter {
-        return SuggestionsListAdapter(pageContext, list, this)
+        return SuggestionsListAdapter(pageContext, list, this, 1)
+    }
+
+    override fun adapterViewClick(position: Int, view: View?) {
+
+        BottomMenu.show(appCompatActivity, menulist, OnMenuItemClickListener({ text, index ->
+            InputDialog.show(appCompatActivity, "提示", "请输入处理意见").setOnOkButtonClickListener { baseDialog: BaseDialog, v: View?, inputStr: String? ->
+                baseDialog.doDismiss()
+                ToastUtils.showShort(inputStr)
+                true
+            }
+        }))
     }
 
     override fun itemClickListener(position: Int) {
+        startActivity(Intent(pageContext, SuggestionsInfoActivity::class.java))
     }
 
     override fun getPageSize(): Int {

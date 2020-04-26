@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.lyb.purchasesystem.R
-import com.lyb.purchasesystem.fragment.SuggestionsAllFragment
-import com.lyb.purchasesystem.fragment.SuggestionsMineFragment
+import com.lyb.purchasesystem.fragment.suggestion.SuggestionsAllFragment
+import com.lyb.purchasesystem.fragment.suggestion.SuggestionsMineFragment
 import com.lyb.purchasesystem.ui.main.AddCommentActivity
 import com.lysoft.baseproject.activity.BaseUIActivity
 import net.lucode.hackware.magicindicator.MagicIndicator
@@ -42,8 +42,8 @@ class SuggestionsBoxLeaderActivity : BaseUIActivity() {
             startActivity(Intent(pageContext, AddCommentActivity::class.java))
         }
         containerView().addView(View.inflate(pageContext, R.layout.activity_suggestion_leader, null))
-        suggestionsAllFragment = SuggestionsAllFragment()
-        suggestionsMineFragment = SuggestionsMineFragment()
+        suggestionsAllFragment = SuggestionsAllFragment(this)
+        suggestionsMineFragment = SuggestionsMineFragment(this)
         fragmenList.add(suggestionsAllFragment)
         fragmenList.add(suggestionsMineFragment)
         initTopIndicator()
@@ -77,7 +77,8 @@ class SuggestionsBoxLeaderActivity : BaseUIActivity() {
                 colorTransitionPagerTitleView.normalColor = ContextCompat.getColor(pageContext, R.color.text_gray)
                 colorTransitionPagerTitleView.selectedColor = ContextCompat.getColor(pageContext, R.color.main_color)
                 colorTransitionPagerTitleView.text = mTitleDataList.get(index)
-                colorTransitionPagerTitleView.textSize = 16f
+                colorTransitionPagerTitleView.textSize = 18f
+                colorTransitionPagerTitleView.right = 80
                 colorTransitionPagerTitleView.setOnClickListener { mViewPager.setCurrentItem(index) }
                 return colorTransitionPagerTitleView
             }

@@ -13,6 +13,8 @@ import com.kongzue.dialog.interfaces.OnDialogButtonClickListener
 import com.kongzue.dialog.v3.MessageDialog
 import com.linchaolong.android.imagepicker.ImagePicker
 import com.lyb.purchasesystem.R
+import com.lyb.purchasesystem.ui.user.LoginActivity
+import com.lyb.purchasesystem.utils.UserInfoUtils
 import com.lysoft.baseproject.activity.BaseUIFragment
 import com.lysoft.baseproject.clipview.ClipImageActivity
 import com.lysoft.baseproject.utils.FileUtils
@@ -38,6 +40,8 @@ class UserCenterFragment(val parentActivity: AppCompatActivity) : View.OnClickLi
         containerView().addView(view)
         containerView().img_head.setOnClickListener(this)
         containerView().tv_name.setOnClickListener(this)
+        var userInfo = UserInfoUtils.getUserInfo(context)
+        containerView().tv_name.setText(userInfo.username)
         containerView().tv_logout.setOnClickListener(this)
         containerView().tv_user_center_edit_pwd.setOnClickListener(this)
         containerView().tv_user_center_msg.setOnClickListener(this)
@@ -81,6 +85,9 @@ class UserCenterFragment(val parentActivity: AppCompatActivity) : View.OnClickLi
     private fun outLogin() {
         MessageDialog.show(parentActivity, "提示", "确认要退出登录吗？", "确定", "取消").setOnOkButtonClickListener({ baseDialog, v ->
             baseDialog.doDismiss()
+            UserInfoUtils.loginOut(pageContext)
+            startActivity(Intent(pageContext, LoginActivity::class.java))
+            parentActivity.finish()
             true
         }).onCancelButtonClickListener = OnDialogButtonClickListener { baseDialog, v ->
             baseDialog.doDismiss()

@@ -12,6 +12,9 @@ object Constants {
     @JvmField
     var PAGE_SIZE = 20
 
+    @JvmField
+    var DB_NAME = "jdrs"
+
     //时间格式
     const val DEFAULT_TIME_FORMAT_S = "yyyy-MM-dd"
     const val DEFAULT_TIME_FORMAT_C = "yyyy年MM月dd日"

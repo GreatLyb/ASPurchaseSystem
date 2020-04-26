@@ -46,7 +46,7 @@ class SuggestionsBoxActivity : AdapterViewClickListener, BaseUIListActivity<Sugg
     }
 
     override fun instanceAdapter(list: MutableList<SuggertionBean>): BaseAdapter {
-        return SuggestionsListAdapter(pageContext, list, this)
+        return SuggestionsListAdapter(pageContext, list, this, 1)
     }
 
     override fun itemClickListener(position: Int) {

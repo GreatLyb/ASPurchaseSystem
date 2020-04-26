@@ -75,6 +75,11 @@
             android:name=".ui.suggestions.SuggestionsBoxLeaderActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <!--  意见详情页面-->
+        <activity
+                android:name=".ui.suggestions.SuggestionsInfoActivity"
+                android:screenOrientation="portrait"
+                android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
     </application>
 
 </manifest>

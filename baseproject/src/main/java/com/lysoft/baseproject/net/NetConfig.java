@@ -14,7 +14,7 @@ public class NetConfig {
      */
     public class Code {
         public static final String SUCCESS = "success";
-        public static final String MSG = "msg";
+        public static final String MSG = "message";
         public static final String CODE = "code";
         public static final String MODEL = "data";
     }

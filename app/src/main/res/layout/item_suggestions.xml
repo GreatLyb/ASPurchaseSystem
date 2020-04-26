@@ -1,86 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/fi_wr"
-    android:background="@color/white"
+        android:background="@color/background_color"
     android:orientation="vertical">
 
-
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         style="@style/fi_wr"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="4dp"
         android:background="@color/white"
-        android:orientation="vertical"
-        android:paddingLeft="10dp"
-        android:paddingTop="8dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="10dp">
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="3dp"
+            app:contentPadding="10dp">
+
 
         <LinearLayout
-            style="@style/fi_wr"
-            android:orientation="horizontal">
+                style="@style/fi_wr"
+                android:orientation="vertical">
+
+            <LinearLayout
+                    style="@style/fi_wr"
+                    android:orientation="horizontal">
+
+                <TextView
+                        android:id="@+id/tv_suggestion_title"
+                        style="@style/weight_w_w"
+                        android:autoSizeTextType="uniform"
+                        android:singleLine="true"
+                        android:text="希望公司越来越强大"
+                        android:textColor="@color/black_dim"
+                        android:textSize="14sp" />
+
+                <TextView
+                        android:id="@+id/tv_suggestion_time"
+                        style="@style/wr_wr"
+                        android:autoSizeTextType="uniform"
+                        android:gravity="right"
+                        android:singleLine="true"
+                        android:text="2020-04-21"
+                        android:textColor="@color/text_gray"
+                        android:textSize="14sp" />
+
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/tv_suggestion_title"
-                style="@style/weight_w_w"
-                android:autoSizeTextType="uniform"
-                android:singleLine="true"
-                android:text="希望公司越来越强大"
-                android:textColor="@color/black_dim"
-                android:textSize="14sp" />
+                    android:id="@+id/tv_suggestion_content"
+                    style="@style/fi_wr"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="10dp"
+                    android:autoSizeTextType="uniform"
+                    android:ellipsize="end"
+                    android:lineSpacingExtra="1.2dp"
+                    android:maxLines="3"
+                    android:text="希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大"
+                    android:textColor="@color/text_gray"
+                    android:textSize="12sp" />
 
-            <TextView
-                android:id="@+id/tv_suggestion_time"
-                style="@style/wr_wr"
-                android:autoSizeTextType="uniform"
-                android:gravity="right"
-                android:singleLine="true"
-                android:text="2020-04-21"
-                android:textColor="@color/text_gray"
-                android:textSize="14sp" />
+            <LinearLayout
+                    style="@style/fi_wr"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
+                <TextView
+                        style="@style/wr_wr"
+                        android:gravity="right"
+                        android:text="处理状态："
+                        android:textColor="@color/black_dim"
+                        android:textSize="14sp" />
+
+                <ImageView
+                        android:id="@+id/img_state_img"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/right_msg" />
+
+                <TextView
+                        android:id="@+id/tv_state"
+                        style="@style/wr_wr"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="5dp"
+                        android:text="意见被采纳"
+                        android:textColor="@color/main_color"
+                        android:textSize="14sp" />
+
+                <TextView style="@style/weight_w_w" />
+
+                <ImageView
+                        android:id="@+id/img_deal"
+                        style="@style/wr_wr"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:paddingRight="10dp"
+                        android:paddingBottom="8dp"
+                        android:src="@drawable/del_icon" />
+
+            </LinearLayout>
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/tv_suggestion_content"
-            style="@style/fi_wr"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="10dp"
-            android:autoSizeTextType="uniform"
-            android:ellipsize="end"
-            android:lineSpacingExtra="1.2dp"
-            android:maxLines="3"
-            android:text="希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大"
-            android:textColor="@color/text_gray"
-            android:textSize="12sp" />
-
-        <LinearLayout
-            style="@style/fi_wr"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-                style="@style/weight_w_w"
-                android:gravity="right"
-                android:text="处理状态："
-                android:textColor="@color/black_dim"
-                android:textSize="14sp" />
-
-            <ImageView
-                android:id="@+id/img_state_img"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/right_msg" />
-
-            <TextView
-                android:id="@+id/tv_state"
-                style="@style/wr_wr"
-                android:text="意见被采纳"
-                android:textColor="@color/main_color"
-                android:textSize="14sp" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <View
-        style="@style/line"
-        android:layout_height="5dp" />
+    </androidx.cardview.widget.CardView>
 </LinearLayout>

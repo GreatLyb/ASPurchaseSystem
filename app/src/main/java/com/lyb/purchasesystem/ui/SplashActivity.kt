@@ -1,12 +1,15 @@
 package com.lyb.purchasesystem.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.alibaba.android.arouter.launcher.ARouter
 import com.lyb.purchasesystem.R
 import com.lyb.purchasesystem.consta.PermissionsConstant
+import com.lyb.purchasesystem.ui.main.MainActivity
+import com.lyb.purchasesystem.ui.user.LoginActivity
+import com.lyb.purchasesystem.utils.UserInfoUtils
 import com.lysoft.baseproject.activity.BaseUIActivity
 import com.lysoft.baseproject.utils.StatusBarUtil
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -41,7 +44,12 @@ class SplashActivity : BaseUIActivity() {
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ Long ->
-                    ARouter.getInstance().build("/app/MainActivity").navigation()
+                    if (UserInfoUtils.isLogin(pageContext)) {
+                        startActivity(Intent(pageContext, MainActivity::class.java))
+                    } else {
+                        startActivity(Intent(pageContext, LoginActivity::class.java))
+                    }
+                    finish()
                 })
 
 //        object : CountDownTimer(1000, 1000) {

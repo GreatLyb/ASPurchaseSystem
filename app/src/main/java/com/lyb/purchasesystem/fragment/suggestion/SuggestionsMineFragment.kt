@@ -1,10 +1,15 @@
-package com.lyb.purchasesystem.fragment
+package com.lyb.purchasesystem.fragment.suggestion
 
+import android.content.Intent
 import android.view.View
 import android.widget.BaseAdapter
+import androidx.appcompat.app.AppCompatActivity
+import com.kongzue.dialog.interfaces.OnDialogButtonClickListener
+import com.kongzue.dialog.v3.MessageDialog
 import com.lyb.purchasesystem.adapter.SuggestionsListAdapter
 import com.lyb.purchasesystem.bean.SuggertionBean
 import com.lyb.purchasesystem.consta.Constants
+import com.lyb.purchasesystem.ui.suggestions.SuggestionsInfoActivity
 import com.lysoft.baseproject.activity.BaseUIListFragment
 import com.lysoft.baseproject.imp.AdapterViewClickListener
 import com.lysoft.baseproject.imp.BaseCallBack
@@ -16,7 +21,7 @@ import com.lysoft.baseproject.imp.LoadStatus
  * 类传参：
  * @Author： create by Lyb on 2020-04-24 15:45
  */
-class SuggestionsMineFragment : AdapterViewClickListener, BaseUIListFragment<SuggertionBean>() {
+class SuggestionsMineFragment(var appCompatActivity: AppCompatActivity) : AdapterViewClickListener, BaseUIListFragment<SuggertionBean>() {
     override fun onCreate() {
         super.onCreate()
         topViewManager().topView().visibility = View.GONE
@@ -38,10 +43,23 @@ class SuggestionsMineFragment : AdapterViewClickListener, BaseUIListFragment<Sug
     }
 
     override fun instanceAdapter(list: MutableList<SuggertionBean>): BaseAdapter {
-        return SuggestionsListAdapter(pageContext, list, this)
+        return SuggestionsListAdapter(pageContext, list, this, 0)
     }
 
     override fun itemClickListener(position: Int) {
+        startActivity(Intent(pageContext, SuggestionsInfoActivity::class.java))
+    }
+
+    override fun adapterViewClick(position: Int, view: View?) {
+        MessageDialog.show(appCompatActivity, "提示", "确认要删除该条意见吗？", "确定", "取消").setOnOkButtonClickListener { baseDialog, v ->
+            baseDialog.doDismiss()
+
+            true
+
+        }.onCancelButtonClickListener = OnDialogButtonClickListener({ baseDialog, v ->
+            baseDialog.doDismiss()
+            true
+        })
     }
 
     override fun getPageSize(): Int {
