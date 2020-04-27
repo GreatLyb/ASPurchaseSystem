@@ -17,6 +17,7 @@ import com.lyb.purchasesystem.adapter.MainGrideAdapter
 import com.lyb.purchasesystem.adapter.NetViewHolder
 import com.lyb.purchasesystem.bean.BannerData
 import com.lyb.purchasesystem.bean.MainIconBean
+import com.lyb.purchasesystem.ui.clapatwill.ClapAtWillListActivity
 import com.lyb.purchasesystem.ui.suggestions.SuggestionsBoxActivity
 import com.lysoft.baseproject.activity.BaseUIFragment
 import com.lysoft.baseproject.utils.DensityUtils
@@ -93,7 +94,9 @@ class MainFragment : BaseUIFragment() {
                 2 -> ToastUtils.showShort("部门设备")
                 3 -> ToastUtils.showShort("教室预约")
                 4 -> ToastUtils.showShort("仓库管理")
-                5 -> ToastUtils.showShort("随手拍")
+                5 -> {
+                    startActivity(Intent(pageContext, ClapAtWillListActivity::class.java))
+                }
                 6 -> {
 //                    startActivity(Intent(pageContext, SuggestionsBoxActivity::class.java))
                     startActivity(Intent(pageContext, SuggestionsBoxActivity::class.java))
@@ -121,8 +124,8 @@ class MainFragment : BaseUIFragment() {
                 .setAutoPlay(true)
                 .setPageStyle(PageStyle.MULTI_PAGE_SCALE)
                 .setIndicatorStyle(IndicatorStyle.ROUND_RECT)
-                .setIndicatorSliderGap(resources.getDimensionPixelOffset(R.dimen.dp4x))
-                .setIndicatorSliderWidth(resources.getDimensionPixelOffset(R.dimen.dp4x), resources.getDimensionPixelOffset(R.dimen.dp10x))
+                .setIndicatorSliderGap(DensityUtils.dip2px(pageContext, 4f))
+                .setIndicatorSliderWidth(DensityUtils.dip2px(pageContext, 4f), DensityUtils.dip2px(pageContext, 10f))
                 .setIndicatorSliderColor(resources.getColor(R.color.white), resources.getColor(R.color.main_color))
                 .setOrientation(ViewPager2.ORIENTATION_HORIZONTAL)
                 .setInterval(3000)

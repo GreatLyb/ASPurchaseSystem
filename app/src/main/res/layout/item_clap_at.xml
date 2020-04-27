@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        style="@style/fi_wr"
+        android:background="@color/background_color"
+        android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+            style="@style/fi_wr"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="4dp"
+            android:background="@color/white"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="3dp"
+            app:cardPreventCornerOverlap="false"
+            app:contentPaddingBottom="10dp">
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:orientation="vertical">
+
+            <TextView
+                    android:id="@+id/tv_clap_at_deal_state"
+                    android:layout_width="80dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/shape_deal_state_1_bg"
+                    android:gravity="center"
+                    android:text="处理已处理"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+            <LinearLayout
+                    style="@style/fi_wr"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:id="@+id/tv_clap_at_title"
+                        style="@style/fi_wr"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:text="希望公司越来越强大"
+                        android:textColor="@color/black_dim"
+                        android:textSize="14sp" />
+
+
+                <TextView
+                        android:id="@+id/tv_clap_at_content"
+                        style="@style/fi_wr"
+                        android:layout_marginTop="5dp"
+                        android:ellipsize="end"
+                        android:lineSpacingExtra="1.2dp"
+                        android:maxLines="3"
+                        android:text="希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大"
+                        android:textColor="@color/text_gray"
+                        android:textSize="12sp" />
+
+                <com.lysoft.baseproject.view.LyAtMostGridView
+                        android:id="@+id/gv_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:horizontalSpacing="5dp"
+                        android:numColumns="3" />
+
+                <TextView
+                        android:id="@+id/tv_clap_at_time"
+                        style="@style/fi_wr"
+                        android:layout_marginTop="5dp"
+                        android:text="发布时间：2020-04-20"
+                        android:textColor="@color/text_gray"
+                        android:textSize="14sp" />
+
+                <LinearLayout
+                        style="@style/fi_wr"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+
+                    <ImageView
+                            android:id="@+id/img_deal"
+                            style="@style/wr_wr"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="5dp"
+                            android:paddingRight="10dp"
+                            android:paddingBottom="8dp"
+                            android:src="@drawable/del_icon"
+                            android:visibility="gone" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

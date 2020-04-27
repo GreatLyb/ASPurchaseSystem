@@ -18,15 +18,6 @@ public class UserBeanDao extends AbstractDao<UserBean, Void> {
 
     public static final String TABLENAME = "USER_BEAN";
 
-    public UserBeanDao(DaoConfig config) {
-        super(config);
-    }
-
-
-    public UserBeanDao(DaoConfig config, DaoSession daoSession) {
-        super(config, daoSession);
-    }
-
     /**
      * Creates the underlying database table.
      */
@@ -42,6 +33,23 @@ public class UserBeanDao extends AbstractDao<UserBean, Void> {
                 "\"DEPARTMENTS\" TEXT," + // 6: departments
                 "\"POWER\" TEXT," + // 7: power
                 "\"USER_ID\" TEXT);"); // 8: userId
+    }
+
+
+    public UserBeanDao(DaoConfig config) {
+        super(config);
+    }
+
+    public UserBeanDao(DaoConfig config, DaoSession daoSession) {
+        super(config, daoSession);
+    }
+
+    /**
+     * Drops the underlying database table.
+     */
+    public static void dropTable(Database db, boolean ifExists) {
+        String sql = "DROP TABLE " + (ifExists ? "IF EXISTS " : "") + "\"USER_BEAN\"";
+        db.execSQL(sql);
     }
 
     @Override
@@ -92,14 +100,6 @@ public class UserBeanDao extends AbstractDao<UserBean, Void> {
         if (userId != null) {
             stmt.bindString(9, userId);
         }
-    }
-
-    /**
-     * Drops the underlying database table.
-     */
-    public static void dropTable(Database db, boolean ifExists) {
-        String sql = "DROP TABLE " + (ifExists ? "IF EXISTS " : "") + "\"USER_BEAN\"";
-        db.execSQL(sql);
     }
 
     @Override
@@ -173,19 +173,6 @@ public class UserBeanDao extends AbstractDao<UserBean, Void> {
         return entity;
     }
 
-    @Override
-    public void readEntity(Cursor cursor, UserBean entity, int offset) {
-        entity.setToken(cursor.isNull(offset + 0) ? null : cursor.getString(offset + 0));
-        entity.setEmail(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
-        entity.setPhone(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
-        entity.setUsername(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
-        entity.setPassword(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
-        entity.setIcon(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
-        entity.setDepartments(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
-        entity.setPower(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
-        entity.setUserId(cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8));
-     }
-     
     /**
      * Properties of entity UserBean.<br/>
      * Can be used for QueryBuilder and for referencing column names.
@@ -200,6 +187,19 @@ public class UserBeanDao extends AbstractDao<UserBean, Void> {
         public final static Property Departments = new Property(6, String.class, "departments", false, "DEPARTMENTS");
         public final static Property Power = new Property(7, String.class, "power", false, "POWER");
         public final static Property UserId = new Property(8, String.class, "userId", false, "USER_ID");
+    }
+
+    @Override
+    public void readEntity(Cursor cursor, UserBean entity, int offset) {
+        entity.setToken(cursor.isNull(offset + 0) ? null : cursor.getString(offset + 0));
+        entity.setEmail(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
+        entity.setPhone(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
+        entity.setUsername(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
+        entity.setPassword(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
+        entity.setIcon(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
+        entity.setDepartments(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
+        entity.setPower(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
+        entity.setUserId(cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8));
     }
     
     @Override
