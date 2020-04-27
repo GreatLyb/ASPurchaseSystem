@@ -34,7 +34,8 @@ public class TestListAdapter extends LyBaseAdapter<UserBean> {
         } else {
             houder = (Houder) convertView.getTag();
         }
-        houder.textView.setText(getList().get(position).getUserName());
+
+        houder.textView.setText(getList().get(position).getUsername());
         return convertView;
     }
 

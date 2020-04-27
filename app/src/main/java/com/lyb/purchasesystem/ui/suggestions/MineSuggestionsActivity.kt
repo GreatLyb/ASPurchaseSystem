@@ -1,11 +1,15 @@
-package com.lyb.purchasesystem.fragment
+package com.lyb.purchasesystem.ui.suggestions
 
+import android.content.Intent
+import android.os.Bundle
 import android.view.View
 import android.widget.BaseAdapter
+import com.kongzue.dialog.interfaces.OnDialogButtonClickListener
+import com.kongzue.dialog.v3.MessageDialog
 import com.lyb.purchasesystem.adapter.SuggestionsListAdapter
 import com.lyb.purchasesystem.bean.SuggertionBean
 import com.lyb.purchasesystem.consta.Constants
-import com.lysoft.baseproject.activity.BaseUIListFragment
+import com.lysoft.baseproject.activity.BaseUIListActivity
 import com.lysoft.baseproject.imp.AdapterViewClickListener
 import com.lysoft.baseproject.imp.BaseCallBack
 import com.lysoft.baseproject.imp.LoadStatus
@@ -16,13 +20,12 @@ import com.lysoft.baseproject.imp.LoadStatus
  * 类传参：
  * @Author： create by Lyb on 2020-04-24 15:45
  */
-class SuggestionsAllFragment : AdapterViewClickListener, BaseUIListFragment<SuggertionBean>() {
+class MineSuggestionsActivity : AdapterViewClickListener, BaseUIListActivity<SuggertionBean>() {
 
-    override fun onCreate() {
-        super.onCreate()
-        topViewManager().topView().visibility = View.GONE
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        topViewManager().titleTextView().text = "我的意见"
         loadViewManager().changeLoadState(LoadStatus.LOADING)
-        onPageLoad()
     }
 
     override fun getListData(callBack: BaseCallBack) {
@@ -40,10 +43,23 @@ class SuggestionsAllFragment : AdapterViewClickListener, BaseUIListFragment<Sugg
     }
 
     override fun instanceAdapter(list: MutableList<SuggertionBean>): BaseAdapter {
-        return SuggestionsListAdapter(pageContext, list, this)
+        return SuggestionsListAdapter(pageContext, list, this, 0)
     }
 
     override fun itemClickListener(position: Int) {
+        startActivity(Intent(pageContext, SuggestionsInfoActivity::class.java))
+    }
+
+    override fun adapterViewClick(position: Int, view: View?) {
+        MessageDialog.show(this, "提示", "确认要删除该条意见吗？", "确定", "取消").setOnOkButtonClickListener { baseDialog, v ->
+            baseDialog.doDismiss()
+
+            true
+
+        }.onCancelButtonClickListener = OnDialogButtonClickListener({ baseDialog, v ->
+            baseDialog.doDismiss()
+            true
+        })
     }
 
     override fun getPageSize(): Int {

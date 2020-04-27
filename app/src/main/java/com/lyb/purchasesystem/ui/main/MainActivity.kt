@@ -11,8 +11,8 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.hjq.toast.ToastUtils
 import com.lyb.purchasesystem.R
 import com.lyb.purchasesystem.fragment.CommunityFragment
+import com.lyb.purchasesystem.fragment.MailListFragment
 import com.lyb.purchasesystem.fragment.MainFragment
-import com.lyb.purchasesystem.fragment.PhoneNumListFragment
 import com.lyb.purchasesystem.fragment.UserCenterFragment
 import com.lyb.purchasesystem.ui.BaseMainActivity
 import com.lysoft.baseproject.utils.DensityUtils
@@ -71,9 +71,10 @@ class MainActivity : BaseMainActivity() {
         when (position) {
             0 -> fragment = MainFragment()
             1 -> fragment = CommunityFragment()
-            2 -> fragment = PhoneNumListFragment()
+            2 -> fragment = MailListFragment()
             3 -> fragment = UserCenterFragment(this)
             else -> {
+
             }
         }
         return fragment!!

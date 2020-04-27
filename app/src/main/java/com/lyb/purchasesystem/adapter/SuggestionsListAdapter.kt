@@ -10,15 +10,14 @@ import com.lyb.purchasesystem.R
 import com.lyb.purchasesystem.bean.SuggertionBean
 import com.lysoft.baseproject.adapter.LyBaseAdapter
 import com.lysoft.baseproject.imp.AdapterViewClickListener
-import com.lysoft.baseproject.view.swip.SwipeMenuLayout
 
 /**
  * ASPurchaseSystem
  * 类描述：
- * 类传参：
+ * 类传参：dealType 0:删除 1.处理
  * @Author： create by Lyb on 2020-04-21 15:10
  */
-class SuggestionsListAdapter(context: Context, list: MutableList<SuggertionBean>, val adapterViewClickListener: AdapterViewClickListener) : LyBaseAdapter<SuggertionBean>(context, list) {
+class SuggestionsListAdapter(context: Context, list: MutableList<SuggertionBean>, val adapterViewClickListener: AdapterViewClickListener, val leftScrollType: Int) : LyBaseAdapter<SuggertionBean>(context, list) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val holder: ViewHolder
         val itemView: View
@@ -30,11 +29,13 @@ class SuggestionsListAdapter(context: Context, list: MutableList<SuggertionBean>
             holder.suggestionTitleTextView = itemView.findViewById(R.id.tv_suggestion_title)
             holder.suggestionContentTextView = itemView.findViewById(R.id.tv_suggestion_content)
             holder.suggestionTimeTextView = itemView.findViewById(R.id.tv_suggestion_time)
+            holder.dealImageView = itemView.findViewById(R.id.img_deal)
             itemView.setTag(holder)
         } else {
             itemView = convertView;
             holder = itemView.getTag() as ViewHolder
         }
+
         val model = list[position]
         when (model.status) {
             "0" -> {
@@ -50,24 +51,34 @@ class SuggestionsListAdapter(context: Context, list: MutableList<SuggertionBean>
                 holder.stateTextView.text = "建议被采纳"
             }
         }
+        when (leftScrollType) {
+            0 -> {
+                holder.dealImageView.setImageResource(R.drawable.del_icon)
+            }
+            1 -> {
+                holder.dealImageView.setImageResource(R.drawable.deal_icon)
+            }
+        }
+
         holder.suggestionTitleTextView.text = model.suggestName
         holder.suggestionContentTextView.text = model.suggestContent
         holder.suggestionTimeTextView.text = model.insertTime
+        holder.dealImageView.setOnClickListener(clickListener(position))
         return itemView
     }
 
     inner class ViewHolder {
         lateinit var stateImageView: ImageView
+        lateinit var dealImageView: ImageView
         lateinit var stateTextView: TextView
         lateinit var suggestionTitleTextView: TextView
         lateinit var suggestionContentTextView: TextView
         lateinit var suggestionTimeTextView: TextView
     }
 
-    inner class clickListener(val swipeMenuLayout: SwipeMenuLayout, val position: Int) : View.OnClickListener {
+    inner class clickListener(val position: Int) : View.OnClickListener {
         override fun onClick(v: View?) {
             Log.i("Lyb", "aaaaaaaaaa")
-            swipeMenuLayout.quickClose()
             adapterViewClickListener.adapterViewClick(position, v)
         }
     }

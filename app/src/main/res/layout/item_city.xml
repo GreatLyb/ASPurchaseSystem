@@ -33,7 +33,7 @@
         style="@style/wr_wr"
         android:layout_marginEnd="30dp"
         android:paddingLeft="30dp"
-        android:paddingRight="@dimen/dp10x"
+            android:paddingRight="10dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
 

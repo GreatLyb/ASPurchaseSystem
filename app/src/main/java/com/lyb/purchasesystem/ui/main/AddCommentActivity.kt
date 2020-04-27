@@ -5,7 +5,9 @@ import android.text.TextUtils
 import android.view.View
 import com.kongzue.dialog.v3.TipDialog
 import com.lyb.purchasesystem.R
+import com.lyb.purchasesystem.utils.UserInfoUtils
 import com.lysoft.baseproject.activity.BaseUIActivity
+import com.lysoft.baseproject.net.callback.JsonCallBack
 import kotlinx.android.synthetic.main.activity_add_comments.view.*
 
 /**
@@ -36,5 +38,28 @@ class AddCommentActivity : View.OnClickListener, BaseUIActivity() {
             TipDialog.show(this, "意见内容不能为空", TipDialog.TYPE.WARNING)
             return
         }
+        val param = HashMap<String, String>()
+        val userInfo = UserInfoUtils.getUserInfo(pageContext)
+        param.put("deaprtment", userInfo.departments);
+        param.put("suggestContent", "suggestContent");
+        param.put("suggestName", "suggestContent");
+        param.put("userId", userInfo.token);
+        val jsonCallBack: JsonCallBack<String> = object : JsonCallBack<String>() {
+            override fun onSuccess(code: Int, msg: String, response: String) {
+                if (code == 200) {
+                    //添加成功
+
+                } else {
+                    //添加失败
+                    TipDialog.show(this@AddCommentActivity, msg, TipDialog.TYPE.ERROR)
+                }
+            }
+
+            override fun onFailure(tag: Any, e: Exception) {
+                TipDialog.show(this@AddCommentActivity, e.message, TipDialog.TYPE.ERROR)
+            }
+        }
+//        OkGo.post<String>(Api.LOGIN).tag(this).upRequestBody(RequestBodyUtils.getRequestBody(param)).execute(jsonCallBack)
+
     }
 }

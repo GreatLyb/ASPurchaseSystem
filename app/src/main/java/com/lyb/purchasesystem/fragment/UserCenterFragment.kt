@@ -6,13 +6,17 @@ import android.net.Uri
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.alibaba.android.arouter.launcher.ARouter
 import com.bumptech.glide.Glide
 import com.hjq.toast.ToastUtils
 import com.kongzue.dialog.interfaces.OnDialogButtonClickListener
 import com.kongzue.dialog.v3.MessageDialog
 import com.linchaolong.android.imagepicker.ImagePicker
 import com.lyb.purchasesystem.R
+import com.lyb.purchasesystem.ui.suggestions.MineSuggestionsActivity
+import com.lyb.purchasesystem.ui.user.LoginActivity
+import com.lyb.purchasesystem.ui.user.MsgListActivity
+import com.lyb.purchasesystem.ui.user.UserEditPwdActivity
+import com.lyb.purchasesystem.utils.UserInfoUtils
 import com.lysoft.baseproject.activity.BaseUIFragment
 import com.lysoft.baseproject.clipview.ClipImageActivity
 import com.lysoft.baseproject.utils.FileUtils
@@ -38,12 +42,17 @@ class UserCenterFragment(val parentActivity: AppCompatActivity) : View.OnClickLi
         containerView().addView(view)
         containerView().img_head.setOnClickListener(this)
         containerView().tv_name.setOnClickListener(this)
+        var userInfo = UserInfoUtils.getUserInfo(context)
+        containerView().tv_name.setText(userInfo.username)
         containerView().tv_logout.setOnClickListener(this)
         containerView().tv_user_center_edit_pwd.setOnClickListener(this)
         containerView().tv_user_center_msg.setOnClickListener(this)
+        containerView().tv_user_suggestion.setOnClickListener(this)
         val versionName = parentActivity.packageManager.getPackageInfo(parentActivity.packageName, 0).versionName
         val versionNum = "v " + versionName;
         containerView().tv_soft_version.text = versionNum
+
+
     }
 
 
@@ -68,9 +77,11 @@ class UserCenterFragment(val parentActivity: AppCompatActivity) : View.OnClickLi
 //                }).setCancelButtonTextInfo(textInfo).setMenuTextInfo(menutextInfo)
             }
             tv_name.id -> (ToastUtils.show("名字"))
-            tv_user_center_edit_pwd.id -> ARouter.getInstance().build("/app/UserEditPwdActivity").navigation()
+
+            tv_user_center_edit_pwd.id -> startActivity(Intent(pageContext, UserEditPwdActivity::class.java))
             tv_logout.id -> outLogin()
-            tv_user_center_msg.id -> ARouter.getInstance().build("/app/MsgListActivity").navigation();
+            tv_user_center_msg.id -> startActivity(Intent(pageContext, MsgListActivity::class.java))
+            tv_user_suggestion.id -> startActivity(Intent(pageContext, MineSuggestionsActivity::class.java))
 
         }
     }
@@ -81,6 +92,9 @@ class UserCenterFragment(val parentActivity: AppCompatActivity) : View.OnClickLi
     private fun outLogin() {
         MessageDialog.show(parentActivity, "提示", "确认要退出登录吗？", "确定", "取消").setOnOkButtonClickListener({ baseDialog, v ->
             baseDialog.doDismiss()
+            UserInfoUtils.loginOut(pageContext)
+            startActivity(Intent(pageContext, LoginActivity::class.java))
+            parentActivity.finish()
             true
         }).onCancelButtonClickListener = OnDialogButtonClickListener { baseDialog, v ->
             baseDialog.doDismiss()
