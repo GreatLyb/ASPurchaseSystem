@@ -84,7 +84,7 @@ public class GlideImageUtils {
             if (Util.isOnMainThread()) {
                 RequestOptions options = RequestOptions
                         .diskCacheStrategyOf(DiskCacheStrategy.AUTOMATIC)
-                        .skipMemoryCache(true);
+                        .skipMemoryCache(false);
                 Glide.with(context).load(imagePath).apply(options).placeholder(resDefImg <= 0 ? R.drawable.default_img : resDefImg).error(resDefImg <= 0 ? R.drawable.default_img : resDefImg).into(imageView);
             }
         } catch (Exception e) {
@@ -98,7 +98,7 @@ public class GlideImageUtils {
             if (Util.isOnMainThread()) {
                 RequestOptions options = RequestOptions
                         .diskCacheStrategyOf(DiskCacheStrategy.AUTOMATIC)
-                        .skipMemoryCache(true);
+                        .skipMemoryCache(false);
                 Glide.with(context).load(res).apply(options).placeholder(resDefImg <= 0 ? R.drawable.default_img : resDefImg).error(resDefImg <= 0 ? R.drawable.default_img : resDefImg).into(imageView);
             }
         } catch (Exception e) {

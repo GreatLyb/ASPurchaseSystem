@@ -1,7 +1,6 @@
 package com.lyb.purchasesystem.adapter
 
 import android.content.Context
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
@@ -36,8 +35,6 @@ class ImageGridViewAdapter(context: Context, list: MutableList<ImageBean>) : LyB
         }
 
         val width = (ScreenUtils.getAppScreenWidth() - DensityUtils.dip2px(context, 50f)) / 3
-        Log.i("Lyb", "ScreenUtils.getAppScreenWidth()-DensityUtils.dip2px(context,40f)==" + (ScreenUtils.getAppScreenWidth() - DensityUtils.dip2px(context, 60f)))
-        Log.i("Lyb", "width==" + width)
         val params = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, width)
         holder.imageView.layoutParams = params
         GlideImageUtils.getInstance().loadImage(context, R.drawable.default_img, list[position].ThumImage, holder.imageView)

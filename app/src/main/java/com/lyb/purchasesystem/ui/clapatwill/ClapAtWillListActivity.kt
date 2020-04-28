@@ -13,6 +13,7 @@ import com.lysoft.baseproject.activity.BaseUIListActivity
 import com.lysoft.baseproject.imp.AdapterViewClickListener
 import com.lysoft.baseproject.imp.BaseCallBack
 import com.lysoft.baseproject.imp.LoadStatus
+import kotlinx.android.synthetic.main.item_clap_at.*
 
 /**
  * ASPurchaseSystem
@@ -84,7 +85,11 @@ class ClapAtWillListActivity : AdapterViewClickListener, BaseUIListActivity<Clap
     }
 
     override fun adapterViewClick(position: Int, view: View?) {
-
+        when (view!!.id) {
+            cv_clat_list.id -> {
+                startActivity(Intent(pageContext, ClapAtWillDetailActivity::class.java))
+            }
+        }
     }
 
     override fun getPageSize(): Int {

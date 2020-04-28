@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/fi_fi"
+        android:background="@color/white">
+
+    <LinearLayout
+            style="@style/fi_wr"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical">
+
+            <TextView
+                    android:id="@+id/tv_clap_at_title"
+                    style="@style/fi_wr"
+                    android:gravity="center"
+                    android:text="希望公司越来越强大"
+                    android:textColor="@color/text_black"
+                    android:textSize="16sp" />
+
+            <TextView
+                    android:id="@+id/tv_clap_at_user"
+                    style="@style/fi_wr"
+                    android:layout_marginTop="15dp"
+                    android:drawableLeft="@drawable/post_user"
+                    android:drawablePadding="5dp"
+                    android:text="发布人：张三"
+                    android:textColor="@color/black_dim"
+                    android:textSize="14sp" />
+
+            <TextView
+                    android:id="@+id/tv_clap_at_time"
+                    style="@style/fi_wr"
+                    android:layout_marginTop="3dp"
+                    android:drawableLeft="@drawable/post_time"
+                    android:drawablePadding="5dp"
+                    android:text="发布时间：2020-04-20"
+                    android:textColor="@color/black_dim"
+                    android:textSize="14sp" />
+
+            <TextView
+                    android:id="@+id/tv_clap_at_content"
+                    style="@style/fi_wr"
+                    android:layout_marginTop="8dp"
+                    android:lineSpacingExtra="5.0dp"
+                    android:text="希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大希望公司越来越强大"
+                    android:textColor="@color/black_dim"
+                    android:textSize="12sp" />
+
+            <com.lysoft.baseproject.view.LyAtMostGridView
+                    android:id="@+id/gv_detail_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:horizontalSpacing="5dp"
+                    android:numColumns="3" />
+
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/diver_clap_at" />
+
+            <TextView
+                    style="@style/fi_wr"
+                    android:gravity="center"
+                    android:text="相关处理信息"
+                    android:textColor="@color/text_black"
+                    android:textSize="16sp" />
+
+            <TextView
+                    android:id="@+id/tv_clap_at_deal_user"
+                    style="@style/fi_wr"
+                    android:layout_marginTop="10dp"
+                    android:text="处理人：王二"
+                    android:textColor="@color/black_dim"
+                    android:textSize="14sp" />
+
+
+            <TextView
+                    android:id="@+id/tv_clap_at_deal_content"
+                    style="@style/fi_wr"
+                    android:layout_marginTop="2dp"
+                    android:text="处理意见：你这个建议不赖"
+                    android:textColor="@color/black_dim"
+                    android:textSize="14sp" />
+
+            <TextView
+                    android:id="@+id/tv_clap_at_deal_time"
+                    style="@style/fi_wr"
+                    android:layout_marginTop="2dp"
+                    android:text="预计完成处理时间：2020-04-02"
+                    android:textColor="@color/black_dim"
+                    android:textSize="14sp" />
+
+            <TextView
+                    style="@style/wr_wr"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginBottom="50dp"
+                    android:drawableTop="@drawable/deal_out_time"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:text="超时未处理完成"
+                    android:textColor="@color/red"
+                    android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

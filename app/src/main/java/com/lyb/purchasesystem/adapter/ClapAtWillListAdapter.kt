@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import com.lyb.purchasesystem.R
 import com.lyb.purchasesystem.bean.ClapAtWillBean
 import com.lysoft.baseproject.adapter.LyBaseAdapter
@@ -31,6 +32,7 @@ class ClapAtWillListAdapter(context: Context, list: MutableList<ClapAtWillBean>,
             holder.gridView = itemView.findViewById(R.id.gv_img)
             holder.dealstateTextView = itemView.findViewById(R.id.tv_clap_at_deal_state)
             holder.dealImageView = itemView.findViewById(R.id.img_deal)
+            holder.clapAtTitleCardView = itemView.findViewById(R.id.cv_clat_list)
             itemView.setTag(holder)
         } else {
             itemView = convertView;
@@ -61,11 +63,13 @@ class ClapAtWillListAdapter(context: Context, list: MutableList<ClapAtWillBean>,
         holder.clapAtContentTextView.text = model.clapAtContent
         holder.clapAtTimeTextView.text = "发布时间：" + model.clapAtTime
         holder.dealImageView.setOnClickListener(clickListener(position))
+        holder.clapAtTitleCardView.setOnClickListener(clickListener(position))
         holder.gridView.adapter = ImageGridViewAdapter(context, list[position].mutableList)
         return itemView
     }
 
     inner class ViewHolder {
+        lateinit var clapAtTitleCardView: CardView
         lateinit var clapAtTitleTextView: TextView
         lateinit var clapAtContentTextView: TextView
         lateinit var clapAtTimeTextView: TextView

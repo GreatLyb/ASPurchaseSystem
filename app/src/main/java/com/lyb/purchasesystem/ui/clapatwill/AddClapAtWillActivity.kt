@@ -2,6 +2,7 @@ package com.lyb.purchasesystem.ui.clapatwill
 
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -13,15 +14,17 @@ import com.bigkoo.pickerview.listener.CustomListener
 import com.bigkoo.pickerview.listener.OnOptionsSelectListener
 import com.bigkoo.pickerview.view.OptionsPickerView
 import com.kongzue.dialog.v3.TipDialog
-import com.lcw.library.imagepicker.ImagePicker.EXTRA_SELECT_IMAGES
 import com.lyb.purchasesystem.R
 import com.lyb.purchasesystem.bean.ClatAtTypeBean
 import com.lyb.purchasesystem.bean.ImageBean
 import com.lyb.purchasesystem.utils.UserInfoUtils
 import com.lysoft.baseproject.activity.BaseUIActivity
 import com.lysoft.baseproject.adapter.CommonGalleryImgAdapter
-import com.lysoft.baseproject.glide.GlideLoader
 import com.lysoft.baseproject.imp.AdapterViewClickListener
+import com.zhihu.matisse.Matisse
+import com.zhihu.matisse.MimeType
+import com.zhihu.matisse.engine.impl.GlideEngine
+import com.zhihu.matisse.internal.entity.CaptureStrategy
 import kotlinx.android.synthetic.main.activity_add_clap_at.*
 import kotlinx.android.synthetic.main.activity_add_clap_at.view.*
 import kotlinx.android.synthetic.main.activity_add_comments.view.tv_user_submit
@@ -114,7 +117,7 @@ class AddClapAtWillActivity : AdapterView.OnItemClickListener, AdapterViewClickL
         val clapType = containerView().tv_clap_type.text.toString()
         val clapDetail = containerView().et_clap_at_content.text.toString()
         if (TextUtils.isEmpty(clapType)) {
-            TipDialog.show(this, "请选择问题类型", TipDialog.TYPE.WARNING)
+            TipDialog.show(this, "请选择问题类a型", TipDialog.TYPE.WARNING)
             return
         }
         if (TextUtils.isEmpty(clapDetail)) {
@@ -148,24 +151,38 @@ class AddClapAtWillActivity : AdapterView.OnItemClickListener, AdapterViewClickL
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         //当点击添加图标时，去获取图片，position为0，添加图标始终在最后一个位置
         if (position == galleryImageList.size - 1 && "add".equals(galleryImageList[galleryImageList.size - 1].ThumImage)) {
-            var mImageList = mutableListOf<String>()
-            for (imageBean in galleryImageList) {
-                if (!imageBean.ThumImage.equals("add")) {
-                    Log.i("Lyb", "添加图片===" + imageBean.ThumImage);
-                    mImageList.add(imageBean.ThumImage)
-                }
-            }
-//            Log.i("Lyb","mImageList==="+mImageList.size);
-            com.lcw.library.imagepicker.ImagePicker.getInstance()
-                    .setTitle("选择随手拍照片")//设置标题
-                    .showCamera(true)//设置是否显示拍照按钮
-                    .showImage(true)//设置是否展示图片
-                    .showVideo(false)//设置是否展示视频
-                    .setSingleType(true)//设置图片视频不能同时选择
-                    .setMaxCount(3)//设置最大选择图片数目(默认为1，单选)
-                    .setImagePaths(mImageList as ArrayList<String>?)//保存上一次选择图片的状态，如果不需要可以忽略
-                    .setImageLoader(GlideLoader(pageContext))//设置自定义图片加载器
-                    .start(this, REQUEST_SELECT_IMAGES_CODE);//REQEST_SELECT_IMAGES_CODE为Intent调用的
+//            var mImageList = mutableListOf<String>()
+//            for (imageBean in galleryImageList) {
+//                if (!imageBean.ThumImage.equals("add")) {
+//                    Log.i("Lyb", "添加图片===" + imageBean.ThumImage);
+//                    mImageList.add(imageBean.ThumImage)
+//                }
+//            }
+            Matisse.from(this)
+                    .choose(MimeType.ofImage())
+                    .capture(true)
+                    .captureStrategy(CaptureStrategy(true, "ZHIHUphotoPicker"))
+                    .countable(true)
+                    .maxSelectable(maxNumPhoto + 1 - galleryImageList.size)
+
+                    .restrictOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+                    .thumbnailScale(0.85f)
+                    .imageEngine(GlideEngine())
+                    .theme(R.style.zhihu_select)
+                    .showSingleMediaType(true)
+                    .originalEnable(false)
+                    .forResult(REQUEST_SELECT_IMAGES_CODE)
+
+//            com.lcw.library.imagepicker.ImagePicker.getInstance()
+//                    .setTitle("选择随手拍照片")//设置标题
+//                    .showCamera(true)//设置是否显示拍照按钮
+//                    .showImage(true)//设置是否展示图片
+//                    .showVideo(false)//设置是否展示视频
+//                    .setSingleType(true)//设置图片视频不能同时选择
+//                    .setMaxCount(3)//设置最大选择图片数目(默认为1，单选)
+//                    .setImagePaths(mImageList as ArrayList<String>?)//保存上一次选择图片的状态，如果不需要可以忽略
+//                    .setImageLoader(GlideLoader(pageContext))//设置自定义图片加载器
+//                    .start(this, REQUEST_SELECT_IMAGES_CODE);//REQEST_SELECT_IMAGES_CODE为Intent调用的
         } else {
 
         }
@@ -194,9 +211,12 @@ class AddClapAtWillActivity : AdapterView.OnItemClickListener, AdapterViewClickL
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_SELECT_IMAGES_CODE) {
-            galleryImageList.clear()
-            galleryImageList.add(ImageBean("add", "add", "add"))
-            var mImageList = data!!.getStringArrayListExtra(EXTRA_SELECT_IMAGES)
+            val mImageList = Matisse.obtainPathResult(data) as ArrayList<String>
+
+
+//            galleryImageList.clear()
+//            galleryImageList.add(ImageBean("add", "add", "add"))
+//            var mImageList = data!!.getStringArrayListExtra(EXTRA_SELECT_IMAGES)
             for (path in mImageList) {
                 val model = ImageBean(path, path, path)
                 galleryImageList.add(galleryImageList.size - 1, model)

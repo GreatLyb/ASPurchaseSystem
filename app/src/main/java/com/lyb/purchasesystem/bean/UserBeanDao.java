@@ -18,15 +18,6 @@ public class UserBeanDao extends AbstractDao<UserBean, Void> {
 
     public static final String TABLENAME = "USER_BEAN";
 
-    public UserBeanDao(DaoConfig config) {
-        super(config);
-    }
-
-
-    public UserBeanDao(DaoConfig config, DaoSession daoSession) {
-        super(config, daoSession);
-    }
-
     /**
      * Creates the underlying database table.
      */
@@ -44,10 +35,13 @@ public class UserBeanDao extends AbstractDao<UserBean, Void> {
                 "\"USER_ID\" TEXT);"); // 8: userId
     }
 
-    /** Drops the underlying database table. */
-    public static void dropTable(Database db, boolean ifExists) {
-        String sql = "DROP TABLE " + (ifExists ? "IF EXISTS " : "") + "\"USER_BEAN\"";
-        db.execSQL(sql);
+
+    public UserBeanDao(DaoConfig config) {
+        super(config);
+    }
+
+    public UserBeanDao(DaoConfig config, DaoSession daoSession) {
+        super(config, daoSession);
     }
 
     @Override
@@ -98,6 +92,14 @@ public class UserBeanDao extends AbstractDao<UserBean, Void> {
         if (userId != null) {
             stmt.bindString(9, userId);
         }
+    }
+
+    /**
+     * Drops the underlying database table.
+     */
+    public static void dropTable(Database db, boolean ifExists) {
+        String sql = "DROP TABLE " + (ifExists ? "IF EXISTS " : "") + "\"USER_BEAN\"";
+        db.execSQL(sql);
     }
 
     @Override
@@ -182,7 +184,7 @@ public class UserBeanDao extends AbstractDao<UserBean, Void> {
         entity.setDepartments(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
         entity.setPower(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
         entity.setUserId(cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8));
-    }
+     }
      
     /**
      * Properties of entity UserBean.<br/>

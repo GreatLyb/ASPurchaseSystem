@@ -6,6 +6,7 @@
         android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
+            android:id="@+id/cv_clat_list"
             style="@style/fi_wr"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="5dp"
