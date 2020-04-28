@@ -78,7 +78,6 @@ class SuggestionsListAdapter(context: Context, list: MutableList<SuggertionBean>
 
     inner class clickListener(val position: Int) : View.OnClickListener {
         override fun onClick(v: View?) {
-            Log.i("Lyb", "aaaaaaaaaa")
             adapterViewClickListener.adapterViewClick(position, v)
         }
     }

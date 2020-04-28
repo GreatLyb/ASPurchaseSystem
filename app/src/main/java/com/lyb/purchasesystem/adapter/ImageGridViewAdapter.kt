@@ -38,6 +38,7 @@ class ImageGridViewAdapter(context: Context, list: MutableList<ImageBean>) : LyB
         val params = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, width)
         holder.imageView.layoutParams = params
         GlideImageUtils.getInstance().loadImage(context, R.drawable.default_img, list[position].ThumImage, holder.imageView)
+
         return itemView!!
     }
 

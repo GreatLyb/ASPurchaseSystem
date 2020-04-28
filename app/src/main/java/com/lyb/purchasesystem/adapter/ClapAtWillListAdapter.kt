@@ -1,12 +1,12 @@
 package com.lyb.purchasesystem.adapter
 
 import android.content.Context
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import cc.shinichi.library.ImagePreview
 import com.lyb.purchasesystem.R
 import com.lyb.purchasesystem.bean.ClapAtWillBean
 import com.lysoft.baseproject.adapter.LyBaseAdapter
@@ -42,19 +42,23 @@ class ClapAtWillListAdapter(context: Context, list: MutableList<ClapAtWillBean>,
         val model = list[position]
         when (model.dealState) {
             "0" -> {
-                holder.dealstateTextView.setBackgroundResource(R.drawable.shape_deal_state_1_bg)
+                holder.dealstateTextView.setBackgroundResource(R.drawable.shape_deal_state_0_bg)
                 holder.dealstateTextView.text = "等待处理"
             }
             "1" -> {
+                holder.dealstateTextView.setBackgroundResource(R.drawable.shape_deal_state_1_bg)
+                holder.dealstateTextView.text = "正在处理中"
+            }
+            "2" -> {
                 holder.dealstateTextView.setBackgroundResource(R.drawable.shape_deal_state_2_bg)
                 holder.dealstateTextView.text = "完成处理"
             }
-            "2" -> {
-                holder.dealstateTextView.setBackgroundResource(R.drawable.shape_deal_state_3_bg)
+            "3" -> {
+                holder.dealstateTextView.setBackgroundResource(R.drawable.shape_deal_state_4_bg)
                 holder.dealstateTextView.text = "处理时间超时"
             }
-            "3" -> {
-                holder.dealstateTextView.setBackgroundResource(R.drawable.shape_deal_state_3_bg)
+            "4" -> {
+                holder.dealstateTextView.setBackgroundResource(R.drawable.shape_deal_state_4_bg)
                 holder.dealstateTextView.text = "超时未处理"
             }
         }
@@ -65,6 +69,13 @@ class ClapAtWillListAdapter(context: Context, list: MutableList<ClapAtWillBean>,
         holder.dealImageView.setOnClickListener(clickListener(position))
         holder.clapAtTitleCardView.setOnClickListener(clickListener(position))
         holder.gridView.adapter = ImageGridViewAdapter(context, list[position].mutableList)
+        holder.gridView.setOnItemClickListener { parent, view, position, id ->
+            var ImagePath = mutableListOf<String>()
+            for (imageBean in list[position].mutableList) {
+                ImagePath.add(imageBean.ThumImage)
+            }
+            ImagePreview.getInstance().setEnableDragClose(true).setEnableUpDragClose(true).setIndex(position).setContext(context).setShowErrorToast(true).setImageList(ImagePath).start()
+        }
         return itemView
     }
 
@@ -81,7 +92,6 @@ class ClapAtWillListAdapter(context: Context, list: MutableList<ClapAtWillBean>,
 
     inner class clickListener(val position: Int) : View.OnClickListener {
         override fun onClick(v: View?) {
-            Log.i("Lyb", "aaaaaaaaaa")
             adapterViewClickListener.adapterViewClick(position, v)
         }
     }

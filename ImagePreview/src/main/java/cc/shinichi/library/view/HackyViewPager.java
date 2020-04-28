@@ -27,6 +27,7 @@ public class HackyViewPager extends ViewPager {
 
     public HackyViewPager(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.setOffscreenPageLimit(3);
     }
 
     @Override
@@ -37,4 +38,5 @@ public class HackyViewPager extends ViewPager {
             return false;
         }
     }
+
 }

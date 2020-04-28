@@ -41,7 +41,7 @@ class DetailImageAdapter(context: Context, list: MutableList<ImageBean>, val Ima
         GlideImageUtils.getInstance().loadImage(context, R.drawable.default_img, list[position].ThumImage, holder.imageView)
 
         holder.imageView.setOnClickListener({ v ->
-            ImagePreview.getInstance().setEnableDragClose(true).setEnableUpDragClose(true).setIndex(position).setContext(context).setImageList(ImagePath).start()
+            ImagePreview.getInstance().setEnableDragClose(true).setEnableUpDragClose(true).setIndex(position).setContext(context).setShowErrorToast(true).setImageList(ImagePath).start()
         })
         return itemView!!
     }

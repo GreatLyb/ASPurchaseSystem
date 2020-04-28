@@ -73,7 +73,6 @@ class MsgListAdapter(context: Context, list: MutableList<MsgBean>, val adapterVi
 
     inner class clickListener(val swipeMenuLayout: SwipeMenuLayout, val position: Int) : View.OnClickListener {
         override fun onClick(v: View?) {
-            Log.i("Lyb", "aaaaaaaaaa")
             swipeMenuLayout.quickClose()
             adapterViewClickListener.adapterViewClick(position, v)
         }

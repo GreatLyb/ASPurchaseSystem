@@ -6,9 +6,9 @@ import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.util.Log;
 
 import org.greenrobot.greendao.AbstractDaoMaster;
+import org.greenrobot.greendao.database.StandardDatabase;
 import org.greenrobot.greendao.database.Database;
 import org.greenrobot.greendao.database.DatabaseOpenHelper;
-import org.greenrobot.greendao.database.StandardDatabase;
 import org.greenrobot.greendao.identityscope.IdentityScopeType;
 
 
@@ -19,13 +19,14 @@ import org.greenrobot.greendao.identityscope.IdentityScopeType;
 public class DaoMaster extends AbstractDaoMaster {
     public static final int SCHEMA_VERSION = 1;
 
-    public DaoMaster(SQLiteDatabase db) {
-        this(new StandardDatabase(db));
+    /** Creates underlying database table using DAOs. */
+    public static void createAllTables(Database db, boolean ifNotExists) {
+        UserBeanDao.createTable(db, ifNotExists);
     }
 
-    public DaoMaster(Database db) {
-        super(db, SCHEMA_VERSION);
-        registerDaoClass(UserBeanDao.class);
+    /** Drops underlying database table using DAOs. */
+    public static void dropAllTables(Database db, boolean ifExists) {
+        UserBeanDao.dropTable(db, ifExists);
     }
 
     /**
@@ -38,16 +39,13 @@ public class DaoMaster extends AbstractDaoMaster {
         return daoMaster.newSession();
     }
 
-    /**
-     * Creates underlying database table using DAOs.
-     */
-    public static void createAllTables(Database db, boolean ifNotExists) {
-        UserBeanDao.createTable(db, ifNotExists);
+    public DaoMaster(SQLiteDatabase db) {
+        this(new StandardDatabase(db));
     }
 
-    /** Drops underlying database table using DAOs. */
-    public static void dropAllTables(Database db, boolean ifExists) {
-        UserBeanDao.dropTable(db, ifExists);
+    public DaoMaster(Database db) {
+        super(db, SCHEMA_VERSION);
+        registerDaoClass(UserBeanDao.class);
     }
 
     public DaoSession newSession() {

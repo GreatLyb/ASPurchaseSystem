@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -91,6 +92,7 @@ public class ImagePreviewActivity extends AppCompatActivity implements Handler.C
         intent.setClass(context, ImagePreviewActivity.class);
         context.startActivity(intent);
         ((Activity) context).overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+
     }
 
     @Override
@@ -113,6 +115,8 @@ public class ImagePreviewActivity extends AppCompatActivity implements Handler.C
         handlerHolder = new HandlerUtils.HandlerHolder(this);
 
         imageInfoList = ImagePreview.getInstance().getImageInfoList();
+        Log.i("Lyb","imageInfoList=="+imageInfoList.size());
+
         if (null == imageInfoList || imageInfoList.size() == 0) {
             onBackPressed();
             return;
@@ -132,7 +136,6 @@ public class ImagePreviewActivity extends AppCompatActivity implements Handler.C
 
         rootView = findViewById(R.id.rootView);
         viewPager = findViewById(R.id.viewPager);
-
         viewPager.setOffscreenPageLimit(imageInfoList.size());
         tv_indicator = findViewById(R.id.tv_indicator);
 
