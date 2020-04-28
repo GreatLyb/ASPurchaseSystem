@@ -24,7 +24,7 @@ class ImageGridViewAdapter(context: Context, list: MutableList<ImageBean>) : LyB
 
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        var holder: Holder
+        val holder: Holder
         var itemView = convertView
         if (convertView == null) {
             holder = Holder()

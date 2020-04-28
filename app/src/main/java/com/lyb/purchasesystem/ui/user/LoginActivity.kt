@@ -98,8 +98,8 @@ class LoginActivity : AppCompatActivity(), TextView.OnEditorActionListener {
         val jsonCallBack: JsonCallBack<UserBean?> = object : JsonCallBack<UserBean?>() {
 
 
-            override fun onFailure(tag: Any, e: Exception) {
-                TipDialog.show(this@LoginActivity, e.message, TipDialog.TYPE.ERROR)
+            override fun onFailure(tag: Any?, e: Exception?) {
+                TipDialog.show(this@LoginActivity, e?.message, TipDialog.TYPE.ERROR)
             }
 
             override fun onSuccess(code: Int, msg: String?, response: UserBean?) {

@@ -33,7 +33,7 @@
         style="@style/fi_wr"
         android:background="@color/white"
         android:gravity="start"
-        android:hint="请在此处详细说明描述您的建议"
+            android:hint="请在此处详细描述您的建议......."
         android:lines="5"
         android:maxLength="255"
         android:padding="10dp"

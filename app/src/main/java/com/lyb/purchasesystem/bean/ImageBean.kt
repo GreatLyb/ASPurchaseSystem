@@ -1,12 +1,14 @@
 package com.lyb.purchasesystem.bean
 
+import com.lysoft.baseproject.imp.CommonGalleryImageImp
+
 /**
  * ASPurchaseSystem
  * 类描述：
  * 类传参：
  * @Author： create by Lyb on 2020-04-27 10:35
  */
-class ImageBean {
+class ImageBean : CommonGalleryImageImp {
     /**
      * 缩略图
      */
@@ -26,5 +28,23 @@ class ImageBean {
         this.ThumImage = ThumImage
         this.BigImage = BigImage
         this.Originalimage = Originalimage
+    }
+
+    override fun getThumb_img(): String {
+        return this.ThumImage
+    }
+
+    override fun getId(): String {
+        return this.ThumImage
+    }
+
+    override fun getBig_img(): String {
+        return this.ThumImage
+
+    }
+
+    override fun getSource_img(): String {
+        return this.ThumImage
+
     }
 }

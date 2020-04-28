@@ -43,7 +43,7 @@ class UserCenterFragment(val parentActivity: AppCompatActivity) : View.OnClickLi
         containerView().img_head.setOnClickListener(this)
         containerView().tv_name.setOnClickListener(this)
         var userInfo = UserInfoUtils.getUserInfo(context)
-        containerView().tv_name.setText(userInfo.username)
+        containerView().tv_name.text = (userInfo?.username)
         containerView().tv_logout.setOnClickListener(this)
         containerView().tv_user_center_edit_pwd.setOnClickListener(this)
         containerView().tv_user_center_msg.setOnClickListener(this)
@@ -59,10 +59,6 @@ class UserCenterFragment(val parentActivity: AppCompatActivity) : View.OnClickLi
     override fun onClick(v: View?) {
         when (v?.id) {
             img_head.id -> {
-//                val textInfo = TextInfo()
-//                val menutextInfo = TextInfo()
-//                textInfo.fontColor = resources.getColor(R.color.black_dim)
-//                menutextInfo.fontColor = resources.getColor(R.color.main_color)
                 imagePicker = ImagePicker()
                 imagePicker.setTitle("设置头像")
                 imagePicker.setCropImage(false)
@@ -72,12 +68,8 @@ class UserCenterFragment(val parentActivity: AppCompatActivity) : View.OnClickLi
                         ClipImageActivity.goToClipActivity(this@UserCenterFragment, imageUri)
                     }
                 })
-
-//                BottomMenu.show(activity, arrayOf("修改头像"), OnMenuItemClickListener { text, index ->
-//                }).setCancelButtonTextInfo(textInfo).setMenuTextInfo(menutextInfo)
             }
             tv_name.id -> (ToastUtils.show("名字"))
-
             tv_user_center_edit_pwd.id -> startActivity(Intent(pageContext, UserEditPwdActivity::class.java))
             tv_logout.id -> outLogin()
             tv_user_center_msg.id -> startActivity(Intent(pageContext, MsgListActivity::class.java))

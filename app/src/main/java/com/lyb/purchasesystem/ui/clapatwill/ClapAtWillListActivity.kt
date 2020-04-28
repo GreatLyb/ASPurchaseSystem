@@ -9,7 +9,6 @@ import com.lyb.purchasesystem.adapter.ClapAtWillListAdapter
 import com.lyb.purchasesystem.bean.ClapAtWillBean
 import com.lyb.purchasesystem.bean.ImageBean
 import com.lyb.purchasesystem.consta.Constants
-import com.lyb.purchasesystem.ui.main.AddCommentActivity
 import com.lysoft.baseproject.activity.BaseUIListActivity
 import com.lysoft.baseproject.imp.AdapterViewClickListener
 import com.lysoft.baseproject.imp.BaseCallBack
@@ -17,7 +16,7 @@ import com.lysoft.baseproject.imp.LoadStatus
 
 /**
  * ASPurchaseSystem
- * 类描述：
+ * 类描述：随手拍列表
  * 类传参：
  * @Author： create by Lyb on 2020-04-27 10:25
  */
@@ -28,7 +27,7 @@ class ClapAtWillListActivity : AdapterViewClickListener, BaseUIListActivity<Clap
         topViewManager().moreTextView().setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.add_white, 0, 0, 0)
         loadViewManager().changeLoadState(LoadStatus.LOADING)
         topViewManager().moreLayout().setOnClickListener { v ->
-            startActivity(Intent(pageContext, AddCommentActivity::class.java))
+            startActivity(Intent(pageContext, AddClapAtWillActivity::class.java))
         }
         onPageLoad()
     }

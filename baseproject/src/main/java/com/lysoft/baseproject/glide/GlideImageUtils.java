@@ -82,7 +82,24 @@ public class GlideImageUtils {
     public void loadImage(Context context, int resDefImg, String imagePath, ImageView imageView) {
         try {
             if (Util.isOnMainThread()) {
-                Glide.with(context).load(imagePath).placeholder(resDefImg <= 0 ? R.drawable.default_img : resDefImg).error(resDefImg <= 0 ? R.drawable.default_img : resDefImg).into(imageView);
+                RequestOptions options = RequestOptions
+                        .diskCacheStrategyOf(DiskCacheStrategy.AUTOMATIC)
+                        .skipMemoryCache(true);
+                Glide.with(context).load(imagePath).apply(options).placeholder(resDefImg <= 0 ? R.drawable.default_img : resDefImg).error(resDefImg <= 0 ? R.drawable.default_img : resDefImg).into(imageView);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /*加载普通图片*/
+    public void loadDrawableImage(Context context, int resDefImg, int res, ImageView imageView) {
+        try {
+            if (Util.isOnMainThread()) {
+                RequestOptions options = RequestOptions
+                        .diskCacheStrategyOf(DiskCacheStrategy.AUTOMATIC)
+                        .skipMemoryCache(true);
+                Glide.with(context).load(res).apply(options).placeholder(resDefImg <= 0 ? R.drawable.default_img : resDefImg).error(resDefImg <= 0 ? R.drawable.default_img : resDefImg).into(imageView);
             }
         } catch (Exception e) {
             e.printStackTrace();

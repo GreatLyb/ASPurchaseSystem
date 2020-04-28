@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.lyb.purchasesystem">
+        xmlns:tools="http://schemas.android.com/tools"
+        package="com.lyb.purchasesystem">
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -12,17 +12,17 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
-        android:name=".BaseApplication"
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:maxAspectRatio="2.4"
-        android:resizeableActivity="true"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true"
-        tools:ignore="LockedOrientationActivity">
+            android:name=".BaseApplication"
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:maxAspectRatio="2.4"
+            android:resizeableActivity="true"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme"
+            android:usesCleartextTraffic="true"
+            tools:ignore="LockedOrientationActivity">
         <activity android:name=".ui.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,14 +32,14 @@
         </activity>
         <!-- 适配华为（huawei）刘海屏 -->
         <meta-data
-            android:name="android.notch_support"
-            android:value="true" /> <!-- 适配小米（xiaomi）刘海屏 -->
+                android:name="android.notch_support"
+                android:value="true" /> <!-- 适配小米（xiaomi）刘海屏 -->
         <meta-data
-            android:name="notch.config"
-            android:value="portrait|landscape" />
+                android:name="notch.config"
+                android:value="portrait|landscape" />
         <meta-data
-            android:name="android.max_aspect"
-            android:value="2.4" />
+                android:name="android.max_aspect"
+                android:value="2.4" />
         <!--        <activity android:name=".ui.SplashActivity">-->
         <!--            <intent-filter>-->
         <!--                <action android:name="android.intent.action.MAIN" />-->
@@ -49,32 +49,32 @@
         <!--        </activity>-->
         <!--  首页-->
         <activity
-            android:name=".ui.main.MainActivity"
-            android:screenOrientation="portrait" />
+                android:name=".ui.main.MainActivity"
+                android:screenOrientation="portrait" />
         <!-- 登录页面-->
         <activity
-            android:name=".ui.user.LoginActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+                android:name=".ui.user.LoginActivity"
+                android:screenOrientation="portrait"
+                android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
-            android:name=".ui.TestListActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+                android:name=".ui.TestListActivity"
+                android:screenOrientation="portrait"
+                android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <!-- 添加意见-->
         <activity
-            android:name=".ui.main.AddCommentActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+                android:name=".ui.main.AddCommentActivity"
+                android:screenOrientation="portrait"
+                android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <!--  意见箱员工页面-->
         <activity
-            android:name=".ui.suggestions.SuggestionsBoxActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+                android:name=".ui.suggestions.SuggestionsBoxActivity"
+                android:screenOrientation="portrait"
+                android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <!--  意见箱领导页面-->
         <activity
-            android:name=".ui.suggestions.SuggestionsBoxLeaderActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+                android:name=".ui.suggestions.SuggestionsBoxLeaderActivity"
+                android:screenOrientation="portrait"
+                android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <!--  意见详情页面-->
         <activity
                 android:name=".ui.suggestions.SuggestionsInfoActivity"
@@ -88,6 +88,11 @@
         <!--  随手拍首页-->
         <activity
                 android:name=".ui.clapatwill.ClapAtWillListActivity"
+                android:screenOrientation="portrait"
+                android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <!--  发布随手拍-->
+        <activity
+                android:name=".ui.clapatwill.AddClapAtWillActivity"
                 android:screenOrientation="portrait"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
     </application>

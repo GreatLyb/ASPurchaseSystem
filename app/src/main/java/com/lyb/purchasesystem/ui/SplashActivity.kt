@@ -8,7 +8,6 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.lyb.purchasesystem.R
 import com.lyb.purchasesystem.consta.PermissionsConstant
 import com.lyb.purchasesystem.ui.main.MainActivity
-import com.lyb.purchasesystem.ui.user.LoginActivity
 import com.lyb.purchasesystem.utils.UserInfoUtils
 import com.lysoft.baseproject.activity.BaseUIActivity
 import com.lysoft.baseproject.utils.StatusBarUtil
@@ -47,7 +46,8 @@ class SplashActivity : BaseUIActivity() {
                     if (UserInfoUtils.isLogin(pageContext)) {
                         startActivity(Intent(pageContext, MainActivity::class.java))
                     } else {
-                        startActivity(Intent(pageContext, LoginActivity::class.java))
+                        startActivity(Intent(pageContext, MainActivity::class.java))
+//                        startActivity(Intent(pageContext, LoginActivity::class.java))
                     }
                     finish()
                 })

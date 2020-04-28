@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_color"
+        android:orientation="vertical">
+
+    <LinearLayout
+            style="@style/fi_wr"
+            android:orientation="horizontal">
+
+        <TextView
+                style="@style/wr_wr"
+                android:background="@color/white"
+                android:padding="10dp"
+                android:text="问题类型："
+                android:textColor="@color/black_dim"
+                android:textSize="16sp" />
+
+        <TextView
+                android:id="@+id/tv_clap_type"
+                style="@style/weight_w_w"
+                android:background="@color/white"
+                android:drawableRight="@drawable/right_acc"
+                android:hint="请选择问题类型"
+                android:padding="10dp"
+                android:textColor="@color/black_dim"
+                android:textSize="16sp" />
+    </LinearLayout>
+
+    <TextView
+            android:id="@+id/tv_clap_at_type"
+            style="@style/fi_wr"
+            android:padding="10dp"
+            android:text="详细描述："
+            android:textColor="@color/black_dim" />
+
+    <EditText
+            android:id="@+id/et_clap_at_content"
+            style="@style/fi_wr"
+            android:background="@color/white"
+            android:gravity="start"
+            android:hint="请在此处详细说明这个问题详情......"
+            android:lines="5"
+            android:maxLength="255"
+            android:padding="10dp"
+            android:textSize="14sp" />
+
+    <LinearLayout
+            style="@style/fi_wr"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+        <com.lysoft.baseproject.view.LyAtMostGridView
+                android:id="@+id/gv_add_avtivities"
+                style="@style/wr_wr"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:horizontalSpacing="5dp"
+                android:numColumns="3"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:verticalSpacing="5dp" />
+    </LinearLayout>
+
+
+    <TextView
+            android:id="@+id/tv_user_submit"
+            style="@style/tv_sure"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="10dp"
+            android:text="提交" />
+</LinearLayout>
