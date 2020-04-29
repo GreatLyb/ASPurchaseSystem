@@ -4,6 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.BaseAdapter
+import com.blankj.utilcode.util.ToastUtils
+import com.kongzue.dialog.interfaces.OnDialogButtonClickListener
+import com.kongzue.dialog.v3.MessageDialog
 import com.lyb.purchasesystem.R
 import com.lyb.purchasesystem.adapter.ClapAtWillListAdapter
 import com.lyb.purchasesystem.bean.ClapAtWillBean
@@ -21,10 +24,10 @@ import kotlinx.android.synthetic.main.item_clap_at.*
  * 类传参：
  * @Author： create by Lyb on 2020-04-27 10:25
  */
-class ClapAtWillListActivity : AdapterViewClickListener, BaseUIListActivity<ClapAtWillBean>() {
+class MineClapAtWillListActivity : AdapterViewClickListener, BaseUIListActivity<ClapAtWillBean>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        topViewManager().titleTextView().text = "随手拍"
+        topViewManager().titleTextView().text = "我的随手拍"
         topViewManager().moreTextView().setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.add_white, 0, 0, 0)
         loadViewManager().changeLoadState(LoadStatus.LOADING)
         topViewManager().moreLayout().setOnClickListener { v ->
@@ -85,7 +88,7 @@ class ClapAtWillListActivity : AdapterViewClickListener, BaseUIListActivity<Clap
     }
 
     override fun instanceAdapter(list: MutableList<ClapAtWillBean>): BaseAdapter {
-        return ClapAtWillListAdapter(pageContext, list, this, false)
+        return ClapAtWillListAdapter(pageContext, list, this, true)
     }
 
     override fun itemClickListener(position: Int) {
@@ -97,6 +100,20 @@ class ClapAtWillListActivity : AdapterViewClickListener, BaseUIListActivity<Clap
                 var intent = Intent(pageContext, ClapAtWillDetailActivity::class.java)
                 intent.putExtra("modelData", pageListData[position])
                 startActivity(intent)
+
+            }
+            img_deal.id -> {
+                MessageDialog.show(this, "提示", "确认要删除随手拍吗？", "确定", "取消").setOnOkButtonClickListener { baseDialog, v ->
+                    baseDialog.doDismiss()
+                    pageListData.removeAt(position)
+                    PageAdapter().notifyDataSetChanged()
+                    ToastUtils.showShort("删除成功")
+                    true
+
+                }.onCancelButtonClickListener = OnDialogButtonClickListener({ baseDialog, v ->
+                    baseDialog.doDismiss()
+                    true
+                })
             }
         }
     }

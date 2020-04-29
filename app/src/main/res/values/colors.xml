@@ -8,4 +8,6 @@
     <color name="partTranslucent">#39000000</color>
     <!-- 浅灰 -->
     <color name="text_gray_hint">#ABABAB</color>
+    <color name="wait_deal_color">#FF8C00</color>
+    <color name="deal_ing_color">#6200EE</color>
 </resources>

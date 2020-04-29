@@ -1,6 +1,7 @@
 package com.lyb.purchasesystem.bean
 
 import com.lysoft.baseproject.imp.CommonGalleryImageImp
+import java.io.Serializable
 
 /**
  * ASPurchaseSystem
@@ -8,7 +9,7 @@ import com.lysoft.baseproject.imp.CommonGalleryImageImp
  * 类传参：
  * @Author： create by Lyb on 2020-04-27 10:35
  */
-class ImageBean : CommonGalleryImageImp {
+class ImageBean : CommonGalleryImageImp, Serializable {
     /**
      * 缩略图
      */

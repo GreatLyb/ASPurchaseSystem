@@ -8,16 +8,10 @@ import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
-import androidx.core.content.ContextCompat
-import com.bigkoo.pickerview.builder.OptionsPickerBuilder
-import com.bigkoo.pickerview.listener.CustomListener
-import com.bigkoo.pickerview.listener.OnOptionsSelectListener
-import com.bigkoo.pickerview.view.OptionsPickerView
+import com.blankj.utilcode.util.ToastUtils
 import com.kongzue.dialog.v3.TipDialog
 import com.lyb.purchasesystem.R
-import com.lyb.purchasesystem.bean.ClatAtTypeBean
 import com.lyb.purchasesystem.bean.ImageBean
-import com.lyb.purchasesystem.utils.UserInfoUtils
 import com.lysoft.baseproject.activity.BaseUIActivity
 import com.lysoft.baseproject.adapter.CommonGalleryImgAdapter
 import com.lysoft.baseproject.imp.AdapterViewClickListener
@@ -25,9 +19,8 @@ import com.zhihu.matisse.Matisse
 import com.zhihu.matisse.MimeType
 import com.zhihu.matisse.engine.impl.GlideEngine
 import com.zhihu.matisse.internal.entity.CaptureStrategy
-import kotlinx.android.synthetic.main.activity_add_clap_at.*
-import kotlinx.android.synthetic.main.activity_add_clap_at.view.*
-import kotlinx.android.synthetic.main.activity_add_comments.view.tv_user_submit
+import kotlinx.android.synthetic.main.activity_submit_complete_info.*
+import kotlinx.android.synthetic.main.activity_submit_complete_info.view.*
 import java.util.*
 import kotlin.collections.HashMap
 
@@ -39,97 +32,55 @@ import kotlin.collections.HashMap
  * @Author： create by Lyb on 2020-04-24 14:58
  */
 
-class AddClapAtWillActivity : AdapterView.OnItemClickListener, AdapterViewClickListener, View.OnClickListener, BaseUIActivity() {
+class SubmitCompleteInfoActivity : AdapterView.OnItemClickListener, AdapterViewClickListener, View.OnClickListener, BaseUIActivity() {
     lateinit var commonGalleryImgAdapter: CommonGalleryImgAdapter
     var galleryImageList = mutableListOf<ImageBean>()
     val maxNumPhoto = 3
     val REQUEST_SELECT_IMAGES_CODE = 0
-    var cardItem = mutableListOf<ClatAtTypeBean>()
-    lateinit var pvCustomOptions: OptionsPickerView<OptionsPickerBuilder>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        topViewManager().titleTextView().text = "发布随手拍"
-        val view = View.inflate(pageContext, R.layout.activity_add_clap_at, null)
+        topViewManager().titleTextView().text = "提交处理意见"
+        val view = View.inflate(pageContext, R.layout.activity_submit_complete_info, null)
         containerView().addView(view)
-        containerView().tv_user_submit.setOnClickListener(this)
-        containerView().tv_clap_type.setOnClickListener(this)
+        containerView().tv_submit_deal_info.setOnClickListener(this)
         initImageSelect()
     }
 
     private fun initImageSelect() {
         galleryImageList.add(ImageBean("add", "add", "add"))
         commonGalleryImgAdapter = CommonGalleryImgAdapter(pageContext, galleryImageList)
-        containerView().gv_add_avtivities.adapter = commonGalleryImgAdapter
-        containerView().gv_add_avtivities.setOnItemClickListener(this)
+        containerView().gv_add_deal_img.adapter = commonGalleryImgAdapter
+        containerView().gv_add_deal_img.setOnItemClickListener(this)
     }
 
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            tv_clap_type.id -> {
-                //选择类型
-                initPickView()
-            }
-            tv_user_submit.id -> {
+            tv_submit_deal_info.id -> {
                 //提交
-                submitClap()
+                submitInfo()
             }
         }
     }
 
 
-    private fun initPickView() {
-        cardItem.clear()
-        for (a in 1..50) {
-            cardItem.add(ClatAtTypeBean("问题类型" + a.toString(), a.toString()))
-        }
-        //自定义布局中，id为 optionspicker 或者 timepicker 的布局以及其子控件必须要有，否则会报空指针。
-        pvCustomOptions = OptionsPickerBuilder(this, OnOptionsSelectListener({ options1, options2, options3, v ->
-            {
-
-            }
-        })).setLayoutRes(R.layout.pickerview_custom_options, CustomListener { v ->
-            val tvSubmit = v.findViewById<View>(R.id.tv_finish)
-            val ivCancel = v.findViewById<View>(R.id.iv_cancel)
-            tvSubmit.setOnClickListener {
-                pvCustomOptions.returnData()
-                pvCustomOptions.dismiss()
-            }
-
-            ivCancel.setOnClickListener {
-                pvCustomOptions.dismiss()
-            }
-
-        })
-                .isDialog(true)
-                .setDividerColor(ContextCompat.getColor(pageContext, R.color.main_color))
-                .setTextColorCenter(ContextCompat.getColor(pageContext, R.color.main_color))
-                .setOutSideCancelable(true)
-                .setLineSpacingMultiplier(2f)
-                .build()
-//        pvCustomOptions.setpi
-        pvCustomOptions.setPicker(cardItem as List<Nothing>) //添加数据
-        pvCustomOptions.show()
-
-    }
-
-    private fun submitClap() {
-        val clapType = containerView().tv_clap_type.text.toString()
-        val clapDetail = containerView().et_clap_at_content.text.toString()
-        if (TextUtils.isEmpty(clapType)) {
-            TipDialog.show(this, "请选择问题类型", TipDialog.TYPE.WARNING)
-            return
-        }
-        if (TextUtils.isEmpty(clapDetail)) {
-            TipDialog.show(this, "请详细描述问题详情", TipDialog.TYPE.WARNING)
+    private fun submitInfo() {
+        val dealContent = containerView().et_deal_content.text.toString()
+        if (TextUtils.isEmpty(dealContent)) {
+            TipDialog.show(this, "请输入处理意见", TipDialog.TYPE.WARNING)
             return
         }
         val param = HashMap<String, String>()
-        val userInfo = UserInfoUtils.getUserInfo(pageContext)
-        param.put("deaprtment", userInfo.departments);
-        param.put("suggestContent", "suggestContent");
-        param.put("suggestName", "suggestContent");
-        param.put("userId", userInfo.token);
+//        val userInfo = UserInfoUtils.getUserInfo(pageContext)
+//        param.put("deaprtment", userInfo.departments);
+//        param.put("suggestContent", "suggestContent");
+//        param.put("suggestName", "suggestContent");
+//        param.put("userId", userInfo.token);
+        if (galleryImageList.size < 2) {
+            ToastUtils.showShort("请选择图片")
+            return
+        }
+        TipDialog.show(this, "提交成功", TipDialog.TYPE.SUCCESS);
 //        val jsonCallBack: JsonCallBack<String> = object : JsonCallBack<String>() {
 //            override fun onSuccess(code: Int, msg: String, response: String) {
 //                if (code == 200) {

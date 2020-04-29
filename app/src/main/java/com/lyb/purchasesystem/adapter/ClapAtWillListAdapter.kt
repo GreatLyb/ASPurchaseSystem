@@ -19,7 +19,7 @@ import com.lysoft.baseproject.view.LyAtMostGridView
  * 类传参：
  * @Author： create by Lyb on 2020-04-21 15:10
  */
-class ClapAtWillListAdapter(context: Context, list: MutableList<ClapAtWillBean>, val adapterViewClickListener: AdapterViewClickListener) : LyBaseAdapter<ClapAtWillBean>(context, list) {
+class ClapAtWillListAdapter(context: Context, list: MutableList<ClapAtWillBean>, val adapterViewClickListener: AdapterViewClickListener, val isShowDel: Boolean) : LyBaseAdapter<ClapAtWillBean>(context, list) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val holder: ViewHolder
         val itemView: View
@@ -66,15 +66,20 @@ class ClapAtWillListAdapter(context: Context, list: MutableList<ClapAtWillBean>,
         holder.clapAtTitleTextView.text = model.clapAtTitle
         holder.clapAtContentTextView.text = model.clapAtContent
         holder.clapAtTimeTextView.text = "发布时间：" + model.clapAtTime
+        if (isShowDel) {
+            holder.dealImageView.visibility = View.VISIBLE
+        } else {
+            holder.dealImageView.visibility = View.GONE
+        }
         holder.dealImageView.setOnClickListener(clickListener(position))
         holder.clapAtTitleCardView.setOnClickListener(clickListener(position))
         holder.gridView.adapter = ImageGridViewAdapter(context, list[position].mutableList)
-        holder.gridView.setOnItemClickListener { parent, view, position, id ->
+        holder.gridView.setOnItemClickListener { parent, view, pos, id ->
             var ImagePath = mutableListOf<String>()
             for (imageBean in list[position].mutableList) {
                 ImagePath.add(imageBean.ThumImage)
             }
-            ImagePreview.getInstance().setEnableDragClose(true).setEnableUpDragClose(true).setIndex(position).setContext(context).setShowErrorToast(true).setImageList(ImagePath).start()
+            ImagePreview.getInstance().setEnableDragClose(true).setEnableUpDragClose(true).setIndex(pos).setContext(context).setShowErrorToast(true).setImageList(ImagePath).start()
         }
         return itemView
     }

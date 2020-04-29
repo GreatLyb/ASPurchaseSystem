@@ -228,11 +228,11 @@
         </LinearLayout>
 
 
-        <View style="@style/line_margin" />
-
         <TextView
+
                 android:id="@+id/tv_user_suggestion"
                 style="@style/tv_user_center"
+                android:layout_marginTop="8dp"
                 android:text="我的意见" />
 
         <View style="@style/line_margin" />

@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.BaseAdapter
-import com.lyb.purchasesystem.R
 import com.lyb.purchasesystem.adapter.ClapAtWillListAdapter
 import com.lyb.purchasesystem.bean.ClapAtWillBean
 import com.lyb.purchasesystem.bean.ImageBean
@@ -12,30 +11,24 @@ import com.lyb.purchasesystem.consta.Constants
 import com.lysoft.baseproject.activity.BaseUIListActivity
 import com.lysoft.baseproject.imp.AdapterViewClickListener
 import com.lysoft.baseproject.imp.BaseCallBack
-import com.lysoft.baseproject.imp.LoadStatus
 import kotlinx.android.synthetic.main.item_clap_at.*
 
 /**
  * ASPurchaseSystem
- * 类描述：随手拍列表
+ * 类描述：待我处理
  * 类传参：
  * @Author： create by Lyb on 2020-04-27 10:25
  */
-class ClapAtWillListActivity : AdapterViewClickListener, BaseUIListActivity<ClapAtWillBean>() {
+class WaitMineDealClapAtWillListActivity : AdapterViewClickListener, BaseUIListActivity<ClapAtWillBean>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        topViewManager().titleTextView().text = "随手拍"
-        topViewManager().moreTextView().setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.add_white, 0, 0, 0)
-        loadViewManager().changeLoadState(LoadStatus.LOADING)
-        topViewManager().moreLayout().setOnClickListener { v ->
-            startActivity(Intent(pageContext, AddClapAtWillActivity::class.java))
-        }
+        topViewManager().titleTextView().text = "待我处理的随手拍"
         onPageLoad()
     }
 
     override fun getListData(callBack: BaseCallBack?) {
         var clapWillList = mutableListOf<ClapAtWillBean>()
-        for (a in 0..30) {
+        for (a in 0..10) {
             when (a) {
                 0 -> {
                     val imageList = mutableListOf<ImageBean>()
@@ -43,7 +36,7 @@ class ClapAtWillListActivity : AdapterViewClickListener, BaseUIListActivity<Clap
                     imageList.add(ImageBean("http://attach.bbs.miui.com/forum/201511/25/134309qwnz8s4tnn8yeycf.jpg", "http://attach.bbs.miui.com/forum/201511/25/134309qwnz8s4tnn8yeycf.jpg", "http://attach.bbs.miui.com/forum/201511/25/134309qwnz8s4tnn8yeycf.jpg"))
                     imageList.add(ImageBean("http://attach.bbs.miui.com/forum/201505/18/202426t80hghjqxr0k5gar.jpg", "http://attach.bbs.miui.com/forum/201505/18/202426t80hghjqxr0k5gar.jpg", "http://attach.bbs.miui.com/forum/201505/18/202426t80hghjqxr0k5gar.jpg"))
 
-                    clapWillList.add(ClapAtWillBean("外边的地一直没人扫没人管啊？", "，饿哦从卡机搜啊酒叟阿杰OA祭扫就j及哈思安hiahia晒阿萨及哈还hi啊哎as还好是is奥萨，饿哦从卡机搜啊酒叟阿杰OA祭扫就j及哈思安hiahia晒阿萨及哈还hi啊哎as还好是is奥萨...............", "2020-04-02", "张三", imageList, 0.toString(), "", "5", "", ""))
+                    clapWillList.add(ClapAtWillBean("外边的地一直没人扫没人管啊？", "，饿哦从卡机搜啊酒叟阿杰OA祭扫就j及哈思安hiahia晒阿萨及哈还hi啊哎as还好是is奥萨，饿哦从卡机搜啊酒叟阿杰OA祭扫就j及哈思安hiahia晒阿萨及哈还hi啊哎as还好是is奥萨...............", "2020-04-02", "张三", imageList, 1.toString(), "", "2020-05-45", "", ""))
                 }
                 1 -> {
                     var imageList = mutableListOf<ImageBean>()
@@ -55,21 +48,21 @@ class ClapAtWillListActivity : AdapterViewClickListener, BaseUIListActivity<Clap
                 2 -> {
                     var imageList = mutableListOf<ImageBean>()
                     imageList.add(ImageBean("http://attach.bbs.miui.com/forum/201505/18/202426t80hghjqxr0k5gar.jpg", "http://attach.bbs.miui.com/forum/201505/18/202426t80hghjqxr0k5gar.jpg", "http://attach.bbs.miui.com/forum/201505/18/202426t80hghjqxr0k5gar.jpg"))
-                    clapWillList.add(ClapAtWillBean("外边的地一直没人扫没人管啊？", "，饿哦从卡机搜啊酒叟阿杰OA祭扫就j及哈思安hiahia晒阿萨及哈还hi啊哎as还好是is奥萨，饿哦从卡机搜啊酒叟阿杰OA祭扫就j及哈思安hiahia晒阿萨及哈还hi啊哎as还好是is奥萨...............", "2020-04-02", "张三", imageList, "2", "李四", "2020-08-05", "2020-08-05", "我已完成处理欢迎大家监督谢谢你们的反馈"))
+                    clapWillList.add(ClapAtWillBean("外边的地一直没人扫没人管啊？", "，饿哦从卡机搜啊酒叟阿杰OA祭扫就j及哈思安hiahia晒阿萨及哈还hi啊哎as还好是is奥萨，饿哦从卡机搜啊酒叟阿杰OA祭扫就j及哈思安hiahia晒阿萨及哈还hi啊哎as还好是is奥萨...............", "2020-04-02", "张三", imageList, "1", "李四", "2020-08-05", "2020-08-05", "我已完成处理欢迎大家监督谢谢你们的反馈"))
                 }
                 3 -> {
                     var imageList = mutableListOf<ImageBean>()
                     imageList.add(ImageBean("http://attach.bbs.miui.com/forum/201505/18/202426t80hghjqxr0k5gar.jpg", "http://attach.bbs.miui.com/forum/201505/18/202426t80hghjqxr0k5gar.jpg", "http://attach.bbs.miui.com/forum/201505/18/202426t80hghjqxr0k5gar.jpg"))
                     imageList.add(ImageBean("http://attach.bbs.miui.com/forum/201505/18/202426t80hghjqxr0k5gar.jpg", "http://attach.bbs.miui.com/forum/201505/18/202426t80hghjqxr0k5gar.jpg", "http://attach.bbs.miui.com/forum/201505/18/202426t80hghjqxr0k5gar.jpg"))
                     imageList.add(ImageBean("http://attach.bbs.miui.com/forum/201505/18/202426t80hghjqxr0k5gar.jpg", "http://attach.bbs.miui.com/forum/201505/18/202426t80hghjqxr0k5gar.jpg", "http://attach.bbs.miui.com/forum/201505/18/202426t80hghjqxr0k5gar.jpg"))
-                    clapWillList.add(ClapAtWillBean("外边的地一直没人扫没人管啊？", "，饿哦从卡机搜啊酒叟阿杰OA祭扫就j及哈思安hiahia晒阿萨及哈还hi啊哎as还好是is奥萨，饿哦从卡机搜啊酒叟阿杰OA祭扫就j及哈思安hiahia晒阿萨及哈还hi啊哎as还好是is奥萨...............", "2020-04-02", "张三", imageList, "3", "李四", "2020-08-05", "", ""))
+                    clapWillList.add(ClapAtWillBean("外边的地一直没人扫没人管啊？", "，饿哦从卡机搜啊酒叟阿杰OA祭扫就j及哈思安hiahia晒阿萨及哈还hi啊哎as还好是is奥萨，饿哦从卡机搜啊酒叟阿杰OA祭扫就j及哈思安hiahia晒阿萨及哈还hi啊哎as还好是is奥萨...............", "2020-04-02", "张三", imageList, "1", "李四", "2020-08-05", "", ""))
                 }
                 4 -> {
                     var imageList = mutableListOf<ImageBean>()
                     imageList.add(ImageBean("http://attach.bbs.miui.com/forum/201505/18/202426t80hghjqxr0k5gar.jpg", "http://attach.bbs.miui.com/forum/201505/18/202426t80hghjqxr0k5gar.jpg", "http://attach.bbs.miui.com/forum/201505/18/202426t80hghjqxr0k5gar.jpg"))
                     imageList.add(ImageBean("http://attach.bbs.miui.com/forum/201505/18/202426t80hghjqxr0k5gar.jpg", "http://attach.bbs.miui.com/forum/201505/18/202426t80hghjqxr0k5gar.jpg", "http://attach.bbs.miui.com/forum/201505/18/202426t80hghjqxr0k5gar.jpg"))
                     imageList.add(ImageBean("http://attach.bbs.miui.com/forum/201505/18/202426t80hghjqxr0k5gar.jpg", "http://attach.bbs.miui.com/forum/201505/18/202426t80hghjqxr0k5gar.jpg", "http://attach.bbs.miui.com/forum/201505/18/202426t80hghjqxr0k5gar.jpg"))
-                    clapWillList.add(ClapAtWillBean("外边的地一直没人扫没人管啊？", "，饿哦从卡机搜啊酒叟阿杰OA祭扫就j及哈思安hiahia晒阿萨及哈还hi啊哎as还好是is奥萨，饿哦从卡机搜啊酒叟阿杰OA祭扫就j及哈思安hiahia晒阿萨及哈还hi啊哎as还好是is奥萨...............", "2020-04-02", "张三", imageList, "4", "李四", "2020-08-05", "", ""))
+                    clapWillList.add(ClapAtWillBean("外边的地一直没人扫没人管啊？", "，饿哦从卡机搜啊酒叟阿杰OA祭扫就j及哈思安hiahia晒阿萨及哈还hi啊哎as还好是is奥萨，饿哦从卡机搜啊酒叟阿杰OA祭扫就j及哈思安hiahia晒阿萨及哈还hi啊哎as还好是is奥萨...............", "2020-04-02", "张三", imageList, "1", "李四", "2020-08-05", "", ""))
                 }
                 else -> {
                     var imageList = mutableListOf<ImageBean>()
@@ -77,7 +70,7 @@ class ClapAtWillListActivity : AdapterViewClickListener, BaseUIListActivity<Clap
                     imageList.add(ImageBean("http://attach.bbs.miui.com/forum/201511/25/134309qwnz8s4tnn8yeycf.jpg", "http://attach.bbs.miui.com/forum/201511/25/134309qwnz8s4tnn8yeycf.jpg", "http://attach.bbs.miui.com/forum/201511/25/134309qwnz8s4tnn8yeycf.jpg"))
                     imageList.add(ImageBean("http://attach.bbs.miui.com/forum/201505/18/202426t80hghjqxr0k5gar.jpg", "http://attach.bbs.miui.com/forum/201505/18/202426t80hghjqxr0k5gar.jpg", "http://attach.bbs.miui.com/forum/201505/18/202426t80hghjqxr0k5gar.jpg"))
 
-                    clapWillList.add(ClapAtWillBean("外边的地一直没人扫没人管啊？", "，饿哦从卡机搜啊酒叟阿杰OA祭扫就j及哈思安hiahia晒阿萨及哈还hi啊哎as还好是is奥萨，饿哦从卡机搜啊酒叟阿杰OA祭扫就j及哈思安hiahia晒阿萨及哈还hi啊哎as还好是is奥萨...............", "2020-04-02", "张三", imageList, "0", "李四", "2020-08-05", "2020-08-05", "我已完成处理欢迎大家监督谢谢你们的反馈"))
+                    clapWillList.add(ClapAtWillBean("外边的地一直没人扫没人管啊？", "，饿哦从卡机搜啊酒叟阿杰OA祭扫就j及哈思安hiahia晒阿萨及哈还hi啊哎as还好是is奥萨，饿哦从卡机搜啊酒叟阿杰OA祭扫就j及哈思安hiahia晒阿萨及哈还hi啊哎as还好是is奥萨...............", "2020-04-02", "张三", imageList, "1", "李四", "2020-08-05", "2020-08-05", "我已完成处理欢迎大家监督谢谢你们的反馈"))
                 }
             }
         }

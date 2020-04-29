@@ -113,6 +113,21 @@
                 android:name=".ui.clapatwill.ClapAtWillDetailActivity"
                 android:screenOrientation="portrait"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <!--  提交处理意见-->
+        <activity
+                android:name=".ui.clapatwill.SubmitCompleteInfoActivity"
+                android:screenOrientation="portrait"
+                android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <!--  待我处理-->
+        <activity
+                android:name=".ui.clapatwill.WaitMineDealClapAtWillListActivity"
+                android:screenOrientation="portrait"
+                android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <!--  我的随手拍-->
+        <activity
+                android:name=".ui.clapatwill.MineClapAtWillListActivity"
+                android:screenOrientation="portrait"
+                android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
     </application>
 
 </manifest>

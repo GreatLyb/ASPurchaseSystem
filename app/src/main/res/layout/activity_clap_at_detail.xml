@@ -63,55 +63,71 @@
 
 
             <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
+                    android:id="@+id/img_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
                     android:layout_gravity="center"
+
                     android:src="@drawable/diver_clap_at" />
 
             <TextView
                     style="@style/fi_wr"
                     android:gravity="center"
                     android:text="相关处理信息"
-                    android:textColor="@color/text_black"
+                    android:textColor="@color/black_light"
                     android:textSize="16sp" />
 
-            <TextView
-                    android:id="@+id/tv_clap_at_deal_user"
+            <LinearLayout
+                    android:id="@+id/llayout_deal_user_info"
                     style="@style/fi_wr"
-                    android:layout_marginTop="10dp"
-                    android:text="处理人：王二"
-                    android:textColor="@color/black_dim"
-                    android:textSize="14sp" />
+                    android:orientation="vertical">
 
+
+                <TextView
+                        android:id="@+id/tv_clap_at_deal_user"
+                        style="@style/fi_wr"
+                        android:layout_marginTop="10dp"
+                        android:text="处理人：王二"
+                        android:textColor="@color/black_dim"
+                        android:textSize="14sp" />
+
+
+                <TextView
+                        android:id="@+id/tv_clap_at_deal_content"
+                        style="@style/fi_wr"
+                        android:layout_marginTop="2dp"
+                        android:text="处理意见："
+                        android:textColor="@color/black_dim"
+                        android:textSize="14sp" />
+
+                <TextView
+                        android:id="@+id/tv_clap_at_deal_time"
+                        style="@style/fi_wr"
+                        android:layout_marginTop="2dp"
+                        android:text="预计完成处理时间："
+                        android:textColor="@color/black_dim"
+                        android:textSize="14sp" />
+            </LinearLayout>
 
             <TextView
-                    android:id="@+id/tv_clap_at_deal_content"
-                    style="@style/fi_wr"
-                    android:layout_marginTop="2dp"
-                    android:text="处理意见：你这个建议不赖"
-                    android:textColor="@color/black_dim"
-                    android:textSize="14sp" />
-
-            <TextView
-                    android:id="@+id/tv_clap_at_deal_time"
-                    style="@style/fi_wr"
-                    android:layout_marginTop="2dp"
-                    android:text="预计完成处理时间：2020-04-02"
-                    android:textColor="@color/black_dim"
-                    android:textSize="14sp" />
-
-            <TextView
+                    android:id="@+id/tv_deal_state"
                     style="@style/wr_wr"
                     android:layout_gravity="center"
-                    android:layout_marginTop="50dp"
-                    android:layout_marginBottom="50dp"
-                    android:drawableTop="@drawable/deal_out_time"
-                    android:drawablePadding="8dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="20dp"
+                    android:drawableTop="@drawable/deal_finish"
                     android:gravity="center"
                     android:text="超时未处理完成"
                     android:textColor="@color/red"
                     android:textSize="16sp" />
 
+            <TextView
+                    android:id="@+id/tv_btn_deal"
+                    style="@style/tv_sure"
+                    android:layout_marginBottom="50dp"
+                    android:background="@drawable/base_shape_tv_wait_deal"
+                    android:text="开始处理"
+                    android:visibility="gone" />
         </LinearLayout>
 
     </LinearLayout>

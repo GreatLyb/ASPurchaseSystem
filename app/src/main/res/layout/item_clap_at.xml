@@ -70,30 +70,26 @@
                         android:horizontalSpacing="5dp"
                         android:numColumns="3" />
 
-                <TextView
-                        android:id="@+id/tv_clap_at_time"
-                        style="@style/fi_wr"
-                        android:layout_marginTop="5dp"
-                        android:text="发布时间：2020-04-20"
-                        android:textColor="@color/text_gray"
-                        android:textSize="14sp" />
-
                 <LinearLayout
                         style="@style/fi_wr"
-                        android:layout_marginTop="8dp"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
-
+                    <TextView
+                            android:id="@+id/tv_clap_at_time"
+                            style="@style/weight_w_w"
+                            android:text="发布时间：2020-04-20"
+                            android:textColor="@color/text_gray"
+                            android:textSize="14sp" />
                     <ImageView
                             android:id="@+id/img_deal"
                             style="@style/wr_wr"
                             android:paddingLeft="10dp"
-                            android:paddingTop="5dp"
+                            android:paddingTop="8dp"
                             android:paddingRight="10dp"
-                            android:paddingBottom="8dp"
+                            android:paddingBottom="5dp"
                             android:src="@drawable/del_icon"
-                            android:visibility="gone" />
+                            android:visibility="invisible" />
 
                 </LinearLayout>
             </LinearLayout>

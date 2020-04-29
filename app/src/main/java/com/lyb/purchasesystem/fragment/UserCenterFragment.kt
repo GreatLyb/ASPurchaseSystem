@@ -12,11 +12,12 @@ import com.kongzue.dialog.interfaces.OnDialogButtonClickListener
 import com.kongzue.dialog.v3.MessageDialog
 import com.linchaolong.android.imagepicker.ImagePicker
 import com.lyb.purchasesystem.R
+import com.lyb.purchasesystem.ui.clapatwill.MineClapAtWillListActivity
+import com.lyb.purchasesystem.ui.clapatwill.WaitMineDealClapAtWillListActivity
 import com.lyb.purchasesystem.ui.suggestions.MineSuggestionsActivity
 import com.lyb.purchasesystem.ui.user.LoginActivity
 import com.lyb.purchasesystem.ui.user.MsgListActivity
 import com.lyb.purchasesystem.ui.user.UserEditPwdActivity
-import com.lyb.purchasesystem.utils.UserInfoUtils
 import com.lysoft.baseproject.activity.BaseUIFragment
 import com.lysoft.baseproject.clipview.ClipImageActivity
 import com.lysoft.baseproject.utils.FileUtils
@@ -42,8 +43,11 @@ class UserCenterFragment(val parentActivity: AppCompatActivity) : View.OnClickLi
         containerView().addView(view)
         containerView().img_head.setOnClickListener(this)
         containerView().tv_name.setOnClickListener(this)
-        var userInfo = UserInfoUtils.getUserInfo(context)
-        containerView().tv_name.text = (userInfo?.username)
+        containerView().tv_user_camera.setOnClickListener(this)
+        containerView().tv_user_wait_deal.setOnClickListener(this)
+//        var userInfo = UserInfoUtils.getUserInfo(context)
+//        containerView().tv_name.text = (userInfo?.username)
+        containerView().tv_name.text = "张三"
         containerView().tv_logout.setOnClickListener(this)
         containerView().tv_user_center_edit_pwd.setOnClickListener(this)
         containerView().tv_user_center_msg.setOnClickListener(this)
@@ -70,10 +74,19 @@ class UserCenterFragment(val parentActivity: AppCompatActivity) : View.OnClickLi
                 })
             }
             tv_name.id -> (ToastUtils.show("名字"))
-            tv_user_center_edit_pwd.id -> startActivity(Intent(pageContext, UserEditPwdActivity::class.java))
-            tv_logout.id -> outLogin()
-            tv_user_center_msg.id -> startActivity(Intent(pageContext, MsgListActivity::class.java))
+            //我的意见
             tv_user_suggestion.id -> startActivity(Intent(pageContext, MineSuggestionsActivity::class.java))
+            //我的随手拍
+            tv_user_camera.id -> startActivity(Intent(pageContext, MineClapAtWillListActivity::class.java))
+            //待我处理
+            tv_user_wait_deal.id -> startActivity(Intent(pageContext, WaitMineDealClapAtWillListActivity::class.java))
+            //系统消息
+            tv_user_center_msg.id -> startActivity(Intent(pageContext, MsgListActivity::class.java))
+            //修改密码
+            tv_user_center_edit_pwd.id -> startActivity(Intent(pageContext, UserEditPwdActivity::class.java))
+            //退出登录
+            tv_logout.id -> outLogin()
+
 
         }
     }
@@ -84,7 +97,7 @@ class UserCenterFragment(val parentActivity: AppCompatActivity) : View.OnClickLi
     private fun outLogin() {
         MessageDialog.show(parentActivity, "提示", "确认要退出登录吗？", "确定", "取消").setOnOkButtonClickListener({ baseDialog, v ->
             baseDialog.doDismiss()
-            UserInfoUtils.loginOut(pageContext)
+//            UserInfoUtils.loginOut(pageContext)
             startActivity(Intent(pageContext, LoginActivity::class.java))
             parentActivity.finish()
             true
