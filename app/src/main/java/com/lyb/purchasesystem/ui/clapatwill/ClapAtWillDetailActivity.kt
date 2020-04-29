@@ -14,6 +14,7 @@ import com.lyb.purchasesystem.consta.Constants
 import com.lysoft.baseproject.activity.BaseUIActivity
 import kotlinx.android.synthetic.main.activity_clap_at_detail.view.*
 import java.text.SimpleDateFormat
+import java.util.*
 
 
 /**
@@ -106,10 +107,12 @@ class ClapAtWillDetailActivity : BaseUIActivity() {
             //
             if (model.dealState == "0") {
                 //去处理
+                val endCalendar = Calendar.getInstance()
+                endCalendar.add(Calendar.YEAR, 10)
                 val pvTime = TimePickerBuilder(this, OnTimeSelectListener { date, v ->
                     val simpleDateFormat = SimpleDateFormat(Constants.DEFAULT_TIME_FORMAT_S)
                     MessageDialog.show(this, "提示", "你已接受此任务！预计完成时间：" + simpleDateFormat.format(date) + "   快去处理吧", "确定");
-                }).setTitleText("选择处理完成时间").build()
+                }).setTitleText("选择处理完成时间").setRangDate(Calendar.getInstance(), endCalendar).build()
                         .show()
             } else {
                 //确认完成处理
