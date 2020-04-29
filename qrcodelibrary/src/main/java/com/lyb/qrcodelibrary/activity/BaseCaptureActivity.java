@@ -13,8 +13,10 @@ import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 import android.widget.ToggleButton;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.zxing.Result;
 import com.kongzue.dialog.v3.TipDialog;
@@ -28,16 +30,10 @@ import com.lyb.qrcodelibrary.utils.DecodeThread;
 import com.lyb.qrcodelibrary.utils.InactivityTimer;
 import com.lyb.qrcodelibrary.utils.QRCodeUtils;
 import com.lyb.qrcodelibrary.view.ScanView;
-import com.lysoft.baseproject.clipview.ClipImageActivity;
-import com.lysoft.baseproject.glide.GlideLoade;
 import com.lysoft.baseproject.utils.FileUtils;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
-import java.util.List;
-
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * 二维码扫描

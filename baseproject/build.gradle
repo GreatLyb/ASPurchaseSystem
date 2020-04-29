@@ -65,7 +65,7 @@ dependencies {
     api 'com.blankj:utilcodex:1.26.0'
     api 'com.gyf.immersionbar:immersionbar:3.0.0'
     api 'com.gyf.immersionbar:immersionbar-components:3.0.0'
-    api 'com.lcw.library:imagepicker:2.2.7'
+//    api 'com.lcw.library:imagepicker:2.2.7'
     // ImagePicker.getInstance()
     //                        .setTitle("标题")//设置标题
     //                        .showCamera(true)//设置是否显示拍照按钮
@@ -80,7 +80,6 @@ dependencies {
     api 'com.github.bumptech.glide:glide:4.10.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
     implementation 'com.github.bumptech.glide:okhttp3-integration:4.10.0'
-    api 'com.linchaolong.android:imagepicker:1.5'
     implementation "androidx.core:core-ktx:+"
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     api 'com.github.zhpanvip:BannerViewPager:3.0.0'
@@ -90,4 +89,6 @@ dependencies {
     api 'io.reactivex.rxjava3:rxjava:3.0.0'
     api 'com.github.hackware1993:MagicIndicator:1.6.0'
     api 'com.zhihu.android:matisse:0.5.3-beta3'
+    api project(path: ':ImageCrouplibrary')
+
 }

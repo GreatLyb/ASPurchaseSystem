@@ -20,9 +20,6 @@
         <activity
             android:name=".clipview.ClipImageActivity"
             android:theme="@style/AppTheme" />
-        <activity
-                android:name=".glide.NewImagePreviewActivity"
-                android:theme="@style/Theme.ImagePreview" />
     </application>
 
 </manifest>

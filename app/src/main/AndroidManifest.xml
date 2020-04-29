@@ -24,18 +24,6 @@
             android:theme="@style/AppTheme"
             android:usesCleartextTraffic="true"
             tools:ignore="LockedOrientationActivity">
-        <provider
-                android:name="androidx.core.content.FileProvider"
-                android:authorities="ZHIHUphotoPicker"
-                android:exported="false"
-
-                android:grantUriPermissions="true"
-                tools:replace="android:authorities">
-            <meta-data
-                    android:name="android.support.FILE_PROVIDER_PATHS"
-                    android:resource="@xml/zhiphoto_path"
-                    tools:replace="android:resource" />
-        </provider>
         <activity android:name=".ui.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

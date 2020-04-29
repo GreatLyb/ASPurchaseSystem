@@ -24,11 +24,30 @@ android {
 
         }
     }
+    signingConfigs {
+        myConfig {
+            storePassword 'wan521..'
+            keyPassword 'wan521..'
+            storeFile file('F:\\GitSpace\\ASPurchaseSystem\\app\\JDSignture.jks')
+            keyAlias = 'key'
+        }
+    }
+
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
+            zipAlignEnabled true
+            signingConfig signingConfigs.myConfig
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled true
+            shrinkResources true
+            zipAlignEnabled true
+            signingConfig signingConfigs.myConfig
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
     sourceSets {
