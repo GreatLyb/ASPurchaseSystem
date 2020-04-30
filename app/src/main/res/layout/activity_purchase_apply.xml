@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/fi_fi"
+        android:background="@color/white">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+            <TextView
+                    style="@style/wr_fi"
+                    android:gravity="center"
+                    android:text="*"
+                    android:textColor="@color/red"
+                    android:textSize="20sp" />
+
+            <TextView
+                    style="@style/wr_wr"
+                    android:layout_marginLeft="5dp"
+                    android:text="物品名称:"
+                    android:textColor="@color/black_dim"
+                    android:textSize="14sp" />
+
+            <EditText
+                    android:id="@+id/et_purchase_name"
+                    style="@style/weight_w_w"
+                    android:background="@color/white"
+                    android:hint="请输入要采购的物品名称(必填)"
+                    android:maxLines="50"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/black_dim"
+                    android:textSize="14sp" />
+        </LinearLayout>
+
+        <View style="@style/line" />
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+            <TextView
+                    style="@style/wr_fi"
+                    android:gravity="center"
+                    android:text="*"
+                    android:textColor="@color/red"
+                    android:textSize="20sp" />
+
+            <TextView
+                    style="@style/wr_wr"
+                    android:layout_marginLeft="5dp"
+
+                    android:text="规格型号:"
+                    android:textColor="@color/black_dim"
+                    android:textSize="14sp" />
+
+            <EditText
+                    android:id="@+id/et_purchase_specifications"
+                    style="@style/weight_w_w"
+                    android:background="@color/white"
+                    android:hint="请输入要采购的物品规格型号(必填)"
+                    android:maxLines="50"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/black_dim"
+                    android:textSize="14sp" />
+        </LinearLayout>
+
+        <View style="@style/line" />
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+            <TextView
+                    style="@style/wr_fi"
+                    android:gravity="center"
+                    android:text="*"
+                    android:textColor="@color/red"
+                    android:textSize="20sp"
+                    android:visibility="invisible" />
+
+            <TextView
+                    style="@style/wr_wr"
+                    android:layout_marginLeft="5dp"
+                    android:text="物品单价:"
+                    android:textColor="@color/black_dim"
+                    android:textSize="14sp" />
+
+            <EditText
+                    android:id="@+id/et_purchase_price"
+                    style="@style/weight_w_w"
+                    android:background="@color/white"
+                    android:hint="请输入要采购的物品单价(选填)"
+                    android:inputType="numberDecimal"
+                    android:maxLines="50"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/black_dim"
+                    android:textSize="14sp" />
+        </LinearLayout>
+
+        <View style="@style/line" />
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+            <TextView
+                    style="@style/wr_fi"
+                    android:gravity="center"
+                    android:text="*"
+                    android:textColor="@color/red"
+                    android:textSize="20sp" />
+
+            <TextView
+                    style="@style/wr_wr"
+                    android:layout_marginLeft="5dp"
+                    android:text="采购数量:"
+                    android:textColor="@color/black_dim"
+                    android:textSize="14sp" />
+
+            <EditText
+                    android:id="@+id/et_purchase_num"
+                    style="@style/weight_w_w"
+                    android:background="@color/white"
+                    android:hint="请输入采购物品需要数量(必填)"
+                    android:inputType="numberDecimal"
+                    android:maxLines="50"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/black_dim"
+                    android:textSize="14sp" />
+        </LinearLayout>
+
+        <View style="@style/line" />
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+            <TextView
+                    style="@style/wr_fi"
+                    android:gravity="center"
+                    android:text="*"
+                    android:textColor="@color/red"
+                    android:textSize="20sp"
+                    android:visibility="invisible" />
+
+            <TextView
+                    style="@style/wr_wr"
+                    android:layout_marginLeft="5dp"
+                    android:text="使用时间:"
+                    android:textColor="@color/black_dim"
+                    android:textSize="14sp" />
+
+            <TextView
+                    android:id="@+id/tv_purchase_time"
+                    style="@style/weight_w_w"
+                    android:drawableRight="@drawable/right_acc"
+                    android:hint="请选择采购物品的使用时间(选填)"
+                    android:padding="10dp"
+                    android:textColor="@color/black_dim"
+                    android:textColorHint="@color/text_gray"
+                    android:textSize="14sp" />
+        </LinearLayout>
+
+        <View style="@style/line" />
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical">
+
+            <EditText
+                    android:id="@+id/et_purchase_mark"
+                    style="@style/fi_wr"
+                    android:background="@color/background_color"
+                    android:gravity="start"
+                    android:hint="备注内容(选填)"
+                    android:lines="5"
+                    android:maxLines="255"
+                    android:padding="10dp"
+                    android:textColor="@color/black_dim"
+                    android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+
+            <TextView
+                    style="@style/wr_fi"
+                    android:gravity="center"
+                    android:text="温馨提示："
+
+                    android:textColor="@color/text_gray"
+                    android:textSize="12sp" />
+
+            <TextView
+                    style="@style/wr_fi"
+                    android:gravity="center"
+                    android:text="*"
+                    android:textColor="@color/red"
+                    android:textSize="16sp" />
+
+            <TextView
+                    style="@style/wr_fi"
+                    android:gravity="center"
+                    android:text=" 标记的项为必填项"
+                    android:textColor="@color/text_gray"
+                    android:textSize="12sp" />
+        </LinearLayout>
+
+
+        <TextView
+                android:id="@+id/tv_submit_purchase"
+                style="@style/tv_sure"
+                android:text="提交申请" />
+    </LinearLayout>
+
+</ScrollView>

@@ -122,7 +122,11 @@
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <!--  申请采购首页-->
         <activity
-                android:name=".ui.applybuy.PurchaseHomeActivity"
+                android:name=".ui.purchase.PurchaseHomeActivity"
+                android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <!--  申请采购-->
+        <activity
+                android:name=".ui.purchase.PurchaseApplyActivity"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
     </application>
 

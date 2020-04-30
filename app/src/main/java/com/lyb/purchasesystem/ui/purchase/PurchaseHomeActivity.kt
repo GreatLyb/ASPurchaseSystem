@@ -1,4 +1,4 @@
-package com.lyb.purchasesystem.ui.applybuy
+package com.lyb.purchasesystem.ui.purchase
 
 import android.content.Context
 import android.content.Intent
@@ -11,7 +11,6 @@ import androidx.viewpager.widget.ViewPager
 import com.lyb.purchasesystem.R
 import com.lyb.purchasesystem.fragment.suggestion.SuggestionsAllFragment
 import com.lyb.purchasesystem.fragment.suggestion.SuggestionsMineFragment
-import com.lyb.purchasesystem.ui.main.AddCommentActivity
 import com.lysoft.baseproject.activity.BaseUIActivity
 import net.lucode.hackware.magicindicator.MagicIndicator
 import net.lucode.hackware.magicindicator.ViewPagerHelper
@@ -39,7 +38,7 @@ class PurchaseHomeActivity : BaseUIActivity() {
         topViewManager().titleTextView().text = "采购单"
         topViewManager().moreTextView().setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.add_white, 0, 0, 0)
         topViewManager().moreLayout().setOnClickListener { v ->
-            startActivity(Intent(pageContext, AddCommentActivity::class.java))
+            startActivity(Intent(pageContext, PurchaseApplyActivity::class.java))
         }
         containerView().addView(View.inflate(pageContext, R.layout.activity_suggestion_leader, null))
         suggestionsAllFragment = SuggestionsAllFragment(this)

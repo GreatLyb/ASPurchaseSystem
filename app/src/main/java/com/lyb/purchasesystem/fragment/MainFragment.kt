@@ -17,8 +17,8 @@ import com.lyb.purchasesystem.adapter.MainGrideAdapter
 import com.lyb.purchasesystem.adapter.NetViewHolder
 import com.lyb.purchasesystem.bean.BannerData
 import com.lyb.purchasesystem.bean.MainIconBean
-import com.lyb.purchasesystem.ui.applybuy.PurchaseHomeActivity
 import com.lyb.purchasesystem.ui.clapatwill.ClapAtWillListActivity
+import com.lyb.purchasesystem.ui.purchase.PurchaseHomeActivity
 import com.lyb.purchasesystem.ui.suggestions.SuggestionsBoxActivity
 import com.lysoft.baseproject.activity.BaseUIFragment
 import com.lysoft.baseproject.utils.DensityUtils
