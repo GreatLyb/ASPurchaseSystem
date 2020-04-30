@@ -17,6 +17,7 @@ import com.lyb.purchasesystem.adapter.MainGrideAdapter
 import com.lyb.purchasesystem.adapter.NetViewHolder
 import com.lyb.purchasesystem.bean.BannerData
 import com.lyb.purchasesystem.bean.MainIconBean
+import com.lyb.purchasesystem.ui.applybuy.PurchaseHomeActivity
 import com.lyb.purchasesystem.ui.clapatwill.ClapAtWillListActivity
 import com.lyb.purchasesystem.ui.suggestions.SuggestionsBoxActivity
 import com.lysoft.baseproject.activity.BaseUIFragment
@@ -89,7 +90,7 @@ class MainFragment : BaseUIFragment() {
         containerView().gv_fmp_icon.adapter = MainGrideAdapter(pageContext, iconList)
         containerView().gv_fmp_icon.setOnItemClickListener({ parent, view, position, id ->
             when (position) {
-                0 -> ToastUtils.showShort("采购申请")
+                0 -> startActivity(Intent(pageContext, PurchaseHomeActivity::class.java))
                 1 -> ToastUtils.showShort("维修记录")
                 2 -> ToastUtils.showShort("部门设备")
                 3 -> ToastUtils.showShort("教室预约")
