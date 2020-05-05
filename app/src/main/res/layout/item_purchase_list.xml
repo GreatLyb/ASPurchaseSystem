@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        style="@style/fi_wr"
+        android:background="@color/background_color"
+        android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+            style="@style/fi_wr"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="4dp"
+            android:background="@color/white"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="3dp"
+            app:contentPadding="10dp">
+
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:orientation="vertical">
+
+            <LinearLayout
+                    style="@style/fi_wr"
+                    android:orientation="horizontal">
+
+                <TextView
+                        android:id="@+id/tv_purchase_name"
+                        style="@style/weight_w_w"
+                        android:autoSizeTextType="uniform"
+                        android:singleLine="true"
+                        android:text="采购名称：笔记本电脑"
+                        android:textColor="@color/black_dim"
+                        android:textSize="14sp" />
+
+
+            </LinearLayout>
+
+            <TextView
+                    android:id="@+id/tv_purchase_specifications"
+                    style="@style/fi_wr"
+                    android:layout_marginTop="2dp"
+                    android:singleLine="true"
+
+                    android:text="采购型号：i7 16G"
+                    android:textColor="@color/black_dim"
+                    android:textSize="14sp" />
+
+            <TextView
+                    android:id="@+id/tv_purchase_price"
+                    style="@style/fi_wr"
+                    android:layout_marginTop="2dp"
+                    android:singleLine="true"
+                    android:text="单价：50000元/台"
+                    android:textColor="@color/black_dim"
+                    android:textSize="14sp" />
+
+            <TextView
+                    android:id="@+id/tv_purchase_num"
+                    style="@style/fi_wr"
+                    android:layout_marginTop="2dp"
+                    android:singleLine="true"
+                    android:text="数量：10台"
+                    android:textColor="@color/black_dim"
+                    android:textSize="14sp" />
+
+            <TextView
+                    android:id="@+id/tv_purchase_publish_time"
+                    style="@style/wr_wr"
+                    android:autoSizeTextType="uniform"
+                    android:gravity="right"
+                    android:singleLine="true"
+                    android:text="发布时间：2020-04-21"
+                    android:textColor="@color/black_dim"
+                    android:textSize="14sp" />
+
+            <LinearLayout
+                    style="@style/fi_wr"
+                    android:orientation="horizontal">
+
+                <TextView
+                        style="@style/wr_wr"
+                        android:layout_marginTop="3dp"
+                        android:gravity="right"
+                        android:text="处理状态："
+                        android:textColor="@color/black_dim"
+                        android:textSize="14sp" />
+
+                <TextView
+                        android:id="@+id/tv_purchase_state"
+                        style="@style/wr_wr"
+                        android:layout_height="20dp"
+
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="3dp"
+                        android:text="意见被采纳"
+                        android:textColor="@color/main_color"
+                        android:textSize="14sp" />
+
+                <TextView style="@style/weight_w_w" />
+
+                <ImageView
+                        android:id="@+id/img_purchase_deal"
+                        style="@style/wr_wr"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:paddingRight="10dp"
+                        android:paddingBottom="8dp"
+                        android:src="@drawable/del_icon" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
