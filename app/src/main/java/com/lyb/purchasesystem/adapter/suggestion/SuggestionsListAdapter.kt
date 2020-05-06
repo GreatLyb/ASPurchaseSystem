@@ -1,13 +1,12 @@
-package com.lyb.purchasesystem.adapter
+package com.lyb.purchasesystem.adapter.suggestion
 
 import android.content.Context
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.lyb.purchasesystem.R
-import com.lyb.purchasesystem.bean.SuggertionBean
+import com.lyb.purchasesystem.bean.suggertion.SuggertionBean
 import com.lysoft.baseproject.adapter.LyBaseAdapter
 import com.lysoft.baseproject.imp.AdapterViewClickListener
 

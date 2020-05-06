@@ -1,9 +1,9 @@
-package com.lyb.purchasesystem.adapter
+package com.lyb.purchasesystem.adapter.main
 
 import android.view.View
 import com.bumptech.glide.Glide
 import com.lyb.purchasesystem.R
-import com.lyb.purchasesystem.bean.BannerData
+import com.lyb.purchasesystem.bean.main.BannerData
 import com.zhpan.bannerview.BaseViewHolder
 import com.zhpan.bannerview.utils.BannerUtils
 import kotlinx.android.synthetic.main.item_banner_view.view.*

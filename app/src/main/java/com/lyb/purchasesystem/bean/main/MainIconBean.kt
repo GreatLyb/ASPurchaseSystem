@@ -1,4 +1,4 @@
-package com.lyb.purchasesystem.bean
+package com.lyb.purchasesystem.bean.main
 
 /**
  * ASPurchaseSystem

@@ -1,8 +1,8 @@
-package com.lyb.purchasesystem.adapter
+package com.lyb.purchasesystem.adapter.main
 
 import android.view.View
 import com.lyb.purchasesystem.R
-import com.lyb.purchasesystem.bean.BannerData
+import com.lyb.purchasesystem.bean.main.BannerData
 import com.zhpan.bannerview.BaseBannerAdapter
 
 class BannerAdapter : BaseBannerAdapter<BannerData, NetViewHolder>() {

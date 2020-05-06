@@ -8,9 +8,9 @@ import com.blankj.utilcode.util.ToastUtils
 import com.kongzue.dialog.interfaces.OnDialogButtonClickListener
 import com.kongzue.dialog.v3.MessageDialog
 import com.lyb.purchasesystem.R
-import com.lyb.purchasesystem.adapter.ClapAtWillListAdapter
-import com.lyb.purchasesystem.bean.ClapAtWillBean
+import com.lyb.purchasesystem.adapter.clapat.ClapAtWillListAdapter
 import com.lyb.purchasesystem.bean.ImageBean
+import com.lyb.purchasesystem.bean.clat.ClapAtWillBean
 import com.lyb.purchasesystem.consta.Constants
 import com.lysoft.baseproject.activity.BaseUIListActivity
 import com.lysoft.baseproject.imp.AdapterViewClickListener

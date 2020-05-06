@@ -1,4 +1,4 @@
-package com.lyb.purchasesystem.adapter
+package com.lyb.purchasesystem.adapter.main
 
 import android.content.Context
 import android.view.View
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.lyb.purchasesystem.R
-import com.lyb.purchasesystem.bean.MainIconBean
+import com.lyb.purchasesystem.bean.main.MainIconBean
 import com.lysoft.baseproject.adapter.LyBaseAdapter
 
 /**

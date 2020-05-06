@@ -6,6 +6,7 @@
         android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
+            android:id="@+id/cd_purchase"
             style="@style/fi_wr"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="4dp"
@@ -53,7 +54,7 @@
                     style="@style/fi_wr"
                     android:layout_marginTop="2dp"
                     android:singleLine="true"
-                    android:text="单价：50000元/台"
+                    android:text="采购单价：50000元/台"
                     android:textColor="@color/black_dim"
                     android:textSize="14sp" />
 
@@ -62,17 +63,27 @@
                     style="@style/fi_wr"
                     android:layout_marginTop="2dp"
                     android:singleLine="true"
-                    android:text="数量：10台"
+                    android:text="采购数量：10台"
                     android:textColor="@color/black_dim"
                     android:textSize="14sp" />
 
             <TextView
-                    android:id="@+id/tv_purchase_publish_time"
+                    android:id="@+id/tv_purchase_publish_person"
                     style="@style/wr_wr"
                     android:autoSizeTextType="uniform"
                     android:gravity="right"
                     android:singleLine="true"
-                    android:text="发布时间：2020-04-21"
+                    android:text="采购申请人：张三"
+                    android:textColor="@color/black_dim"
+                    android:textSize="14sp" />
+
+            <TextView
+                    android:id="@+id/tv_purchase_apply_time"
+                    style="@style/wr_wr"
+                    android:autoSizeTextType="uniform"
+                    android:gravity="right"
+                    android:singleLine="true"
+                    android:text="申请时间：2020-04-21"
                     android:textColor="@color/black_dim"
                     android:textSize="14sp" />
 
@@ -84,7 +95,7 @@
                         style="@style/wr_wr"
                         android:layout_marginTop="3dp"
                         android:gravity="right"
-                        android:text="处理状态："
+                        android:text="申请状态："
                         android:textColor="@color/black_dim"
                         android:textSize="14sp" />
 
@@ -92,10 +103,9 @@
                         android:id="@+id/tv_purchase_state"
                         style="@style/wr_wr"
                         android:layout_height="20dp"
-
                         android:layout_marginLeft="5dp"
                         android:layout_marginTop="3dp"
-                        android:text="意见被采纳"
+                        android:text="已同意"
                         android:textColor="@color/main_color"
                         android:textSize="14sp" />
 

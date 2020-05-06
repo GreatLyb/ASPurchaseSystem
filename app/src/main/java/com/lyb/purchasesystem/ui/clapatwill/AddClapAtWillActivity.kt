@@ -15,8 +15,8 @@ import com.bigkoo.pickerview.listener.OnOptionsSelectListener
 import com.bigkoo.pickerview.view.OptionsPickerView
 import com.kongzue.dialog.v3.TipDialog
 import com.lyb.purchasesystem.R
-import com.lyb.purchasesystem.bean.ClatAtTypeBean
 import com.lyb.purchasesystem.bean.ImageBean
+import com.lyb.purchasesystem.bean.clat.ClatAtTypeBean
 import com.lyb.purchasesystem.utils.UserInfoUtils
 import com.lysoft.baseproject.activity.BaseUIActivity
 import com.lysoft.baseproject.adapter.CommonGalleryImgAdapter

@@ -1,4 +1,4 @@
-package com.lyb.purchasesystem.bean
+package com.lyb.purchasesystem.bean.clat
 
 import com.contrarywind.interfaces.IPickerViewData
 

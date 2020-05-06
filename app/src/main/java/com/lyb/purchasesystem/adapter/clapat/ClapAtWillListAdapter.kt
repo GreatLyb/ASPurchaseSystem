@@ -1,4 +1,4 @@
-package com.lyb.purchasesystem.adapter
+package com.lyb.purchasesystem.adapter.clapat
 
 import android.content.Context
 import android.view.View
@@ -8,7 +8,8 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import cc.shinichi.library.ImagePreview
 import com.lyb.purchasesystem.R
-import com.lyb.purchasesystem.bean.ClapAtWillBean
+import com.lyb.purchasesystem.adapter.ImageGridViewAdapter
+import com.lyb.purchasesystem.bean.clat.ClapAtWillBean
 import com.lysoft.baseproject.adapter.LyBaseAdapter
 import com.lysoft.baseproject.imp.AdapterViewClickListener
 import com.lysoft.baseproject.view.LyAtMostGridView

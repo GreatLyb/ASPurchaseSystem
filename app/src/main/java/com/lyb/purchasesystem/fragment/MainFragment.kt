@@ -12,11 +12,11 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.blankj.utilcode.util.ScreenUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.lyb.purchasesystem.R
-import com.lyb.purchasesystem.adapter.BannerAdapter
-import com.lyb.purchasesystem.adapter.MainGrideAdapter
-import com.lyb.purchasesystem.adapter.NetViewHolder
-import com.lyb.purchasesystem.bean.BannerData
-import com.lyb.purchasesystem.bean.MainIconBean
+import com.lyb.purchasesystem.adapter.main.BannerAdapter
+import com.lyb.purchasesystem.adapter.main.MainGrideAdapter
+import com.lyb.purchasesystem.adapter.main.NetViewHolder
+import com.lyb.purchasesystem.bean.main.BannerData
+import com.lyb.purchasesystem.bean.main.MainIconBean
 import com.lyb.purchasesystem.ui.clapatwill.ClapAtWillListActivity
 import com.lyb.purchasesystem.ui.purchase.PurchaseHomeActivity
 import com.lyb.purchasesystem.ui.suggestions.SuggestionsBoxActivity

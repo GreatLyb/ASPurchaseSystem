@@ -1,5 +1,6 @@
-package com.lyb.purchasesystem.bean
+package com.lyb.purchasesystem.bean.clat
 
+import com.lyb.purchasesystem.bean.ImageBean
 import java.io.Serializable
 
 /**

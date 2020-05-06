@@ -4,9 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.BaseAdapter
-import com.lyb.purchasesystem.adapter.ClapAtWillListAdapter
-import com.lyb.purchasesystem.bean.ClapAtWillBean
+import com.lyb.purchasesystem.adapter.clapat.ClapAtWillListAdapter
 import com.lyb.purchasesystem.bean.ImageBean
+import com.lyb.purchasesystem.bean.clat.ClapAtWillBean
 import com.lyb.purchasesystem.consta.Constants
 import com.lysoft.baseproject.activity.BaseUIListActivity
 import com.lysoft.baseproject.imp.AdapterViewClickListener

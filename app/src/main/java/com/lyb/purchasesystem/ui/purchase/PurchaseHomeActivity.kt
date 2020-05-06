@@ -9,8 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.lyb.purchasesystem.R
-import com.lyb.purchasesystem.fragment.suggestion.SuggestionsAllFragment
-import com.lyb.purchasesystem.fragment.suggestion.SuggestionsMineFragment
+import com.lyb.purchasesystem.fragment.purchase.PurchaseListFragment
 import com.lysoft.baseproject.activity.BaseUIActivity
 import net.lucode.hackware.magicindicator.MagicIndicator
 import net.lucode.hackware.magicindicator.ViewPagerHelper
@@ -30,8 +29,10 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorT
  */
 class PurchaseHomeActivity : BaseUIActivity() {
     lateinit var mViewPager: ViewPager
-    lateinit var suggestionsAllFragment: SuggestionsAllFragment
-    lateinit var suggestionsMineFragment: SuggestionsMineFragment
+    lateinit var purchaseAllFragment: PurchaseListFragment
+    lateinit var purchaseWaitDealFragment: PurchaseListFragment
+    lateinit var purchaseHaveDealFragment: PurchaseListFragment
+    lateinit var purchaseMineFragment: PurchaseListFragment
     var fragmenList = mutableListOf<Fragment>();
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,12 +42,14 @@ class PurchaseHomeActivity : BaseUIActivity() {
             startActivity(Intent(pageContext, PurchaseApplyActivity::class.java))
         }
         containerView().addView(View.inflate(pageContext, R.layout.activity_suggestion_leader, null))
-        suggestionsAllFragment = SuggestionsAllFragment(this)
-        suggestionsMineFragment = SuggestionsMineFragment(this)
-        fragmenList.add(suggestionsAllFragment)
-        fragmenList.add(suggestionsMineFragment)
-        fragmenList.add(SuggestionsMineFragment(this))
-        fragmenList.add(SuggestionsMineFragment(this))
+        purchaseAllFragment = PurchaseListFragment(1, this)
+        purchaseWaitDealFragment = PurchaseListFragment(2, this)
+        purchaseHaveDealFragment = PurchaseListFragment(3, this)
+        purchaseMineFragment = PurchaseListFragment(4, this)
+        fragmenList.add(purchaseAllFragment)
+        fragmenList.add(purchaseWaitDealFragment)
+        fragmenList.add(purchaseHaveDealFragment)
+        fragmenList.add(purchaseMineFragment)
         initTopIndicator()
     }
 

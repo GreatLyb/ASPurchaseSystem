@@ -10,8 +10,8 @@ import com.kongzue.dialog.util.BaseDialog
 import com.kongzue.dialog.v3.BottomMenu
 import com.kongzue.dialog.v3.InputDialog
 import com.lyb.purchasesystem.R
-import com.lyb.purchasesystem.adapter.SuggestionsListAdapter
-import com.lyb.purchasesystem.bean.SuggertionBean
+import com.lyb.purchasesystem.adapter.suggestion.SuggestionsListAdapter
+import com.lyb.purchasesystem.bean.suggertion.SuggertionBean
 import com.lyb.purchasesystem.consta.Constants
 import com.lyb.purchasesystem.ui.main.AddCommentActivity
 import com.lysoft.baseproject.activity.BaseUIListActivity

@@ -9,7 +9,7 @@ import com.bigkoo.pickerview.listener.OnTimeSelectListener
 import com.kongzue.dialog.v3.MessageDialog
 import com.lyb.purchasesystem.R
 import com.lyb.purchasesystem.adapter.DetailImageAdapter
-import com.lyb.purchasesystem.bean.ClapAtWillBean
+import com.lyb.purchasesystem.bean.clat.ClapAtWillBean
 import com.lyb.purchasesystem.consta.Constants
 import com.lysoft.baseproject.activity.BaseUIActivity
 import kotlinx.android.synthetic.main.activity_clap_at_detail.view.*

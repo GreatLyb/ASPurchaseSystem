@@ -6,8 +6,8 @@ import android.widget.BaseAdapter
 import androidx.appcompat.app.AppCompatActivity
 import com.kongzue.dialog.interfaces.OnDialogButtonClickListener
 import com.kongzue.dialog.v3.MessageDialog
-import com.lyb.purchasesystem.adapter.SuggestionsListAdapter
-import com.lyb.purchasesystem.bean.SuggertionBean
+import com.lyb.purchasesystem.adapter.suggestion.SuggestionsListAdapter
+import com.lyb.purchasesystem.bean.suggertion.SuggertionBean
 import com.lyb.purchasesystem.consta.Constants
 import com.lyb.purchasesystem.ui.suggestions.SuggestionsInfoActivity
 import com.lysoft.baseproject.activity.BaseUIListFragment
