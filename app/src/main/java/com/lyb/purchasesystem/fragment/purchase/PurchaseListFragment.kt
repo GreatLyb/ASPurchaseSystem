@@ -48,7 +48,7 @@ class PurchaseListFragment(var type: Int, var appCompatActivity: AppCompatActivi
     }
 
     override fun adapterViewClick(position: Int, view: View?) {
-        if (pageListData[position].purchaseDealState.equals("1")) {
+        if (pageListData[position].purchaseDealState.equals("0")) {
             MessageDialog.show(appCompatActivity, "提示", "确认要删除该条申请吗？", "确定", "取消").setOnOkButtonClickListener { baseDialog, v ->
                 baseDialog.doDismiss()
                 true

@@ -65,7 +65,7 @@ class PurchaseListAdapter(context: Context, list: MutableList<PurchaseBean>, val
         holder.purchaseNumTextView.text = "采购数量：" + model.purchaseNum
         holder.purchasePersonTextView.text = "采购申请人：" + model.purchasePerson
         holder.purchaseTimeTextView.text = "申请时间：" + model.purchasePublishTime
-        if (isShowDel) {
+        if (isShowDel && model.purchaseDealState.equals("0")) {
             holder.purchaseDealImageView.visibility = View.VISIBLE
             holder.purchaseDealImageView.setOnClickListener(clickListener(position))
         } else {
