@@ -10,7 +10,7 @@ import com.kongzue.dialog.v3.MessageDialog
 import com.lyb.purchasesystem.adapter.purchase.PurchaseListAdapter
 import com.lyb.purchasesystem.bean.purchase.PurchaseBean
 import com.lyb.purchasesystem.consta.Constants
-import com.lyb.purchasesystem.ui.suggestions.SuggestionsInfoActivity
+import com.lyb.purchasesystem.ui.purchase.PurchaseInfoActivity
 import com.lysoft.baseproject.activity.BaseUIListFragment
 import com.lysoft.baseproject.imp.AdapterViewClickListener
 import com.lysoft.baseproject.imp.BaseCallBack
@@ -38,18 +38,20 @@ class PurchaseListFragment(var type: Int, var appCompatActivity: AppCompatActivi
             } else {
                 state = "2"
             }
-            purchaseList.add(PurchaseBean("电脑", "i7 16G", "9000", "10台", "2020-05-06", "2020-04-05", state, "张三"))
+            purchaseList.add(PurchaseBean("电脑", "i7 16G", "9000", "10台", "2020-05-06", "2020-04-05", "我们需要几台电脑办公，请尽快采买，谢谢！！！", "张三", state, "李四", "2020-05-01", "你这个建议不错", "人资部"))
         }
         callBack.callBack(purchaseList)
     }
 
     override fun itemClickListener(position: Int) {
-        startActivity(Intent(pageContext, SuggestionsInfoActivity::class.java))
+        val intent = Intent(pageContext, PurchaseInfoActivity::class.java)
+        intent.putExtra("model", pageListData[position])
+        startActivity(intent)
     }
 
     override fun adapterViewClick(position: Int, view: View?) {
         if (pageListData[position].purchaseDealState.equals("0")) {
-            MessageDialog.show(appCompatActivity, "提示", "确认要删除该条申请吗？", "确定", "取消").setOnOkButtonClickListener { baseDialog, v ->
+            MessageDialog.show(appCompatActivity, "提示", "确认要删除该条采购申请吗？", "确定", "取消").setOnOkButtonClickListener { baseDialog, v ->
                 baseDialog.doDismiss()
                 true
             }.onCancelButtonClickListener = OnDialogButtonClickListener({ baseDialog, v ->

@@ -23,6 +23,17 @@ android {
             }
 
         }
+        manifestPlaceholders = [
+                //个推应用参数，请填写您申请的 GETUI_APP_ID，GETUI_APP_KEY，GETUI_APP_SECRET 值
+                GETUI_APP_ID    : rootProject.ext.GETUI_APP_ID,
+                GETUI_APP_KEY   : rootProject.ext.GETUI_APP_KEY,
+                GETUI_APP_SECRET: rootProject.ext.GETUI_APP_SECRET
+        ]
+
+        ndk {
+            // 注意：这里需要添加项目所需 CPU 类型的最小集
+            abiFilters "armeabi", "armeabi-v7a","armeabi-v8a", "x86"
+        }
     }
     signingConfigs {
         myConfig {
@@ -86,6 +97,7 @@ dependencies {
     implementation 'com.android.support:cardview-v7:28.0.0'
     implementation 'org.greenrobot:greendao:3.2.2'
     implementation 'com.rengwuxian.materialedittext:library:2.1.4'
+    implementation 'com.getui:sdk:2.14.0.0'  //请将此处的 ${version} 替换成您当前相应的 SDK 版本号，如
 }
 repositories {
     mavenCentral()

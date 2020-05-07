@@ -9,6 +9,11 @@ ext {
             "versionCode"      : 1,
             "versionName"      : "1.0.1"
     ]
+    getui = [
+            GETUI_APP_ID = "upOELj4rxl7wff5K5sCwO9",
+            GETUI_APP_KEY = "IASFHsoJfu7zM4LOjjeHi8",
+            GETUI_APP_SECRET = "ydqSrrvth5AVwAqyBdFt62"
+    ]
     dependencies = [
             "support-v4"     : "com.android.support:support-v4:${supportVersion}",
             "appcompat-v7"   : "com.android.support:appcompat-v7:${supportVersion}",
@@ -16,4 +21,5 @@ ext {
             "recyclerview-v7": "com.android.support:recyclerview-v7:${supportVersion}",
 
     ]
+
 }

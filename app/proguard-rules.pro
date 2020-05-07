@@ -81,3 +81,13 @@ public static java.lang.String TABLENAME;
 #okio
 -dontwarn okio.**
 -keep class okio.**{*;}
+
+# 个推==================================================
+-dontwarn com.igexin.**
+-keep class com.igexin.** { *; }
+
+# Gson 自定义数据模型的bean目录===================================
+-keep class com.google.gson.stream.** { *; }
+-keepattributes EnclosingMethod
+-keep class com.getui.demo.net.request.** {*;}
+-keep class com.getui.demo.net.response.** {*;}

@@ -3,12 +3,17 @@ package com.lyb.purchasesystem;
 import android.app.Application;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import android.util.Log;
 import android.view.Gravity;
 import android.widget.Toast;
+
+import androidx.multidex.MultiDex;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.hjq.toast.ToastUtils;
 import com.hjq.toast.style.ToastQQStyle;
+import com.igexin.sdk.IUserLoggerInterface;
+import com.igexin.sdk.PushManager;
 import com.kongzue.dialog.util.BaseDialog;
 import com.kongzue.dialog.util.DialogSettings;
 import com.lyb.purchasesystem.ui.SplashActivity;
@@ -33,7 +38,6 @@ import java.lang.ref.SoftReference;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
-import androidx.multidex.MultiDex;
 import okhttp3.OkHttpClient;
 
 /**
@@ -58,6 +62,7 @@ public class BaseApplication extends HHSoftApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+        initGetui();
         if (isDebug()) {
             ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险
         }
@@ -73,6 +78,16 @@ public class BaseApplication extends HHSoftApplication {
         ToastUtils.setGravity(Gravity.BOTTOM, 0, 150);
 
 
+    }
+
+    private void initGetui() {
+        PushManager.getInstance().initialize(this);
+        com.igexin.sdk.PushManager.getInstance().setDebugLogger(this, new IUserLoggerInterface() {
+            @Override
+            public void log(String s) {
+                Log.i("PUSH_LOG", s);
+            }
+        });
     }
 
     private void initDialog() {

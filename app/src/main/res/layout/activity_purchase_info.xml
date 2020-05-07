@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/fi_fi"
+
+        android:background="@color/white">
+
+    <LinearLayout
+            style="@style/fi_wr"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+            <TextView
+                    style="@style/wr_wr"
+                    android:text="采购名称："
+                    android:textColor="@color/text_gray"
+                    android:textSize="16sp" />
+
+            <TextView
+                    android:id="@+id/tv_purchase_info_name"
+                    style="@style/wr_wr"
+                    android:gravity="center"
+                    android:text="电脑"
+                    android:textColor="@color/black_dim"
+                    android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <View
+                style="@style/line"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp" />
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal">
+
+            <TextView
+                    style="@style/wr_wr"
+                    android:text="采购型号："
+                    android:textColor="@color/text_gray"
+                    android:textSize="16sp" />
+
+            <TextView
+                    android:id="@+id/tv_purchase_info_specifications"
+                    style="@style/wr_wr"
+                    android:gravity="center"
+                    android:text="i7  24G"
+                    android:textColor="@color/black_dim"
+                    android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <View
+                style="@style/line"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp" />
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal">
+
+            <TextView
+                    style="@style/wr_wr"
+                    android:text="物品单价："
+                    android:textColor="@color/text_gray"
+                    android:textSize="16sp" />
+
+            <TextView
+                    android:id="@+id/tv_purchase_info_price"
+                    style="@style/wr_wr"
+                    android:gravity="center"
+                    android:text="2000"
+                    android:textColor="@color/black_dim"
+                    android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <View
+                style="@style/line"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp" />
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal">
+
+            <TextView
+                    style="@style/wr_wr"
+                    android:text="采购数量："
+                    android:textColor="@color/text_gray"
+                    android:textSize="16sp" />
+
+            <TextView
+                    android:id="@+id/tv_purchase_info_num"
+                    style="@style/wr_wr"
+                    android:gravity="center"
+                    android:text="10台"
+                    android:textColor="@color/black_dim"
+                    android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <View
+                style="@style/line"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp" />
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal">
+
+            <TextView
+                    style="@style/wr_wr"
+                    android:text="采购申请人："
+                    android:textColor="@color/text_gray"
+                    android:textSize="16sp" />
+
+            <TextView
+                    android:id="@+id/tv_purchase_info_person"
+                    style="@style/wr_wr"
+                    android:gravity="center"
+                    android:text="张三"
+                    android:textColor="@color/black_dim"
+                    android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <View
+                style="@style/line"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp" />
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal">
+
+            <TextView
+                    style="@style/wr_wr"
+                    android:text="申请部门："
+                    android:textColor="@color/text_gray"
+                    android:textSize="16sp" />
+
+            <TextView
+                    android:id="@+id/tv_purchase_info_department"
+                    style="@style/wr_wr"
+                    android:gravity="center"
+                    android:text="人资部"
+                    android:textColor="@color/black_dim"
+                    android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <View
+                style="@style/line"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp" />
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal">
+
+            <TextView
+                    style="@style/wr_wr"
+                    android:text="备注："
+                    android:textColor="@color/text_gray"
+                    android:textSize="16sp" />
+
+            <TextView
+                    android:id="@+id/tv_purchase_info_remarks"
+                    style="@style/wr_wr"
+                    android:lineSpacingMultiplier="1.2"
+                    android:text="我们需要几台电脑办公，请尽快采买，谢谢！！！"
+                    android:textColor="@color/black_dim"
+                    android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <View
+                style="@style/line"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp" />
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:layout_marginTop="3dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal">
+
+            <TextView
+                    style="@style/wr_wr"
+                    android:layout_width="80dp"
+                    android:text="申请状态:"
+                    android:textColor="@color/text_gray"
+                    android:textSize="16sp" />
+
+            <TextView
+                    android:id="@+id/tv_purchase_info_apply_state"
+                    style="@style/wr_wr"
+                    android:gravity="center"
+                    android:text="已拒绝"
+                    android:textColor="@color/main_color"
+                    android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/llayout_deal_info"
+                style="@style/fi_wr"
+                android:orientation="vertical">
+
+            <View
+                    style="@style/line"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp" />
+
+            <LinearLayout
+                    style="@style/fi_wr"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="horizontal">
+
+                <TextView
+                        style="@style/wr_wr"
+                        android:layout_width="81dp"
+                        android:text="处理人:"
+                        android:textColor="@color/text_gray"
+                        android:textSize="16sp" />
+
+                <TextView
+                        android:id="@+id/tv_purchase_info_deal_person"
+                        style="@style/wr_wr"
+                        android:gravity="center"
+                        android:text="王二"
+                        android:textColor="@color/text_black"
+                        android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <View
+                    style="@style/line"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp" />
+
+            <LinearLayout
+                    style="@style/fi_wr"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="horizontal">
+
+                <TextView
+                        style="@style/wr_wr"
+                        android:layout_width="80dp"
+                        android:text="处理时间:"
+                        android:textColor="@color/text_gray"
+                        android:textSize="16sp" />
+
+                <TextView
+                        android:id="@+id/tv_purchase_info_deal_time"
+                        style="@style/wr_wr"
+                        android:gravity="center"
+                        android:text="2020-05-01"
+                        android:textColor="@color/black_dim"
+                        android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <View
+                    style="@style/line"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp" />
+
+            <LinearLayout
+                    style="@style/fi_wr"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="horizontal">
+
+                <TextView
+                        style="@style/wr_wr"
+                        android:layout_width="80dp"
+                        android:text="处理意见:"
+                        android:textColor="@color/text_gray"
+                        android:textSize="16sp" />
+
+                <TextView
+                        android:id="@+id/tv_purchase_info_deal_content"
+                        style="@style/wr_wr"
+                        android:gravity="center"
+                        android:lineSpacingMultiplier="1.2"
+                        android:text="中 你这个建议不错，我采纳了"
+                        android:textColor="@color/black_dim"
+                        android:textSize="16sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+                style="@style/line"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp" />
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:orientation="vertical">
+
+            <RadioGroup
+                    android:id="@+id/rg_purchase"
+                    style="@style/fi_wr"
+                    android:layout_marginTop="30dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                <RadioButton
+                        android:id="@+id/rb_agree"
+                        style="@style/wr_wr"
+                        android:layout_marginRight="30dp"
+                        android:button="@null"
+                        android:drawableTop="@drawable/shape_purchase_agree"
+                        android:drawablePadding="3dp"
+                        android:gravity="center"
+                        android:text="同意"
+                        android:textColor="@color/selector_color_purchase_agree"
+                        android:textSize="16sp" />
+
+                <RadioButton
+                        android:id="@+id/rb_refuse"
+                        style="@style/wr_wr"
+                        android:layout_marginLeft="30dp"
+
+                        android:button="@null"
+                        android:drawableTop="@drawable/shape_purchase_refuse"
+                        android:drawablePadding="3dp"
+                        android:gravity="center"
+                        android:text="拒绝"
+                        android:textColor="@color/selector_color_purchase_refuse"
+                        android:textSize="16sp" />
+            </RadioGroup>
+
+            <EditText
+                    android:id="@+id/et_purchase_info_deal_content"
+                    style="@style/fi_wr"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/background_color"
+                    android:gravity="start"
+                    android:hint="请输入处理意见....."
+                    android:lines="5"
+                    android:maxLines="255"
+                    android:padding="10dp"
+                    android:textColor="@color/black_dim"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+
+            <TextView
+                    android:id="@+id/tv_submit_purchase_deal"
+                    style="@style/tv_sure"
+                    android:text="提交" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>

@@ -12,14 +12,15 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.lyb.purchasesystem.R;
-import com.lysoft.baseproject.activity.BaseUIActivity;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
+
+import com.igexin.sdk.PushManager;
+import com.lyb.purchasesystem.R;
+import com.lysoft.baseproject.activity.BaseUIActivity;
 
 
 public abstract class BaseMainActivity extends BaseUIActivity {
@@ -38,6 +39,8 @@ public abstract class BaseMainActivity extends BaseUIActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        PushManager.getInstance().initialize(this);
+
         initValues();
         initListeners();
     }

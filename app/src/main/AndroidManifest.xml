@@ -10,7 +10,15 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="getui.permission.GetuiService.${applicationId}" />
 
+    <permission
+            android:name="getui.permission.GetuiService.${applicationId}"
+            android:protectionLevel="normal" />
     <application
             android:name=".BaseApplication"
             android:allowBackup="true"
@@ -31,6 +39,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- 请根据您当前自定义的 PushService 名称路径进行配置-->
+        <service
+                android:name="com.lyb.purchasesystem.server.GeTuiService"
+                android:exported="true"
+                android:label="PushService"
+                android:process=":pushservice" />
+        <service
+                android:name="com.lyb.purchasesystem.server.DemoIntentService"
+                android:permission="android.permission.BIND_JOB_SERVICE" />
         <!-- 适配华为（huawei）刘海屏 -->
         <meta-data
                 android:name="android.notch_support"
@@ -127,6 +144,10 @@
         <!--  申请采购-->
         <activity
                 android:name=".ui.purchase.PurchaseApplyActivity"
+                android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <!--  采购单详情-->
+        <activity
+                android:name=".ui.purchase.PurchaseInfoActivity"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
     </application>
 

@@ -34,6 +34,7 @@ class PurchaseListAdapter(context: Context, list: MutableList<PurchaseBean>, val
             holder.purchaseTimeTextView = itemView.findViewById(R.id.tv_purchase_apply_time)
             holder.purchaseStateTextView = itemView.findViewById(R.id.tv_purchase_state)
             holder.purchaseDealImageView = itemView.findViewById(R.id.img_purchase_deal)
+            holder.purchaseDepartmentTextView = itemView.findViewById(R.id.tv_purchase_publish_department)
 
             itemView.setTag(holder)
         } else {
@@ -60,11 +61,12 @@ class PurchaseListAdapter(context: Context, list: MutableList<PurchaseBean>, val
         }
 
         holder.purchaseNameTextView.text = "采购名称：" + model.purchaseName
-        holder.purchaseSpecificationsTextView.text = "采购型号：" + model.purchasespecifications
-        holder.purchasePriceTextView.text = "采购单价：" + model.purchasePrice
+        holder.purchaseSpecificationsTextView.text = "规格型号：" + model.purchasespecifications
+        holder.purchasePriceTextView.text = "物品单价：" + model.purchasePrice
         holder.purchaseNumTextView.text = "采购数量：" + model.purchaseNum
         holder.purchasePersonTextView.text = "采购申请人：" + model.purchasePerson
         holder.purchaseTimeTextView.text = "申请时间：" + model.purchasePublishTime
+        holder.purchaseDepartmentTextView.text = "申请部门：" + model.purchaseDepartment
         if (isShowDel && model.purchaseDealState.equals("0")) {
             holder.purchaseDealImageView.visibility = View.VISIBLE
             holder.purchaseDealImageView.setOnClickListener(clickListener(position))
@@ -83,6 +85,7 @@ class PurchaseListAdapter(context: Context, list: MutableList<PurchaseBean>, val
         lateinit var purchasePersonTextView: TextView
         lateinit var purchaseTimeTextView: TextView
         lateinit var purchaseStateTextView: TextView
+        lateinit var purchaseDepartmentTextView: TextView
         lateinit var purchaseDealImageView: ImageView
     }
 
