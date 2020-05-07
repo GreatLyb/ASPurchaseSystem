@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/fi_fi"
+        android:background="@color/white">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+
+            <TextView
+                    style="@style/wr_wr"
+                    android:layout_width="70dp"
+                    android:layout_marginLeft="5dp"
+                    android:text="职教室:"
+                    android:textColor="@color/black_dim"
+                    android:textSize="14sp" />
+
+            <TextView
+                    android:id="@+id/tv_select_class_room"
+                    style="@style/weight_w_w"
+                    android:drawableRight="@drawable/right_acc"
+                    android:hint="请选择职教室"
+                    android:padding="10dp"
+                    android:textColor="@color/black_dim"
+                    android:textColorHint="@color/text_gray"
+                    android:textSize="14sp" />
+        </LinearLayout>
+
+        <View style="@style/line" />
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+
+            <TextView
+                    style="@style/wr_wr"
+                    android:layout_width="70dp"
+                    android:layout_marginLeft="5dp"
+                    android:text="培训师:"
+                    android:textColor="@color/black_dim"
+                    android:textSize="14sp" />
+
+            <EditText
+                    android:id="@+id/et_class_room_teacher"
+                    style="@style/weight_w_w"
+                    android:background="@color/white"
+                    android:hint="请输入培训师姓名"
+                    android:maxLines="50"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/black_dim"
+                    android:textSize="14sp" />
+        </LinearLayout>
+
+        <View style="@style/line" />
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+            <TextView
+                    style="@style/wr_wr"
+                    android:layout_width="70dp"
+                    android:layout_marginLeft="5dp"
+                    android:text="联系方式:"
+                    android:textColor="@color/black_dim"
+                    android:textSize="14sp" />
+
+            <EditText
+                    android:id="@+id/et_class_room_phone"
+                    style="@style/weight_w_w"
+                    android:background="@color/white"
+                    android:hint="请输入联系方式"
+                    android:inputType="number"
+                    android:maxLines="12"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/black_dim"
+                    android:textSize="14sp" />
+        </LinearLayout>
+
+        <View style="@style/line" />
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+
+            <TextView
+                    style="@style/fi_wr"
+                    android:layout_width="70dp"
+                    android:layout_marginLeft="5dp"
+                    android:text="部门:"
+                    android:textColor="@color/black_dim"
+                    android:textSize="14sp" />
+
+            <TextView
+                    android:id="@+id/tv_select_department"
+                    style="@style/weight_w_w"
+                    android:background="@color/white"
+                    android:drawableRight="@drawable/right_acc"
+                    android:hint="请选择所属部门"
+                    android:padding="10dp"
+                    android:textColor="@color/black_dim"
+                    android:textSize="14sp" />
+        </LinearLayout>
+
+        <View style="@style/line" />
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+            <TextView
+                    style="@style/wr_wr"
+                    android:layout_width="70dp"
+                    android:layout_marginLeft="5dp"
+                    android:text="开始时间:"
+                    android:textColor="@color/black_dim"
+                    android:textSize="14sp" />
+
+            <TextView
+                    android:id="@+id/tv_appointment_start_time"
+                    style="@style/weight_w_w"
+                    android:drawableRight="@drawable/right_acc"
+                    android:hint="请选择开始时间"
+                    android:padding="10dp"
+                    android:textColor="@color/black_dim"
+                    android:textColorHint="@color/text_gray"
+                    android:textSize="14sp" />
+        </LinearLayout>
+
+        <View style="@style/line" />
+
+        <LinearLayout
+                style="@style/fi_wr"
+
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+            <TextView
+                    style="@style/wr_wr"
+                    android:layout_width="70dp"
+                    android:layout_marginLeft="5dp"
+                    android:text="结束时间:"
+                    android:textColor="@color/black_dim"
+                    android:textSize="14sp" />
+
+            <TextView
+                    android:id="@+id/tv_appointment_end_time"
+                    style="@style/weight_w_w"
+                    android:drawableRight="@drawable/right_acc"
+                    android:hint="请选择结束时间"
+                    android:padding="10dp"
+                    android:textColor="@color/black_dim"
+                    android:textColorHint="@color/text_gray"
+                    android:textSize="14sp" />
+        </LinearLayout>
+
+        <View style="@style/line" />
+
+
+        <TextView
+                android:id="@+id/tv_submit_appointment"
+                style="@style/tv_sure"
+                android:text="提交申请" />
+    </LinearLayout>
+
+</ScrollView>

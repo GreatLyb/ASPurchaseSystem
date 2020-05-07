@@ -5,6 +5,7 @@ import android.text.TextUtils
 import android.view.View
 import com.bigkoo.pickerview.builder.TimePickerBuilder
 import com.bigkoo.pickerview.listener.OnTimeSelectListener
+import com.blankj.utilcode.util.KeyboardUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.lyb.purchasesystem.R
 import com.lyb.purchasesystem.consta.Constants
@@ -36,6 +37,9 @@ class PurchaseApplyActivity : View.OnClickListener, BaseUIActivity() {
         when (v?.id) {
             tv_purchase_time.id -> {
                 //选择时间
+                if (KeyboardUtils.isSoftInputVisible(this)) {
+                    KeyboardUtils.hideSoftInput(this)
+                }
                 val endCalendar = Calendar.getInstance()
                 endCalendar.add(Calendar.YEAR, 10)
                 val pvTime = TimePickerBuilder(this, OnTimeSelectListener { date, v ->

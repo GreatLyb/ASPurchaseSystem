@@ -1,5 +1,6 @@
 package com.lyb.purchasesystem.ui.classroom
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.BaseAdapter
@@ -27,7 +28,7 @@ class ClassRoomAppointmentActivity : AdapterViewClickListener, BaseUIListActivit
         contentView().addView(view, 1)
         topViewManager().moreTextView().setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.add_appiontment, 0, 0, 0)
         topViewManager().moreLayout().setOnClickListener { v ->
-            com.hjq.toast.ToastUtils.show("预约")
+            startActivity(Intent(pageContext, AddAppointmentActivity::class.java))
         }
         type = intent.getIntExtra("type", 1)
         var titleText = ""

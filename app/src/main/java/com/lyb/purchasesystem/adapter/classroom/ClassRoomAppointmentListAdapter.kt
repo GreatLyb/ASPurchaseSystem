@@ -36,7 +36,11 @@ class ClassRoomAppointmentListAdapter(context: Context, list: MutableList<ClassR
         }
 
         val model = list[position]
-
+        if (position % 2 == 0) {
+            holder.classRoomSwipeMenuLayout.setBackgroundResource(R.color.background_color)
+        } else {
+            holder.classRoomSwipeMenuLayout.setBackgroundResource(R.color.white)
+        }
         holder.classRoomNameTextView.text = model.classRoomName
         holder.startTimeTextView.text = model.startTime
         holder.endTimeTextView.text = model.endTime

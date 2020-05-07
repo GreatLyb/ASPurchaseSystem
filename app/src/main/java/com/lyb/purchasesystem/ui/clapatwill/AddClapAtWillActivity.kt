@@ -8,6 +8,7 @@ import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder
 import com.bigkoo.pickerview.listener.CustomListener
@@ -84,13 +85,15 @@ class AddClapAtWillActivity : AdapterView.OnItemClickListener, AdapterViewClickL
             cardItem.add(ClatAtTypeBean("问题类型" + a.toString(), a.toString()))
         }
         //自定义布局中，id为 optionspicker 或者 timepicker 的布局以及其子控件必须要有，否则会报空指针。
-        pvCustomOptions = OptionsPickerBuilder(this, OnOptionsSelectListener({ options1, options2, options3, v ->
-            {
-
+        pvCustomOptions = OptionsPickerBuilder(this, OnOptionsSelectListener { options1, options2, options3, v ->
+            run {
+                containerView().tv_clap_type.text = cardItem[options1].typeName
             }
-        })).setLayoutRes(R.layout.pickerview_custom_options, CustomListener { v ->
+        }).setLayoutRes(R.layout.pickerview_custom_options, CustomListener { v ->
             val tvSubmit = v.findViewById<View>(R.id.tv_finish)
             val ivCancel = v.findViewById<View>(R.id.iv_cancel)
+            val titleView = v.findViewById<TextView>(R.id.tv_select_title)
+            titleView.text = "选择问题类型"
             tvSubmit.setOnClickListener {
                 pvCustomOptions.returnData()
                 pvCustomOptions.dismiss()

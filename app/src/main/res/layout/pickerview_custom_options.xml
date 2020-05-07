@@ -37,12 +37,12 @@
                     android:src="@drawable/close_pick_view" />
 
             <TextView
+                    android:id="@+id/tv_select_title"
                     style="@style/wr_wr"
                     android:layout_centerInParent="true"
-                    android:text="请选择问题类型"
+                    android:text="请选择"
                     android:textColor="@color/text_black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="16sp" />
 
             <View
                     android:layout_width="match_parent"
@@ -92,8 +92,7 @@
                 android:gravity="center"
                 android:text="确认选择"
                 android:textColor="@color/main_color"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="16sp" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>
