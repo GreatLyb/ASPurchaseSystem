@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.lysoft.baseproject.view.swip.SwipeMenuLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/sw_class_room_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:ios="false">
+
+    <LinearLayout
+            style="@style/fi_wr"
+            android:orientation="vertical">
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:orientation="horizontal"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp">
+
+            <TextView
+                    android:id="@+id/tv_class_room_name"
+                    style="@style/weight_w_w"
+                    android:layout_weight="0.8"
+                    android:gravity="center"
+                    android:text="001教室"
+                    android:textColor="@color/black_dim"
+                    android:textSize="14sp" />
+
+            <TextView
+                    android:id="@+id/tv_class_room_start_time"
+                    style="@style/weight_w_w"
+                    android:gravity="center"
+                    android:text="2020-05-07 18:00"
+                    android:textColor="@color/text_gray"
+                    android:textSize="14sp" />
+
+            <TextView
+                    android:id="@+id/tv_class_room_end_time"
+                    style="@style/weight_w_w"
+                    android:gravity="center"
+                    android:text="2020-05-08 18:00"
+                    android:textColor="@color/text_gray"
+                    android:textSize="14sp" />
+
+
+        </LinearLayout>
+
+        <View
+                style="@style/line"
+                android:background="@color/dialogButtonGrayLightPress" />
+    </LinearLayout>
+
+    <TextView
+            android:id="@+id/tv_appointment_del"
+            style="@style/wr_wr"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:background="@color/red"
+            android:gravity="center"
+            android:text="删除"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+</com.lysoft.baseproject.view.swip.SwipeMenuLayout>

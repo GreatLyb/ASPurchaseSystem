@@ -149,6 +149,10 @@
         <activity
                 android:name=".ui.purchase.PurchaseInfoActivity"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <!--  教室预约列表-->
+        <activity
+                android:name=".ui.classroom.ClassRoomAppointmentActivity"
+                android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
     </application>
 
 </manifest>

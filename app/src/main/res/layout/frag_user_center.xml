@@ -230,6 +230,15 @@
 
         <TextView
 
+                android:id="@+id/tv_user_appointment"
+                style="@style/tv_user_center"
+                android:layout_marginTop="8dp"
+                android:text="我的预约" />
+
+        <View style="@style/line_margin" />
+
+        <TextView
+
                 android:id="@+id/tv_user_suggestion"
                 style="@style/tv_user_center"
                 android:layout_marginTop="8dp"

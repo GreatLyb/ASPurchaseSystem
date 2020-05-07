@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/fi_wr"
+        android:orientation="vertical">
+
+    <LinearLayout
+            style="@style/fi_wr"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="3dp"
+            android:background="@drawable/shape_class_room_title_4_bg"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+        <TextView
+                style="@style/weight_w_w"
+                android:layout_weight="0.8"
+                android:gravity="center"
+                android:text="教室"
+
+                android:textColor="@color/black_light"
+                android:textSize="16sp" />
+
+        <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/main_color" />
+
+        <TextView
+                style="@style/weight_w_w"
+                android:gravity="center"
+                android:text="开始时间"
+                android:textColor="@color/black_light"
+                android:textSize="16sp" />
+
+        <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/main_color" />
+
+        <TextView
+                style="@style/weight_w_w"
+                android:gravity="center"
+                android:text="结束时间"
+                android:textColor="@color/black_light"
+                android:textSize="16sp" />
+    </LinearLayout>
+</LinearLayout>

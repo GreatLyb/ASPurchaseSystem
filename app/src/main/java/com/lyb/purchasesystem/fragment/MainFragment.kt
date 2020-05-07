@@ -18,6 +18,7 @@ import com.lyb.purchasesystem.adapter.main.NetViewHolder
 import com.lyb.purchasesystem.bean.main.BannerData
 import com.lyb.purchasesystem.bean.main.MainIconBean
 import com.lyb.purchasesystem.ui.clapatwill.ClapAtWillListActivity
+import com.lyb.purchasesystem.ui.classroom.ClassRoomAppointmentActivity
 import com.lyb.purchasesystem.ui.purchase.PurchaseHomeActivity
 import com.lyb.purchasesystem.ui.suggestions.SuggestionsBoxActivity
 import com.lysoft.baseproject.activity.BaseUIFragment
@@ -88,22 +89,33 @@ class MainFragment : BaseUIFragment() {
             }
         }
         containerView().gv_fmp_icon.adapter = MainGrideAdapter(pageContext, iconList)
-        containerView().gv_fmp_icon.setOnItemClickListener({ parent, view, position, id ->
+        containerView().gv_fmp_icon.setOnItemClickListener { parent, view, position, id ->
             when (position) {
-                0 -> startActivity(Intent(pageContext, PurchaseHomeActivity::class.java))
+
+                0 -> {
+                    //申请采购
+                    startActivity(Intent(pageContext, PurchaseHomeActivity::class.java))
+                }
                 1 -> ToastUtils.showShort("维修记录")
                 2 -> ToastUtils.showShort("部门设备")
-                3 -> ToastUtils.showShort("教室预约")
+                3 -> {
+                    //教室预约
+                    val intent = Intent(pageContext, ClassRoomAppointmentActivity::class.java)
+                    intent.putExtra("type", 1);
+                    startActivity(intent)
+                }
                 4 -> ToastUtils.showShort("仓库管理")
                 5 -> {
+                    //随手拍
                     startActivity(Intent(pageContext, ClapAtWillListActivity::class.java))
                 }
                 6 -> {
+                    //意见箱
 //                    startActivity(Intent(pageContext, SuggestionsBoxActivity::class.java))
                     startActivity(Intent(pageContext, SuggestionsBoxActivity::class.java))
                 }
             }
-        })
+        }
     }
 
     private fun initBannerView() {

@@ -14,6 +14,7 @@ import com.linchaolong.android.imagepicker.ImagePicker
 import com.lyb.purchasesystem.R
 import com.lyb.purchasesystem.ui.clapatwill.MineClapAtWillListActivity
 import com.lyb.purchasesystem.ui.clapatwill.WaitMineDealClapAtWillListActivity
+import com.lyb.purchasesystem.ui.classroom.ClassRoomAppointmentActivity
 import com.lyb.purchasesystem.ui.suggestions.MineSuggestionsActivity
 import com.lyb.purchasesystem.ui.user.LoginActivity
 import com.lyb.purchasesystem.ui.user.MsgListActivity
@@ -52,6 +53,7 @@ class UserCenterFragment(val parentActivity: AppCompatActivity) : View.OnClickLi
         containerView().tv_user_center_edit_pwd.setOnClickListener(this)
         containerView().tv_user_center_msg.setOnClickListener(this)
         containerView().tv_user_suggestion.setOnClickListener(this)
+        containerView().tv_user_appointment.setOnClickListener(this)
         val versionName = parentActivity.packageManager.getPackageInfo(parentActivity.packageName, 0).versionName
         val versionNum = "v " + versionName;
         containerView().tv_soft_version.text = versionNum
@@ -74,6 +76,12 @@ class UserCenterFragment(val parentActivity: AppCompatActivity) : View.OnClickLi
                 })
             }
             tv_name.id -> (ToastUtils.show("名字"))
+            //我的预约
+            tv_user_appointment.id -> {
+                val intent = Intent(pageContext, ClassRoomAppointmentActivity::class.java)
+                intent.putExtra("type", 2)
+                startActivity(intent)
+            }
             //我的意见
             tv_user_suggestion.id -> startActivity(Intent(pageContext, MineSuggestionsActivity::class.java))
             //我的随手拍
