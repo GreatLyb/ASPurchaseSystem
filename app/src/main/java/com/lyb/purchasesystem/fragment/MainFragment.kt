@@ -21,6 +21,7 @@ import com.lyb.purchasesystem.ui.clapatwill.ClapAtWillListActivity
 import com.lyb.purchasesystem.ui.classroom.ClassRoomAppointmentActivity
 import com.lyb.purchasesystem.ui.purchase.PurchaseHomeActivity
 import com.lyb.purchasesystem.ui.suggestions.SuggestionsBoxActivity
+import com.lyb.purchasesystem.ui.warehouse.WareHouseHomeActivity
 import com.lysoft.baseproject.activity.BaseUIFragment
 import com.lysoft.baseproject.utils.DensityUtils
 import com.zhpan.bannerview.BannerViewPager
@@ -104,7 +105,11 @@ class MainFragment : BaseUIFragment() {
                     intent.putExtra("type", 1);
                     startActivity(intent)
                 }
-                4 -> ToastUtils.showShort("仓库管理")
+                4 -> {
+                    //仓库管理
+                    val intent = Intent(pageContext, WareHouseHomeActivity::class.java)
+                    startActivity(intent)
+                }
                 5 -> {
                     //随手拍
                     startActivity(Intent(pageContext, ClapAtWillListActivity::class.java))

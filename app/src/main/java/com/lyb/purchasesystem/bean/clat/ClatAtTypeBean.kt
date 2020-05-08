@@ -9,8 +9,8 @@ import com.contrarywind.interfaces.IPickerViewData
  * @Author： create by Lyb on 2020-04-28 11:02
  */
 class ClatAtTypeBean : IPickerViewData {
-    lateinit var typeName: String;
-    lateinit var typeID: String;
+    var typeName: String;
+    var typeID: String;
 
     constructor(typeName: String, typeID: String) {
         this.typeName = typeName

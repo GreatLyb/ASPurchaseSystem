@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+    <LinearLayout
+            android:id="@+id/ll_supply_filter_price"
+            style="@style/weight_w_w"
+            android:gravity="center">
+
+        <RadioButton
+                android:id="@+id/rb_supply_filter_price"
+                style="@style/rb_supply_filter"
+                android:drawableRight="@drawable/supply_sort_default"
+                android:text="价格" />
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/ll_supply_filter_publish_time"
+            style="@style/weight_w_w"
+            android:gravity="center">
+
+        <RadioButton
+                android:id="@+id/rb_supply_filter_publish_time"
+                style="@style/rb_supply_filter"
+                android:drawableRight="@drawable/supply_sort_default"
+                android:text="更新时间" />
+    </LinearLayout>
+
+    <View
+            android:layout_width="1dp"
+            android:layout_height="16dp"
+            android:background="#EFEFEF" />
+
+    <RadioButton
+            android:id="@+id/rb_supply_filter"
+            style="@style/rb_supply_filter"
+            android:drawableLeft="@drawable/supply_filter"
+            android:drawablePadding="0dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp" />
+</RadioGroup>

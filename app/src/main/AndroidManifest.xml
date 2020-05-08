@@ -162,6 +162,10 @@
         <activity
                 android:name=".ui.classroom.AppointmentDetailActivity"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <!--  仓库首页-->
+        <activity
+                android:name=".ui.warehouse.WareHouseHomeActivity"
+                android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
     </application>
 
 </manifest>

@@ -77,12 +77,17 @@
 
     <style name="tv_user_center" parent="@style/fi_wr">
         <item name="android:padding">10dp</item>
-        <item name="android:autoSizeTextType">uniform</item>
-
         <item name="android:textColor">@color/black_dim</item>
         <item name="android:textSize">14sp</item>
         <item name="android:background">@color/white</item>
         <item name="android:drawableRight">@drawable/base_arrow_right</item>
     </style>
 
+    <style name="rb_supply_filter" parent="wr_wr">
+        <item name="android:button">@null</item>
+        <item name="android:background">@null</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_black</item>
+    </style>
 </resources>
