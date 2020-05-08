@@ -3,6 +3,7 @@ package com.lyb.purchasesystem.adapter.classroom
 import android.content.Context
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import com.lyb.purchasesystem.R
 import com.lyb.purchasesystem.bean.classroom.ClassRoomBean
@@ -28,6 +29,7 @@ class ClassRoomAppointmentListAdapter(context: Context, list: MutableList<ClassR
             holder.endTimeTextView = itemView.findViewById(R.id.tv_class_room_end_time)
             holder.delTextView = itemView.findViewById(R.id.tv_appointment_del)
             holder.classRoomSwipeMenuLayout = itemView.findViewById(R.id.sw_class_room_layout)
+            holder.itemLinearLayout = itemView.findViewById(R.id.llayout_class_item)
 
             itemView.setTag(holder)
         } else {
@@ -50,7 +52,7 @@ class ClassRoomAppointmentListAdapter(context: Context, list: MutableList<ClassR
         } else {
             holder.classRoomSwipeMenuLayout.isSwipeEnable = false
         }
-        holder.classRoomSwipeMenuLayout.setOnClickListener(clickListener(position))
+        holder.itemLinearLayout.setOnClickListener(clickListener(position))
         return itemView
     }
 
@@ -60,10 +62,12 @@ class ClassRoomAppointmentListAdapter(context: Context, list: MutableList<ClassR
         lateinit var startTimeTextView: TextView
         lateinit var endTimeTextView: TextView
         lateinit var delTextView: TextView
+        lateinit var itemLinearLayout: LinearLayout
     }
 
     inner class clickListener(val position: Int) : View.OnClickListener {
         override fun onClick(v: View?) {
+//            Log.i("Lyb","position=="+position)
             adapterViewClickListener.adapterViewClick(position, v)
         }
     }

@@ -54,7 +54,6 @@ class ClassRoomAppointmentActivity : AdapterViewClickListener, BaseUIListActivit
     }
 
     override fun itemClickListener(position: Int) {
-
     }
 
     override fun adapterViewClick(position: Int, view: View) {
@@ -63,7 +62,8 @@ class ClassRoomAppointmentActivity : AdapterViewClickListener, BaseUIListActivit
             com.hjq.toast.ToastUtils.show("删除")
         } else {
             //详情
-            com.hjq.toast.ToastUtils.show("详情")
+            val intent = Intent(pageContext, AppointmentDetailActivity::class.java)
+            startActivity(intent)
         }
     }
 

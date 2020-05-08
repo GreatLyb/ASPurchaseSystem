@@ -7,6 +7,7 @@
         app:ios="false">
 
     <LinearLayout
+            android:id="@+id/llayout_class_item"
             style="@style/fi_wr"
             android:orientation="vertical">
 

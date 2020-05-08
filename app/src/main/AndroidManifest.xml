@@ -157,6 +157,10 @@
         <activity
                 android:name=".ui.classroom.AddAppointmentActivity"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <!--  预约详情-->
+        <activity
+                android:name=".ui.classroom.AppointmentDetailActivity"
+                android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
     </application>
 
 </manifest>

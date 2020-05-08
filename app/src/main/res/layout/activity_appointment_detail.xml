@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/fi_fi"
+        android:background="@color/white">
+
+    <LinearLayout
+            style="@style/fi_wr"
+            android:orientation="vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+            <TextView
+                    style="@style/wr_wr"
+                    android:drawableLeft="@drawable/class_room"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:text="职教室："
+                    android:textColor="@color/black_dim"
+                    android:textSize="16sp" />
+
+            <TextView
+                    android:id="@+id/tv_class_detail_name"
+                    style="@style/wr_wr"
+                    android:gravity="center"
+                    android:text="101教室"
+                    android:textColor="@color/black_dim"
+                    android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <View
+                style="@style/line"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp" />
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+            <TextView
+                    style="@style/wr_wr"
+                    android:drawableLeft="@drawable/teacher"
+                    android:drawablePadding="8dp"
+                    android:text="培训人："
+                    android:textColor="@color/black_dim"
+                    android:textSize="16sp" />
+
+            <TextView
+                    android:id="@+id/tv_class_detail_teacher"
+                    style="@style/wr_wr"
+                    android:gravity="center"
+                    android:text="张老师"
+                    android:textColor="@color/black_dim"
+                    android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <View
+                style="@style/line"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp" />
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+            <TextView
+                    style="@style/wr_wr"
+                    android:drawableLeft="@drawable/phone_num"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:text="联系电话："
+                    android:textColor="@color/black_dim"
+                    android:textSize="16sp" />
+
+            <TextView
+                    android:id="@+id/tv_class_detail_phone"
+                    style="@style/wr_wr"
+                    android:drawablePadding="10dp"
+                    android:text="17562011005"
+                    android:textColor="@color/black_dim"
+                    android:textSize="16sp" />
+
+            <TextView
+                    style="@style/wr_wr"
+                    android:drawableRight="@drawable/call_phone"
+                    android:drawablePadding="10dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:textColor="@color/main_color"
+                    android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <View
+                style="@style/line"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp" />
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+            <TextView
+                    style="@style/wr_wr"
+                    android:drawableLeft="@drawable/department"
+                    android:drawablePadding="8dp"
+                    android:text="部门："
+                    android:textColor="@color/black_dim"
+                    android:textSize="16sp" />
+
+            <TextView
+                    android:id="@+id/tv_class_detail_department"
+                    style="@style/wr_wr"
+                    android:gravity="center"
+                    android:text="采购部"
+                    android:textColor="@color/black_dim"
+                    android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <View
+                style="@style/line"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp" />
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+            <TextView
+                    style="@style/wr_wr"
+                    android:drawableLeft="@drawable/start_time"
+                    android:drawablePadding="5dp"
+                    android:gravity="center_vertical"
+                    android:text="开始时间："
+                    android:textColor="@color/black_dim"
+                    android:textSize="16sp" />
+
+            <TextView
+                    android:id="@+id/tv_class_detail_start_time"
+                    style="@style/wr_wr"
+                    android:gravity="center"
+                    android:text="2020-02-03"
+                    android:textColor="@color/black_dim"
+                    android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <View
+                style="@style/line"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp" />
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+            <TextView
+                    style="@style/wr_wr"
+                    android:drawableLeft="@drawable/end_time"
+                    android:drawablePadding="5dp"
+                    android:gravity="center_vertical"
+                    android:text="结束时间："
+                    android:textColor="@color/black_dim"
+                    android:textSize="16sp" />
+
+            <TextView
+                    android:id="@+id/tv_class_detail_end_time"
+                    style="@style/wr_wr"
+                    android:gravity="center"
+                    android:text="2020-03-03"
+                    android:textColor="@color/black_dim"
+                    android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <View
+                style="@style/line"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp" />
+    </LinearLayout>
+</ScrollView>

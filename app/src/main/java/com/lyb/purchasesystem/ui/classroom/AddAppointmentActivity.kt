@@ -1,6 +1,7 @@
 package com.lyb.purchasesystem.ui.classroom
 
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.View
 import android.widget.TextView
 import androidx.core.content.ContextCompat
@@ -12,6 +13,7 @@ import com.bigkoo.pickerview.listener.OnTimeSelectListener
 import com.bigkoo.pickerview.view.OptionsPickerView
 import com.blankj.utilcode.util.KeyboardUtils
 import com.hjq.toast.ToastUtils
+import com.kongzue.dialog.v3.TipDialog
 import com.lyb.purchasesystem.R
 import com.lyb.purchasesystem.bean.clat.ClatAtTypeBean
 import com.lyb.purchasesystem.consta.Constants
@@ -70,9 +72,46 @@ class AddAppointmentActivity : View.OnClickListener, BaseUIActivity() {
             }
             tv_submit_appointment.id -> {
                 //提交申请
+                submitInfo()
             }
 
         }
+
+    }
+
+    private fun submitInfo() {
+        var roomName = tv_select_class_room.text.toString()
+        var teacher = et_class_room_teacher.text.toString()
+        var phoneNum = et_class_room_phone.text.toString()
+        var department = tv_select_department.text.toString()
+        var startTime = tv_appointment_start_time.text.toString()
+        var endTime = tv_appointment_end_time.text.toString()
+
+        if (TextUtils.isEmpty(roomName)) {
+            TipDialog.show(this, "请选择职教室", TipDialog.TYPE.WARNING)
+            return
+        }
+        if (TextUtils.isEmpty(teacher)) {
+            TipDialog.show(this, "请填写培训师姓名", TipDialog.TYPE.WARNING)
+            return
+        }
+        if (TextUtils.isEmpty(phoneNum)) {
+            TipDialog.show(this, "请输入联系方式", TipDialog.TYPE.WARNING)
+            return
+        }
+        if (TextUtils.isEmpty(department)) {
+            TipDialog.show(this, "请选择部门", TipDialog.TYPE.WARNING)
+            return
+        }
+        if (TextUtils.isEmpty(startTime)) {
+            TipDialog.show(this, "请选择开始时间", TipDialog.TYPE.WARNING)
+            return
+        }
+        if (TextUtils.isEmpty(endTime)) {
+            TipDialog.show(this, "请选择结束时间", TipDialog.TYPE.WARNING)
+            return
+        }
+        TipDialog.show(this, "提交成功", TipDialog.TYPE.SUCCESS)
 
     }
 
