@@ -90,6 +90,7 @@
                     android:textSize="16sp" />
 
             <TextView
+                    android:id="@+id/tv_call_phone"
                     style="@style/wr_wr"
                     android:drawableRight="@drawable/call_phone"
                     android:drawablePadding="10dp"

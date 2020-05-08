@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.BaseAdapter
+import com.kongzue.dialog.interfaces.OnDialogButtonClickListener
+import com.kongzue.dialog.v3.MessageDialog
 import com.lyb.purchasesystem.R
 import com.lyb.purchasesystem.adapter.classroom.ClassRoomAppointmentListAdapter
 import com.lyb.purchasesystem.bean.classroom.ClassRoomBean
@@ -59,7 +61,14 @@ class ClassRoomAppointmentActivity : AdapterViewClickListener, BaseUIListActivit
     override fun adapterViewClick(position: Int, view: View) {
         if (view.id == tv_appointment_del.id) {
             //删除
-            com.hjq.toast.ToastUtils.show("删除")
+            MessageDialog.show(this, "提示", "确认要删除该条预约吗？", "确定", "取消").setOnOkButtonClickListener { baseDialog, v ->
+                baseDialog.doDismiss()
+                com.hjq.toast.ToastUtils.show("删除")
+                true
+            }.onCancelButtonClickListener = OnDialogButtonClickListener({ baseDialog, v ->
+                baseDialog.doDismiss()
+                true
+            })
         } else {
             //详情
             val intent = Intent(pageContext, AppointmentDetailActivity::class.java)
