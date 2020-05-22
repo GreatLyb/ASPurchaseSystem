@@ -18,10 +18,11 @@ public interface AdapterViewClickListener {
     /**
      * 接口默认方法可实现可不实现
      *
-     * @param position
-     * @param num
+     * @param firstPosition
+     * @param secondPosition
      * @param view
      */
-    default void adapterViewClick(int position, int num, View view) {
+    default void adapterViewClick(int firstPosition, int secondPosition, View view) {
+
     }
 }

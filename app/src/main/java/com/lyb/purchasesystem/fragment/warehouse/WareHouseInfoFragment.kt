@@ -12,12 +12,17 @@ import com.kongzue.dialog.interfaces.OnDialogButtonClickListener
 import com.kongzue.dialog.v3.MessageDialog
 import com.lyb.purchasesystem.R
 import com.lyb.purchasesystem.adapter.purchase.PurchaseListAdapter
+import com.lyb.purchasesystem.adapter.warehouse.WareHouseMenuAdapter
 import com.lyb.purchasesystem.bean.purchase.PurchaseBean
+import com.lyb.purchasesystem.bean.warehouse.FirstLevelBean
+import com.lyb.purchasesystem.bean.warehouse.SecondLevelBean
 import com.lyb.purchasesystem.consta.Constants
 import com.lyb.purchasesystem.ui.purchase.PurchaseInfoActivity
 import com.lysoft.baseproject.imp.AdapterViewClickListener
 import com.lysoft.baseproject.imp.BaseCallBack
 import com.lysoft.baseproject.imp.LoadStatus
+import kotlinx.android.synthetic.main.frag_ware_house_list.view.*
+import java.util.*
 
 /**
  * ASPurchaseSystem
@@ -26,18 +31,46 @@ import com.lysoft.baseproject.imp.LoadStatus
  * @Author： create by Lyb on 2020-04-24 15:45
  */
 class WareHouseInfoFragment(var appCompatActivity: AppCompatActivity) : AdapterViewClickListener, WareHouseListFragment<PurchaseBean>() {
+    val firstLevelBeans = mutableListOf<FirstLevelBean>()
+    var lastFirstPosition = -1
+    var lastSecondPosition = -1
+    lateinit var drawerLayout: DrawerLayout
+    lateinit var wareHouseMenuAdapter: WareHouseMenuAdapter;
     override fun onCreate() {
         super.onCreate()
         topViewManager().topView().visibility = View.GONE
         loadViewManager().changeLoadState(LoadStatus.LOADING)
         val classRadioButton = containerView().findViewById<RadioButton>(R.id.rb_filter)
-        val drawerLayout = containerView().findViewById<DrawerLayout>(R.id.draw_layout)
+        drawerLayout = containerView().findViewById<DrawerLayout>(R.id.draw_layout)
+        setDrawListViewInfo();
         drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         classRadioButton.setOnClickListener { v ->
             drawerLayout.openDrawer(Gravity.RIGHT)
 //            drawerLayout.setScrimColor(ContextCompat.getColor(pageContext,R.color.text_gray))
         }
+    }
 
+    fun setDrawListViewInfo() {
+        for (a in 1..50) {
+            val secondList = mutableListOf<SecondLevelBean>()
+            for (b in 1..20) {
+                val secondLevelBean = SecondLevelBean(b, "二级类别" + b, a)
+                secondList.add(secondLevelBean)
+            }
+            val firstLevelBean = FirstLevelBean(a, "一级类别" + a, secondList as ArrayList<SecondLevelBean>?)
+            firstLevelBeans.add(firstLevelBean)
+        }
+        wareHouseMenuAdapter = WareHouseMenuAdapter(pageContext, firstLevelBeans, this)
+        containerView().ex_list.setAdapter(wareHouseMenuAdapter)
+        containerView().ex_list.setOnGroupClickListener({ parent, v, groupPosition, id ->
+            false
+        })
+        //设置分组的监听
+        containerView().ex_list.setOnChildClickListener({ parent, v, groupPosition, childPosition, id ->
+            ToastUtils.show("点击了子布局")
+            true
+        })
+        //设置子项布局监听
     }
 
     override fun getListData(callBack: BaseCallBack) {
@@ -73,6 +106,28 @@ class WareHouseInfoFragment(var appCompatActivity: AppCompatActivity) : AdapterV
             ToastUtils.show("已处理的申请不能删除")
         }
 
+    }
+
+    /**
+     * 二级菜单的点击事件
+     */
+    override fun adapterViewClick(firstPosition: Int, secondPosition: Int, view: View?) {
+        if (firstPosition == lastFirstPosition && secondPosition == lastSecondPosition) {
+            //不做处理
+            return
+        }
+        if (lastFirstPosition >= 0 && lastSecondPosition >= 0) {
+            firstLevelBeans.get(lastFirstPosition).isSelect = false
+            firstLevelBeans.get(lastFirstPosition).secondLevelMenus[lastSecondPosition].isSelect = false
+        }
+        lastFirstPosition = firstPosition
+        lastSecondPosition = secondPosition
+        val secondLevelBean = firstLevelBeans.get(firstPosition).secondLevelMenus[secondPosition]
+        secondLevelBean.isSelect = true
+        firstLevelBeans.get(lastFirstPosition).isSelect = true
+        wareHouseMenuAdapter.notifyDataSetChanged()
+        drawerLayout.closeDrawers()
+        ToastUtils.show(secondLevelBean.secondName)
     }
 
     override fun getPageSize(): Int {

@@ -50,10 +50,12 @@
             <RadioButton
                     android:id="@+id/rb_filter"
                     style="@style/rb_supply_filter"
-                    android:drawableLeft="@drawable/supply_filter"
-                    android:drawablePadding="0dp"
+                    android:drawableRight="@drawable/supply_filter"
+                    android:drawablePadding="10dp"
                     android:paddingLeft="16dp"
-                    android:paddingRight="16dp" />
+                    android:paddingRight="16dp"
+                    android:text=""
+                    android:textColor="@color/main_color" />
         </RadioGroup>
 
         <View style="@style/line" />
@@ -71,15 +73,30 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="end"
-            android:background="@color/colorAccent"
+            android:background="@color/white"
             android:clickable="true"
             android:orientation="vertical">
 
         <TextView
+                android:id="@+id/tv_select_class"
+                style="@style/fi_wr"
+                android:layout_height="35dp"
+                android:gravity="center"
+                android:text="请选择想要查看的类别"
+                android:textColor="@color/text_black"
+                android:textSize="16sp" />
+
+        <View
+                style="@style/line"
+                android:layout_height="2dp" />
+
+        <ExpandableListView
+                android:id="@+id/ex_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="右菜单"
-                android:textColor="#fff" />
+                android:childDivider="@color/background_color"
+                android:divider="@color/background_color"
+                android:dividerHeight="1dp"
+                android:groupIndicator="@null" />
     </LinearLayout>
 </androidx.drawerlayout.widget.DrawerLayout>
