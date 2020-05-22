@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.lyb.purchasesystem.R
-import com.lyb.purchasesystem.fragment.purchase.PurchaseListFragment
 import com.lyb.purchasesystem.fragment.warehouse.WareHouseInfoFragment
+import com.lyb.purchasesystem.fragment.warehouse.WareHouseJinKuFragment
 import com.lyb.purchasesystem.ui.purchase.PurchaseApplyActivity
 import com.lysoft.baseproject.activity.BaseUIActivity
 import net.lucode.hackware.magicindicator.MagicIndicator
@@ -32,9 +32,9 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorT
 class WareHouseHomeActivity : BaseUIActivity() {
     lateinit var mViewPager: ViewPager
     lateinit var wareHouseInfoFragment: WareHouseInfoFragment
-    lateinit var purchaseWaitDealFragment: PurchaseListFragment
-    lateinit var purchaseHaveDealFragment: PurchaseListFragment
-    lateinit var purchaseMineFragment: PurchaseListFragment
+    lateinit var purchaseWaitDealFragment: WareHouseJinKuFragment
+    lateinit var purchaseHaveDealFragment: WareHouseJinKuFragment
+    lateinit var purchaseMineFragment: WareHouseJinKuFragment
     var fragmenList = mutableListOf<Fragment>();
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,9 +45,9 @@ class WareHouseHomeActivity : BaseUIActivity() {
         }
         containerView().addView(View.inflate(pageContext, R.layout.activity_suggestion_leader, null))
         wareHouseInfoFragment = WareHouseInfoFragment(this)
-        purchaseWaitDealFragment = PurchaseListFragment(2, this)
-        purchaseHaveDealFragment = PurchaseListFragment(3, this)
-        purchaseMineFragment = PurchaseListFragment(4, this)
+        purchaseWaitDealFragment = WareHouseJinKuFragment(this)
+        purchaseHaveDealFragment = WareHouseJinKuFragment(this)
+        purchaseMineFragment = WareHouseJinKuFragment(this)
         fragmenList.add(wareHouseInfoFragment)
         fragmenList.add(purchaseWaitDealFragment)
         fragmenList.add(purchaseHaveDealFragment)
