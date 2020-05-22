@@ -166,6 +166,10 @@
         <activity
                 android:name=".ui.warehouse.WareHouseHomeActivity"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <!--  物品详情-->
+        <activity
+                android:name=".ui.warehouse.WareHouseItemDetailActivity"
+                android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
     </application>
 
 </manifest>

@@ -60,7 +60,7 @@ class WareHouseHomeActivity : BaseUIActivity() {
         mTitleDataList.add("仓库信息")
         mTitleDataList.add("进库列表")
         mTitleDataList.add("出库列表")
-        mTitleDataList.add("仓库盘点表")
+        mTitleDataList.add("仓库盘点")
         val magicIndicator = findViewById(R.id.magic_indicator) as MagicIndicator
         mViewPager = findViewById(R.id.view_pager)
 

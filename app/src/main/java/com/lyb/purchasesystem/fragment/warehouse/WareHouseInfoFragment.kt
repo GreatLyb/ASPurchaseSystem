@@ -9,18 +9,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.hjq.toast.ToastUtils
-import com.kongzue.dialog.interfaces.OnDialogButtonClickListener
-import com.kongzue.dialog.v3.MessageDialog
+import com.lyb.goodssystem.adapter.warehouse.WareHouseHomeAdapter
 import com.lyb.purchasesystem.R
 import com.lyb.purchasesystem.R.color
 import com.lyb.purchasesystem.R.drawable
-import com.lyb.purchasesystem.adapter.purchase.PurchaseListAdapter
 import com.lyb.purchasesystem.adapter.warehouse.WareHouseMenuAdapter
-import com.lyb.purchasesystem.bean.purchase.PurchaseBean
 import com.lyb.purchasesystem.bean.warehouse.FirstLevelBean
+import com.lyb.purchasesystem.bean.warehouse.GoodsBean
 import com.lyb.purchasesystem.bean.warehouse.SecondLevelBean
 import com.lyb.purchasesystem.consta.Constants
-import com.lyb.purchasesystem.ui.purchase.PurchaseInfoActivity
+import com.lyb.purchasesystem.ui.warehouse.WareHouseItemDetailActivity
 import com.lysoft.baseproject.imp.AdapterViewClickListener
 import com.lysoft.baseproject.imp.BaseCallBack
 import com.lysoft.baseproject.imp.LoadStatus
@@ -34,7 +32,7 @@ import java.util.*
  * 类传参：
  * @Author： create by Lyb on 2020-04-24 15:45
  */
-class WareHouseInfoFragment(var appCompatActivity: AppCompatActivity) : AdapterViewClickListener, WareHouseListFragment<PurchaseBean>() {
+class WareHouseInfoFragment(var appCompatActivity: AppCompatActivity) : AdapterViewClickListener, WareHouseListFragment<GoodsBean>() {
     val firstLevelBeans = mutableListOf<FirstLevelBean>()
     var lastFirstPosition = -1
     var lastSecondPosition = -1
@@ -148,37 +146,24 @@ class WareHouseInfoFragment(var appCompatActivity: AppCompatActivity) : AdapterV
     }
 
     override fun getListData(callBack: BaseCallBack) {
-        var purchaseList = mutableListOf<PurchaseBean>()
+        var purchaseList = mutableListOf<GoodsBean>()
         for (a in 0..30) {
-            var state = "";
-            if (a < 3) {
-                state = a.toString()
-            } else {
-                state = "2"
-            }
-            purchaseList.add(PurchaseBean("电脑", "i7 16G", "9000", "10台", "2020-05-06", "2020-04-05", "我们需要几台电脑办公，请尽快采买，谢谢！！！", "张三", state, "李四", "2020-05-01", "你这个建议不错", "人资部"))
+            purchaseList.add(GoodsBean("", "电脑", "i7 16G", "9000/台", "10台", "2020-05-06"))
         }
         callBack.callBack(purchaseList)
     }
 
+    override fun instanceAdapter(list: MutableList<GoodsBean>): BaseAdapter {
+        return WareHouseHomeAdapter(pageContext, list, this)
+
+    }
     override fun itemClickListener(position: Int) {
-        val intent = Intent(pageContext, PurchaseInfoActivity::class.java)
+        val intent = Intent(pageContext, WareHouseItemDetailActivity::class.java)
         intent.putExtra("model", pageListData[position])
         startActivity(intent)
     }
 
     override fun adapterViewClick(position: Int, view: View?) {
-        if (pageListData[position].purchaseDealState.equals("0")) {
-            MessageDialog.show(appCompatActivity, "提示", "确认要删除该条采购申请吗？", "确定", "取消").setOnOkButtonClickListener { baseDialog, v ->
-                baseDialog.doDismiss()
-                true
-            }.onCancelButtonClickListener = OnDialogButtonClickListener({ baseDialog, v ->
-                baseDialog.doDismiss()
-                true
-            })
-        } else {
-            ToastUtils.show("已处理的申请不能删除")
-        }
 
     }
 
@@ -209,9 +194,6 @@ class WareHouseInfoFragment(var appCompatActivity: AppCompatActivity) : AdapterV
         return Constants.PAGE_SIZE
     }
 
-    override fun instanceAdapter(list: MutableList<PurchaseBean>): BaseAdapter {
-        return PurchaseListAdapter(pageContext, list, this, false)
 
-    }
 
 }
