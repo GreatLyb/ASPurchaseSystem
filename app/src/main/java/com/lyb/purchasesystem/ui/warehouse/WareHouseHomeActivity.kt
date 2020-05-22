@@ -70,6 +70,11 @@ class WareHouseHomeActivity : BaseUIActivity() {
             }
 
             override fun getItem(position: Int): Fragment {
+                if (position == 3) {
+                    topViewManager().moreTextView().visibility = View.VISIBLE
+                } else {
+                    topViewManager().moreTextView().visibility = View.GONE
+                }
                 return fragmenList[position]
             }
         })
@@ -97,10 +102,15 @@ class WareHouseHomeActivity : BaseUIActivity() {
                 indicator.setColors(ContextCompat.getColor(pageContext, R.color.main_color))
                 return indicator
             }
+
         }
         magicIndicator.navigator = commonNavigator
         ViewPagerHelper.bind(magicIndicator, mViewPager);
+        topViewManager().moreTextView().setOnClickListener { v ->
+            {
 
+            }
+        }
     }
 
 }
