@@ -1,16 +1,19 @@
 package com.lyb.purchasesystem.fragment.warehouse
 
 import android.content.Intent
+import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.widget.BaseAdapter
-import android.widget.RadioButton
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.hjq.toast.ToastUtils
 import com.kongzue.dialog.interfaces.OnDialogButtonClickListener
 import com.kongzue.dialog.v3.MessageDialog
 import com.lyb.purchasesystem.R
+import com.lyb.purchasesystem.R.color
+import com.lyb.purchasesystem.R.drawable
 import com.lyb.purchasesystem.adapter.purchase.PurchaseListAdapter
 import com.lyb.purchasesystem.adapter.warehouse.WareHouseMenuAdapter
 import com.lyb.purchasesystem.bean.purchase.PurchaseBean
@@ -21,6 +24,7 @@ import com.lyb.purchasesystem.ui.purchase.PurchaseInfoActivity
 import com.lysoft.baseproject.imp.AdapterViewClickListener
 import com.lysoft.baseproject.imp.BaseCallBack
 import com.lysoft.baseproject.imp.LoadStatus
+import kotlinx.android.synthetic.main.frag_ware_house_list.*
 import kotlinx.android.synthetic.main.frag_ware_house_list.view.*
 import java.util.*
 
@@ -35,18 +39,88 @@ class WareHouseInfoFragment(var appCompatActivity: AppCompatActivity) : AdapterV
     var lastFirstPosition = -1
     var lastSecondPosition = -1
     lateinit var drawerLayout: DrawerLayout
-    lateinit var wareHouseMenuAdapter: WareHouseMenuAdapter;
+    lateinit var wareHouseMenuAdapter: WareHouseMenuAdapter
+
+
     override fun onCreate() {
         super.onCreate()
         topViewManager().topView().visibility = View.GONE
         loadViewManager().changeLoadState(LoadStatus.LOADING)
-        val classRadioButton = containerView().findViewById<RadioButton>(R.id.rb_filter)
-        drawerLayout = containerView().findViewById<DrawerLayout>(R.id.draw_layout)
+        drawerLayout = containerView().findViewById(R.id.draw_layout)
         setDrawListViewInfo();
         drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-        classRadioButton.setOnClickListener { v ->
+        containerView().rb_filter.setOnClickListener { v ->
             drawerLayout.openDrawer(Gravity.RIGHT)
 //            drawerLayout.setScrimColor(ContextCompat.getColor(pageContext,R.color.text_gray))
+        }
+        containerView().rb_supply_filter_price.setOnClickListener { v ->
+            val tag = v.getTag()
+            Log.i("Lyb", "aaaaaaatag==" + tag)
+
+        }
+        initListener()
+    }
+
+    private fun initListener() {
+        containerView().rb_supply_filter_price.setOnClickListener { v ->
+            val tag: String = v.getTag() as String
+            Log.i("Lyb", "tag==" + tag)
+            if (!containerView().rb_supply_filter_publish_time.getTag().toString().equals("0")) {
+                containerView().rb_supply_filter_publish_time.setTag("0")
+                containerView().rb_supply_filter_publish_time.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, drawable.supply_sort_default, 0)
+                containerView().rb_supply_filter_publish_time.setTextColor(ContextCompat.getColor(pageContext, color.text_black))
+            }
+            when (tag) {
+                "0" -> {
+                    v.setTag("1")
+                    containerView().rb_supply_filter_price.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, drawable.supply_sort_down, 0)
+                    containerView().rb_supply_filter_price.setTextColor(ContextCompat.getColor(pageContext, color.main_color))
+                }
+                "1" -> {
+                    v.setTag("2")
+                    containerView().rb_supply_filter_price.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, drawable.supply_sort_up, 0)
+                    containerView().rb_supply_filter_price.setTextColor(ContextCompat.getColor(pageContext, color.main_color))
+
+                }
+                "2" -> {
+                    v.setTag("0")
+                    containerView().rb_supply_filter_price.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, drawable.supply_sort_default, 0)
+                    containerView().rb_supply_filter_price.setTextColor(ContextCompat.getColor(pageContext, color.text_black))
+                }
+
+
+            }
+
+        }
+        containerView().rb_supply_filter_publish_time.setOnClickListener { v ->
+            var tag = v.getTag()
+            if (!containerView().rb_supply_filter_price.getTag().toString().equals("0")) {
+                containerView().rb_supply_filter_price.setTag("0")
+                containerView().rb_supply_filter_price.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, drawable.supply_sort_default, 0)
+                containerView().rb_supply_filter_price.setTextColor(ContextCompat.getColor(pageContext, color.text_black))
+            }
+            when (tag.toString()) {
+                "0" -> {
+                    v.setTag("1")
+                    containerView().rb_supply_filter_publish_time.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, drawable.supply_sort_down, 0)
+                    containerView().rb_supply_filter_publish_time.setTextColor(ContextCompat.getColor(pageContext, color.main_color))
+                }
+                "1" -> {
+                    v.setTag("2")
+                    containerView().rb_supply_filter_publish_time.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, drawable.supply_sort_up, 0)
+                    containerView().rb_supply_filter_publish_time.setTextColor(ContextCompat.getColor(pageContext, color.main_color))
+
+                }
+                "2" -> {
+                    v.setTag("0")
+                    containerView().rb_supply_filter_publish_time.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, drawable.supply_sort_default, 0)
+                    containerView().rb_supply_filter_publish_time.setTextColor(ContextCompat.getColor(pageContext, color.text_black))
+
+                }
+
+
+            }
+
         }
     }
 
@@ -128,6 +202,7 @@ class WareHouseInfoFragment(var appCompatActivity: AppCompatActivity) : AdapterV
         wareHouseMenuAdapter.notifyDataSetChanged()
         drawerLayout.closeDrawers()
         ToastUtils.show(secondLevelBean.secondName)
+        rb_filter.text = secondLevelBean.secondName
     }
 
     override fun getPageSize(): Int {

@@ -26,6 +26,8 @@
                 <RadioButton
                         android:id="@+id/rb_supply_filter_price"
                         style="@style/rb_supply_filter"
+                        android:padding="10dp"
+                        android:tag="0"
                         android:drawableRight="@drawable/supply_sort_default"
                         android:text="价格" />
             </LinearLayout>
@@ -38,6 +40,8 @@
                 <RadioButton
                         android:id="@+id/rb_supply_filter_publish_time"
                         style="@style/rb_supply_filter"
+                        android:padding="10dp"
+                        android:tag="0"
                         android:drawableRight="@drawable/supply_sort_default"
                         android:text="更新时间" />
             </LinearLayout>
