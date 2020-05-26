@@ -19,6 +19,7 @@ import com.lyb.purchasesystem.bean.main.BannerData
 import com.lyb.purchasesystem.bean.main.MainIconBean
 import com.lyb.purchasesystem.ui.clapatwill.ClapAtWillListActivity
 import com.lyb.purchasesystem.ui.classroom.ClassRoomAppointmentActivity
+import com.lyb.purchasesystem.ui.departdevice.DepartDeviceHomeActivity
 import com.lyb.purchasesystem.ui.purchase.PurchaseHomeActivity
 import com.lyb.purchasesystem.ui.suggestions.SuggestionsBoxActivity
 import com.lyb.purchasesystem.ui.warehouse.WareHouseHomeActivity
@@ -98,7 +99,10 @@ class MainFragment : BaseUIFragment() {
                     startActivity(Intent(pageContext, PurchaseHomeActivity::class.java))
                 }
                 1 -> ToastUtils.showShort("维修记录")
-                2 -> ToastUtils.showShort("部门设备")
+                2 -> {
+                    val intent = Intent(pageContext, DepartDeviceHomeActivity::class.java)
+                    startActivity(intent)
+                }
                 3 -> {
                     //教室预约
                     val intent = Intent(pageContext, ClassRoomAppointmentActivity::class.java)

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+    <LinearLayout
+            android:id="@+id/ll_supply_top_search"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/shape_search_bg"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp">
+
+        <EditText
+                android:id="@+id/et_supply_search_content"
+                style="@style/weight_w_w"
+                android:background="@null"
+                android:drawableLeft="@drawable/main_top_search_img"
+                android:drawablePadding="8dp"
+                android:hint="请输入关键字"
+                android:maxLines="1"
+                android:textColor="@color/text_gray_hint"
+                android:textColorHint="@color/text_gray_hint"
+                android:textSize="14sp" />
+
+        <TextView
+                android:id="@+id/tv_supply_search_sure"
+                style="@style/wr_wr"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="搜索"
+                android:textColor="@color/main_color"
+                android:textSize="16sp" />
+    </LinearLayout>
+
+    <View style="@style/line" />
+
+    <LinearLayout
+            style="@style/fi_wr"
+            android:background="@color/background_color"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:weightSum="4">
+
+        <TextView
+                style="@style/weight_w_w"
+                android:gravity="center"
+                android:text="名称"
+                android:textColor="@color/text_black"
+                android:textSize="16sp" />
+
+        <TextView
+                style="@style/weight_w_w"
+                android:gravity="center"
+                android:text="品牌"
+                android:textColor="@color/text_black"
+                android:textSize="16sp" />
+
+        <TextView
+                style="@style/weight_w_w"
+                android:gravity="center"
+                android:text="价格"
+                android:textColor="@color/text_black"
+                android:textSize="16sp" />
+
+        <TextView
+                style="@style/weight_w_w"
+                android:gravity="center"
+                android:text="数量"
+                android:textColor="@color/text_black"
+                android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <View style="@style/line" />
+
+</LinearLayout>

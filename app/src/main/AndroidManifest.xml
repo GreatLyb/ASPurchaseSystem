@@ -170,6 +170,10 @@
         <activity
                 android:name=".ui.warehouse.WareHouseItemDetailActivity"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <!--  部门设备-->
+        <activity
+                android:name=".ui.departdevice.DepartDeviceHomeActivity"
+                android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
     </application>
 
 </manifest>
