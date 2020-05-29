@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/fi_fi"
+
+        android:background="@color/white">
+
+    <LinearLayout
+            style="@style/fi_wr"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+
+        <View
+                style="@style/line"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp" />
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+            <TextView
+                    style="@style/wr_wr"
+                    android:text="设备名称："
+                    android:textColor="@color/text_gray"
+                    android:textSize="16sp" />
+
+            <TextView
+                    android:id="@+id/tv_purchase_info_name"
+                    style="@style/wr_wr"
+                    android:gravity="center"
+                    android:text="喷墨打印器"
+                    android:textColor="@color/black_dim"
+                    android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <View
+                style="@style/line"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp" />
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+            <TextView
+                    style="@style/wr_wr"
+                    android:text="设备品牌："
+                    android:textColor="@color/text_gray"
+                    android:textSize="16sp" />
+
+            <TextView
+                    style="@style/wr_wr"
+                    android:gravity="center"
+                    android:text="三星"
+                    android:textColor="@color/black_dim"
+                    android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <View
+                style="@style/line"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp" />
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal">
+
+            <TextView
+                    style="@style/wr_wr"
+                    android:text="规格型号："
+                    android:textColor="@color/text_gray"
+                    android:textSize="16sp" />
+
+            <TextView
+                    android:id="@+id/tv_purchase_info_specifications"
+                    style="@style/wr_wr"
+                    android:gravity="center"
+                    android:text="i7  24G"
+                    android:textColor="@color/black_dim"
+                    android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <View
+                style="@style/line"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp" />
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal">
+
+            <TextView
+                    style="@style/wr_wr"
+                    android:text="物品单价："
+                    android:textColor="@color/text_gray"
+                    android:textSize="16sp" />
+
+            <TextView
+                    android:id="@+id/tv_purchase_info_price"
+                    style="@style/wr_wr"
+                    android:gravity="center"
+                    android:text="2000"
+                    android:textColor="@color/black_dim"
+                    android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <View
+                style="@style/line"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp" />
+
+        <LinearLayout
+                style="@style/fi_wr"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal">
+
+            <TextView
+                    style="@style/wr_wr"
+                    android:text="数量："
+                    android:textColor="@color/text_gray"
+                    android:textSize="16sp" />
+
+            <TextView
+                    android:id="@+id/tv_purchase_info_num"
+                    style="@style/wr_wr"
+                    android:gravity="center"
+                    android:text="10台"
+                    android:textColor="@color/black_dim"
+                    android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <View
+                style="@style/line"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp" />
+
+        <LinearLayout
+                android:id="@+id/llayout_deal_info"
+                style="@style/fi_wr"
+                android:orientation="vertical">
+
+
+            <LinearLayout
+                    style="@style/fi_wr"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="horizontal">
+
+                <TextView
+                        style="@style/wr_wr"
+                        android:layout_width="80dp"
+                        android:text="维修时间:"
+                        android:textColor="@color/text_gray"
+                        android:textSize="16sp" />
+
+                <TextView
+                        android:id="@+id/tv_purchase_info_deal_time"
+                        style="@style/wr_wr"
+                        android:gravity="center"
+                        android:text="2020-05-01"
+                        android:textColor="@color/black_dim"
+                        android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <View
+                    style="@style/line"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp" />
+
+            <LinearLayout
+                    style="@style/fi_wr"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="horizontal">
+
+                <TextView
+                        style="@style/wr_wr"
+                        android:layout_width="80dp"
+                        android:text="使用方式:"
+                        android:textColor="@color/text_gray"
+                        android:textSize="16sp" />
+
+                <TextView
+                        style="@style/wr_wr"
+                        android:gravity="left"
+                        android:lineSpacingMultiplier="1.2"
+                        android:text="请好好爱护使用 定期加油墨，不用时断电"
+                        android:textColor="@color/black_dim"
+                        android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <View
+                    style="@style/line"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp" />
+
+            <LinearLayout
+                    style="@style/fi_wr"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="horizontal">
+
+                <TextView
+                        style="@style/wr_wr"
+                        android:layout_width="80dp"
+                        android:text="备注:"
+                        android:textColor="@color/text_gray"
+                        android:textSize="16sp" />
+
+                <TextView
+                        android:id="@+id/tv_purchase_info_deal_content"
+                        style="@style/wr_wr"
+                        android:gravity="left"
+                        android:lineSpacingMultiplier="1.2"
+                        android:text="三星牌打印机 很好使"
+                        android:textColor="@color/black_dim"
+                        android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <View
+                    style="@style/line"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp" />
+
+            <LinearLayout
+                    style="@style/fi_wr"
+                    android:layout_marginTop="50dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                <ImageView
+                        style="@style/wr_wr"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/dayinji" />
+
+                <ImageView
+                        style="@style/wr_wr"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/dayinji" />
+
+                <ImageView
+                        style="@style/wr_wr"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/dayinji" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>
